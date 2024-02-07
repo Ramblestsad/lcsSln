@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:4835",
+      "sslPort": 44393
+    }
+  },
+  "profiles": {
+    "Local": {
+      "commandName": "Project",
+      "workingDirectory": "/Users/melody/documents/source/roads/cs/lcsSln/Todo.WebApi",
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:62435;http://localhost:62436",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

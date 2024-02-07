@@ -1,0 +1,100 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // Scratch
+        {
+            "label": "dotnet build Scratch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "/property:GenerateFullPaths=true"
+                // "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Scratch"
+            }
+        },
+        {
+            "label": "dotnet run Scratch",
+            "command": "dotnet",
+            "type": "process",
+            "args": ["run"],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Scratch"
+            }
+        },
+        {
+            "label": "dotnet watch Scratch",
+            "command": "dotnet",
+            "type": "process",
+            "args": ["watch", "run"],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Scratch"
+            }
+        },
+        // Web API
+        {
+            "label": "dotnet build Todo.WebApi",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "/property:GenerateFullPaths=true"
+                // "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Todo.WebApi"
+            }
+        },
+        {
+            "label": "dotnet run Todo.WebApi",
+            "command": "dotnet",
+            "type": "process",
+            "args": ["run"],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Todo.WebApi"
+            }
+        },
+        {
+            "label": "dotnet watch Todo.WebApi",
+            "command": "dotnet",
+            "type": "process",
+            "args": ["watch", "run"],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Todo.WebApi"
+            }
+        },
+        // avalonia
+        {
+            "label": "dotnet build Avalonia.Zelve",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "/property:GenerateFullPaths=true"
+                // "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Zelve"
+            }
+        },
+        {
+            "label": "dotnet run Avalonia.Zelve",
+            "command": "dotnet",
+            "type": "process",
+            "args": ["run"],
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/Zelve"
+            }
+        },
+    ]
+}

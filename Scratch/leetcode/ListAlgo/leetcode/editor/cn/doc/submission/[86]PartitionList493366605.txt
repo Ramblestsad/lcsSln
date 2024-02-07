@@ -1,0 +1,33 @@
+public partial class Solution
+{
+    public ListNode? Partition(ListNode? head, int x)
+    {
+        var lowNode = new ListNode();
+        var highNode = new ListNode();
+        var lowHead = lowNode;
+        var highHead = highNode;
+        while (head != null)
+        {
+            if (head.val < x)
+            {
+                lowNode.next = head;
+                lowNode = lowNode.next;
+            }
+            else
+            {
+                highNode.next = head;
+                highNode = highNode.next;
+            }
+
+            head = head.next;
+        }
+
+        highNode.next = null;
+        lowNode.next = highHead.next;
+
+        return lowHead.next;
+    }
+}
+
+//runtime:80 ms
+//memory:40.3 MB

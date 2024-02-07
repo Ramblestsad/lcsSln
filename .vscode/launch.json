@@ -1,0 +1,59 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            "name": ".NET Launch (Scratch)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dotnet build Scratch",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Scratch/bin/Debug/net8.0/Scratch.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Scratch",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            "name": ".NET Launch (TodoApi)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dotnet build Todo.WebApi",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Todo.WebApi/bin/Debug/net8.0/Todo.WebApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Todo.WebApi",
+            "stopAtEntry": false,
+            // Enable launching a web browser when ASP.NET Core starts.
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            "name": ".NET Launch (Avalonia.Zelve)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "dotnet build Avalonia.Zelve",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/Zelve/bin/Debug/net8.0/Scratch.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Scratch",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}
