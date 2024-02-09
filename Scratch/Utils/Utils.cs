@@ -24,9 +24,4 @@ public class ScratchUtil
             .CreateLogger();
         Log.Debug("Serilog Initialized");
     }
-
-    public static async Task Playground()
-    {
-        // implement thoughts here
-    }
 }

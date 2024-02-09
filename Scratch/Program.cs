@@ -1,8 +1,11 @@
 using Scratch.Utils;
 using Serilog;
 
-// setup
+// Serilog setup
 await ScratchUtil.SerilogInit();
 
-// try some shits
-await ScratchUtil.Playground();
+// try some code
+await Playground();
+
+static async Task Playground()
+{ }
