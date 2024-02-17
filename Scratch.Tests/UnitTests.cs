@@ -1,9 +1,4 @@
-using Scratch.Utils;
-using Scratch.leetcode;
-using Scratch.leetcode.DataStructure;
-
 namespace Scratch.Tests;
-
 public class UnitTests
 {
     [Fact]
@@ -22,8 +17,4 @@ public class UnitTests
         // Then
         Assert.NotEqual(4, Math.Abs(-5));
     }
-
-    /// <summary>
-    /// tests of leetcode problems
-    /// </summary>
 }
