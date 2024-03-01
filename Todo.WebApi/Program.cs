@@ -115,19 +115,19 @@ services.AddSwaggerGen(options =>
         Type = SecuritySchemeType.Http,
         Scheme = JwtBearerDefaults.AuthenticationScheme,
         Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
-
         Reference = new OpenApiReference
         {
-            Id = JwtBearerDefaults.AuthenticationScheme,
-            Type = ReferenceType.SecurityScheme
+            Id = JwtBearerDefaults.AuthenticationScheme, Type = ReferenceType.SecurityScheme
         }
     };
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Version = "v1",
-        Title = "Todo Web API",
-        Description = "An ASP.NET Core Web API for managing Todo items",
-    });
+    options.SwaggerDoc(
+        "v1",
+        new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "Todo Web API",
+            Description = "An ASP.NET Core Web API for managing Todo items",
+        });
     options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {

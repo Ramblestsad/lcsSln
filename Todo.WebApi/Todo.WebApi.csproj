@@ -11,8 +11,8 @@
     </NoWarn>
 
     <!--  build config  -->
-    <RuntimeIdentifier>osx-x64</RuntimeIdentifier>
-    <!-- <PublishAot>true</PublishAot> -->
+    <!--    <RuntimeIdentifier>osx-x64</RuntimeIdentifier>-->
+    <!--    <PublishAot>true</PublishAot> -->
     <SelfContained>true</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
     <!--  Debug info  -->
