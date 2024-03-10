@@ -4,10 +4,13 @@
  * [21] Merge Two Sorted Lists
  */
 
+
 using Algorithm.DataStructure;
 
+namespace Leetcode.ListAlgorithm;
+
 // @lc code=start
-public class Solution
+public partial class Solution
 {
     public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
     {
@@ -40,4 +43,3 @@ public class Solution
     }
 }
 // @lc code=end
-
