@@ -1,18 +1,10 @@
-/*
- * @lc app=leetcode.cn id=21 lang=csharp
- *
- * [21] Merge Two Sorted Lists
- */
-
-
 using Algorithm.DataStructure;
 
 namespace Leetcode.ListAlgorithm;
-
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public partial class Solution
 {
-    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
+    public ListNode? MergeTwoLists(ListNode list1, ListNode list2)
     {
         var dummy = new ListNode(-1);
         var p = dummy;
@@ -32,6 +24,7 @@ public partial class Solution
                 p.next = p1;
                 p1 = p1.next;
             }
+
             // p 指针不断前进
             p = p.next;
         }
@@ -42,4 +35,4 @@ public partial class Solution
         return dummy.next;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,18 +1,10 @@
-/*
- * @lc app=leetcode.cn id=86 lang=csharp
- *
- * [86] Partition List
- */
-
-
 using Algorithm.DataStructure;
 
 namespace Leetcode.ListAlgorithm;
-
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public partial class Solution
 {
-    public ListNode Partition(ListNode head, int x)
+    public ListNode? Partition(ListNode head, int x)
     {
         // 存放小于 x 的链表的虚拟头结点
         ListNode dummy1 = new ListNode();
@@ -35,6 +27,7 @@ public partial class Solution
                 p1.next = p;
                 p1 = p1.next;
             }
+
             // 不能直接让 p 指针前进，
             // p = p.next
             // 断开原链表中的每个节点的 next 指针
@@ -42,10 +35,11 @@ public partial class Solution
             p.next = null;
             p = temp;
         }
+
         // 连接两个链表
         p1.next = dummy2.next;
 
-        return dummy1.next!;
+        return dummy1.next;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)
