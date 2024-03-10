@@ -1,3 +1,5 @@
+namespace Algorithm.DataStructure;
+
 /* 键值对 int->string */
 public class Pair(int key, string val)
 {
