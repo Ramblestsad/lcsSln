@@ -24,4 +24,9 @@ public class ScratchUtil
             .CreateLogger();
         Log.Debug("Serilog Initialized");
     }
+
+    public static async ValueTask Playground()
+    {
+        Log.Debug("Entering Playground...");
+    }
 }

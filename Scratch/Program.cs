@@ -4,3 +4,4 @@ using Scratch.Utils;
 await ScratchUtil.SerilogInit();
 
 // playground
+await ScratchUtil.Playground();
