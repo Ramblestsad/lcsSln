@@ -14,25 +14,25 @@ public partial class Solution
         {
             // 比较 p1 和 p2 两个指针
             // 将值较小的的节点接到 p 指针
-            if (p1.val > p2.val)
+            if (p1.Val > p2.Val)
             {
-                p.next = p2;
-                p2 = p2.next;
+                p.Next = p2;
+                p2 = p2.Next;
             }
             else
             {
-                p.next = p1;
-                p1 = p1.next;
+                p.Next = p1;
+                p1 = p1.Next;
             }
 
             // p 指针不断前进
-            p = p.next;
+            p = p.Next;
         }
 
-        if (p1 != null) p.next = p1;
-        if (p2 != null) p.next = p2;
+        if (p1 != null) p.Next = p1;
+        if (p2 != null) p.Next = p2;
 
-        return dummy.next;
+        return dummy.Next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

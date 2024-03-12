@@ -11,7 +11,7 @@ public partial class Solution
         {
             if (node != null)
             {
-                pq.Enqueue(node, node.val);
+                pq.Enqueue(node, node.Val);
             }
         }
 
@@ -19,15 +19,15 @@ public partial class Solution
         while (pq.Count > 0)
         {
             ListNode t = pq.Dequeue();
-            d.next = t;
-            d = d.next;
-            if (t.next != null)
+            d.Next = t;
+            d = d.Next;
+            if (t.Next != null)
             {
-                pq.Enqueue(t.next, t.next.val);
+                pq.Enqueue(t.Next, t.Next.Val);
             }
         }
 
-        return ans.next;
+        return ans.Next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

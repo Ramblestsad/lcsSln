@@ -17,29 +17,29 @@ public partial class Solution
         ListNode? p = head;
         while (p != null)
         {
-            if (p.val >= x)
+            if (p.Val >= x)
             {
-                p2.next = p;
-                p2 = p2.next;
+                p2.Next = p;
+                p2 = p2.Next;
             }
             else
             {
-                p1.next = p;
-                p1 = p1.next;
+                p1.Next = p;
+                p1 = p1.Next;
             }
 
             // 不能直接让 p 指针前进，
             // p = p.next
             // 断开原链表中的每个节点的 next 指针
-            ListNode? temp = p.next;
-            p.next = null;
+            ListNode? temp = p.Next;
+            p.Next = null;
             p = temp;
         }
 
         // 连接两个链表
-        p1.next = dummy2.next;
+        p1.Next = dummy2.Next;
 
-        return dummy1.next;
+        return dummy1.Next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

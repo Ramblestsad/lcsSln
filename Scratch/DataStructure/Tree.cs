@@ -1,11 +1,10 @@
 namespace Algorithm.DataStructure;
-
 /* 二叉树节点类 */
 public class TreeNode(int? x)
 {
-    public int? val = x;    // 节点值
-    public TreeNode? left;  // 左子节点引用
-    public TreeNode? right; // 右子节点引用
+    public int? Val = x; // 节点值
+    public TreeNode? Left; // 左子节点引用
+    public TreeNode? Right; // 右子节点引用
 
     /* 二叉搜索树 */
     public TreeNode? Search(int x)
@@ -39,12 +38,13 @@ public class TreeUtils
         while (queue.Count != 0)
         {
             TreeNode node = queue.Dequeue(); // 队列出队
-            list.Add(node.val!.Value);       // 保存节点值
-            if (node.left != null)
-                queue.Enqueue(node.left);    // 左子节点入队
-            if (node.right != null)
-                queue.Enqueue(node.right);   // 右子节点入队
+            list.Add(node.Val!.Value); // 保存节点值
+            if (node.Left != null)
+                queue.Enqueue(node.Left); // 左子节点入队
+            if (node.Right != null)
+                queue.Enqueue(node.Right); // 右子节点入队
         }
+
         return list;
     }
 
@@ -55,9 +55,9 @@ public class TreeUtils
 
         if (root == null) return;
         // 访问优先级：根节点 -> 左子树 -> 右子树
-        list.Add(root.val!.Value);
-        PreOrder(root.left);
-        PreOrder(root.right);
+        list.Add(root.Val!.Value);
+        PreOrder(root.Left);
+        PreOrder(root.Right);
     }
 
     /* 中序遍历 */
@@ -67,9 +67,9 @@ public class TreeUtils
 
         if (root == null) return;
         // 访问优先级：左子树 -> 根节点 -> 右子树
-        InOrder(root.left);
-        list.Add(root.val!.Value);
-        InOrder(root.right);
+        InOrder(root.Left);
+        list.Add(root.Val!.Value);
+        InOrder(root.Right);
     }
 
     /* 后序遍历 */
@@ -79,21 +79,21 @@ public class TreeUtils
 
         if (root == null) return;
         // 访问优先级：左子树 -> 右子树 -> 根节点
-        PostOrder(root.left);
-        PostOrder(root.right);
-        list.Add(root.val!.Value);
+        PostOrder(root.Left);
+        PostOrder(root.Right);
+        list.Add(root.Val!.Value);
     }
 }
 
 /* 数组表示下的二叉树类 */
 public class ArrayBinaryTree(List<int?> arr)
 {
-    List<int?> tree = new(arr);
+    List<int?> _tree = new(arr);
 
     /* 列表容量 */
     public int Size()
     {
-        return tree.Count;
+        return _tree.Count;
     }
 
     /* 获取索引为 i 节点的值 */
@@ -102,7 +102,7 @@ public class ArrayBinaryTree(List<int?> arr)
         // 若索引越界，则返回 null ，代表空位
         if (i < 0 || i >= Size())
             return null;
-        return tree[i];
+        return _tree[i];
     }
 
     /* 获取索引为 i 节点的左子节点的索引 */
@@ -128,16 +128,17 @@ public class ArrayBinaryTree(List<int?> arr)
     {
         List<int> res = [];
         // 直接遍历数组
-        for (int i = 0; i < Size(); i++)
+        for (var i = 0; i < Size(); i++)
         {
             if (Val(i).HasValue)
                 res.Add(Val(i)!.Value);
         }
+
         return res;
     }
 
     /* 深度优先遍历 */
-    void DFS(int i, string order, List<int> res)
+    void Dfs(int i, string order, List<int> res)
     {
         // 若为空位，则返回
         if (!Val(i).HasValue)
@@ -145,11 +146,11 @@ public class ArrayBinaryTree(List<int?> arr)
         // 前序遍历
         if (order == "pre")
             res.Add(Val(i)!.Value);
-        DFS(Left(i), order, res);
+        Dfs(Left(i), order, res);
         // 中序遍历
         if (order == "in")
             res.Add(Val(i)!.Value);
-        DFS(Right(i), order, res);
+        Dfs(Right(i), order, res);
         // 后序遍历
         if (order == "post")
             res.Add(Val(i)!.Value);
@@ -159,7 +160,7 @@ public class ArrayBinaryTree(List<int?> arr)
     public List<int> PreOrder()
     {
         List<int> res = [];
-        DFS(0, "pre", res);
+        Dfs(0, "pre", res);
         return res;
     }
 
@@ -167,7 +168,7 @@ public class ArrayBinaryTree(List<int?> arr)
     public List<int> InOrder()
     {
         List<int> res = [];
-        DFS(0, "in", res);
+        Dfs(0, "in", res);
         return res;
     }
 
@@ -175,7 +176,7 @@ public class ArrayBinaryTree(List<int?> arr)
     public List<int> PostOrder()
     {
         List<int> res = [];
-        DFS(0, "post", res);
+        Dfs(0, "post", res);
         return res;
     }
 }
