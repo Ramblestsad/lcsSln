@@ -1,7 +1,7 @@
 using Scratch.Utils;
 
 // Serilog setup
-await ScratchUtil.SerilogInit();
+await ScratchUtils.SerilogInit();
 
 // playground
-await ScratchUtil.Playground();
+await ScratchUtils.Playground();

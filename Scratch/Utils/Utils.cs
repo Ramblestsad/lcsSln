@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 
 namespace Scratch.Utils;
-public class ScratchUtil
+public static class ScratchUtils
 {
     /// <summary>
     ///     Initialize Serilog from the appsettings.json file.
