@@ -11,7 +11,6 @@
   "profiles": {
     "Local": {
       "commandName": "Project",
-      "workingDirectory": "/Users/melody/documents/source/roads/cs/lcsSln/Todo.WebApi",
       "launchBrowser": false,
       "applicationUrl": "https://localhost:62435;http://localhost:62436",
       "environmentVariables": {
