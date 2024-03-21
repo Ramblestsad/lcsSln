@@ -1,7 +1,13 @@
+/*
+ * @lc app=leetcode.cn id=23 lang=csharp
+ *
+ * [23] Merge k Sorted Lists
+ */
+
 using Algorithm.DataStructure;
 
-namespace Leetcode.ListAlgorithm;
-//leetcode submit region begin(Prohibit modification and deletion)
+namespace VSC.Leetcode.ListALgorithm;
+// @lc code=start
 public partial class Solution
 {
     public ListNode? MergeKLists(ListNode?[] lists)
@@ -30,4 +36,4 @@ public partial class Solution
         return ans.Next;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

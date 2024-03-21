@@ -1,7 +1,13 @@
+/*
+ * @lc app=leetcode.cn id=86 lang=csharp
+ *
+ * [86] Partition List
+ */
+
 using Algorithm.DataStructure;
 
-namespace Leetcode.ListAlgorithm;
-//leetcode submit region begin(Prohibit modification and deletion)
+namespace VSC.Leetcode.ListALgorithm;
+// @lc code=start
 public partial class Solution
 {
     public ListNode? Partition(ListNode head, int x)
@@ -42,4 +48,4 @@ public partial class Solution
         return dummy1.Next;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
