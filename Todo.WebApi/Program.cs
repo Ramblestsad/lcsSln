@@ -117,7 +117,8 @@ services.AddSwaggerGen(options =>
         Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
         Reference = new OpenApiReference
         {
-            Id = JwtBearerDefaults.AuthenticationScheme, Type = ReferenceType.SecurityScheme
+            Id = JwtBearerDefaults.AuthenticationScheme,
+            Type = ReferenceType.SecurityScheme
         }
     };
     options.SwaggerDoc(
