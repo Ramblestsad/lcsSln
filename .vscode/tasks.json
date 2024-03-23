@@ -1,16 +1,11 @@
 {
     "version": "2.0.0",
     "tasks": [
-        // Scratch
         {
             "label": "dotnet build Scratch",
             "command": "dotnet",
             "type": "process",
-            "args": [
-                "build",
-                "/property:GenerateFullPaths=true"
-                // "/consoleloggerparameters:NoSummary"
-            ],
+            "args": ["build", "/property:GenerateFullPaths=true"],
             "problemMatcher": "$msCompile",
             "options": {
                 "cwd": "${workspaceFolder}/Scratch"
@@ -36,16 +31,11 @@
                 "cwd": "${workspaceFolder}/Scratch"
             }
         },
-        // Web API
         {
             "label": "dotnet build Todo.WebApi",
             "command": "dotnet",
             "type": "process",
-            "args": [
-                "build",
-                "/property:GenerateFullPaths=true"
-                // "/consoleloggerparameters:NoSummary"
-            ],
+            "args": ["build", "/property:GenerateFullPaths=true"],
             "problemMatcher": "$msCompile",
             "options": {
                 "cwd": "${workspaceFolder}/Todo.WebApi"
@@ -71,16 +61,11 @@
                 "cwd": "${workspaceFolder}/Todo.WebApi"
             }
         },
-        // avalonia
         {
             "label": "dotnet build Avalonia.Zelve",
             "command": "dotnet",
             "type": "process",
-            "args": [
-                "build",
-                "/property:GenerateFullPaths=true"
-                // "/consoleloggerparameters:NoSummary"
-            ],
+            "args": ["build", "/property:GenerateFullPaths=true"],
             "problemMatcher": "$msCompile",
             "options": {
                 "cwd": "${workspaceFolder}/Zelve"
@@ -95,6 +80,6 @@
             "options": {
                 "cwd": "${workspaceFolder}/Zelve"
             }
-        },
+        }
     ]
 }
