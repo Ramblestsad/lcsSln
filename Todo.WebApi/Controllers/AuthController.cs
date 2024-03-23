@@ -22,28 +22,24 @@ public class AuthController : ControllerBase
     private readonly ApplicationIdentityDbContext _context;
     private readonly ILogger<AuthController> _logger;
     private readonly UserManager<IdentityUser> _userManager;
-    private readonly JwtSettings _jwtSettings;
 
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="userManager"></param>
-    /// <param name="jwtSettings"></param>
     /// <param name="config"></param>
     /// <param name="context"></param>
     /// <param name="logger"></param>
     public AuthController(
         UserManager<IdentityUser> userManager,
-        JwtSettings jwtSettings,
         IConfiguration config,
         ApplicationIdentityDbContext context,
         ILogger<AuthController> logger)
     {
         _configuration = config;
-        this._context = context;
-        this._logger = logger;
-        this._userManager = userManager;
-        this._jwtSettings = jwtSettings;
+        _context = context;
+        _logger = logger;
+        _userManager = userManager;
     }
 
     /// <summary>
@@ -132,6 +128,7 @@ public class AuthController : ControllerBase
 
     private string? GenerateToken(IdentityUser identityUser)
     {
+        var _jwtSettings = _configuration.GetSection("Jwt").Get<JwtSettings>()!;
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_jwtSettings.Key!);
 
