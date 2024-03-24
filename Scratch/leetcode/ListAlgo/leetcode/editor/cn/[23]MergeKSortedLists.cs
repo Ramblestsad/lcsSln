@@ -1,13 +1,8 @@
-/*
- * @lc app=leetcode.cn id=23 lang=csharp
- *
- * [23] Merge k Sorted Lists
- */
-
 using Algorithm.DataStructure;
 
-namespace VSC.Leetcode.ListALgorithm;
-// @lc code=start
+namespace Rider.Leetcode.ListAlgorithm;
+//leetcode submit region begin(Prohibit modification and deletion)
+#nullable enable
 public partial class Solution
 {
     public ListNode? MergeKLists(ListNode?[] lists)
@@ -17,7 +12,7 @@ public partial class Solution
         {
             if (node != null)
             {
-                pq.Enqueue(node, node.Val);
+                pq.Enqueue(node, node.val);
             }
         }
 
@@ -25,15 +20,15 @@ public partial class Solution
         while (pq.Count > 0)
         {
             ListNode t = pq.Dequeue();
-            d.Next = t;
-            d = d.Next;
-            if (t.Next != null)
+            d.next = t;
+            d = d.next;
+            if (t.next != null)
             {
-                pq.Enqueue(t.Next, t.Next.Val);
+                pq.Enqueue(t.next, t.next.val);
             }
         }
 
-        return ans.Next;
+        return ans.next;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

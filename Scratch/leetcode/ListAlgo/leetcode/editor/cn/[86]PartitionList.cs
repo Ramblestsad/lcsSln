@@ -1,13 +1,8 @@
-/*
- * @lc app=leetcode.cn id=86 lang=csharp
- *
- * [86] Partition List
- */
-
 using Algorithm.DataStructure;
 
-namespace VSC.Leetcode.ListALgorithm;
-// @lc code=start
+namespace Rider.Leetcode.ListAlgorithm;
+//leetcode submit region begin(Prohibit modification and deletion)
+#nullable enable
 public partial class Solution
 {
     public ListNode? Partition(ListNode head, int x)
@@ -23,29 +18,29 @@ public partial class Solution
         ListNode? p = head;
         while (p != null)
         {
-            if (p.Val >= x)
+            if (p.val >= x)
             {
-                p2.Next = p;
-                p2 = p2.Next;
+                p2.next = p;
+                p2 = p2.next;
             }
             else
             {
-                p1.Next = p;
-                p1 = p1.Next;
+                p1.next = p;
+                p1 = p1.next;
             }
 
             // 不能直接让 p 指针前进，
             // p = p.next
             // 断开原链表中的每个节点的 next 指针
-            ListNode? temp = p.Next;
-            p.Next = null;
+            ListNode? temp = p.next;
+            p.next = null;
             p = temp;
         }
 
         // 连接两个链表
-        p1.Next = dummy2.Next;
+        p1.next = dummy2.next;
 
-        return dummy1.Next;
+        return dummy1.next;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

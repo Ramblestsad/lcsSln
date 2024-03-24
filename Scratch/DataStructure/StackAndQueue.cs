@@ -25,7 +25,7 @@ public class LinkedListStack
     /* 入栈 */
     public void Push(int num)
     {
-        ListNode node = new(num) { Next = _stackPeek };
+        ListNode node = new(num) { next = _stackPeek };
         _stackPeek = node;
         _stkSize++;
     }
@@ -34,7 +34,7 @@ public class LinkedListStack
     public int Pop()
     {
         var num = Peek();
-        _stackPeek = _stackPeek!.Next;
+        _stackPeek = _stackPeek!.next;
         _stkSize--;
         return num;
     }
@@ -44,7 +44,7 @@ public class LinkedListStack
     {
         if (IsEmpty())
             throw new Exception();
-        return _stackPeek!.Val;
+        return _stackPeek!.val;
     }
 
     /* 将 List 转化为 Array 并返回 */
@@ -57,8 +57,8 @@ public class LinkedListStack
         var res = new int[Size()];
         for (var i = res.Length - 1; i >= 0; i--)
         {
-            res[i] = node!.Val;
-            node = node.Next;
+            res[i] = node!.val;
+            node = node.next;
         }
 
         return res;
@@ -156,7 +156,7 @@ public class LinkedListQueue
         }
         else if (_rear != null)
         {
-            _rear.Next = node;
+            _rear.next = node;
             _rear = node;
         }
 
@@ -168,7 +168,7 @@ public class LinkedListQueue
     {
         var num = Peek();
         // 删除头节点
-        _front = _front?.Next;
+        _front = _front?.next;
         _queSize--;
         return num;
     }
@@ -178,7 +178,7 @@ public class LinkedListQueue
     {
         if (IsEmpty())
             throw new Exception();
-        return _front!.Val;
+        return _front!.val;
     }
 
     /* 将链表转化为 Array 并返回 */
@@ -191,8 +191,8 @@ public class LinkedListQueue
         var res = new int[Size()];
         for (var i = 0; i < res.Length; i++)
         {
-            res[i] = node!.Val;
-            node = node.Next;
+            res[i] = node!.val;
+            node = node.next;
         }
 
         return res;

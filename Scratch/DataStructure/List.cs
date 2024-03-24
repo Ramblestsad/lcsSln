@@ -1,13 +1,16 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Algorithm.DataStructure;
+[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class ListNode
 {
-    public int Val;
-    public ListNode? Next;
+    public int val;
+    public ListNode? next;
 
     public ListNode(int val = 0, ListNode? next = null)
     {
-        this.Val = val;
-        this.Next = next;
+        this.val = val;
+        this.next = next;
     }
 }
 
@@ -16,20 +19,20 @@ public class ListUtil
     /* 在链表的节点 n0 之后插入节点 P */
     public static void Insert(ListNode n0, ListNode p)
     {
-        ListNode? n1 = n0.Next;
-        p.Next = n1;
-        n0.Next = p;
+        ListNode? n1 = n0.next;
+        p.next = n1;
+        n0.next = p;
     }
 
     /* 删除链表的节点 n0 之后的首个节点 */
     public static void Remove(ListNode n0)
     {
-        if (n0.Next == null)
+        if (n0.next == null)
             return;
         // n0 -> P -> n1
-        ListNode p = n0.Next;
-        ListNode? n1 = p.Next;
-        n0.Next = n1;
+        ListNode p = n0.next;
+        ListNode? n1 = p.next;
+        n0.next = n1;
     }
 
     /* 访问链表中索引为 index 的节点 */
@@ -39,7 +42,7 @@ public class ListUtil
         {
             if (head == null)
                 return null;
-            head = head.Next;
+            head = head.next;
         }
 
         return head;
@@ -51,9 +54,9 @@ public class ListUtil
         var index = 0;
         while (head != null)
         {
-            if (head.Val == target)
+            if (head.val == target)
                 return index;
-            head = head.Next;
+            head = head.next;
             index++;
         }
 
