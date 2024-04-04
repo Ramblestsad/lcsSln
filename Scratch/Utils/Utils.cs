@@ -27,6 +27,7 @@ public static class ScratchUtils
 
     public static async ValueTask Playground()
     {
-        Log.Debug("Entering Playground...");
+        Log.Debug("-----Playground-------");
+        Log.Debug("-----End of Playground-------");
     }
 }
