@@ -88,7 +88,7 @@ public class TreeUtils
 /* 数组表示下的二叉树类 */
 public class ArrayBinaryTree(List<int?> arr)
 {
-    List<int?> _tree = new(arr);
+    private List<int?> _tree = [..arr];
 
     /* 列表容量 */
     public int Size()
