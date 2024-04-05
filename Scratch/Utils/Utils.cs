@@ -25,9 +25,22 @@ public static class ScratchUtils
         Log.Debug("Serilog Initialized");
     }
 
+    private static void FormatWorkFlowBegin(string? flowIdentifier = "Scratch")
+    {
+        Console.WriteLine();
+        Log.Debug($"Scratch//:{flowIdentifier}");
+        Console.WriteLine();
+    }
+
+    private static void FormatWorkFlowEnd(string? flowIdentifier = "Scratch")
+    {
+        Console.WriteLine();
+        Log.Debug($"Scratch//:End of {flowIdentifier}");
+    }
+
     public static async ValueTask Playground()
     {
-        Log.Debug("-----Playground-------");
-        Log.Debug("-----End of Playground-------");
+        FormatWorkFlowBegin("Playground");
+        FormatWorkFlowEnd("Playground");
     }
 }
