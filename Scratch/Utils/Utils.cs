@@ -8,7 +8,7 @@ public static class ScratchUtils
     ///     Initialize Serilog from the appsettings.json file.
     ///     And write log to both the console and log file in directory logs.
     /// </summary>
-    public static async ValueTask SerilogInit()
+    public static void SerilogInit()
     {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
