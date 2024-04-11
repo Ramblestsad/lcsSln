@@ -1,4 +1,5 @@
 namespace Algorithm.DataStructure;
+
 /* 基于链表实现的栈 */
 public class LinkedListStack
 {
@@ -69,6 +70,7 @@ public class LinkedListStack
 public class ArrayStack
 {
     List<int> _stack;
+
     public ArrayStack()
     {
         // 初始化列表（动态数组）

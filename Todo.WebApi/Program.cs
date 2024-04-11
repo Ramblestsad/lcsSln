@@ -117,8 +117,7 @@ services.AddSwaggerGen(options =>
         Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
         Reference = new OpenApiReference
         {
-            Id = JwtBearerDefaults.AuthenticationScheme,
-            Type = ReferenceType.SecurityScheme
+            Id = JwtBearerDefaults.AuthenticationScheme, Type = ReferenceType.SecurityScheme
         }
     };
     options.SwaggerDoc(
@@ -160,32 +159,32 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler(exceptionHandlerApp =>
-                                exceptionHandlerApp.Run(async context =>
-                                    {
-                                        context.Response.StatusCode =
-                                            StatusCodes.Status500InternalServerError;
+        exceptionHandlerApp.Run(async context =>
+            {
+                context.Response.StatusCode =
+                    StatusCodes.Status500InternalServerError;
 
-                                        context.Response.ContentType = Text.Plain;
+                context.Response.ContentType = Text.Plain;
 
-                                        await context.Response.WriteAsync(
-                                            "An exception was thrown.");
+                await context.Response.WriteAsync(
+                    "An exception was thrown.");
 
-                                        var exceptionHandlerPathFeature =
-                                            context.Features.Get<IExceptionHandlerPathFeature>();
+                var exceptionHandlerPathFeature =
+                    context.Features.Get<IExceptionHandlerPathFeature>();
 
-                                        if (exceptionHandlerPathFeature?.Error is
-                                            FileNotFoundException)
-                                        {
-                                            await context.Response.WriteAsync(
-                                                " The file was not found.");
-                                        }
+                if (exceptionHandlerPathFeature?.Error is
+                    FileNotFoundException)
+                {
+                    await context.Response.WriteAsync(
+                        " The file was not found.");
+                }
 
-                                        if (exceptionHandlerPathFeature?.Path == "/")
-                                        {
-                                            await context.Response.WriteAsync(" Page: Home.");
-                                        }
-                                    }
-                                )
+                if (exceptionHandlerPathFeature?.Path == "/")
+                {
+                    await context.Response.WriteAsync(" Page: Home.");
+                }
+            }
+        )
     );
     app.UseHsts();
 }

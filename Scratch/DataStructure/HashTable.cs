@@ -1,4 +1,5 @@
 namespace Algorithm.DataStructure;
+
 /* 键值对 int->string */
 public class Pair(int key, string val)
 {
@@ -10,6 +11,7 @@ public class Pair(int key, string val)
 public class ArrayHashMap
 {
     List<Pair?> _buckets;
+
     public ArrayHashMap()
     {
         // 初始化数组，包含 100 个桶

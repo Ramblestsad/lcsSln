@@ -1,4 +1,5 @@
 namespace Scratch.Tests;
+
 [Trait("Scratch", "Unit")]
 public class ScratchUnitTests : IDisposable
 {
@@ -6,6 +7,7 @@ public class ScratchUnitTests : IDisposable
     {
         throw new NotImplementedException();
     }
+
     [Fact]
     [Trait("Scratch", "Dummy")]
     public void AbsTest()

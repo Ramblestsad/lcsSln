@@ -1,4 +1,5 @@
 namespace Todo.WebApi.Configuration;
+
 /// <summary>
 /// Jwt settings options
 /// </summary>
@@ -8,14 +9,17 @@ public class JwtSettings
     /// Key
     /// </summary>
     public string? Key { get; set; }
+
     /// <summary>
     /// Issuer
     /// </summary>
     public string? Issuer { get; set; }
+
     /// <summary>
     /// Audience
     /// </summary>
     public string? Audience { get; set; }
+
     /// <summary>
     /// Subject
     /// </summary>

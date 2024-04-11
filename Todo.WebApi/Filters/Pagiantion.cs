@@ -1,4 +1,5 @@
 namespace Todo.WebApi.Filters;
+
 /// <summary>
 /// Pagination filter
 /// </summary>
@@ -8,6 +9,7 @@ public class PaginationFilter
     /// Page number
     /// </summary>
     public int PageNumber { get; set; }
+
     /// <summary>
     /// Page size
     /// </summary>
@@ -21,6 +23,7 @@ public class PaginationFilter
         PageNumber = 1;
         PageSize = 10;
     }
+
     /// <summary>
     /// Constructor
     /// </summary>

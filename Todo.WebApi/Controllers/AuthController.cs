@@ -11,6 +11,7 @@ using Todo.DAL.Entity;
 using Todo.WebApi.Configuration;
 
 namespace Todo.WebApi.Controllers;
+
 /// <summary>
 /// Authentication controller
 /// </summary>
@@ -128,9 +129,9 @@ public class AuthController : ControllerBase
 
     private string? GenerateToken(IdentityUser identityUser)
     {
-        var _jwtSettings = _configuration.GetSection("Jwt").Get<JwtSettings>()!;
+        var jwtSettings = _configuration.GetSection("Jwt").Get<JwtSettings>()!;
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_jwtSettings.Key!);
+        var key = Encoding.ASCII.GetBytes(jwtSettings.Key!);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
@@ -143,8 +144,8 @@ public class AuthController : ControllerBase
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature
             ),
-            Audience = _jwtSettings.Audience,
-            Issuer = _jwtSettings.Issuer
+            Audience = jwtSettings.Audience,
+            Issuer = jwtSettings.Issuer
         };
 
         var token = tokenHandler.CreateToken(tokenDescriptor);

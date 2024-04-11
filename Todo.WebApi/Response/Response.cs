@@ -2,7 +2,10 @@ namespace Todo.WebApi.Response;
 
 public class Response<T>
 {
-    protected Response() { }
+    protected Response()
+    {
+    }
+
     public Response(T data)
     {
         Succeeded = true;

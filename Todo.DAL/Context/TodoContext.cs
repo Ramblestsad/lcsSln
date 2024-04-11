@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Todo.DAL.Entity;
 
 namespace Todo.DAL.Context;
+
 public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser>
 {
     public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)
