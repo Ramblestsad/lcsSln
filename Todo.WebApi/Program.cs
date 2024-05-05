@@ -36,6 +36,7 @@ services.AddDbContext<ApplicationIdentityDbContext>(
                       ?? throw new Exception("No db connection appsettings.json.")
         )
 );
+
 // identity authentication
 services.AddIdentity<IdentityUser, IdentityRole>(
         options =>
