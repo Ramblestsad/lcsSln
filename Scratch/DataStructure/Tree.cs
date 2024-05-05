@@ -26,10 +26,10 @@ public class TreeNode(int? x)
     /* AVL */
 }
 
-public class TreeUtils
+public static class TreeUtils
 {
     /* 层序遍历 - BFS*/
-    public List<int> LevelOrder(TreeNode root)
+    public static List<int> LevelOrder(TreeNode root)
     {
         // 初始化队列，加入根节点
         Queue<TreeNode> queue = new();
@@ -50,7 +50,7 @@ public class TreeUtils
     }
 
     /* 前序遍历 */
-    public void PreOrder(TreeNode? root)
+    public static void PreOrder(TreeNode? root)
     {
         List<int> list = [];
 
@@ -62,7 +62,7 @@ public class TreeUtils
     }
 
     /* 中序遍历 */
-    public void InOrder(TreeNode? root)
+    public static void InOrder(TreeNode? root)
     {
         List<int> list = [];
 
@@ -74,7 +74,7 @@ public class TreeUtils
     }
 
     /* 后序遍历 */
-    public void PostOrder(TreeNode? root)
+    public static void PostOrder(TreeNode? root)
     {
         List<int> list = [];
 
