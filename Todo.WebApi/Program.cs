@@ -37,6 +37,9 @@ services.AddDbContext<ApplicationIdentityDbContext>(
         )
 );
 
+// AutoMapper
+services.AddAutoMapper(typeof(Program));
+
 // identity authentication
 services.AddIdentity<IdentityUser, IdentityRole>(
         options =>

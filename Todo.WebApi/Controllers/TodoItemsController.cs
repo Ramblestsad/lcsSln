@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ public class TodoItemsController : ControllerBase
     private readonly ApplicationIdentityDbContext _db;
     private readonly ILogger<TodoItemsController> _logger;
     private readonly IUriService? _uriService;
+    private readonly IMapper _mapper;
 
     /// <summary>
     /// Constructor
@@ -26,14 +28,17 @@ public class TodoItemsController : ControllerBase
     /// <param name="context"></param>
     /// <param name="uriService"></param>
     /// <param name="logger"></param>
+    /// <param name="mapper"></param>
     public TodoItemsController(
         ApplicationIdentityDbContext context,
         IUriService uriService,
-        ILogger<TodoItemsController> logger)
+        ILogger<TodoItemsController> logger,
+        IMapper mapper)
     {
         _db = context;
         this._uriService = uriService;
         this._logger = logger;
+        _mapper = mapper;
     }
 
     // GET: api/TodoItems
