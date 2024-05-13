@@ -1,11 +1,11 @@
 using Algorithm.DataStructure;
 
 namespace Rider.Leetcode.ListAlgorithm;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-#nullable enable
 public partial class Solution
 {
-    public ListNode? MergeTwoLists(ListNode list1, ListNode list2)
+    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
     {
         var dummy = new ListNode(-1);
         var p = dummy;

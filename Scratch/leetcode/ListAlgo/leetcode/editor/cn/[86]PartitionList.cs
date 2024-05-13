@@ -1,8 +1,8 @@
 using Algorithm.DataStructure;
 
 namespace Rider.Leetcode.ListAlgorithm;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-#nullable enable
 public partial class Solution
 {
     public ListNode? Partition(ListNode head, int x)
