@@ -7,7 +7,7 @@ public class TodoItem
 {
     [Key] public long Id { get; set; }
 
-    [Required] public string? Name { get; set; }
+    [Required] [MaxLength(512)] public string? Name { get; set; }
 
     [DefaultValue(false)] public bool IsComplete { get; set; }
 }

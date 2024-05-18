@@ -9,18 +9,18 @@ using Todo.DAL.Context;
 
 #nullable disable
 
-namespace Todo.WebApi.Migrations
+namespace Todo.DAL.Migrations
 {
     [DbContext(typeof(ApplicationIdentityDbContext))]
-    [Migration("20230305055521_InitialWithIdentity")]
-    partial class InitialWithIdentity
+    [Migration("20240518144610_Init-Create")]
+    partial class InitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -221,7 +221,7 @@ namespace Todo.WebApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Todo.WebApi.Models.TodoItem", b =>
+            modelBuilder.Entity("Todo.DAL.Entity.TodoItem", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()

@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace Todo.WebApi.Migrations
+namespace Todo.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialWithIdentity : Migration
+    public partial class InitCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

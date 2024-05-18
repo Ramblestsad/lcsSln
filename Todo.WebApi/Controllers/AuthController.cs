@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.IdentityModel.Tokens;
 using Todo.DAL.Context;
-using Todo.DAL.Entity;
+using Todo.DAL.Dto;
 using Todo.WebApi.Configuration;
 
 namespace Todo.WebApi.Controllers;
@@ -100,17 +100,6 @@ public class AuthController : ControllerBase
         var token = GenerateToken(identityUser);
 
         return Ok(new { Token = token, Message = "Success" });
-    }
-
-    /// <summary>
-    /// Logout a user
-    /// </summary>
-    /// <returns></returns>
-    [HttpPost]
-    [Route("logout")]
-    public Task<IActionResult> Logout()
-    {
-        return Task.FromResult<IActionResult>(Ok(new { token = "", Message = "Success" }));
     }
 
     private async Task<IdentityUser?> ValidateUser(UserLoginCredentials? userData)

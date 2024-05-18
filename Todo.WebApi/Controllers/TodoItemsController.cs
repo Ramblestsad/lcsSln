@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Todo.DAL.Context;
 using Todo.DAL.Entity;
+using Todo.WebApi.Filters;
+using Todo.WebApi.Helper;
 using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi.Controllers;
@@ -19,7 +21,7 @@ public class TodoItemsController : ControllerBase
 {
     private readonly ApplicationIdentityDbContext _db;
     private readonly ILogger<TodoItemsController> _logger;
-    private readonly IUriService? _uriService;
+    private readonly IUriService _uriService;
     private readonly IMapper _mapper;
 
     /// <summary>
@@ -47,9 +49,17 @@ public class TodoItemsController : ControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
+    public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(
+        [FromQuery] PaginationFilter paginationFilter
+    )
     {
-        return await _db.TodoItems.ToListAsync();
+        var data = await _db.TodoItems.ToListAsync();
+
+        // obtain route
+        var route = Request.Path.Value;
+
+        return Ok(PaginationHelper.CreatePagedResponse(
+            data, paginationFilter, data.Count, _uriService, Request.Path.ToString()));
     }
 
     // GET: api/TodoItems/5
@@ -160,5 +170,5 @@ public class TodoItemsController : ControllerBase
     }
 
     private bool TodoItemExists(long id) =>
-        ( _db.TodoItems?.Any(e => e.Id == id) ).GetValueOrDefault();
+        _db.TodoItems.Any(e => e.Id == id);
 }
