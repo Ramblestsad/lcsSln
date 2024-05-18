@@ -43,7 +43,7 @@ public class TodoItemsController : ControllerBase
 
     // GET: api/TodoItems
     /// <summary>
-    /// Get all todo items
+    /// Get all todos
     /// </summary>
     /// <returns></returns>
     [HttpGet]
