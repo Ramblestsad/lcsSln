@@ -25,8 +25,4 @@ public static class ScratchUtils
             .CreateLogger();
         Log.Debug("Serilog Initialized");
     }
-
-    public static async ValueTask Playground()
-    {
-    }
 }
