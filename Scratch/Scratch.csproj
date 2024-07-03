@@ -17,6 +17,7 @@
     <PublishSingleFile>true</PublishSingleFile>
     <!--  Debug info  -->
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <!--    <DebugType>embedded</DebugType>-->
     <!--    <PublishTrimmed>true</PublishTrimmed>-->
   </PropertyGroup>
@@ -38,6 +39,12 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
   </ItemGroup>
 
 

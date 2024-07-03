@@ -17,6 +17,7 @@
     <PublishSingleFile>true</PublishSingleFile>
     <!--  Debug info  -->
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <!--    <DebugType>embedded</DebugType>-->
     <!--    <PublishTrimmed>true</PublishTrimmed>-->
   </PropertyGroup>
@@ -46,6 +47,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Todo.DAL\Todo.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
   </ItemGroup>
 
 </Project>
