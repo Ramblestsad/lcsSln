@@ -16,8 +16,11 @@ public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser>
 
     public virtual DbSet<TodoItem> TodoItems { get; set; } = null!;
 
-    protected override void OnModelCreating(ModelBuilder builder) =>
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
         builder.Entity<TodoItem>().ToTable("todoitems");
+    }
 }
 
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationIdentityDbContext>
