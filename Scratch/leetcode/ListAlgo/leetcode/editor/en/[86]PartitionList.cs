@@ -3,8 +3,18 @@ using Algorithm.DataStructure;
 namespace Rider.Leetcode.ListAlgorithm;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-public partial class Solution
-{
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public partial class Solution {
     public ListNode? Partition(ListNode head, int x)
     {
         // 存放小于 x 的链表的虚拟头结点
