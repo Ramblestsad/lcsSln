@@ -1,20 +1,21 @@
 # syntax=docker/dockerfile:1
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
-WORKDIR /app
-ENV ASPNETCORE_ENVIRONMENT=Production
-EXPOSE 62435
-EXPOSE 62436
+# https://hub.docker.com/_/microsoft-dotnet
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /source
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
-WORKDIR /src
+# copy csproj and restore as distinct layers
 COPY . .
 RUN dotnet restore
-WORKDIR /src/Todo.WebApi
-RUN dotnet publish -c Release -o /src/publish
 
-FROM base AS final
+# copy everything else and build app
+WORKDIR /source/Todo.WebApi
+RUN dotnet publish -c release -o /app --no-restore
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+EXPOSE 62435
+EXPOSE 62436
 WORKDIR /app
-COPY --from=build /src/publish .
-
+COPY --from=build /app ./
 ENTRYPOINT ["./Todo.WebApi"]
