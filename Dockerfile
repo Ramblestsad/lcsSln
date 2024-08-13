@@ -10,12 +10,11 @@ RUN dotnet restore
 
 # copy everything else and build app
 WORKDIR /source/Todo.WebApi
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet publish Todo.WebApi -c release -o /app --no-restore
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
-EXPOSE 62435
-EXPOSE 62436
+EXPOSE 8080
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["./Todo.WebApi"]

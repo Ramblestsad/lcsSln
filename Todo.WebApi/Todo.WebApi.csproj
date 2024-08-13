@@ -10,14 +10,9 @@
       1591;CA1050;IDE0052;
     </NoWarn>
 
-    <!--  build config  -->
-    <!--    <RuntimeIdentifier>osx-x64</RuntimeIdentifier>-->
-    <!--    <PublishAot>true</PublishAot> -->
-    <SelfContained>true</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
-    <!--  Debug info  -->
-    <!--    <DebugType>embedded</DebugType>-->
-    <!--    <PublishTrimmed>true</PublishTrimmed>-->
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>osx-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
