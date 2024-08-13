@@ -11,7 +11,7 @@ using Todo.WebApi.Response.Pagination;
 namespace Todo.WebApi.Controllers;
 
 /// <summary>
-/// TODO items controller
+/// items controller
 /// </summary>
 [Authorize]
 [Route("api/[controller]", Name = "GetTodoItems")]

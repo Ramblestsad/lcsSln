@@ -1,20 +1,24 @@
-# syntax=docker/dockerfile:1
-
-# https://hub.docker.com/_/microsoft-dotnet
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /source
-
-# copy csproj and restore as distinct layers
-COPY . .
-RUN dotnet restore
-
-# copy everything else and build app
-WORKDIR /source/Todo.WebApi
-RUN dotnet publish Todo.WebApi -c release -o /app --no-restore
-
-# final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-EXPOSE 8080
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-COPY --from=build /app ./
-ENTRYPOINT ["./Todo.WebApi"]
+EXPOSE 8080
+EXPOSE 8081
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["Todo.WebApi/Todo.WebApi.csproj", "Todo.WebApi/"]
+COPY ["Todo.DAL/Todo.DAL.csproj", "Todo.DAL/"]
+RUN dotnet restore "Todo.WebApi/Todo.WebApi.csproj"
+COPY . .
+
+WORKDIR "/src/Todo.WebApi"
+RUN dotnet build "Todo.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "Todo.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Todo.WebApi.dll"]

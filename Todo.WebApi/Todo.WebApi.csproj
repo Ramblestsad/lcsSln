@@ -9,10 +9,6 @@
       $(NoWarn);
       1591;CA1050;IDE0052;
     </NoWarn>
-
-    <PublishSingleFile>true</PublishSingleFile>
-    <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>osx-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
