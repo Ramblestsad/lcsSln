@@ -23,6 +23,6 @@ public static class ScratchUtils
         Log.Logger = new LoggerConfiguration()
             .ReadFrom.Configuration(configuration)
             .CreateLogger();
-        Log.Debug("Serilog Initialized");
+        // Log.Debug("Serilog Initialized");
     }
 }
