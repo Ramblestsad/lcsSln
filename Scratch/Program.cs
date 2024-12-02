@@ -1,6 +1,12 @@
 using Scratch.Utils;
 using Serilog;
 
-ScratchUtils.SerilogInit();
+internal class Program
+{
+    public static void Main(string[] args)
+    {
+        ScratchUtils.SerilogInit();
 
-Log.Information("Entry point");
+        Log.Information("Entry point");
+    }
+}
