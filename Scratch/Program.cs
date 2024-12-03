@@ -5,8 +5,7 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        Log.Information("Entry point");
-
         ScratchUtils.SerilogInit();
+        Log.Information("Entry point");
     }
 }
