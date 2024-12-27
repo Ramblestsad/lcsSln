@@ -3,13 +3,8 @@ namespace Algorithm.DataStructure;
 /* 基于链表实现的栈 */
 public class LinkedListStack
 {
-    ListNode? _stackPeek; // 将头节点作为栈顶
+    ListNode? _stackPeek = null; // 将头节点作为栈顶
     int _stkSize = 0; // 栈的长度
-
-    public LinkedListStack()
-    {
-        _stackPeek = null;
-    }
 
     /* 获取栈的长度 */
     public int Size()
