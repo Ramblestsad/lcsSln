@@ -21,7 +21,7 @@ public class LinkedListStack
     /* 入栈 */
     public void Push(int num)
     {
-        ListNode node = new(num) { next = _stackPeek };
+        var node = new ListNode(num) { next = _stackPeek };
         _stackPeek = node;
         _stkSize++;
     }
