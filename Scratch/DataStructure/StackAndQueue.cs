@@ -161,7 +161,7 @@ public class LinkedListQueue
     }
 
     /* 出队 */
-    public int Pop()
+    public int? Pop()
     {
         var num = Peek();
         // 删除头节点
@@ -171,11 +171,11 @@ public class LinkedListQueue
     }
 
     /* 访问队首元素 */
-    public int Peek()
+    public int? Peek()
     {
         if (IsEmpty())
-            throw new Exception();
-        return _front!.val;
+            return null;
+        return _front?.val;
     }
 
     /* 将链表转化为 Array 并返回 */
@@ -322,16 +322,24 @@ public class BiLinkedListDeque
         else if (isFront)
         {
             // 将 node 添加至链表头部
-            _front!.Prev = node;
-            node.Next = _front;
+            if (_front != null)
+            {
+                _front.Prev = node;
+                node.Next = _front;
+            }
+
             _front = node; // 更新头节点
         }
         // 队尾入队操作
         else
         {
             // 将 node 添加至链表尾部
-            _rear!.Next = node;
-            node.Prev = _rear;
+            if (_rear != null)
+            {
+                _rear.Next = node;
+                node.Prev = _rear;
+            }
+
             _rear = node; // 更新尾节点
         }
 
