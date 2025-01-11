@@ -27,20 +27,20 @@ public class LinkedListStack
     }
 
     /* 出栈 */
-    public int Pop()
+    public int? Pop()
     {
         var num = Peek();
-        _stackPeek = _stackPeek!.next;
+        _stackPeek = _stackPeek?.next;
         _stkSize--;
         return num;
     }
 
     /* 访问栈顶元素 */
-    public int Peek()
+    public int? Peek()
     {
         if (IsEmpty())
             throw new Exception();
-        return _stackPeek!.val;
+        return _stackPeek?.val;
     }
 
     /* 将 List 转化为 Array 并返回 */
