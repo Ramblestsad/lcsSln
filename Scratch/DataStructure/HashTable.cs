@@ -10,12 +10,11 @@ public class Pair(int key, string val)
 /* 基于数组实现的哈希表 */
 public class ArrayHashMap
 {
-    List<Pair?> _buckets;
+    List<Pair?> _buckets = [];
 
     public ArrayHashMap()
     {
         // 初始化数组，包含 100 个桶
-        _buckets = [];
         for (var i = 0; i < 100; i++)
         {
             _buckets.Add(null);
@@ -23,7 +22,7 @@ public class ArrayHashMap
     }
 
     /* 哈希函数 */
-    int HashFunc(int key)
+    static int HashFunc(int key)
     {
         var index = key % 100;
         return index;
