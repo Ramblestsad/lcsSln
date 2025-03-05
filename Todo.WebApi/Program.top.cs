@@ -1,15 +1,15 @@
 // using System.Text;
+// using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
 // using Microsoft.AspNetCore.Authentication.JwtBearer;
 // using Microsoft.AspNetCore.Diagnostics;
 // using Microsoft.AspNetCore.Identity;
 // using Microsoft.EntityFrameworkCore;
 // using Microsoft.IdentityModel.Tokens;
-// using Microsoft.OpenApi.Models;
 // using Serilog;
+// using Scalar.AspNetCore;
 // using Todo.DAL.Context;
 // using Todo.WebApi.Configuration;
 // using Todo.WebApi.Response.Pagination;
-// using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
 //
 // var builder = WebApplication.CreateBuilder(args);
 //
@@ -108,36 +108,8 @@
 //     });
 // services.AddAuthorization();
 //
-// // swagger openapi
-// services.AddSwaggerGen(options =>
-// {
-//     var jwtSecurityScheme = new OpenApiSecurityScheme
-//     {
-//         BearerFormat = "JWT",
-//         Name = "JWT Authentication",
-//         In = ParameterLocation.Header,
-//         Type = SecuritySchemeType.Http,
-//         Scheme = JwtBearerDefaults.AuthenticationScheme,
-//         Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
-//         Reference = new OpenApiReference
-//         {
-//             Id = JwtBearerDefaults.AuthenticationScheme, Type = ReferenceType.SecurityScheme
-//         }
-//     };
-//     options.SwaggerDoc(
-//         "v1",
-//         new OpenApiInfo
-//         {
-//             Version = "v1",
-//             Title = "Todo Web API",
-//             Description = "An ASP.NET Core Web API for managing Todo items",
-//         });
-//     options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
-//     options.AddSecurityRequirement(new OpenApiSecurityRequirement
-//     {
-//         { jwtSecurityScheme, Array.Empty<string>() }
-//     });
-// });
+// // scalar openapi
+// services.AddOpenApi();
 //
 // # endregion
 //
@@ -151,11 +123,11 @@
 //
 // if (app.Environment.IsDevelopment())
 // {
-//     app.UseSwagger();
-//     app.UseSwaggerUI(options =>
+//     app.MapOpenApi();
+//     app.MapScalarApiReference("/", options =>
 //     {
-//         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-//         options.RoutePrefix = string.Empty;
+//         options
+//             .WithTitle("Todo.WebApi");
 //     });
 // }
 // else
