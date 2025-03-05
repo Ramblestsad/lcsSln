@@ -9,7 +9,6 @@ using Todo.WebApi.Helper;
 using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi.Controllers;
-
 /// <summary>
 /// items controller
 /// </summary>
@@ -53,13 +52,18 @@ public class TodoItemsController : ControllerBase
         [FromQuery] PaginationFilter paginationFilter
     )
     {
-        var data = await _db.TodoItems.ToListAsync();
+        // skip data in advance for performance reasons
+        var data = await _db.TodoItems
+            .OrderBy(e => e.Id)
+            .Skip(( paginationFilter.PageNumber - 1 ) * paginationFilter.PageSize)
+            .Take(paginationFilter.PageSize)
+            .ToListAsync();
 
         // obtain route
         var route = Request.Path.Value;
 
         return Ok(PaginationHelper.CreatePagedResponse(
-            data, paginationFilter, data.Count, _uriService, Request.Path.ToString()));
+                      data, paginationFilter, data.Count, _uriService, Request.Path.ToString()));
     }
 
     // GET: api/TodoItems/5

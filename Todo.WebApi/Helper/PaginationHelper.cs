@@ -12,7 +12,7 @@ public static class PaginationHelper
     /// <summary>
     /// CreatePagedResponse
     /// </summary>
-    /// <param name="data"></param>
+    /// <param name="pagedData"></param>
     /// <param name="validFilter"></param>
     /// <param name="totalRecords"></param>
     /// <param name="uriService"></param>
@@ -20,15 +20,19 @@ public static class PaginationHelper
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static PagedResponse<List<T>> CreatePagedResponse<T>(
-        List<T> data,
+        List<T> pagedData,
         PaginationFilter validFilter,
         int totalRecords,
         IUriService uriService,
         string route)
     {
-        // construct a PagedResponse
-        var pagedData = data.Skip(( validFilter.PageNumber - 1 ) * validFilter.PageSize)
-            .Take(validFilter.PageSize).ToList();
+        if (pagedData.Count > validFilter.PageSize) // check if passed in data is not paged and more than the page size
+        {
+            pagedData = pagedData
+                .Skip(validFilter.PageSize * validFilter.PageNumber)
+                .Take(validFilter.PageSize)
+                .ToList();
+        }
         var response = new PagedResponse<List<T>>(
             pagedData, validFilter.PageNumber, validFilter.PageSize);
 
