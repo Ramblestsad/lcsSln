@@ -1,31 +1,33 @@
 namespace Algorithm.DataStructure;
 
-/* 二叉树节点类 */
+/* Binary tree node */
 public class TreeNode(int? x)
 {
-    public int? Val = x; // 节点值
-    public TreeNode? Left; // 左子节点引用
-    public TreeNode? Right; // 右子节点引用
+    public int? Val = x;
+    public TreeNode? Left;
+    public TreeNode? Right;
+}
 
-    /* 二叉搜索树 */
-    public TreeNode? Search(int x)
+public static class BinarySearchTree
+{
+    /* BST */
+    public static TreeNode? Search(int x)
     {
         throw new NotImplementedException();
     }
 
-    public TreeNode? Insert(int x)
+    public static TreeNode? Insert(int x)
     {
         throw new NotImplementedException();
     }
 
-    public TreeNode? Remove(int x)
+    public static TreeNode? Remove(int x)
     {
         throw new NotImplementedException();
     }
 
     /* AVL */
 }
-
 public static class TreeUtils
 {
     /* 层序遍历 - BFS*/

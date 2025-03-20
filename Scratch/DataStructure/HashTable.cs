@@ -6,7 +6,7 @@ public class Pair(int key, string val)
     public string Val = val;
 }
 
-/* 基于数组实现的哈希表 */
+/* Hashtable based on array */
 public class ArrayHashMap
 {
     List<Pair?> _buckets = [];
