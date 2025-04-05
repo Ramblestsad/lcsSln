@@ -1,5 +1,4 @@
 namespace Algorithm.DataStructure;
-
 /* Binary tree node */
 public class TreeNode(int? x)
 {
@@ -8,12 +7,26 @@ public class TreeNode(int? x)
     public TreeNode? Right;
 }
 
+/* BST */
 public static class BinarySearchTree
 {
-    /* BST */
-    public static TreeNode? Search(TreeNode root, int x)
+    public static TreeNode? Search(TreeNode root, int num)
     {
-        throw new NotImplementedException();
+        TreeNode? cur = root;
+        while (cur != null)
+        {
+            // 目标节点在 cur 的右子树中
+            if (cur.Val < num)
+                cur = cur.Right;
+            // 目标节点在 cur 的左子树中
+            else if (cur.Val > num)
+                cur = cur.Left;
+            // 找到目标节点，跳出循环
+            else
+                break;
+        }
+
+        return cur;
     }
 
     public static TreeNode? Insert(TreeNode root, int x)
@@ -28,6 +41,7 @@ public static class BinarySearchTree
 
     /* AVL */
 }
+
 public static class TreeUtils
 {
     /* 层序遍历 - BFS*/
