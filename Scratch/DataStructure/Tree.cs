@@ -11,17 +11,17 @@ public class TreeNode(int? x)
 public static class BinarySearchTree
 {
     /* BST */
-    public static TreeNode? Search(int x)
+    public static TreeNode? Search(TreeNode root, int x)
     {
         throw new NotImplementedException();
     }
 
-    public static TreeNode? Insert(int x)
+    public static TreeNode? Insert(TreeNode root, int x)
     {
         throw new NotImplementedException();
     }
 
-    public static TreeNode? Remove(int x)
+    public static TreeNode? Remove(TreeNode root, int x)
     {
         throw new NotImplementedException();
     }
