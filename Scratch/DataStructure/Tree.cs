@@ -8,7 +8,7 @@ public class TreeNode(int? x)
 }
 
 /* BST */
-public static class BinarySearchTree
+public class BinarySearchTree
 {
     public static TreeNode? Search(TreeNode root, int num)
     {
