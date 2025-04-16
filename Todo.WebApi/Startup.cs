@@ -19,10 +19,7 @@ public class Startup
 {
     public IConfiguration Configuration { get; }
 
-    public Startup(IConfiguration configuration)
-    {
-        Configuration = configuration;
-    }
+    public Startup(IConfiguration configuration) => Configuration = configuration;
 
     /// <summary>
     /// 注册容器中的服务（相当于原先的 builder.Services.xxx）
