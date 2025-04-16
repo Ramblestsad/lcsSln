@@ -1,5 +1,9 @@
 namespace Algorithm.DataStructure;
-/* Binary tree node */
+
+/// <summary>
+/// Binary tree node
+/// </summary>
+/// <param name="x">node value</param>
 public class TreeNode(int? x)
 {
     public int? Val = x;
@@ -7,7 +11,9 @@ public class TreeNode(int? x)
     public TreeNode? Right;
 }
 
-/* BST */
+/// <summary>
+/// BST（Binary Search Tree）
+/// </summary>
 public class BinarySearchTree
 {
     public static TreeNode? Search(TreeNode root, int num)
@@ -38,8 +44,6 @@ public class BinarySearchTree
     {
         throw new NotImplementedException();
     }
-
-    /* AVL */
 }
 
 public static class TreeUtils
