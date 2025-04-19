@@ -48,7 +48,11 @@ public class BinarySearchTree
 
 public static class TreeUtils
 {
-    /* 层序遍历 - BFS*/
+    /// <summary>
+    /// 层序遍历
+    /// </summary>
+    /// <param name="root"></param>
+    /// <returns></returns>
     public static List<int> LevelOrder(TreeNode root)
     {
         // 初始化队列，加入根节点
@@ -69,7 +73,10 @@ public static class TreeUtils
         return list;
     }
 
-    /* 前序遍历 */
+    /// <summary>
+    /// 前序遍历
+    /// </summary>
+    /// <param name="root"></param>
     public static void PreOrder(TreeNode? root)
     {
         List<int> list = [];
@@ -81,7 +88,10 @@ public static class TreeUtils
         PreOrder(root.Right);
     }
 
-    /* 中序遍历 */
+    /// <summary>
+    /// 中序遍历
+    /// </summary>
+    /// <param name="root"></param>
     public static void InOrder(TreeNode? root)
     {
         List<int> list = [];
@@ -93,7 +103,10 @@ public static class TreeUtils
         InOrder(root.Right);
     }
 
-    /* 后序遍历 */
+    /// <summary>
+    /// 后序遍历
+    /// </summary>
+    /// <param name="root"></param>
     public static void PostOrder(TreeNode? root)
     {
         List<int> list = [];
@@ -106,7 +119,10 @@ public static class TreeUtils
     }
 }
 
-/* 数组表示下的二叉树类 */
+/// <summary>
+/// 数组表示下的二叉树类
+/// </summary>
+/// <param name="arr"></param>
 public class ArrayBinaryTree(List<int?> arr)
 {
     private List<int?> _tree = [..arr];
