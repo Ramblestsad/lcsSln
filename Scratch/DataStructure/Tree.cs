@@ -21,13 +21,10 @@ public class BinarySearchTree
         TreeNode? cur = root;
         while (cur != null)
         {
-            // 目标节点在 cur 的右子树中
             if (cur.Val < num)
                 cur = cur.Right;
-            // 目标节点在 cur 的左子树中
             else if (cur.Val > num)
                 cur = cur.Left;
-            // 找到目标节点，跳出循环
             else
                 break;
         }
