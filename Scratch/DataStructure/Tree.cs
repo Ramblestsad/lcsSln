@@ -71,51 +71,47 @@ public class BinarySearchTree
 
     public void Remove(int num)
     {
-        // 若树为空，直接提前返回
         if (Root == null)
             return;
         TreeNode? cur = Root, pre = null;
-        // 循环查找，越过叶节点后跳出
+        // search for the node to delete
         while (cur != null) {
-            // 找到待删除节点，跳出循环
             if (cur.Val == num)
                 break;
             pre = cur;
-            // 待删除节点在 cur 的右子树中
             if (cur.Val < num)
                 cur = cur.Right;
-            // 待删除节点在 cur 的左子树中
             else
                 cur = cur.Left;
         }
-        // 若无待删除节点，则直接返回
         if (cur == null)
             return;
-        // 子节点数量 = 0 or 1
+
+        // children = 0 / 1
         if (cur.Left == null || cur.Right == null) {
-            // 当子节点数量 = 0 / 1 时， child = null / 该子节点
+            // when # of children = 0 / 1 时， child = null / cur
             TreeNode? child = cur.Left ?? cur.Right;
-            // 删除节点 cur
+            // delete cur
             if (cur != Root) {
                 if (pre!.Left == cur)
                     pre.Left = child;
                 else
                     pre.Right = child;
             } else {
-                // 若删除节点为根节点，则重新指定根节点
+                // if it's root, update the root
                 Root = child;
             }
         }
-        // 子节点数量 = 2
+        // children = 2
         else {
-            // 获取中序遍历中 cur 的下一个节点
+            // get the next node in the inorder traversal
             TreeNode? tmp = cur.Right;
             while (tmp.Left != null) {
                 tmp = tmp.Left;
             }
-            // 递归删除节点 tmp
+            // delete tmp recursively
             Remove(tmp.Val!.Value);
-            // 用 tmp 覆盖 cur
+            // update cur with tmp
             cur.Val = tmp.Val;
         }
     }
