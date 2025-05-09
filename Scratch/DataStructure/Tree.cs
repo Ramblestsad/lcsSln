@@ -89,7 +89,7 @@ public class BinarySearchTree
 
         // children = 0 / 1
         if (cur.Left == null || cur.Right == null) {
-            // when # of children = 0 / 1 时， child = null / cur
+            // when # of children = 0 / 1， child = null / cur
             TreeNode? child = cur.Left ?? cur.Right;
             // delete cur
             if (cur != Root) {
