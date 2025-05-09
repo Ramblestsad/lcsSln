@@ -1,5 +1,4 @@
 namespace Algorithm.DataStructure;
-
 /// <summary>
 /// Binary tree node
 /// </summary>
@@ -16,9 +15,16 @@ public class TreeNode(int? x)
 /// </summary>
 public class BinarySearchTree
 {
-    public static TreeNode? Search(TreeNode root, int num)
+    public TreeNode? Root;
+
+    public BinarySearchTree(TreeNode root)
     {
-        TreeNode? cur = root;
+        this.Root = root;
+    }
+
+    public TreeNode? Search(int num)
+    {
+        TreeNode? cur = this.Root;
         while (cur != null)
         {
             if (cur.Val < num)
@@ -32,14 +38,96 @@ public class BinarySearchTree
         return cur;
     }
 
-    public static TreeNode? Insert(TreeNode root, int x)
+    public void Insert(int num)
     {
-        throw new NotImplementedException();
+        Root ??= new TreeNode(num);
+
+        var cur = Root;
+        TreeNode? pre = null;
+
+        // search for the position to insert
+        while (cur != null)
+        {
+            pre = cur;
+            if (num < cur.Val)
+                cur = cur.Left;
+            else if (num > cur.Val)
+                cur = cur.Right;
+            else
+                return; // already exists
+        }
+        // now `cur` is null, pre is the parent node of the new node
+
+        // insert
+        var newNode = new TreeNode(num);
+        if (pre != null)
+        {
+            if (num < pre.Val)
+                pre.Left = newNode;
+            else
+                pre.Right = newNode;
+        }
     }
 
-    public static TreeNode? Remove(TreeNode root, int x)
+    public void Remove(int num)
     {
-        throw new NotImplementedException();
+        // 若树为空，直接提前返回
+        if (Root == null)
+            return;
+        TreeNode? cur = Root, pre = null;
+        // 循环查找，越过叶节点后跳出
+        while (cur != null) {
+            // 找到待删除节点，跳出循环
+            if (cur.Val == num)
+                break;
+            pre = cur;
+            // 待删除节点在 cur 的右子树中
+            if (cur.Val < num)
+                cur = cur.Right;
+            // 待删除节点在 cur 的左子树中
+            else
+                cur = cur.Left;
+        }
+        // 若无待删除节点，则直接返回
+        if (cur == null)
+            return;
+        // 子节点数量 = 0 or 1
+        if (cur.Left == null || cur.Right == null) {
+            // 当子节点数量 = 0 / 1 时， child = null / 该子节点
+            TreeNode? child = cur.Left ?? cur.Right;
+            // 删除节点 cur
+            if (cur != Root) {
+                if (pre!.Left == cur)
+                    pre.Left = child;
+                else
+                    pre.Right = child;
+            } else {
+                // 若删除节点为根节点，则重新指定根节点
+                Root = child;
+            }
+        }
+        // 子节点数量 = 2
+        else {
+            // 获取中序遍历中 cur 的下一个节点
+            TreeNode? tmp = cur.Right;
+            while (tmp.Left != null) {
+                tmp = tmp.Left;
+            }
+            // 递归删除节点 tmp
+            Remove(tmp.Val!.Value);
+            // 用 tmp 覆盖 cur
+            cur.Val = tmp.Val;
+        }
+    }
+}
+
+public class AvlTree
+{
+    public TreeNode? Root;
+
+    public AvlTree(TreeNode root)
+    {
+        this.Root = root;
     }
 }
 
