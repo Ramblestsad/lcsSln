@@ -90,7 +90,7 @@ public class BinarySearchTree
         // children = 0 / 1
         if (cur.Left == null || cur.Right == null) {
             TreeNode? child = cur.Left ?? cur.Right;
-            // delete cur
+            // delete cur: replace cur with child
             if (cur != Root) {
                 if (pre!.Left == cur)
                     pre.Left = child;
