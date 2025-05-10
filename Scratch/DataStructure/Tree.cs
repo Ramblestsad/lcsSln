@@ -89,7 +89,6 @@ public class BinarySearchTree
 
         // children = 0 / 1
         if (cur.Left == null || cur.Right == null) {
-            // when # of children = 0 / 1， child = null / cur
             TreeNode? child = cur.Left ?? cur.Right;
             // delete cur
             if (cur != Root) {
@@ -111,7 +110,6 @@ public class BinarySearchTree
             }
             // delete tmp recursively
             Remove(tmp.Val!.Value);
-            // update cur with tmp
             cur.Val = tmp.Val;
         }
     }
