@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Algorithm.DataStructure;
 /// <summary>
 /// Binary tree node
@@ -75,7 +77,8 @@ public class BinarySearchTree
             return;
         TreeNode? cur = Root, pre = null;
         // search for the node to delete
-        while (cur != null) {
+        while (cur != null)
+        {
             if (cur.Val == num)
                 break;
             pre = cur;
@@ -84,30 +87,38 @@ public class BinarySearchTree
             else
                 cur = cur.Left;
         }
+
         if (cur == null)
             return;
 
         // children = 0 / 1
-        if (cur.Left == null || cur.Right == null) {
+        if (cur.Left == null || cur.Right == null)
+        {
             TreeNode? child = cur.Left ?? cur.Right;
             // delete cur: replace cur with child
-            if (cur != Root) {
+            if (cur != Root)
+            {
                 if (pre!.Left == cur)
                     pre.Left = child;
                 else
                     pre.Right = child;
-            } else {
+            }
+            else
+            {
                 // if it's root, update the root
                 Root = child;
             }
         }
         // children = 2
-        else {
+        else
+        {
             // get the next node in the inorder traversal
             TreeNode? tmp = cur.Right;
-            while (tmp.Left != null) {
+            while (tmp.Left != null)
+            {
                 tmp = tmp.Left;
             }
+
             // delete tmp recursively
             Remove(tmp.Val!.Value);
             cur.Val = tmp.Val;
@@ -115,13 +126,38 @@ public class BinarySearchTree
     }
 }
 
-public class AvlTree
+/// <summary>
+/// AVL (Adelson-Velsky and Landis) Tree is a self-balancing binary search tree.
+/// The balancing ensures that the tree maintains O(log n) time complexity
+/// for insert, delete, and search operations by keeping the height difference
+/// between the left and right subtrees of every node to at most one.
+/// </summary>
+[SuppressMessage("ReSharper", "InconsistentNaming")]
+public class AvlTreeNode(int? x)
 {
-    public TreeNode? Root;
+    public int? val = x;
+    private int height;
+    public AvlTreeNode? left;
+    public AvlTreeNode? right;
 
-    public AvlTree(TreeNode root)
+    private static int Height(AvlTreeNode? node)
     {
-        this.Root = root;
+        // 空节点高度为 -1 ，叶节点高度为 0
+        return node?.height ?? -1;
+    }
+
+    private static void UpdateHeight(AvlTreeNode node)
+    {
+        // 节点高度等于最高子树高度 + 1
+        node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
+    }
+
+    private static int BalanceFactor(AvlTreeNode? node) {
+        if (node == null) return 0;
+        // 节点平衡因子 = 左子树高度 - 右子树高度
+        return Height(node.left) - Height(node.right);
+        // tip: 设平衡因子为f，则一棵 AVL 树的任意节点的平衡因子皆满足 -1<=f<=1。
+        //      就是说，AVL 树要求对每个节点，左右子树的高度差 最多为 1。
     }
 }
 
