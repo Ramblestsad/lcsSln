@@ -152,7 +152,8 @@ public class AvlTreeNode(int? x)
         node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
     }
 
-    private static int BalanceFactor(AvlTreeNode? node) {
+    private static int BalanceFactor(AvlTreeNode? node)
+    {
         if (node == null) return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return Height(node.left) - Height(node.right);
