@@ -132,31 +132,30 @@ public class BinarySearchTree
 /// for insert, delete, and search operations by keeping the height difference
 /// between the left and right subtrees of every node to at most one.
 /// </summary>
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class AvlTreeNode(int? x)
 {
-    public int? val = x;
-    private int height;
-    public AvlTreeNode? left;
-    public AvlTreeNode? right;
+    public int? Val = x;
+    private int _height;
+    public AvlTreeNode? Left;
+    public AvlTreeNode? Right;
 
     private static int Height(AvlTreeNode? node)
     {
         // 空节点高度为 -1 ，叶节点高度为 0
-        return node?.height ?? -1;
+        return node?._height ?? -1;
     }
 
     private static void UpdateHeight(AvlTreeNode node)
     {
         // 节点高度等于最高子树高度 + 1
-        node.height = Math.Max(Height(node.left), Height(node.right)) + 1;
+        node._height = Math.Max(Height(node.Left), Height(node.Right)) + 1;
     }
 
     private static int BalanceFactor(AvlTreeNode? node)
     {
         if (node == null) return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
-        return Height(node.left) - Height(node.right);
+        return Height(node.Left) - Height(node.Right);
         // tip: 设平衡因子为f，则一棵 AVL 树的任意节点的平衡因子皆满足 -1<=f<=1。
         //      就是说，AVL 树要求对每个节点，左右子树的高度差 最多为 1。
     }
