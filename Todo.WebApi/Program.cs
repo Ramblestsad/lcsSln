@@ -1,7 +1,6 @@
 using Serilog;
 
 namespace Todo.WebApi;
-
 internal class Program
 {
     public static async Task Main(string[] args)
@@ -23,8 +22,5 @@ internal class Program
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services);
             })
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
+            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
 }

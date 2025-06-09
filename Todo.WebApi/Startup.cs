@@ -5,16 +5,13 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-
 using Serilog;
 using Scalar.AspNetCore;
-
 using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
 using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi;
-
 public class Startup
 {
     public IConfiguration Configuration { get; }
@@ -27,12 +24,14 @@ public class Startup
     /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContext<ApplicationIdentityDbContext>(
-            opt =>
-                opt.UseNpgsql(
-                    Configuration.GetConnectionString("postgres")
-                    ?? throw new Exception("No db connection found in appsettings.json.")
-                )
+        services.AddDbContext<ApplicationIdentityDbContext>(opt =>
+                                                                opt.UseNpgsql(
+                                                                    Configuration
+                                                                        .GetConnectionString(
+                                                                            "postgres")
+                                                                    ?? throw new Exception(
+                                                                        "No db connection found in appsettings.json.")
+                                                                )
         );
 
         services.AddAutoMapper(typeof(Startup));
@@ -158,10 +157,8 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
-            endpoints.MapGet("/", async context =>
-            {
-                await context.Response.WriteAsync("Temp Index!");
-            });
+            endpoints.MapGet(
+                "/", async context => { await context.Response.WriteAsync("Temp Index!"); });
             if (env.IsDevelopment())
             {
                 endpoints.MapOpenApi();

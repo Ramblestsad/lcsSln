@@ -1,7 +1,6 @@
 using Serilog;
 
 namespace Scratch.Utils;
-
 public class StandardEvent
 {
     // subscriber

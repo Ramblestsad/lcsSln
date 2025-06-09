@@ -4,9 +4,9 @@
 
 <p>Return <em>the head of the merged linked list</em>.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg" style="width: 662px; height: 302px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg" style="width: 662px; height: 302px;" />
 <pre>
 <strong>Input:</strong> list1 = [1,2,4], list2 = [1,3,4]
 <strong>Output:</strong> [1,1,2,3,4,4]
@@ -26,13 +26,13 @@
 <strong>Output:</strong> [0]
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes in both lists is in the range <code>[0, 50]</code>.</li> 
- <li><code>-100 &lt;= Node.val &lt;= 100</code></li> 
- <li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li> 
+<ul>
+ <li>The number of nodes in both lists is in the range <code>[0, 50]</code>.</li>
+ <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+ <li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
 <details><summary><strong>Related Topics</strong></summary>Linked List | Recursion</details><br>
@@ -41,7 +41,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：已完成网站教程、网站习题、配套插件中所有多语言代码的校准，解决了之前 chatGPT 翻译可能出错的问题~**
+**通知：已完成网站教程、网站习题、配套插件中所有多语言代码的校准，解决了之前 chatGPT 翻译可能出错的问题~
+**
 
 
 
@@ -54,36 +55,44 @@
 
 > 本文有视频版：[链表双指针技巧全面汇总](https://www.bilibili.com/video/BV1q94y1X7vy)
 
-经典算法题了，[双指针技巧](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 用起来。
+经典算法题了，[双指针技巧](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+用起来。
 
 ![](https://labuladong.online/algo/images/链表技巧/1.gif)
 
 这个算法的逻辑类似于「拉拉链」，`l1, l2` 类似于拉链两侧的锯齿，指针 `p` 就好像拉链的拉索，将两个有序链表合并。
 
-**代码中还用到一个链表的算法题中是很常见的「虚拟头结点」技巧，也就是 `dummy` 节点**，它相当于是个占位符，可以避免处理空指针的情况，降低代码的复杂性。
+**代码中还用到一个链表的算法题中是很常见的「虚拟头结点」技巧，也就是 `dummy` 节点**
+，它相当于是个占位符，可以避免处理空指针的情况，降低代码的复杂性。
 
-**详细题解：[双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)**
+*
+*详细题解：[双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+**
 
 </div>
 
-**标签：[数据结构](https://labuladong.online/algo/)，[链表](https://labuladong.online/algo/)，[链表双指针](https://labuladong.online/algo/)**
+*
+*标签：[数据结构](https://labuladong.online/algo/)，[链表](https://labuladong.online/algo/)，[链表双指针](https://labuladong.online/algo/)
+**
 
 <div id="solution">
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
-<button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
+<button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -290,27 +299,28 @@ var mergeTwoLists = function(l1, l2) {
 </details><hr /><br />
 
 **类似题目**：
-  - [1305. 两棵二叉搜索树中的所有元素 🟠](/problems/all-elements-in-two-binary-search-trees)
-  - [141. 环形链表 🟢](/problems/linked-list-cycle)
-  - [142. 环形链表 II 🟠](/problems/linked-list-cycle-ii)
-  - [160. 相交链表 🟢](/problems/intersection-of-two-linked-lists)
-  - [19. 删除链表的倒数第 N 个结点 🟠](/problems/remove-nth-node-from-end-of-list)
-  - [23. 合并K个升序链表 🔴](/problems/merge-k-sorted-lists)
-  - [264. 丑数 II 🟠](/problems/ugly-number-ii)
-  - [313. 超级丑数 🟠](/problems/super-ugly-number)
-  - [86. 分隔链表 🟠](/problems/partition-list)
-  - [876. 链表的中间结点 🟢](/problems/middle-of-the-linked-list)
-  - [88. 合并两个有序数组 🟢](/problems/merge-sorted-array)
-  - [97. 交错字符串 🟠](/problems/interleaving-string)
-  - [977. 有序数组的平方 🟢](/problems/squares-of-a-sorted-array)
-  - [剑指 Offer 22. 链表中倒数第k个节点 🟢](/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof)
-  - [剑指 Offer 25. 合并两个排序的链表 🟢](/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof)
-  - [剑指 Offer 49. 丑数 🟠](/problems/chou-shu-lcof)
-  - [剑指 Offer 52. 两个链表的第一个公共节点 🟢](/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof)
-  - [剑指 Offer II 021. 删除链表的倒数第 n 个结点 🟠](/problems/SLwz0R)
-  - [剑指 Offer II 022. 链表中环的入口节点 🟠](/problems/c32eOV)
-  - [剑指 Offer II 023. 两个链表的第一个重合节点 🟢](/problems/3u1WK4)
-  - [剑指 Offer II 078. 合并排序链表 🔴](/problems/vvXgSW)
+
+- [1305. 两棵二叉搜索树中的所有元素 🟠](/problems/all-elements-in-two-binary-search-trees)
+- [141. 环形链表 🟢](/problems/linked-list-cycle)
+- [142. 环形链表 II 🟠](/problems/linked-list-cycle-ii)
+- [160. 相交链表 🟢](/problems/intersection-of-two-linked-lists)
+- [19. 删除链表的倒数第 N 个结点 🟠](/problems/remove-nth-node-from-end-of-list)
+- [23. 合并K个升序链表 🔴](/problems/merge-k-sorted-lists)
+- [264. 丑数 II 🟠](/problems/ugly-number-ii)
+- [313. 超级丑数 🟠](/problems/super-ugly-number)
+- [86. 分隔链表 🟠](/problems/partition-list)
+- [876. 链表的中间结点 🟢](/problems/middle-of-the-linked-list)
+- [88. 合并两个有序数组 🟢](/problems/merge-sorted-array)
+- [97. 交错字符串 🟠](/problems/interleaving-string)
+- [977. 有序数组的平方 🟢](/problems/squares-of-a-sorted-array)
+- [剑指 Offer 22. 链表中倒数第k个节点 🟢](/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof)
+- [剑指 Offer 25. 合并两个排序的链表 🟢](/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof)
+- [剑指 Offer 49. 丑数 🟠](/problems/chou-shu-lcof)
+- [剑指 Offer 52. 两个链表的第一个公共节点 🟢](/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof)
+- [剑指 Offer II 021. 删除链表的倒数第 n 个结点 🟠](/problems/SLwz0R)
+- [剑指 Offer II 022. 链表中环的入口节点 🟠](/problems/c32eOV)
+- [剑指 Offer II 023. 两个链表的第一个重合节点 🟢](/problems/3u1WK4)
+- [剑指 Offer II 078. 合并排序链表 🔴](/problems/vvXgSW)
 
 </div>
 

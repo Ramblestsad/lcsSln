@@ -1,5 +1,4 @@
 namespace Algorithm.DataStructure;
-
 public class Pair(int key, string val)
 {
     public int Key = key;

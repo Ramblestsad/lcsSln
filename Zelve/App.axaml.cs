@@ -5,7 +5,6 @@ using Zelve.ViewModels;
 using Zelve.Views;
 
 namespace Zelve;
-
 public partial class App : Application
 {
     public override void Initialize()

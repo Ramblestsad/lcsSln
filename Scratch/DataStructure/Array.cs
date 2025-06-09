@@ -1,5 +1,4 @@
 namespace Scratch.DataStructure;
-
 public class ArrayUtils
 {
     /* 随机访问元素 */

@@ -1,5 +1,4 @@
 namespace Todo.WebApi.Filters;
-
 /// <summary>
 /// Pagination filter
 /// </summary>

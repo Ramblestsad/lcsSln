@@ -1,5 +1,4 @@
 namespace Scratch.Utils;
-
 public class CustomSingleton
 {
     private static readonly Lazy<CustomSingleton> s_instance =

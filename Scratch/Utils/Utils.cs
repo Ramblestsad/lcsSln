@@ -2,7 +2,6 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 
 namespace Scratch.Utils;
-
 public static class ScratchUtils
 {
     /// <summary>

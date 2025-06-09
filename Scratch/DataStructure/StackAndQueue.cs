@@ -1,5 +1,4 @@
 namespace Algorithm.DataStructure;
-
 /* 基于链表实现的栈 */
 public class LinkedListStack
 {

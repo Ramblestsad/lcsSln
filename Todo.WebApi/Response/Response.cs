@@ -1,5 +1,4 @@
 namespace Todo.WebApi.Response;
-
 public class Response<T>
 {
     protected Response()

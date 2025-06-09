@@ -2,7 +2,6 @@
 using Avalonia.ReactiveUI;
 
 namespace Zelve;
-
 sealed class Program
 {
     // Initialization code. Don't use any Avalonia, third-party APIs or any

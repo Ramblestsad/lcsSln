@@ -1,5 +1,4 @@
 namespace Todo.WebApi.Configuration;
-
 /// <summary>
 /// Jwt settings options
 /// </summary>

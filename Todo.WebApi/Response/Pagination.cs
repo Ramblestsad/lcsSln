@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.WebUtilities;
 using Todo.WebApi.Filters;
 
 namespace Todo.WebApi.Response.Pagination;
-
 public interface IUriService
 {
     public Uri GetPageUri(PaginationFilter filter, string route);

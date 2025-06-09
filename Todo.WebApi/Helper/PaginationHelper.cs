@@ -3,7 +3,6 @@ using Todo.WebApi.Response;
 using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi.Helper;
-
 /// <summary>
 /// PaginationHelper
 /// </summary>
@@ -26,13 +25,16 @@ public static class PaginationHelper
         IUriService uriService,
         string route)
     {
-        if (pagedData.Count > validFilter.PageSize) // check if passed in data is not paged and more than the page size
+        if (pagedData.Count >
+            validFilter
+                .PageSize) // check if passed in data is not paged and more than the page size
         {
             pagedData = pagedData
                 .Skip(validFilter.PageSize * validFilter.PageNumber)
                 .Take(validFilter.PageSize)
                 .ToList();
         }
+
         var response = new PagedResponse<List<T>>(
             pagedData, validFilter.PageNumber, validFilter.PageSize);
 

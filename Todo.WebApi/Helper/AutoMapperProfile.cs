@@ -1,7 +1,6 @@
 using AutoMapper;
 
 namespace Todo.WebApi.Helper;
-
 public class AutoMapperProfile : Profile
 {
     public AutoMapperProfile() => CreateMap<MapperTestFoo, MapperTestFooDto>();

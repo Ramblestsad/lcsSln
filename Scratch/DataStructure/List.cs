@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
 namespace Algorithm.DataStructure;
-
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public class ListNode
 {
