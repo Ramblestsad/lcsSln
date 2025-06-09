@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 using System.Diagnostics.CodeAnalysis;
 
 namespace Algorithm.DataStructure;
@@ -134,7 +135,7 @@ public class BinarySearchTree
 /// </summary>
 public class AvlTreeNode(int? x)
 {
-    public int? Val = x;
+    public int? val = x;
     private int _height;
     public AvlTreeNode? Left;
     public AvlTreeNode? Right;
