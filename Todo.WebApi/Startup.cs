@@ -158,10 +158,14 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
+            endpoints.MapGet("/", async context =>
+            {
+                await context.Response.WriteAsync("Temp Index!");
+            });
             if (env.IsDevelopment())
             {
                 endpoints.MapOpenApi();
-                endpoints.MapScalarApiReference("/", options =>
+                endpoints.MapScalarApiReference("/apidocs", options =>
                 {
                     options
                         .WithTitle("Todo.WebApi")
