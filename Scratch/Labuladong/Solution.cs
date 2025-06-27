@@ -10,4 +10,3 @@ public class ListNode
         this.next = next;
     }
 }
-
