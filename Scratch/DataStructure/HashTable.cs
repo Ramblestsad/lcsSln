@@ -1,4 +1,5 @@
-namespace Algorithm.DataStructure;
+namespace Scratch.DataStructure;
+
 public class Pair(int key, string val)
 {
     public int Key = key;

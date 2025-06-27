@@ -5,7 +5,7 @@
  * [21] Merge Two Sorted Lists
  */
 
-using Scratch.Labuladong;
+namespace Scratch.Labuladong.Algorithms;
 
 // @lc code=start
 public partial class Solution {

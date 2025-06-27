@@ -1,7 +1,5 @@
-using System.Diagnostics.CodeAnalysis;
+namespace Scratch.DataStructure;
 
-namespace Algorithm.DataStructure;
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class ListNode
 {
     public int val;
