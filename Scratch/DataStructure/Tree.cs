@@ -1,6 +1,3 @@
-// ReSharper disable InconsistentNaming
-using System.Diagnostics.CodeAnalysis;
-
 namespace Algorithm.DataStructure;
 /// <summary>
 /// Binary tree node
@@ -241,7 +238,7 @@ public static class TreeUtils
 /// <param name="arr"></param>
 public class ArrayBinaryTree(List<int?> arr)
 {
-    private List<int?> _tree = [..arr];
+    private List<int?> _tree = [.. arr];
 
     /* 列表容量 */
     public int Size()
