@@ -303,8 +303,7 @@ public class AvlTree
                 if (child == null)
                     return null;
                 // 子节点数量 = 1 ，直接删除 node
-                else
-                    node = child;
+                node = child;
             }
             else
             {
