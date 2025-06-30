@@ -257,6 +257,9 @@ public class AvlTree
          * 唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。
          * 因此，需要从这个节点开始，自底向上执行旋转操作，使所有失衡节点恢复平衡。
          */
+
+        // 每一轮递归的node不一样，直到children为null，然后创建新的node。
+        // 每一轮递归的node后续都需要UpdateHeight 和 Rotate，从插入节点的父节点自底向上。
         if (node == null) return new AvlTreeNode(num);
 
         /* 1. 查找插入位置并插入节点 */
