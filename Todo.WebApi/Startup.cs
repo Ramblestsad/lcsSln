@@ -5,15 +5,17 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Serilog;
 using Scalar.AspNetCore;
+using Serilog;
+using Mapster;
 using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
-using Todo.WebApi.Response.Pagination;
-using Mapster;
 using Todo.WebApi.Helper;
+using Todo.WebApi.Response.Pagination;
+
 
 namespace Todo.WebApi;
+
 public class Startup
 {
     public IConfiguration Configuration { get; }
