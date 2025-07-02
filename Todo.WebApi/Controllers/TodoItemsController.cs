@@ -18,8 +18,7 @@ namespace Todo.WebApi.Controllers;
 [Route("api/[controller]", Name = "GetTodoItems")]
 [Produces("application/json")]
 [ApiController]
-public class TodoItemsController : ControllerBase
-{
+public class TodoItemsController : ControllerBase {
     private readonly ApplicationIdentityDbContext _db;
     private readonly ILogger<TodoItemsController> _logger;
     private readonly IUriService _uriService;
@@ -36,8 +35,7 @@ public class TodoItemsController : ControllerBase
         ApplicationIdentityDbContext context,
         IUriService uriService,
         ILogger<TodoItemsController> logger,
-        IMapper mapper)
-    {
+        IMapper mapper) {
         _db = context;
         this._uriService = uriService;
         this._logger = logger;
@@ -52,8 +50,7 @@ public class TodoItemsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(
         [FromQuery] PaginationFilter paginationFilter
-    )
-    {
+    ) {
         // skip data in advance for performance reasons
         var data = await _db.TodoItems
             .OrderBy(e => e.Id)
@@ -75,12 +72,10 @@ public class TodoItemsController : ControllerBase
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
-    {
+    public async Task<ActionResult<TodoItem>> GetTodoItem(long id) {
         var todoItem = await _db.TodoItems.FindAsync(id);
 
-        if (todoItem == null)
-        {
+        if (todoItem == null) {
             return NotFound();
         }
 
@@ -98,23 +93,18 @@ public class TodoItemsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
-    {
-        if (id != todoItem.Id)
-        {
+    public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem) {
+        if (id != todoItem.Id) {
             return BadRequest();
         }
 
         _db.Entry(todoItem).State = EntityState.Modified;
 
-        try
-        {
+        try {
             await _db.SaveChangesAsync();
         }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!TodoItemExists(id))
-            {
+        catch (DbUpdateConcurrencyException) {
+            if (!TodoItemExists(id)) {
                 return NotFound();
             }
 
@@ -145,8 +135,7 @@ public class TodoItemsController : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
-    {
+    public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem) {
         _db.TodoItems.Add(todoItem);
         await _db.SaveChangesAsync();
 
@@ -161,11 +150,9 @@ public class TodoItemsController : ControllerBase
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteTodoItem(long id)
-    {
+    public async Task<IActionResult> DeleteTodoItem(long id) {
         var todoItem = await _db.TodoItems.FindAsync(id);
-        if (todoItem == null)
-        {
+        if (todoItem == null) {
             return NotFound();
         }
 

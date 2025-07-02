@@ -3,8 +3,7 @@ namespace Todo.WebApi.Filters;
 /// <summary>
 /// Pagination filter
 /// </summary>
-public class PaginationFilter
-{
+public class PaginationFilter {
     /// <summary>
     /// Page number
     /// </summary>
@@ -18,8 +17,7 @@ public class PaginationFilter
     /// <summary>
     /// Constructor
     /// </summary>
-    public PaginationFilter()
-    {
+    public PaginationFilter() {
         PageNumber = 1;
         PageSize = 10;
     }
@@ -29,8 +27,7 @@ public class PaginationFilter
     /// </summary>
     /// <param name="pageNumber"></param>
     /// <param name="pageSize"></param>
-    public PaginationFilter(int pageNumber, int pageSize)
-    {
+    public PaginationFilter(int pageNumber, int pageSize) {
         PageNumber = pageNumber < 1 ? 1 : pageNumber;
         PageSize = pageSize > 10 ? 10 : pageSize;
     }

@@ -1,34 +1,29 @@
 namespace Scratch.DataStructure;
 
 /* 基于链表实现的栈 */
-public class LinkedListStack
-{
+public class LinkedListStack {
     ListNode? _stackPeek; // 将头节点作为栈顶
     int _stkSize; // 栈的长度
 
     /* 获取栈的长度 */
-    public int Size()
-    {
+    public int Size() {
         return _stkSize;
     }
 
     /* 判断栈是否为空 */
-    public bool IsEmpty()
-    {
+    public bool IsEmpty() {
         return Size() == 0;
     }
 
     /* 入栈 */
-    public void Push(int num)
-    {
+    public void Push(int num) {
         var node = new ListNode(num) { next = _stackPeek };
         _stackPeek = node;
         _stkSize++;
     }
 
     /* 出栈 */
-    public int? Pop()
-    {
+    public int? Pop() {
         var num = Peek();
         _stackPeek = _stackPeek?.next;
         _stkSize--;
@@ -36,23 +31,20 @@ public class LinkedListStack
     }
 
     /* 访问栈顶元素 */
-    public int? Peek()
-    {
+    public int? Peek() {
         if (IsEmpty())
             throw new Exception();
         return _stackPeek?.val;
     }
 
     /* 将 List 转化为 Array 并返回 */
-    public int[] ToArray()
-    {
+    public int[] ToArray() {
         if (_stackPeek == null)
             return [];
 
         ListNode? node = _stackPeek;
         var res = new int[Size()];
-        for (var i = res.Length - 1; i >= 0; i--)
-        {
+        for (var i = res.Length - 1; i >= 0; i--) {
             res[i] = node!.val;
             node = node.next;
         }
@@ -62,37 +54,31 @@ public class LinkedListStack
 }
 
 /* 基于数组实现的栈 */
-public class ArrayStack
-{
+public class ArrayStack {
     List<int> _stack;
 
-    public ArrayStack()
-    {
+    public ArrayStack() {
         // 初始化列表（动态数组）
         _stack = [];
     }
 
     /* 获取栈的长度 */
-    public int Size()
-    {
+    public int Size() {
         return _stack.Count;
     }
 
     /* 判断栈是否为空 */
-    public bool IsEmpty()
-    {
+    public bool IsEmpty() {
         return Size() == 0;
     }
 
     /* 入栈 */
-    public void Push(int num)
-    {
+    public void Push(int num) {
         _stack.Add(num);
     }
 
     /* 出栈 */
-    public int Pop()
-    {
+    public int Pop() {
         if (IsEmpty())
             throw new Exception();
         var val = Peek();
@@ -101,58 +87,49 @@ public class ArrayStack
     }
 
     /* 访问栈顶元素 */
-    public int Peek()
-    {
+    public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return _stack[Size() - 1];
     }
 
     /* 将 List 转化为 Array 并返回 */
-    public int[] ToArray()
-    {
+    public int[] ToArray() {
         return [.. _stack];
     }
 }
 
 /* 基于链表实现的队列 */
-public class LinkedListQueue
-{
+public class LinkedListQueue {
     ListNode? _front, _rear; // 头节点 front ，尾节点 rear
     int _queSize = 0;
 
-    public LinkedListQueue()
-    {
+    public LinkedListQueue() {
         _front = null;
         _rear = null;
     }
 
     /* 获取队列的长度 */
-    public int Size()
-    {
+    public int Size() {
         return _queSize;
     }
 
     /* 判断队列是否为空 */
-    public bool IsEmpty()
-    {
+    public bool IsEmpty() {
         return Size() == 0;
     }
 
     /* 入队 */
-    public void Push(int num)
-    {
+    public void Push(int num) {
         // 在尾节点后添加 num
         ListNode node = new(num);
         // 如果队列为空，则令头、尾节点都指向该节点
-        if (_front == null)
-        {
+        if (_front == null) {
             _front = node;
             _rear = node;
             // 如果队列不为空，则将该节点添加到尾节点后
         }
-        else if (_rear != null)
-        {
+        else if (_rear != null) {
             _rear.next = node;
             _rear = node;
         }
@@ -161,8 +138,7 @@ public class LinkedListQueue
     }
 
     /* 出队 */
-    public int? Pop()
-    {
+    public int? Pop() {
         var num = Peek();
         // 删除头节点
         _front = _front?.next;
@@ -171,23 +147,20 @@ public class LinkedListQueue
     }
 
     /* 访问队首元素 */
-    public int? Peek()
-    {
+    public int? Peek() {
         if (IsEmpty())
             return null;
         return _front?.val;
     }
 
     /* 将链表转化为 Array 并返回 */
-    public int[] ToArray()
-    {
+    public int[] ToArray() {
         if (_front == null)
             return [];
 
         ListNode? node = _front;
         var res = new int[Size()];
-        for (var i = 0; i < res.Length; i++)
-        {
+        for (var i = 0; i < res.Length; i++) {
             res[i] = node!.val;
             node = node.next;
         }
@@ -197,41 +170,34 @@ public class LinkedListQueue
 }
 
 /* 基于环形数组实现的队列 */
-public class ArrayQueue
-{
+public class ArrayQueue {
     int[] _nums; // 用于存储队列元素的数组
     int _front; // 队首指针，指向队首元素
     int _queSize; // 队列长度
 
-    public ArrayQueue(int capacity)
-    {
+    public ArrayQueue(int capacity) {
         _nums = new int[capacity];
         _front = _queSize = 0;
     }
 
     /* 获取队列的容量 */
-    int Capacity()
-    {
+    int Capacity() {
         return _nums.Length;
     }
 
     /* 获取队列的长度 */
-    public int Size()
-    {
+    public int Size() {
         return _queSize;
     }
 
     /* 判断队列是否为空 */
-    public bool IsEmpty()
-    {
+    public bool IsEmpty() {
         return _queSize == 0;
     }
 
     /* 入队 */
-    public void Push(int num)
-    {
-        if (_queSize == Capacity())
-        {
+    public void Push(int num) {
+        if (_queSize == Capacity()) {
             Console.WriteLine("队列已满");
             return;
         }
@@ -245,8 +211,7 @@ public class ArrayQueue
     }
 
     /* 出队 */
-    public int Pop()
-    {
+    public int Pop() {
         var num = Peek();
         // 队首指针向后移动一位，若越过尾部，则返回到数组头部
         _front = ( _front + 1 ) % Capacity();
@@ -255,20 +220,17 @@ public class ArrayQueue
     }
 
     /* 访问队首元素 */
-    public int Peek()
-    {
+    public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return _nums[_front];
     }
 
     /* 返回数组 */
-    public int[] ToArray()
-    {
+    public int[] ToArray() {
         // 仅转换有效长度范围内的列表元素
         var res = new int[_queSize];
-        for (int i = 0, j = _front; i < _queSize; i++, j++)
-        {
+        for (int i = 0, j = _front; i < _queSize; i++, j++) {
             res[i] = _nums[j % this.Capacity()];
         }
 
@@ -277,53 +239,44 @@ public class ArrayQueue
 }
 
 /* 双向链表节点 */
-class BiListNode(int val)
-{
+class BiListNode(int val) {
     public int Val = val; // 节点值
     public BiListNode? Next = null; // 后继节点引用
     public BiListNode? Prev = null; // 前驱节点引用
 }
 
 /* 基于双向链表实现的双向队列 */
-public class BiLinkedListDeque
-{
+public class BiLinkedListDeque {
     BiListNode? _front, _rear; // 头节点 front, 尾节点 rear
     int _queSize = 0; // 双向队列的长度
 
-    public BiLinkedListDeque()
-    {
+    public BiLinkedListDeque() {
         _front = null;
         _rear = null;
     }
 
     /* 获取双向队列的长度 */
-    public int Size()
-    {
+    public int Size() {
         return _queSize;
     }
 
     /* 判断双向队列是否为空 */
-    public bool IsEmpty()
-    {
+    public bool IsEmpty() {
         return Size() == 0;
     }
 
     /* 入队操作 */
-    void Push(int num, bool isFront)
-    {
+    void Push(int num, bool isFront) {
         BiListNode node = new(num);
         // 若链表为空，则令 front 和 rear 都指向 node
-        if (IsEmpty())
-        {
+        if (IsEmpty()) {
             _front = node;
             _rear = node;
         }
         // 队首入队操作
-        else if (isFront)
-        {
+        else if (isFront) {
             // 将 node 添加至链表头部
-            if (_front != null)
-            {
+            if (_front != null) {
                 _front.Prev = node;
                 node.Next = _front;
             }
@@ -331,11 +284,9 @@ public class BiLinkedListDeque
             _front = node; // 更新头节点
         }
         // 队尾入队操作
-        else
-        {
+        else {
             // 将 node 添加至链表尾部
-            if (_rear != null)
-            {
+            if (_rear != null) {
                 _rear.Next = node;
                 node.Prev = _rear;
             }
@@ -347,31 +298,26 @@ public class BiLinkedListDeque
     }
 
     /* 队首入队 */
-    public void PushFirst(int num)
-    {
+    public void PushFirst(int num) {
         Push(num, true);
     }
 
     /* 队尾入队 */
-    public void PushLast(int num)
-    {
+    public void PushLast(int num) {
         Push(num, false);
     }
 
     /* 出队操作 */
-    int? Pop(bool isFront)
-    {
+    int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
         int? val;
         // 队首出队操作
-        if (isFront)
-        {
+        if (isFront) {
             val = _front?.Val; // 暂存头节点值
             // 删除头节点
             BiListNode? fNext = _front?.Next;
-            if (fNext != null)
-            {
+            if (fNext != null) {
                 fNext.Prev = null;
                 _front!.Next = null;
             }
@@ -379,13 +325,11 @@ public class BiLinkedListDeque
             _front = fNext; // 更新头节点
         }
         // 队尾出队操作
-        else
-        {
+        else {
             val = _rear?.Val; // 暂存尾节点值
             // 删除尾节点
             BiListNode? rPrev = _rear?.Prev;
-            if (rPrev != null)
-            {
+            if (rPrev != null) {
                 rPrev.Next = null;
                 _rear!.Prev = null;
             }
@@ -398,40 +342,34 @@ public class BiLinkedListDeque
     }
 
     /* 队首出队 */
-    public int? PopFirst()
-    {
+    public int? PopFirst() {
         return Pop(true);
     }
 
     /* 队尾出队 */
-    public int? PopLast()
-    {
+    public int? PopLast() {
         return Pop(false);
     }
 
     /* 访问队首元素 */
-    public int? PeekFirst()
-    {
+    public int? PeekFirst() {
         if (IsEmpty())
             throw new Exception();
         return _front?.Val;
     }
 
     /* 访问队尾元素 */
-    public int? PeekLast()
-    {
+    public int? PeekLast() {
         if (IsEmpty())
             throw new Exception();
         return _rear?.Val;
     }
 
     /* 返回数组用于打印 */
-    public int?[] ToArray()
-    {
+    public int?[] ToArray() {
         BiListNode? node = _front;
         var res = new int?[Size()];
-        for (var i = 0; i < res.Length; i++)
-        {
+        for (var i = 0; i < res.Length; i++) {
             res[i] = node?.Val;
             node = node?.Next;
         }
@@ -441,40 +379,34 @@ public class BiLinkedListDeque
 }
 
 /* 基于环形数组实现的双向队列 */
-public class ArrayDeque
-{
+public class ArrayDeque {
     int[] _nums; // 用于存储双向队列元素的数组
     int _front; // 队首指针，指向队首元素
     int _queSize; // 双向队列长度
 
     /* 构造方法 */
-    public ArrayDeque(int capacity)
-    {
+    public ArrayDeque(int capacity) {
         _nums = new int[capacity];
         _front = _queSize = 0;
     }
 
     /* 获取双向队列的容量 */
-    int Capacity()
-    {
+    int Capacity() {
         return _nums.Length;
     }
 
     /* 获取双向队列的长度 */
-    public int Size()
-    {
+    public int Size() {
         return _queSize;
     }
 
     /* 判断双向队列是否为空 */
-    public bool IsEmpty()
-    {
+    public bool IsEmpty() {
         return _queSize == 0;
     }
 
     /* 计算环形数组索引 */
-    int Index(int i)
-    {
+    int Index(int i) {
         // 通过取余操作实现数组首尾相连
         // 当 i 越过数组尾部后，回到头部
         // 当 i 越过数组头部后，回到尾部
@@ -482,10 +414,8 @@ public class ArrayDeque
     }
 
     /* 队首入队 */
-    public void PushFirst(int num)
-    {
-        if (_queSize == Capacity())
-        {
+    public void PushFirst(int num) {
+        if (_queSize == Capacity()) {
             Console.WriteLine("双向队列已满");
             return;
         }
@@ -499,10 +429,8 @@ public class ArrayDeque
     }
 
     /* 队尾入队 */
-    public void PushLast(int num)
-    {
-        if (_queSize == Capacity())
-        {
+    public void PushLast(int num) {
+        if (_queSize == Capacity()) {
             Console.WriteLine("双向队列已满");
             return;
         }
@@ -515,8 +443,7 @@ public class ArrayDeque
     }
 
     /* 队首出队 */
-    public int PopFirst()
-    {
+    public int PopFirst() {
         var num = PeekFirst();
         // 队首指针向后移动一位
         _front = Index(_front + 1);
@@ -525,18 +452,15 @@ public class ArrayDeque
     }
 
     /* 队尾出队 */
-    public int PopLast()
-    {
+    public int PopLast() {
         var num = PeekLast();
         _queSize--;
         return num;
     }
 
     /* 访问队首元素 */
-    public int PeekFirst()
-    {
-        if (IsEmpty())
-        {
+    public int PeekFirst() {
+        if (IsEmpty()) {
             throw new InvalidOperationException();
         }
 
@@ -544,10 +468,8 @@ public class ArrayDeque
     }
 
     /* 访问队尾元素 */
-    public int PeekLast()
-    {
-        if (IsEmpty())
-        {
+    public int PeekLast() {
+        if (IsEmpty()) {
             throw new InvalidOperationException();
         }
 
@@ -557,12 +479,10 @@ public class ArrayDeque
     }
 
     /* 返回数组用于打印 */
-    public int[] ToArray()
-    {
+    public int[] ToArray() {
         // 仅转换有效长度范围内的列表元素
         var res = new int[_queSize];
-        for (int i = 0, j = _front; i < _queSize; i++, j++)
-        {
+        for (int i = 0, j = _front; i < _queSize; i++, j++) {
             res[i] = _nums[Index(j)];
         }
 

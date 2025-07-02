@@ -17,8 +17,7 @@ namespace Todo.WebApi.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase
-{
+public class AuthController : ControllerBase {
     private readonly IConfiguration _configuration;
     private readonly ApplicationIdentityDbContext _context;
     private readonly ILogger<AuthController> _logger;
@@ -35,8 +34,7 @@ public class AuthController : ControllerBase
         UserManager<IdentityUser> userManager,
         IConfiguration config,
         ApplicationIdentityDbContext context,
-        ILogger<AuthController> logger)
-    {
+        ILogger<AuthController> logger) {
         _configuration = config;
         _context = context;
         _logger = logger;
@@ -51,25 +49,20 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     [HttpPost]
     [Route("register")]
-    public async Task<IActionResult> Register([FromBody] UserRegisterDetails? userData)
-    {
-        if (!ModelState.IsValid || userData == null)
-        {
+    public async Task<IActionResult> Register([FromBody] UserRegisterDetails? userData) {
+        if (!ModelState.IsValid || userData == null) {
             return new BadRequestObjectResult(new { Message = "User Registration Failed" });
         }
 
         var user = new IdentityUser() { UserName = userData.UserName, Email = userData.Email };
         var res = await _userManager.CreateAsync(user, userData.Password);
-        if (!res.Succeeded)
-        {
+        if (!res.Succeeded) {
             var dict = new ModelStateDictionary();
-            foreach (var err in res.Errors)
-            {
+            foreach (var err in res.Errors) {
                 dict.AddModelError(err.Code, err.Description);
             }
 
-            return new BadRequestObjectResult(new
-            {
+            return new BadRequestObjectResult(new {
                 Message = "User Registration Failed",
                 Erros =
                     dict
@@ -87,13 +80,11 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     [HttpPost]
     [Route("login")]
-    public async Task<IActionResult> Login([FromBody] UserLoginCredentials? userData)
-    {
+    public async Task<IActionResult> Login([FromBody] UserLoginCredentials? userData) {
         IdentityUser? identityUser;
         if (!ModelState.IsValid
             || userData == null
-            || ( identityUser = await ValidateUser(userData) ) == null)
-        {
+            || ( identityUser = await ValidateUser(userData) ) == null) {
             return new BadRequestObjectResult(new { Message = "Login failed" });
         }
 
@@ -102,8 +93,7 @@ public class AuthController : ControllerBase
         return Ok(new { Token = token, Message = "Success" });
     }
 
-    private async Task<IdentityUser?> ValidateUser(UserLoginCredentials? userData)
-    {
+    private async Task<IdentityUser?> ValidateUser(UserLoginCredentials? userData) {
         var identityUser = await _userManager.FindByNameAsync(userData?.UserName!);
         if (identityUser == null) return null;
 
@@ -116,16 +106,13 @@ public class AuthController : ControllerBase
         return result == PasswordVerificationResult.Failed ? null : identityUser;
     }
 
-    private string? GenerateToken(IdentityUser identityUser)
-    {
+    private string? GenerateToken(IdentityUser identityUser) {
         var jwtSettings = _configuration.GetSection("Jwt").Get<JwtSettings>()!;
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(jwtSettings.Key!);
 
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
+        var tokenDescriptor = new SecurityTokenDescriptor {
+            Subject = new ClaimsIdentity(new Claim[] {
                 new Claim(ClaimTypes.Name, identityUser.UserName!),
                 new Claim(ClaimTypes.Email, identityUser.Email!)
             }),

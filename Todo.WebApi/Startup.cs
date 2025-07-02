@@ -16,8 +16,7 @@ using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi;
 
-public class Startup
-{
+public class Startup {
     public IConfiguration Configuration { get; }
 
     public Startup(IConfiguration configuration) => Configuration = configuration;
@@ -26,8 +25,7 @@ public class Startup
     /// 注册容器中的服务（相当于原先的 builder.Services.xxx）
     /// </summary>
     /// <param name="services"></param>
-    public void ConfigureServices(IServiceCollection services)
-    {
+    public void ConfigureServices(IServiceCollection services) {
         services.AddDbContext<ApplicationIdentityDbContext>(opt =>
                                                                 opt.UseNpgsql(
                                                                     Configuration
@@ -42,15 +40,13 @@ public class Startup
         services.AddMapster();
 
         services
-            .AddIdentity<IdentityUser, IdentityRole>(options =>
-            {
+            .AddIdentity<IdentityUser, IdentityRole>(options => {
                 options.SignIn
                     .RequireConfirmedAccount = true;
             })
             .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
             .AddDefaultTokenProviders();
-        services.Configure<IdentityOptions>(options =>
-        {
+        services.Configure<IdentityOptions>(options => {
             options.Password.RequireDigit = true;
             options.Password.RequireLowercase = true;
             options.Password.RequireNonAlphanumeric = false;
@@ -61,18 +57,15 @@ public class Startup
 
         // pagination uri generate service
         services.AddHttpContextAccessor();
-        services.AddSingleton<IUriService>(provider =>
-        {
+        services.AddSingleton<IUriService>(provider => {
             var accessor = provider.GetRequiredService<IHttpContextAccessor>();
             var request = accessor.HttpContext?.Request;
             var uri = string.Concat(request?.Scheme, "://", request?.Host.ToUriComponent());
             return new UriService(uri);
         });
 
-        services.AddCors(options =>
-        {
-            options.AddDefaultPolicy(policyBuilder =>
-            {
+        services.AddCors(options => {
+            options.AddDefaultPolicy(policyBuilder => {
                 policyBuilder
                     .AllowAnyOrigin()
                     .AllowAnyHeader()
@@ -89,17 +82,14 @@ public class Startup
         var encryptedKey = Encoding.ASCII.GetBytes(jwtSettings.Key!);
 
         services
-            .AddAuthentication(options =>
-            {
+            .AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(options =>
-            {
+            .AddJwtBearer(options => {
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
+                options.TokenValidationParameters = new TokenValidationParameters {
                     ValidateIssuer = true,
                     ValidIssuer = jwtSettings.Issuer,
                     ValidateAudience = true,
@@ -119,33 +109,31 @@ public class Startup
     /// </summary>
     /// <param name="app"></param>
     /// <param name="env"></param>
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+        if (env.IsDevelopment()) {
             app.UseDeveloperExceptionPage();
         }
-        else
-        {
+        else {
             // 生产环境全局异常处理
-            app.UseExceptionHandler(exceptionHandlerApp =>
-            {
-                exceptionHandlerApp.Run(async context =>
-                {
-                    context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            app.UseExceptionHandler(exceptionHandlerApp => {
+                exceptionHandlerApp.Run(async context => {
+                    context.Response.StatusCode =
+                        StatusCodes.Status500InternalServerError;
                     context.Response.ContentType = Text.Plain;
-                    await context.Response.WriteAsync("An exception was thrown.");
+                    await context.Response.WriteAsync(
+                        "An exception was thrown.");
 
                     var exceptionHandlerPathFeature =
-                        context.Features.Get<IExceptionHandlerPathFeature>();
+                        context.Features
+                            .Get<IExceptionHandlerPathFeature>();
 
-                    if (exceptionHandlerPathFeature?.Error is FileNotFoundException)
-                    {
-                        await context.Response.WriteAsync(" The file was not found.");
+                    if (exceptionHandlerPathFeature?.Error is
+                        FileNotFoundException) {
+                        await context.Response.WriteAsync(
+                            " The file was not found.");
                     }
 
-                    if (exceptionHandlerPathFeature?.Path == "/")
-                    {
+                    if (exceptionHandlerPathFeature?.Path == "/") {
                         await context.Response.WriteAsync(" Page: Home.");
                     }
                 });
@@ -159,16 +147,13 @@ public class Startup
         app.UseAuthentication();
         app.UseRouting();
         app.UseAuthorization();
-        app.UseEndpoints(endpoints =>
-        {
+        app.UseEndpoints(endpoints => {
             endpoints.MapControllers();
             endpoints.MapGet(
                 "/", async context => { await context.Response.WriteAsync("Temp Index!"); });
-            if (env.IsDevelopment())
-            {
+            if (env.IsDevelopment()) {
                 endpoints.MapOpenApi();
-                endpoints.MapScalarApiReference("/apidocs", options =>
-                {
+                endpoints.MapScalarApiReference("/apidocs", options => {
                     options
                         .WithTitle("Todo.WebApi")
                         .WithModels(false);

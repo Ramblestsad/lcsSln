@@ -3,14 +3,12 @@ using Serilog;
 
 namespace Scratch.Utils;
 
-public static class ScratchUtils
-{
+public static class ScratchUtils {
     /// <summary>
     ///     Initialize Serilog from the appsettings.json file.
     ///     And write log to both the console and log file in directory logs.
     /// </summary>
-    public static void SerilogInit()
-    {
+    public static void SerilogInit() {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("./appsettings.json")

@@ -1,13 +1,10 @@
 namespace Todo.WebApi.Response;
 
-public class Response<T>
-{
-    protected Response()
-    {
+public class Response<T> {
+    protected Response() {
     }
 
-    public Response(T data)
-    {
+    public Response(T data) {
         Succeeded = true;
         StatusCode = StatusCodes.Status200OK;
         Message = string.Empty;
@@ -22,8 +19,7 @@ public class Response<T>
     public string? Message { get; set; }
 }
 
-public class PagedResponse<T> : Response<T>
-{
+public class PagedResponse<T> : Response<T> {
     public int PageNumber { get; set; }
     public int PageSize { get; set; }
     public Uri? FirstPage { get; set; }
@@ -33,8 +29,7 @@ public class PagedResponse<T> : Response<T>
     public Uri? NextPage { get; set; }
     public Uri? PreviousPage { get; set; }
 
-    public PagedResponse(T data, int pageNumber, int pageSize)
-    {
+    public PagedResponse(T data, int pageNumber, int pageSize) {
         PageNumber = pageNumber;
         PageSize = pageSize;
         Data = data;

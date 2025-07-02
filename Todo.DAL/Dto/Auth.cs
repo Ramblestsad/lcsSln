@@ -5,8 +5,7 @@ namespace Todo.DAL.Dto;
 /// <summary>
 /// User login credentials.
 /// </summary>
-public class UserLoginCredentials
-{
+public class UserLoginCredentials {
     /// <summary>
     /// User name.
     /// </summary>
@@ -29,8 +28,7 @@ public class UserLoginCredentials
 /// <summary>
 /// User login credentials.
 /// </summary>
-public class UserRegisterDetails
-{
+public class UserRegisterDetails {
     /// <summary>
     /// User name.
     /// </summary>

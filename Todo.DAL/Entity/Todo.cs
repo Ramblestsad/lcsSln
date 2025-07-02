@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Todo.DAL.Entity;
 
-public class TodoItem
-{
+public class TodoItem {
     [Key] public long Id { get; set; }
 
     [Required] [MaxLength(512)] public string Name { get; set; } = null!;

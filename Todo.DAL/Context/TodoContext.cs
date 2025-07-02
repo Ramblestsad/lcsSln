@@ -7,26 +7,22 @@ using Todo.DAL.Entity;
 
 namespace Todo.DAL.Context;
 
-public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser>
-{
+public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser> {
     public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)
-        : base(options)
-    {
+        : base(options) {
     }
 
     public virtual DbSet<TodoItem> TodoItems { get; set; } = null!;
 
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
+    protected override void OnModelCreating(ModelBuilder builder) {
         base.OnModelCreating(builder);
         builder.Entity<TodoItem>().ToTable("todoitems");
     }
 }
 
-public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationIdentityDbContext>
-{
-    public ApplicationIdentityDbContext CreateDbContext(string[] args)
-    {
+public class
+    DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationIdentityDbContext> {
+    public ApplicationIdentityDbContext CreateDbContext(string[] args) {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(
                 @Directory.GetCurrentDirectory() + "/../Todo.WebApi/appsettings.json")

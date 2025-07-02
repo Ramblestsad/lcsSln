@@ -1,10 +1,8 @@
 namespace Scratch.DataStructure;
 
-public class ArrayUtils
-{
+public class ArrayUtils {
     /* 随机访问元素 */
-    public static int RandomAccess(int[] nums)
-    {
+    public static int RandomAccess(int[] nums) {
         Random random = new();
         // 在区间 [0, nums.Length) 中随机抽取一个数字
         var randomIndex = random.Next(nums.Length);
@@ -14,11 +12,9 @@ public class ArrayUtils
     }
 
     /* 在数组的索引 index 处插入元素 num */
-    public static void Insert(int[] nums, int num, int index)
-    {
+    public static void Insert(int[] nums, int num, int index) {
         // 把索引 index 以及之后的所有元素向后移动一位
-        for (var i = nums.Length - 1; i > index; i--)
-        {
+        for (var i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
 
@@ -27,39 +23,32 @@ public class ArrayUtils
     }
 
     /* 删除索引 index 处的元素 */
-    public static void Remove(int[] nums, int index)
-    {
+    public static void Remove(int[] nums, int index) {
         // 把索引 index 之后的所有元素向前移动一位
-        for (var i = index; i < nums.Length - 1; i++)
-        {
+        for (var i = index; i < nums.Length - 1; i++) {
             nums[i] = nums[i + 1];
         }
     }
 
     /* 遍历数组 */
-    public static void Traverse(int[] nums)
-    {
+    public static void Traverse(int[] nums) {
         // ReSharper disable NotAccessedVariable
         var count = 0;
         // ReSharper restore NotAccessedVariable
         // 通过索引遍历数组
-        foreach (var t in nums)
-        {
+        foreach (var t in nums) {
             count += t;
         }
 
         // 直接遍历数组元素
-        foreach (var num in nums)
-        {
+        foreach (var num in nums) {
             count += num;
         }
     }
 
     /* 在数组中查找指定元素 */
-    public static int Find(int[] nums, int target)
-    {
-        for (var i = 0; i < nums.Length; i++)
-        {
+    public static int Find(int[] nums, int target) {
+        for (var i = 0; i < nums.Length; i++) {
             if (nums[i] == target)
                 return i;
         }
@@ -68,13 +57,11 @@ public class ArrayUtils
     }
 
     /* 扩展数组长度 */
-    public static int[] Extend(int[] nums, int enlarge)
-    {
+    public static int[] Extend(int[] nums, int enlarge) {
         // 初始化一个扩展长度后的数组
         var res = new int[nums.Length + enlarge];
         // 将原数组中的所有元素复制到新数组
-        for (var i = 0; i < nums.Length; i++)
-        {
+        for (var i = 0; i < nums.Length; i++) {
             res[i] = nums[i];
         }
 

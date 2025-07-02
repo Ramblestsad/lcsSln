@@ -42,6 +42,7 @@
 <div id="labuladong"><hr>
 
 *
+
 *通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
 ，如有需要可以看下，谢谢大家的支持~**
 

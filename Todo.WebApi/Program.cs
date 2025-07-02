@@ -2,10 +2,8 @@ using Serilog;
 
 namespace Todo.WebApi;
 
-internal class Program
-{
-    public static async Task Main(string[] args)
-    {
+internal class Program {
+    public static async Task Main(string[] args) {
         Log.Logger = new LoggerConfiguration()
             .CreateBootstrapLogger();
 
@@ -17,8 +15,7 @@ internal class Program
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-            .UseSerilog((context, services, configuration) =>
-            {
+            .UseSerilog((context, services, configuration) => {
                 configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services);
