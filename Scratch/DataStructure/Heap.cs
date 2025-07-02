@@ -52,6 +52,20 @@ public class MaxHeap {
         SiftUp(Size() - 1);
     }
 
+    int Pop() {
+        if (IsEmpty())
+            throw new IndexOutOfRangeException();
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
+        Swap(0, Size() - 1);
+        // 删除节点
+        var val = maxHeap.Last();
+        maxHeap.RemoveAt(Size() - 1);
+        // 从顶至底堆化
+        SiftDown(0);
+        // 返回堆顶元素
+        return val;
+    }
+
     void Swap(int i, int p) {
         ( maxHeap[i], maxHeap[p] ) = ( maxHeap[p], maxHeap[i] );
     }
