@@ -92,6 +92,11 @@ public class MaxHeap {
     /// </summary>
     /// <param name="i"></param>
     void SiftDown(int i) {
+        /*
+         * “从顶至底堆化”的操作方向与“从底至顶堆化”相反
+         * 我们将根节点的值与其两个子节点的值进行比较，将最大的子节点与根节点交换。
+         * 然后循环执行此操作，直到越过叶节点或遇到无须交换的节点时结束。
+         */
         while (true) {
             // 判断节点 i, l, r 中值最大的节点，记为 ma
             int l = Left(i), r = Right(i), ma = i;
