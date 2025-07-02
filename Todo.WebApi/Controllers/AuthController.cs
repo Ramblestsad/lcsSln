@@ -11,6 +11,7 @@ using Todo.DAL.Dto;
 using Todo.WebApi.Configuration;
 
 namespace Todo.WebApi.Controllers;
+
 /// <summary>
 /// Authentication controller
 /// </summary>

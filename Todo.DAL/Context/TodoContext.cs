@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Todo.DAL.Entity;
 
 namespace Todo.DAL.Context;
+
 public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser>
 {
     public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)

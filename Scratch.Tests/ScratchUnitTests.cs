@@ -1,4 +1,5 @@
 namespace Scratch.Tests;
+
 [Trait("Scratch", "Unit")]
 public class ScratchUnitTests : IDisposable
 {

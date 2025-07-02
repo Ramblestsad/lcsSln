@@ -1,6 +1,7 @@
 using Serilog;
 
 namespace Todo.WebApi;
+
 internal class Program
 {
     public static async Task Main(string[] args)

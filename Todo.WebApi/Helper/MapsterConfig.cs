@@ -1,6 +1,7 @@
 using Mapster;
 
 namespace Todo.WebApi.Helper;
+
 public static class MappingConfig
 {
     public static readonly TypeAdapterConfig Config;

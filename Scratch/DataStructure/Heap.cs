@@ -1,4 +1,5 @@
 namespace Scratch.DataStructure;
+
 public class MaxHeap
 {
     private int Left(int i)

@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace Todo.DAL.Dto;
+
 /// <summary>
 /// User login credentials.
 /// </summary>

@@ -3,6 +3,7 @@ using Avalonia.Controls.Templates;
 using Zelve.ViewModels;
 
 namespace Zelve;
+
 public class ViewLocator : IDataTemplate
 {
     public Control? Build(object? data)

@@ -1,4 +1,5 @@
 namespace Scratch.DataStructure;
+
 /// <summary>
 /// Binary tree node
 /// </summary>
