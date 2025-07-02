@@ -17,15 +17,15 @@ public class MaxHeap {
         }
     }
 
-    private int Left(int i) {
+    int Left(int i) {
         return 2 * i + 1;
     }
 
-    private int Right(int i) {
+    int Right(int i) {
         return 2 * i + 2;
     }
 
-    private int Parent(int i) {
+    int Parent(int i) {
         return ( i - 1 ) / 2; // 向下整除
     }
 
@@ -46,28 +46,14 @@ public class MaxHeap {
      * 由此可知，堆化操作的循环轮数最多为O(logn)，元素入堆操作的时间复杂度为O(logn)。
      */
 
-    void Push(int val) {
+    void Swap(int i, int p) {
+        ( maxHeap[i], maxHeap[p] ) = ( maxHeap[p], maxHeap[i] );
+    }
+
+    public void Push(int val) {
         maxHeap.Add(val);
         // 从底至顶堆化
         SiftUp(Size() - 1);
-    }
-
-    int Pop() {
-        if (IsEmpty())
-            throw new IndexOutOfRangeException();
-        // 交换根节点与最右叶节点（交换首元素与尾元素）
-        Swap(0, Size() - 1);
-        // 删除节点
-        var val = maxHeap.Last();
-        maxHeap.RemoveAt(Size() - 1);
-        // 从顶至底堆化
-        SiftDown(0);
-        // 返回堆顶元素
-        return val;
-    }
-
-    void Swap(int i, int p) {
-        ( maxHeap[i], maxHeap[p] ) = ( maxHeap[p], maxHeap[i] );
     }
 
     /// <summary>
@@ -85,6 +71,20 @@ public class MaxHeap {
             // 循环向上堆化
             i = p;
         }
+    }
+
+    public int Pop() {
+        if (IsEmpty())
+            throw new IndexOutOfRangeException();
+        // 交换根节点与最右叶节点（交换首元素与尾元素）
+        Swap(0, Size() - 1);
+        // 删除节点
+        var val = maxHeap.Last();
+        maxHeap.RemoveAt(Size() - 1);
+        // 从顶至底堆化
+        SiftDown(0);
+        // 返回堆顶元素
+        return val;
     }
 
     /// <summary>
