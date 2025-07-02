@@ -10,6 +10,8 @@ using Scalar.AspNetCore;
 using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
 using Todo.WebApi.Response.Pagination;
+using Mapster;
+using Todo.WebApi.Helper;
 
 namespace Todo.WebApi;
 public class Startup
@@ -34,7 +36,8 @@ public class Startup
                                                                 )
         );
 
-        services.AddAutoMapper(typeof(Startup));
+        services.AddSingleton(MappingConfig.Config);
+        services.AddMapster();
 
         services
             .AddIdentity<IdentityUser, IdentityRole>(options =>
