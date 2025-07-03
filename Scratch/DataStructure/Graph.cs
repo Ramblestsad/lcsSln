@@ -141,3 +141,63 @@ public class GraphAdjList {
         }
     }
 }
+
+public static class GraphTraverse {
+    public static List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
+        // 顶点遍历序列
+        List<Vertex> res = [];
+        // 哈希集合，用于记录已被访问过的顶点
+        HashSet<Vertex> visited = [startVet];
+        // 队列用于实现 BFS
+        Queue<Vertex> que = new();
+        que.Enqueue(startVet);
+        // 以顶点 vet 为起点，循环直至访问完所有顶点
+        while (que.Count > 0) {
+            Vertex vet = que.Dequeue(); // 队首顶点出队
+            res.Add(vet);               // 记录访问顶点
+            foreach (Vertex adjVet in graph.adjList[vet]) {
+                if (visited.Contains(adjVet)) {
+                    continue;          // 跳过已被访问的顶点
+                }
+                que.Enqueue(adjVet);   // 只入队未访问的顶点
+                visited.Add(adjVet);   // 标记该顶点已被访问
+            }
+        }
+
+        // 返回顶点遍历序列
+        return res;
+
+        /*
+         * 广度优先遍历的序列是否唯一？
+         * 不唯一。广度优先遍历只要求按“由近及远”的顺序遍历，而多个相同距离的顶点的遍历顺序允许被任意打乱。
+         */
+    }
+
+    public static List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
+        // 顶点遍历序列
+        List<Vertex> res = [];
+        // 哈希集合，用于记录已被访问过的顶点
+        HashSet<Vertex> visited = [];
+        GraphTraverse.DFS(graph, visited, res, startVet);
+        return res;
+
+        /*
+         * 深度优先遍历的序列是否唯一？
+         * 与广度优先遍历类似，深度优先遍历序列的顺序也不是唯一的。
+         * 给定某顶点，先往哪个方向探索都可以，即邻接顶点的顺序可以任意打乱，都是深度优先遍历。
+         */
+    }
+
+    static void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
+        res.Add(vet);     // 记录访问顶点
+        visited.Add(vet); // 标记该顶点已被访问
+        // 遍历该顶点的所有邻接顶点
+        foreach (Vertex adjVet in graph.adjList[vet]) {
+            if (visited.Contains(adjVet)) {
+                continue; // 跳过已被访问的顶点
+            }
+            // 递归访问邻接顶点
+            DFS(graph, visited, res, adjVet);
+        }
+    }
+}
