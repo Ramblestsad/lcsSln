@@ -133,4 +133,9 @@ public static class TopKHeap {
         }
         return heap;
     }
+    /*
+     * 总共执行了 n 轮入堆和出堆，堆的最大长度为 k，因此时间复杂度为 O(nlogk)。
+     * 该方法的效率很高，当k较小时，时间复杂度趋向O(n)；
+     * 当较大时，时间复杂度不会超过 O(nlogn)。
+     */
 }
