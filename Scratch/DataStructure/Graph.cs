@@ -1,3 +1,5 @@
+using Masuit.Tools;
+
 namespace Scratch.DataStructure;
 
 public class GraphAdjMatrix {
@@ -144,18 +146,25 @@ public class GraphAdjList {
 
 public static class GraphTraverse {
     public static List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
+        /*
+         * 1. 将遍历起始顶点 startVet 加入队列，并开启循环。
+         * 2. 在循环的每轮迭代中，弹出队首顶点并记录访问，然后将该顶点的所有邻接顶点加入到队列尾部。
+         * 3. 循环步骤 2. ，直到所有顶点被访问完毕后结束。
+         */
+
         // 顶点遍历序列
         List<Vertex> res = [];
         // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [startVet];
+        visited.Add(startVet);
         // 队列用于实现 BFS
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (que.Count > 0) {
-            Vertex vet = que.Dequeue(); // 队首顶点出队
-            res.Add(vet);               // 记录访问顶点
-            foreach (Vertex adjVet in graph.adjList[vet]) {
+            var vet = que.Dequeue(); // 队首顶点出队
+            res.Add(vet);              // 记录访问顶点
+            foreach (var adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
                     continue;          // 跳过已被访问的顶点
                 }
