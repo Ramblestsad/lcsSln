@@ -17,11 +17,11 @@ public class BinarySearchTree {
     public TreeNode? Root;
 
     public BinarySearchTree(TreeNode root) {
-        this.Root = root;
+        Root = root;
     }
 
     public TreeNode? Search(int num) {
-        TreeNode? cur = this.Root;
+        TreeNode? cur = Root;
         while (cur != null) {
             if (cur.Val < num)
                 cur = cur.Right;
