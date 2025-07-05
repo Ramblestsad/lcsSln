@@ -3,6 +3,7 @@ namespace Scratch.Algorithms;
 public static class Sort {
     public static void SelectionSort(int[] nums) {
         var n = nums.Length;
+        // 这里i < n-1 是因为，选择排序到最后一轮，n-1位置（即最后一个数组自动是最大的）
         for (var i = 0; i < n - 1; i++) {
             var minIndex = i;
             for (var j = i + 1; j < n; j++) {
