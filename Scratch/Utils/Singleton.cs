@@ -4,7 +4,7 @@ public class CustomSingleton {
     private static readonly Lazy<CustomSingleton> s_instance =
         new(() => new CustomSingleton(), true);
 
-    protected static object _locker = new();
+    private static Lock _locker = new();
 
     public static CustomSingleton Instance => s_instance.Value;
 
