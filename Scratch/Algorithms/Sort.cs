@@ -33,19 +33,116 @@ public static class Sort {
     }
 
     public static void InsertionSort(int[] nums) {
-        // 外循环：已排序区间为 [0, i-1]
-        for (var i = 1; i < nums.Length; i++) {
-            int bas = nums[i], j = i - 1;
-            // 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置
-            // 将base值即nums[i]与i之前的元素进行比较，大于base的全部右移
-            // 此时j指向第一个<=base的值
-            // 最后再替换j+1的值
-            while (j >= 0 && nums[j] > bas) {
-                nums[j + 1] = nums[j]; // 将 nums[j] 向右移动一位
+        var n = nums.Length;
+        // 维护 [0, sortedIndex) 是有序数组
+        var sortedIndex = 0;
+        while (sortedIndex < n) {
+            // 将 nums[sortedIndex] 插入到有序数组 [0, sortedIndex) 中
+            for (var i = sortedIndex; i > 0; i--) {
+                if (nums[i] < nums[i - 1]) {
+                    ( nums[i], nums[i - 1] ) = ( nums[i - 1], nums[i] );
+                }
+                else {
+                    break;
+                }
+            }
+
+            sortedIndex++;
+        }
+    }
+
+    public static void ShellSort(int[] nums) {
+        // 希尔排序，对 h 有序数组进行插入排序
+        // 逐渐缩小 h，最后 h=1 时，完成整个数组的排序
+        // 确保初始间隔不会太大，至少能将数组分成3个有意义的子序列
+        // 这是 Knuth 序列的经验性选择，在实践中表现良好
+        // 后续流程： 希尔排序会使用 h = 13 → 4 → 1 的顺序进行多轮插入排序，最终完成整个数组的排序
+
+        var n = nums.Length;
+        // 生成函数 (3^k - 1) / 2 即 h = 1, 4, 13, 40, 121, 364...
+        var h = 1;
+        while (h < n / 3) {
+            h = 3 * h + 1;
+        }
+
+        // 36 27 20 60 55 7 28 36 67 44 16
+        // 0  1  2  3  4  5 6  7  8  9  10
+        //             h
+        //             |sortedIndex......|
+        // i-h         |i................|
+        // n = 11 n / 3 = 3
+        // initial h = 4, 即分为以下四组进行组内排序
+        // 0 4 8
+        // 1 5 9
+        // 2 6 10
+        // 3 7
+
+        // 改动一，把插入排序的主要逻辑套在 h 的 while 循环中
+        while (h >= 1) {
+            // 改动二，bas 初始化为 h，而不是 1
+            var sortedIndex = h;
+            while (sortedIndex < n) {
+                // 改动三，把比较和交换元素的步长设置为 h，而不是相邻元素
+                // i>=h 就可以做到，下一个比较的数是组内的后一个数
+                // i 减去一个h，还至少有一个h，也就是组内下一个数
+                for (var i = sortedIndex; i >= h; i -= h) {
+                    if (nums[i] < nums[i - h]) {
+                        ( nums[i], nums[i - h] ) = ( nums[i - h], nums[i] );
+                    }
+                    else {
+                        break;
+                    }
+                }
+
+                sortedIndex++;
+            }
+
+            h /= 3;
+        }
+    }
+
+    static int Partition(int[] nums, int left, int right) {
+        var pivot = nums[left];
+        var i = left + 1;
+        var j = right;
+        while (i <= j) {
+            // 移动到第一个大于pivot的数
+            while (i <= j && nums[i] <= pivot) {
+                i++;
+            }
+
+            // 移动到第一个小于pivot的数
+            while (j >= i && nums[j] >= pivot) {
                 j--;
             }
 
-            nums[j + 1] = bas;
+            // 已经交错，说明本身有序
+            if (i >= j) {
+                break;
+            }
+
+            // 将第一个大于pivot的数和第一个小于pivot的数交换位置
+            // 交换之后进入下一轮迭代，持续交换直到边界点
+            ( nums[i], nums[j] ) = ( nums[j], nums[i] );
         }
+
+        // pivot与边界线交换
+        ( nums[left], nums[j] ) = ( nums[j], nums[left] );
+        return j;
+    }
+
+    public static void QuickSort(int[] nums, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+
+        // ****** 前序位置 ******
+        // 对 nums[left..right] 进行切分，将 nums[p] 排好序
+        // 使得 nums[left..p-1] <= nums[p] < nums[p+1..right]
+        var p = Partition(nums, left, right);
+
+        // 去左右子数组进行切分
+        QuickSort(nums, left, p - 1);
+        QuickSort(nums, p + 1, right);
     }
 }
