@@ -15,9 +15,7 @@ public class AlgorithmsTests: IDisposable {
         var expected = new int[] { 11, 12, 22, 25, 34, 64, 90 };
 
         // Act
-        var left = 0;
-        var right = input.Length - 1;
-        Sort.QuickSort(input, left, right);
+        Sort.QuickSort(input, 0, input.Length - 1);
 
         // Assert
         Assert.Equal(expected, input);
