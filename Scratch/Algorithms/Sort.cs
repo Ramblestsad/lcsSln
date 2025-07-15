@@ -155,12 +155,16 @@ public static class Sort {
             // 哨兵划分操作
             var pivot = Partition(nums, left, right);
             // 对两个子数组中较短的那个执行快速排序
+            // 递归调用会占用栈空间，处理较短的子数组可以更快地完成递归，释放栈空间
+            // 较长的子数组通过修改边界值在下次循环中处理，避免了额外的递归调用
             if (pivot - left < right - pivot) {
-                QuickSort(nums, left, pivot - 1);  // 递归排序左子数组
-                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
+                // 左子数组较短，递归处理它
+                QuickSort(nums, left, pivot - 1);
+                left = pivot + 1;  // 下次循环处理右子数组
             } else {
-                QuickSort(nums, pivot + 1, right); // 递归排序右子数组
-                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+                // 右子数组较短，递归处理它
+                QuickSort(nums, pivot + 1, right);
+                right = pivot - 1; // 下次循环处理左子数组
             }
         }
     }
