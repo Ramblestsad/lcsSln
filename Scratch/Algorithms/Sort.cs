@@ -41,8 +41,7 @@ public static class Sort {
             for (var i = sortedIndex; i > 0; i--) {
                 if (nums[i] < nums[i - 1]) {
                     ( nums[i], nums[i - 1] ) = ( nums[i - 1], nums[i] );
-                }
-                else {
+                } else {
                     break;
                 }
             }
@@ -88,8 +87,7 @@ public static class Sort {
                 for (var i = sortedIndex; i >= h; i -= h) {
                     if (nums[i] < nums[i - h]) {
                         ( nums[i], nums[i - h] ) = ( nums[i - h], nums[i] );
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -160,12 +158,18 @@ public static class Sort {
             if (pivot - left < right - pivot) {
                 // 左子数组较短，递归处理它
                 QuickSort(nums, left, pivot - 1);
-                left = pivot + 1;  // 下次循环处理右子数组
+                left = pivot + 1; // 下次循环处理右子数组
             } else {
                 // 右子数组较短，递归处理它
                 QuickSort(nums, pivot + 1, right);
                 right = pivot - 1; // 下次循环处理左子数组
             }
         }
+    }
+
+    public static void MergeSort(int[] nums, int left, int right) {
+    }
+
+    public static void Merge(int[] nums, int left, int mid, int right) {
     }
 }
