@@ -145,4 +145,23 @@ public static class Sort {
         QuickSort(nums, left, p - 1);
         QuickSort(nums, p + 1, right);
     }
+
+    /// <summary>
+    /// 递归深度优化
+    /// </summary>
+    public static void QuickSortRecursionOpt(int[] nums, int left, int right) {
+        // 子数组长度为 1 时终止
+        while (left < right) {
+            // 哨兵划分操作
+            var pivot = Partition(nums, left, right);
+            // 对两个子数组中较短的那个执行快速排序
+            if (pivot - left < right - pivot) {
+                QuickSort(nums, left, pivot - 1);  // 递归排序左子数组
+                left = pivot + 1;  // 剩余未排序区间为 [pivot + 1, right]
+            } else {
+                QuickSort(nums, pivot + 1, right); // 递归排序右子数组
+                right = pivot - 1; // 剩余未排序区间为 [left, pivot - 1]
+            }
+        }
+    }
 }
