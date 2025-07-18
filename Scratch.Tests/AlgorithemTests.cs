@@ -33,4 +33,30 @@ public class AlgorithmsTests: IDisposable {
         Sort.QuickSort(twoElemNums, 0 , 1);
         Assert.Equal(new int[] { 1, 2 }, twoElemNums);
     }
+
+    [Fact]
+    public void TestMergeSort() {
+        // Arrange
+        var input = new int[] { 64, 34, 25, 12, 22, 11, 90 };
+        var expected = new int[] { 11, 12, 22, 25, 34, 64, 90 };
+
+        // Act
+        Sort.MergeSort(input, 0, input.Length - 1);
+
+        // Assert
+        Assert.Equal(expected, input);
+
+        // 测试边界情况
+        var emptyNums = new int[] { };
+        Sort.MergeSort(emptyNums, 0, -1);
+        Assert.Equal(new int[] { }, emptyNums);
+
+        var oneElemNums = new int[] { 1 };
+        Sort.MergeSort(oneElemNums, 0, 0);
+        Assert.Equal(new int[] { 1 }, oneElemNums);
+
+        var twoElemNums = new int[] { 2, 1 };
+        Sort.MergeSort(twoElemNums, 0, 1);
+        Assert.Equal(new int[] { 1, 2 }, twoElemNums);
+    }
 }
