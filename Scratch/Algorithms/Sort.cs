@@ -186,20 +186,28 @@ public static class Sort {
         int i = left, j = mid + 1, k = 0;
         // 当左右子数组都还有元素时，进行比较并将较小的元素复制到临时数组中
         while (i <= mid && j <= right) {
-            if (nums[i] <= nums[j])
-                tmp[k++] = nums[i++];
-            else
-                tmp[k++] = nums[j++];
+            if (nums[i] <= nums[j]) {
+                tmp[k] = nums[i];
+                i++;
+            } else {
+                tmp[k] = nums[j];
+                j++;
+            }
+            k++;
         }
         // 将左子数组和右子数组的剩余元素复制到临时数组中
         while (i <= mid) {
-            tmp[k++] = nums[i++];
+            tmp[k] = nums[i];
+            i++;
+            k++;
         }
         while (j <= right) {
-            tmp[k++] = nums[j++];
+            tmp[k] = nums[j];
+            j++;
+            k++;
         }
         // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
-        for (k = 0; k < tmp.Length; ++k) {
+        for (k = 0; k < tmp.Length; k++) {
             nums[left + k] = tmp[k];
         }
     }
