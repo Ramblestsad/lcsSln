@@ -211,4 +211,41 @@ public static class Sort {
             nums[left + k] = tmp[k];
         }
     }
+
+    public static void HeapSort(int[] nums) {
+        // 建堆操作：堆化除叶节点以外的其他所有节点
+        // nums.Length / 2 - 1 是数组中最后一个非叶节点的索引
+        for (var i = nums.Length / 2 - 1; i >= 0; i--) {
+            SiftDown(nums, nums.Length, i);
+        }
+        // 从堆中提取最大元素，循环 n-1 轮
+        for (var i = nums.Length - 1; i > 0; i--) {
+            // 交换根节点与最右叶节点（交换首元素与尾元素）
+            (nums[i], nums[0]) = (nums[0], nums[i]);
+            // 以根节点为起点，从顶至底进行堆化
+            // 这里的 n 是当前堆的长度，逐渐缩小，因为交换后，最大元素已经在正确位置
+            SiftDown(nums, i, 0);
+        }
+    }
+
+    static void SiftDown(int[] nums, int n, int i) {
+        // 堆的长度为 n ，从节点 i 开始，从顶至底堆化
+        while (true) {
+            // 判断节点 i, l, r 中值最大的节点，记为 ma
+            var l = 2 * i + 1;
+            var r = 2 * i + 2;
+            var ma = i;
+            if (l < n && nums[l] > nums[ma])
+                ma = l;
+            if (r < n && nums[r] > nums[ma])
+                ma = r;
+            // 若节点 i 最大或索引 l, r 越界，则无须继续堆化，跳出
+            if (ma == i)
+                break;
+            // 交换两节点
+            (nums[ma], nums[i]) = (nums[i], nums[ma]);
+            // 循环向下堆化
+            i = ma;
+        }
+    }
 }
