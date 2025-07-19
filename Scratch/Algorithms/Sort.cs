@@ -214,7 +214,10 @@ public static class Sort {
 
     public static void HeapSort(int[] nums) {
         // 建堆操作：堆化除叶节点以外的其他所有节点
-        // nums.Length / 2 - 1 是数组中最后一个非叶节点的索引
+        // 节点 i 的父节点：(i - 1) / 2
+        // 最后一个元素索引：n - 1
+        // 最后一个元素的父节点索引：(n - 1 - 1) / 2 = (n - 2) / 2 = n / 2 - 1
+        // 所以 nums.Length / 2 - 1 是数组中最后一个非叶节点的索引
         for (var i = nums.Length / 2 - 1; i >= 0; i--) {
             SiftDown(nums, nums.Length, i);
         }
