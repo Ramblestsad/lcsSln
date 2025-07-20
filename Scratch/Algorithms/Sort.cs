@@ -251,4 +251,34 @@ public static class Sort {
             i = ma;
         }
     }
+
+    public static void BucketSort(float[] nums) {
+        // 初始化 k = n/2 个桶，预期向每个桶分配 2 个元素
+        if (nums.Length < 2) return; // 数组长度小于2时无需排序
+        var k = nums.Length / 2;
+        List<List<float>> buckets = [];
+        for (var i = 0; i < k; i++) {
+            buckets.Add([]);
+        }
+        // 1. 将数组元素分配到各个桶中
+        foreach (var num in nums) {
+            // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
+            var i = (int)(num * k);
+            // 将 num 添加进桶 i
+            buckets[i].Add(num);
+        }
+        // 2. 对各个桶执行排序
+        foreach (List<float> bucket in buckets) {
+            // 使用内置排序函数，也可以替换成其他排序算法
+            bucket.Sort();
+        }
+        // 3. 遍历桶合并结果
+        var j = 0;
+        foreach (List<float> bucket in buckets) {
+            foreach (var num in bucket) {
+                nums[j] = num;
+                j++;
+            }
+        }
+    }
 }
