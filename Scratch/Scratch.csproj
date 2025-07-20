@@ -11,11 +11,10 @@
     <!--    <PublishAot>true</PublishAot> -->
     <SelfContained>true</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
-    <!--  Debug info  -->
+    <!--    <PublishTrimmed>true</PublishTrimmed>-->
+
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <!--    <DebugType>embedded</DebugType>-->
-    <!--    <PublishTrimmed>true</PublishTrimmed>-->
   </PropertyGroup>
 
   <ItemGroup>
