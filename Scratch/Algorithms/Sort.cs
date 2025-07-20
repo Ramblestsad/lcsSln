@@ -335,4 +335,52 @@ public static class Sort {
             nums[i] = res[i];
         }
     }
+
+    static int Digit(int num, int exp) {
+        // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
+        return (num / exp) % 10;
+    }
+
+    static void CountingSortDigit(int[] nums, int exp) {
+        // 十进制的位范围为 0~9 ，相当于 m = 9 因此需要长度为 10 = m+1 的桶数组
+        var counter = new int[10];
+        var n = nums.Length;
+        // 统计 0~9 各数字的出现次数
+        for (var i = 0; i < n; i++) {
+            var d = Digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
+            counter[d]++;  // 统计数字 d 的出现次数
+        }
+        // 求前缀和，将“出现个数”转换为“数组索引”
+        for (var i = 1; i < 10; i++) {
+            counter[i] += counter[i - 1];
+        }
+        // 倒序遍历，根据桶内统计结果，将各元素填入 res
+        var res = new int[n];
+        for (var i = n - 1; i >= 0; i--) {
+            var d = Digit(nums[i], exp);
+            var j = counter[d] - 1; // 获取 d 在结果数组中的索引 j
+            res[j] = nums[i];          // 将当前元素填入索引 j
+            counter[d]--;              // 将 d 的数量减 1
+        }
+        // 使用结果覆盖原数组 nums
+        for (var i = 0; i < n; i++) {
+            nums[i] = res[i];
+        }
+    }
+
+    public static void RadixSort(int[] nums) {
+        // 获取数组的最大元素，用于判断最大位数
+        var m = int.MinValue;
+        foreach (var num in nums) {
+            if (num > m) m = num;
+        }
+        // 按照从低位到高位的顺序遍历
+        for (var exp = 1; exp <= m; exp *= 10) {
+            // 对数组元素的第 k 位执行计数排序
+            // k = 1 -> exp = 1
+            // k = 2 -> exp = 10
+            // 即 exp = 10^(k-1)
+            CountingSortDigit(nums, exp);
+        }
+    }
 }

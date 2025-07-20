@@ -171,4 +171,56 @@ public class AlgorithmsTests: IDisposable {
         Sort.CountingSort(withZeroNums);
         Assert.Equal(expectedWithZero, withZeroNums);
     }
+
+    [Fact]
+    public void TestRadixSort() {
+        // Arrange - 生成50000个随机的0-999999之间的整数
+        var random = new Random(42); // 固定种子确保测试可重复
+        var input = new int[50000];
+        for (var i = 0; i < input.Length; i++) {
+            input[i] = random.Next(0, 1000000); // 生成0-999999的随机数，测试多位数
+        }
+
+        // 创建期望结果（排序后的数组）
+        var expected = new int[input.Length];
+        Array.Copy(input, expected, input.Length);
+        Array.Sort(expected);
+
+        // Act
+        Sort.RadixSort(input);
+
+        // Assert
+        Assert.Equal(expected, input);
+
+        // 测试边界情况
+        var emptyNums = new int[] { };
+        Sort.RadixSort(emptyNums);
+        Assert.Equal(new int[] { }, emptyNums);
+
+        var oneElemNums = new int[] { 123 };
+        Sort.RadixSort(oneElemNums);
+        Assert.Equal(new int[] { 123 }, oneElemNums);
+
+        var twoElemNums = new int[] { 456, 123 };
+        Sort.RadixSort(twoElemNums);
+        Assert.Equal(new int[] { 123, 456 }, twoElemNums);
+
+        // 测试包含重复元素的情况
+        var duplicateNums = new int[] { 123, 456, 123, 789, 456 };
+        var expectedDuplicate = new int[] { 123, 123, 456, 456, 789 };
+        Sort.RadixSort(duplicateNums);
+        Assert.Equal(expectedDuplicate, duplicateNums);
+
+        // 测试包含0的情况
+        var withZeroNums = new int[] { 0, 305, 0, 102, 204 };
+        var expectedWithZero = new int[] { 0, 0, 102, 204, 305 };
+        Sort.RadixSort(withZeroNums);
+        Assert.Equal(expectedWithZero, withZeroNums);
+
+        // 测试不同位数的数字
+        var mixedDigitsNums = new int[] { 5, 25, 125, 1025, 10025 };
+        var expectedMixedDigits = new int[] { 5, 25, 125, 1025, 10025 };
+        Sort.RadixSort(mixedDigitsNums);
+        Assert.Equal(expectedMixedDigits, mixedDigitsNums);
+    }
 }
