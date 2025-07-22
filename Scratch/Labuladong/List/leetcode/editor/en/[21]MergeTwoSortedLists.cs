@@ -33,11 +33,11 @@ public partial class Solution {
         // If there are remaining nodes in either list, append them
         if (list1 != null) {
             current.next = list1;
-        } else if (list2 != null) {
+        }
+        if (list2 != null) {
             current.next = list2;
         }
 
-        // Return the merged list, which starts from the next of the dummy node
         return dummy.next;
     }
 }
