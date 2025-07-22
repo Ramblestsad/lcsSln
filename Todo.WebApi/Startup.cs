@@ -1,5 +1,5 @@
 using System.Text;
-using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
+using Mapster;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using Serilog;
-using Mapster;
 using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Response.Pagination;
+using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
 
 
 namespace Todo.WebApi;
@@ -112,8 +112,7 @@ public class Startup {
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
         if (env.IsDevelopment()) {
             app.UseDeveloperExceptionPage();
-        }
-        else {
+        } else {
             // 生产环境全局异常处理
             app.UseExceptionHandler(exceptionHandlerApp => {
                 exceptionHandlerApp.Run(async context => {
