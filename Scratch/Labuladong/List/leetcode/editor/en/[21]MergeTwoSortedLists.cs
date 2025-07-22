@@ -15,8 +15,8 @@ namespace Scratch.Labuladong.Algorithms;
 public partial class Solution {
     public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2) {
         // Create a dummy node to simplify the merge process
-        ListNode dummy = new ListNode(0);
-        ListNode current = dummy;
+        var dummy = new ListNode(0);
+        var current = dummy;
 
         // Traverse both lists and merge them
         while (list1 != null && list2 != null) {
