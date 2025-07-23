@@ -17,7 +17,7 @@ using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content
 namespace Todo.WebApi;
 
 public class Startup {
-    public IConfiguration Configuration { get; }
+    IConfiguration Configuration { get; }
 
     public Startup(IConfiguration configuration) => Configuration = configuration;
 

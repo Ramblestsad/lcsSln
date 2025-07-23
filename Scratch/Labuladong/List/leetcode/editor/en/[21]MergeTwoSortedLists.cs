@@ -14,31 +14,12 @@ namespace Scratch.Labuladong.Algorithms;
  */
 public partial class Solution {
     public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2) {
-        // Create a dummy node to simplify the merge process
-        var dummy = new ListNode(0);
+        // dummy is a placeholder node that points to the head of the merged list
+        // current points the current merging position
+        var dummy = new ListNode();
         var current = dummy;
 
-        // Traverse both lists and merge them
-        while (list1 != null && list2 != null) {
-            if (list1.val < list2.val) {
-                current.next = list1;
-                list1 = list1.next;
-            } else {
-                current.next = list2;
-                list2 = list2.next;
-            }
-            current = current.next;
-        }
-
-        // If there are remaining nodes in either list, append them
-        if (list1 != null) {
-            current.next = list1;
-        }
-        if (list2 != null) {
-            current.next = list2;
-        }
-
-        return dummy.next;
+        throw new NotImplementedException();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
