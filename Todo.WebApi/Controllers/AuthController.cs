@@ -17,7 +17,7 @@ namespace Todo.WebApi.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase {
+public class AuthController: ControllerBase {
     private readonly IConfiguration _configuration;
     private readonly ApplicationIdentityDbContext _context;
     private readonly ILogger<AuthController> _logger;
@@ -113,8 +113,7 @@ public class AuthController : ControllerBase {
 
         var tokenDescriptor = new SecurityTokenDescriptor {
             Subject = new ClaimsIdentity(new Claim[] {
-                new Claim(ClaimTypes.Name, identityUser.UserName!),
-                new Claim(ClaimTypes.Email, identityUser.Email!)
+                new Claim(ClaimTypes.Name, identityUser.UserName!), new Claim(ClaimTypes.Email, identityUser.Email!)
             }),
             Expires = DateTime.UtcNow.AddDays(15),
             SigningCredentials = new SigningCredentials(

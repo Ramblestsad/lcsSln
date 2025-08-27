@@ -3,10 +3,11 @@ using Masuit.Tools;
 namespace Scratch.DataStructure;
 
 public class GraphAdjMatrix {
-    // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
-    List<int> vertices;
     // 邻接矩阵，行列索引对应“顶点索引”
     List<List<int>> adjMatrix;
+
+    // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
+    List<int> vertices;
 
     public GraphAdjMatrix(int[] inVertices, int[][] edges) {
         vertices = [];
@@ -15,6 +16,7 @@ public class GraphAdjMatrix {
         foreach (var val in inVertices) {
             AddVertex(val);
         }
+
         // 添加边
         // 请注意，edges 元素代表顶点索引，即对应 vertices 元素索引
         foreach (var e in edges) {
@@ -30,11 +32,13 @@ public class GraphAdjMatrix {
         for (var i = 0; i < vertices.Count; i++) {
             newRow.Add(0);
         }
+
         // 在邻接矩阵中添加一列
         // 原先的矩阵所有行最后加一个0就代表新加了一列
         foreach (var row in adjMatrix) {
             row.Add(0);
         }
+
         // 最后再attach新行
         adjMatrix.Add(newRow);
     }
@@ -163,13 +167,14 @@ public static class GraphTraverse {
         // 以顶点 vet 为起点，循环直至访问完所有顶点
         while (que.Count > 0) {
             var vet = que.Dequeue(); // 队首顶点出队
-            res.Add(vet);              // 记录访问顶点
+            res.Add(vet); // 记录访问顶点
             foreach (var adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // 跳过已被访问的顶点
+                    continue; // 跳过已被访问的顶点
                 }
-                que.Enqueue(adjVet);   // 只入队未访问的顶点
-                visited.Add(adjVet);   // 标记该顶点已被访问
+
+                que.Enqueue(adjVet); // 只入队未访问的顶点
+                visited.Add(adjVet); // 标记该顶点已被访问
             }
         }
 
@@ -198,13 +203,14 @@ public static class GraphTraverse {
     }
 
     static void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
-        res.Add(vet);     // 记录访问顶点
+        res.Add(vet); // 记录访问顶点
         visited.Add(vet); // 标记该顶点已被访问
         // 遍历该顶点的所有邻接顶点
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
                 continue; // 跳过已被访问的顶点
             }
+
             // 递归访问邻接顶点
             DFS(graph, visited, res, adjVet);
         }

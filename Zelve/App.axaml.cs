@@ -6,7 +6,7 @@ using Zelve.Views;
 
 namespace Zelve;
 
-public partial class App : Application {
+public partial class App: Application {
     public override void Initialize() {
         AvaloniaXamlLoader.Load(this);
     }

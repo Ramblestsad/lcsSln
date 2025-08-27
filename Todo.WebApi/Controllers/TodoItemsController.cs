@@ -18,11 +18,11 @@ namespace Todo.WebApi.Controllers;
 [Route("api/[controller]", Name = "GetTodoItems")]
 [Produces("application/json")]
 [ApiController]
-public class TodoItemsController : ControllerBase {
+public class TodoItemsController: ControllerBase {
     private readonly ApplicationIdentityDbContext _db;
     private readonly ILogger<TodoItemsController> _logger;
-    private readonly IUriService _uriService;
     private readonly IMapper _mapper;
+    private readonly IUriService _uriService;
 
     /// <summary>
     /// Constructor

@@ -25,11 +25,9 @@ public static class Search {
             var m = i + ( j - i ) / 2;
             if (nums[m] < target) {
                 i = m + 1;
-            }
-            else if (nums[m] > target) {
+            } else if (nums[m] > target) {
                 j = m - 1;
-            }
-            else {
+            } else {
                 j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
             }
         }

@@ -1,8 +1,13 @@
 namespace Scratch.Tests;
 
 [Trait("Scratch", "Unit")]
-public class ScratchUnitTests : IDisposable {
+public class ScratchUnitTests: IDisposable {
     public ScratchUnitTests() {
+        throw new NotImplementedException();
+    }
+
+    public void Dispose() {
+        // Do some clean-up for every test
         throw new NotImplementedException();
     }
 
@@ -29,10 +34,5 @@ public class ScratchUnitTests : IDisposable {
 
     bool IsEven(int number) {
         return number % 2 == 0;
-    }
-
-    public void Dispose() {
-        // Do some clean-up for every test
-        throw new NotImplementedException();
     }
 }

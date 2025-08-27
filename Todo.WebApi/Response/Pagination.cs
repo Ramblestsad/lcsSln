@@ -7,7 +7,7 @@ public interface IUriService {
     public Uri GetPageUri(PaginationFilter filter, string route);
 }
 
-public class UriService : IUriService {
+public class UriService: IUriService {
     private readonly string _baseUri;
 
     public UriService(string baseUri) {

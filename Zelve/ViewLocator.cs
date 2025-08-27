@@ -4,7 +4,7 @@ using Zelve.ViewModels;
 
 namespace Zelve;
 
-public class ViewLocator : IDataTemplate {
+public class ViewLocator: IDataTemplate {
     public Control? Build(object? data) {
         if (data is null)
             return null;

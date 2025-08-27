@@ -30,7 +30,7 @@ public class AlgorithmsTests: IDisposable {
         Assert.Equal(new int[] { 1 }, oneElemNums);
 
         var twoElemNums = new int[] { 2, 1 };
-        Sort.QuickSort(twoElemNums, 0 , 1);
+        Sort.QuickSort(twoElemNums, 0, 1);
         Assert.Equal(new int[] { 1, 2 }, twoElemNums);
     }
 

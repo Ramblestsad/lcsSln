@@ -171,8 +171,8 @@ public static class Sort {
         // 终止条件：当子数组长度为 1 时终止递归
         if (left >= right) return;
         // 划分阶段
-        var mid = left + (right - left) / 2;   // 计算中点（防止overflow)
-        MergeSort(nums, left, mid);      // 递归左子数组
+        var mid = left + ( right - left ) / 2; // 计算中点（防止overflow)
+        MergeSort(nums, left, mid); // 递归左子数组
         MergeSort(nums, mid + 1, right); // 递归右子数组
         // 合并阶段
         Merge(nums, left, mid, right);
@@ -193,19 +193,23 @@ public static class Sort {
                 tmp[k] = nums[j];
                 j++;
             }
+
             k++;
         }
+
         // 将左子数组和右子数组的剩余元素复制到临时数组中
         while (i <= mid) {
             tmp[k] = nums[i];
             i++;
             k++;
         }
+
         while (j <= right) {
             tmp[k] = nums[j];
             j++;
             k++;
         }
+
         // 将临时数组 tmp 中的元素复制回原数组 nums 的对应区间
         for (k = 0; k < tmp.Length; k++) {
             nums[left + k] = tmp[k];
@@ -221,10 +225,11 @@ public static class Sort {
         for (var i = nums.Length / 2 - 1; i >= 0; i--) {
             SiftDown(nums, nums.Length, i);
         }
+
         // 从堆中提取最大元素，循环 n-1 轮
         for (var i = nums.Length - 1; i > 0; i--) {
             // 交换根节点与最右叶节点（交换首元素与尾元素）
-            (nums[i], nums[0]) = (nums[0], nums[i]);
+            ( nums[i], nums[0] ) = ( nums[0], nums[i] );
             // 以根节点为起点，从顶至底进行堆化
             // 这里的 n 是当前堆的长度，逐渐缩小，因为交换后，最大元素已经在正确位置
             SiftDown(nums, i, 0);
@@ -246,7 +251,7 @@ public static class Sort {
             if (ma == i)
                 break;
             // 交换两节点
-            (nums[ma], nums[i]) = (nums[i], nums[ma]);
+            ( nums[ma], nums[i] ) = ( nums[i], nums[ma] );
             // 循环向下堆化
             i = ma;
         }
@@ -260,18 +265,21 @@ public static class Sort {
         for (var i = 0; i < k; i++) {
             buckets.Add([]);
         }
+
         // 1. 将数组元素分配到各个桶中
         foreach (var num in nums) {
             // 输入数据范围为 [0, 1)，使用 num * k 映射到索引范围 [0, k-1]
-            var i = (int)(num * k);
+            var i = (int)( num * k );
             // 将 num 添加进桶 i
             buckets[i].Add(num);
         }
+
         // 2. 对各个桶执行排序
         foreach (List<float> bucket in buckets) {
             // 使用内置排序函数，也可以替换成其他排序算法
             bucket.Sort();
         }
+
         // 3. 遍历桶合并结果
         var j = 0;
         foreach (List<float> bucket in buckets) {
@@ -288,12 +296,14 @@ public static class Sort {
         foreach (var num in nums) {
             m = Math.Max(m, num);
         }
+
         // 2. 统计各数字的出现次数
         // counter[num] 代表 num 的出现次数
         var counter = new int[m + 1];
         foreach (var num in nums) {
             counter[num]++;
         }
+
         // 3. 遍历 counter ，将各元素填入原数组 nums
         var i = 0;
         for (var num = 0; num < m + 1; num++) {
@@ -310,17 +320,20 @@ public static class Sort {
         foreach (var num in nums) {
             m = Math.Max(m, num);
         }
+
         // 2. 统计各数字的出现次数
         // counter[num] 代表 num 的出现次数
         var counter = new int[m + 1];
         foreach (var num in nums) {
             counter[num]++;
         }
+
         // 3. 求 counter 的前缀和，将“出现次数”转换为“尾索引”
         // 即 counter[num]-1 是 num 在 res 中最后一次出现的索引
         for (var i = 0; i < m; i++) {
             counter[i + 1] += counter[i];
         }
+
         // 4. 倒序遍历 nums ，将各元素填入结果数组 res
         // 初始化数组 res 用于记录结果
         var n = nums.Length;
@@ -330,6 +343,7 @@ public static class Sort {
             res[counter[num] - 1] = num; // 将 num 放置到对应索引处
             counter[num]--; // 令前缀和自减 1 ，得到下次放置想通 num 的索引
         }
+
         // 使用结果数组 res 覆盖原数组 nums
         for (var i = 0; i < n; i++) {
             nums[i] = res[i];
@@ -338,7 +352,7 @@ public static class Sort {
 
     static int Digit(int num, int exp) {
         // 传入 exp 而非 k 可以避免在此重复执行昂贵的次方计算
-        return (num / exp) % 10;
+        return ( num / exp ) % 10;
     }
 
     static void CountingSortDigit(int[] nums, int exp) {
@@ -348,20 +362,23 @@ public static class Sort {
         // 统计 0~9 各数字的出现次数
         for (var i = 0; i < n; i++) {
             var d = Digit(nums[i], exp); // 获取 nums[i] 第 k 位，记为 d
-            counter[d]++;  // 统计数字 d 的出现次数
+            counter[d]++; // 统计数字 d 的出现次数
         }
+
         // 求前缀和，将“出现个数”转换为“数组索引”
         for (var i = 1; i < 10; i++) {
             counter[i] += counter[i - 1];
         }
+
         // 倒序遍历，根据桶内统计结果，将各元素填入 res
         var res = new int[n];
         for (var i = n - 1; i >= 0; i--) {
             var d = Digit(nums[i], exp);
             var j = counter[d] - 1; // 获取 d 在结果数组中的索引 j
-            res[j] = nums[i];          // 将当前元素填入索引 j
-            counter[d]--;              // 将 d 的数量减 1
+            res[j] = nums[i]; // 将当前元素填入索引 j
+            counter[d]--; // 将 d 的数量减 1
         }
+
         // 使用结果覆盖原数组 nums
         for (var i = 0; i < n; i++) {
             nums[i] = res[i];
@@ -374,6 +391,7 @@ public static class Sort {
         foreach (var num in nums) {
             if (num > m) m = num;
         }
+
         // 按照从低位到高位的顺序遍历
         for (var exp = 1; exp <= m; exp *= 10) {
             // 对数组元素的第 k 位执行计数排序

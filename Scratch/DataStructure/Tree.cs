@@ -5,9 +5,9 @@ namespace Scratch.DataStructure;
 /// </summary>
 /// <param name="x">node value</param>
 public class TreeNode(int? x) {
-    public int? Val = x;
     public TreeNode? Left;
     public TreeNode? Right;
+    public int? Val = x;
 }
 
 /// <summary>
@@ -89,8 +89,7 @@ public class BinarySearchTree {
                     pre.Left = child;
                 else
                     pre.Right = child;
-            }
-            else {
+            } else {
                 // if it's root, update the root
                 Root = child;
             }
@@ -117,10 +116,10 @@ public class BinarySearchTree {
 /// between the left and right subtrees of every node to at most one.
 /// </summary>
 public class AvlTreeNode(int x) {
-    public int val = x;
     private int _height;
     public AvlTreeNode? Left;
     public AvlTreeNode? Right;
+    public int val = x;
 
     public static int Height(AvlTreeNode? node) {
         // 空节点高度为 -1 ，叶节点高度为 0
@@ -192,8 +191,7 @@ public class AvlTree {
             if (AvlTreeNode.BalanceFactor(node?.Left) >= 0) {
                 // 右旋
                 return RightRotate(node);
-            }
-            else {
+            } else {
                 // 先左旋后右旋
                 node!.Left = LeftRotate(node.Left);
                 return RightRotate(node);
@@ -205,8 +203,7 @@ public class AvlTree {
             if (AvlTreeNode.BalanceFactor(node?.Right) <= 0) {
                 // 左旋
                 return LeftRotate(node);
-            }
-            else {
+            } else {
                 // 先右旋后左旋
                 node!.Right = RightRotate(node.Right);
                 return LeftRotate(node);
@@ -270,8 +267,7 @@ public class AvlTree {
                     return null;
                 // 子节点数量 = 1 ，直接删除 node
                 node = child;
-            }
-            else {
+            } else {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点(右子树的最小节点)删除，并用该节点替换当前节点
                 AvlTreeNode? temp = node.Right;
                 while (temp.Left != null) {

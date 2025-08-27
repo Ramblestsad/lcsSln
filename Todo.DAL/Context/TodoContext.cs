@@ -7,7 +7,7 @@ using Todo.DAL.Entity;
 
 namespace Todo.DAL.Context;
 
-public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser> {
+public class ApplicationIdentityDbContext: IdentityDbContext<IdentityUser> {
     public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)
         : base(options) {
     }
@@ -20,7 +20,7 @@ public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser> {
     }
 }
 
-public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationIdentityDbContext> {
+public class DesignTimeDbContextFactory: IDesignTimeDbContextFactory<ApplicationIdentityDbContext> {
     public ApplicationIdentityDbContext CreateDbContext(string[] args) {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(

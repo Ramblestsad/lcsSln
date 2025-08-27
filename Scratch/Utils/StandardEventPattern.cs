@@ -10,7 +10,7 @@ public class StandardEvent {
     }
 
     // convey info.
-    public class PriceChangedEventArgs : EventArgs {
+    public class PriceChangedEventArgs: EventArgs {
         public readonly decimal LastPrice;
         public readonly decimal NewPrice;
 
@@ -27,13 +27,6 @@ public class StandardEvent {
 
         public Stock(string symbol) => this._symbol = symbol;
 
-        // broadcaster
-        public event EventHandler<PriceChangedEventArgs>? PriceChanged;
-
-        protected virtual void OnPriceChanged(PriceChangedEventArgs e) {
-            PriceChanged?.Invoke(this, e);
-        }
-
         public decimal Price {
             get => _price;
             set {
@@ -42,6 +35,13 @@ public class StandardEvent {
                 _price = value;
                 OnPriceChanged(new PriceChangedEventArgs(oldPrice, _price));
             }
+        }
+
+        // broadcaster
+        public event EventHandler<PriceChangedEventArgs>? PriceChanged;
+
+        protected virtual void OnPriceChanged(PriceChangedEventArgs e) {
+            PriceChanged?.Invoke(this, e);
         }
     }
 }

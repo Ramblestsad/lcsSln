@@ -128,8 +128,7 @@ public class LinkedListQueue {
             _front = node;
             _rear = node;
             // 如果队列不为空，则将该节点添加到尾节点后
-        }
-        else if (_rear != null) {
+        } else if (_rear != null) {
             _rear.next = node;
             _rear = node;
         }
@@ -171,8 +170,8 @@ public class LinkedListQueue {
 
 /* 基于环形数组实现的队列 */
 public class ArrayQueue {
-    int[] _nums; // 用于存储队列元素的数组
     int _front; // 队首指针，指向队首元素
+    int[] _nums; // 用于存储队列元素的数组
     int _queSize; // 队列长度
 
     public ArrayQueue(int capacity) {
@@ -240,9 +239,9 @@ public class ArrayQueue {
 
 /* 双向链表节点 */
 class BiListNode(int val) {
-    public int Val = val; // 节点值
     public BiListNode? Next = null; // 后继节点引用
     public BiListNode? Prev = null; // 前驱节点引用
+    public int Val = val; // 节点值
 }
 
 /* 基于双向链表实现的双向队列 */
@@ -380,8 +379,8 @@ public class BiLinkedListDeque {
 
 /* 基于环形数组实现的双向队列 */
 public class ArrayDeque {
-    int[] _nums; // 用于存储双向队列元素的数组
     int _front; // 队首指针，指向队首元素
+    int[] _nums; // 用于存储双向队列元素的数组
     int _queSize; // 双向队列长度
 
     /* 构造方法 */

@@ -87,11 +87,11 @@ public class ArrayHashMap {
 
 /* 链式地址哈希表 */
 public class HashMapChaining {
-    int _size; // 键值对数量
-    int _capacity; // 哈希表容量
-    double _loadThres; // 触发扩容的负载因子阈值
-    int _extendRatio; // 扩容倍数
     List<List<Pair>> _buckets; // 桶数组
+    int _capacity; // 哈希表容量
+    int _extendRatio; // 扩容倍数
+    double _loadThres; // 触发扩容的负载因子阈值
+    int _size; // 键值对数量
 
     /* 构造方法 */
     public HashMapChaining() {
@@ -200,11 +200,11 @@ public class HashMapChaining {
 
 /* 开放寻址哈希表 */
 public class HashMapOpenAddressing {
-    int _size; // 键值对数量
-    int _capacity = 4; // 哈希表容量
-    double _loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
-    int _extendRatio = 2; // 扩容倍数
     Pair[] _buckets; // 桶数组
+    int _capacity = 4; // 哈希表容量
+    int _extendRatio = 2; // 扩容倍数
+    double _loadThres = 2.0 / 3.0; // 触发扩容的负载因子阈值
+    int _size; // 键值对数量
     Pair _tombstone = new(-1, "-1"); // 删除标记
 
     /* 构造方法 */
@@ -319,11 +319,9 @@ public class HashMapOpenAddressing {
         foreach (Pair pair in _buckets) {
             if (pair == null) {
                 Console.WriteLine("null");
-            }
-            else if (pair == _tombstone) {
+            } else if (pair == _tombstone) {
                 Console.WriteLine("TOMBSTONE");
-            }
-            else {
+            } else {
                 Console.WriteLine(pair.Key + " -> " + pair.Val);
             }
         }
