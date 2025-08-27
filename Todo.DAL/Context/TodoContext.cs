@@ -20,8 +20,7 @@ public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser> {
     }
 }
 
-public class
-    DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationIdentityDbContext> {
+public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationIdentityDbContext> {
     public ApplicationIdentityDbContext CreateDbContext(string[] args) {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(

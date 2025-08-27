@@ -16,6 +16,7 @@ trim_trailing_whitespace = true
 
 # C# files
 [*.cs]
+max_line_length = 120
 # New line preferences
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
