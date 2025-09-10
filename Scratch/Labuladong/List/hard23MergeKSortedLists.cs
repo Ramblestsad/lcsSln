@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=23 lang=csharp
+ * @lcpr version=30203
+ *
+ * [23] Merge k Sorted Lists
+ */
+
 namespace Scratch.Labuladong.Algorithms;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -17,4 +24,18 @@ public partial class Solution {
         throw new NotImplementedException();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+@lcpr case=start
+[[1,4,5],[1,3,4],[2,6]]\n
+@lcpr case=end
+
+@lcpr case=start
+[]\n
+@lcpr case=end
+
+@lcpr case=start
+[[]]\n
+@lcpr case=end
+ */
