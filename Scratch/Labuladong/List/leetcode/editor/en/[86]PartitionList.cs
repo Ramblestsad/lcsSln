@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=86 lang=csharp
- * @lcpr version=30203
- *
- * [86] Partition List
- */
-
 namespace Scratch.Labuladong.Algorithms;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -45,14 +38,4 @@ public partial class Solution {
         return less.next;
     }
 }
-// @lc code=end
-
-/*
-@lcpr case=start
-[1,4,3,2,5,2]\n3\n
-@lcpr case=end
-
-@lcpr case=start
-[2,1]\n2\n
-@lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)
