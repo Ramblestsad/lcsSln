@@ -112,9 +112,10 @@ public class AuthController: ControllerBase {
         var key = Encoding.ASCII.GetBytes(jwtSettings.Key!);
 
         var tokenDescriptor = new SecurityTokenDescriptor {
-            Subject = new ClaimsIdentity(new Claim[] {
-                new Claim(ClaimTypes.Name, identityUser.UserName!), new Claim(ClaimTypes.Email, identityUser.Email!)
-            }),
+            Subject = new ClaimsIdentity([
+                new Claim(ClaimTypes.Name, identityUser.UserName!),
+                new Claim(ClaimTypes.Email, identityUser.Email!)
+            ]),
             Expires = DateTime.UtcNow.AddDays(15),
             SigningCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature
