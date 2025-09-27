@@ -24,9 +24,7 @@ public partial class Solution {
         var pq = new PriorityQueue<ListNode, int>();
         // push heads of k lists to pa
         foreach (var node in lists) {
-            if (node is not null) {
-                pq.Enqueue(node, node.val);
-            }
+            if (node is not null) pq.Enqueue(node, node.val);
         }
 
         while (pq.Count > 0) {
