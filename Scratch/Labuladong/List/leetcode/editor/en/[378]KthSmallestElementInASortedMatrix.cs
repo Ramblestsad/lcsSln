@@ -18,6 +18,7 @@ public class Solution {
 
             k--;
 
+            // 判断行内索引走到头没有
             if (j + 1 < matrix[i].Length) {
                 pq.Enqueue((i, j + 1), matrix[i][j + 1]);
             }
