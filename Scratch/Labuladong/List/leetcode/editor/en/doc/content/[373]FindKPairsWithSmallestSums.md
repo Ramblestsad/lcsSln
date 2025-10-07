@@ -47,7 +47,7 @@
 
 ## 基本思路
 
-这道题其实是前文 [单链表的六大解题套路](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲过的 [✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的变体。
+这道题其实是前文 [单链表的六大解题套路](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲过的 [✔ ✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的变体。
 
 怎么把这道题变成合并多个有序链表呢？就比如说题目输入的用例：
 
@@ -63,7 +63,7 @@ nums1 = [1,7,11], nums2 = [2,4,6]
 [11, 2] -> [11, 4] -> [11, 6]
 ```
 
-这三个链表中每个元素（数对之和）是递增的，所以就可以按照 [✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的思路来合并，取出前 `k` 个作为答案即可。
+这三个链表中每个元素（数对之和）是递增的，所以就可以按照 [✔ ✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的思路来合并，取出前 `k` 个作为答案即可。
 
 **详细题解**：
   - [【练习】优先级队列经典习题](https://labuladong.online/algo/problem-set/binary-heap/)
@@ -316,4 +316,6 @@ var kSmallestPairs = function(nums1, nums2, k) {
 </div>
 </details>
 </div>
+
+
 
