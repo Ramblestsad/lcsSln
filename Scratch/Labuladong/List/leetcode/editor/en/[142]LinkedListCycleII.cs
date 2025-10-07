@@ -42,18 +42,5 @@ public class Solution {
 
         return slow;
     }
-
-    private bool HasCycle(ListNode head) {
-        ListNode? slow = head, fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow?.next;
-            fast = fast.next.next;
-            // 快慢指针相遇，说明含有环
-            if (slow == fast) return true;
-        }
-
-        return false;
-    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
