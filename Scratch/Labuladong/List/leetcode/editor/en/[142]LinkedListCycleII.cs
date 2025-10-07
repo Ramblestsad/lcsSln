@@ -1,4 +1,4 @@
-namespace Scratch.Labuladong.Algorithms;
+namespace Scratch.Labuladong.Algorithms.DetectCycle;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -12,7 +12,7 @@ namespace Scratch.Labuladong.Algorithms;
  *     }
  * }
  */
-public partial class Solution {
+public class Solution {
     public ListNode? DetectCycle(ListNode head) {
         var slow = head;
         var fast = head;

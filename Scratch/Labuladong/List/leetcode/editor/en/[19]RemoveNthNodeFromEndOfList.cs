@@ -1,4 +1,4 @@
-namespace Scratch.Labuladong.Algorithms;
+namespace Scratch.Labuladong.Algorithms.RemoveNthFromEnd;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -12,7 +12,7 @@ namespace Scratch.Labuladong.Algorithms;
  *     }
  * }
  */
-public partial class Solution {
+public class Solution {
     public ListNode? RemoveNthFromEnd(ListNode head, int n) {
         var dummy = new ListNode();
         dummy.next = head;

@@ -1,4 +1,4 @@
-namespace Scratch.Labuladong.Algorithms;
+namespace Scratch.Labuladong.Algorithms.GetIntersectionNode;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -9,7 +9,7 @@ namespace Scratch.Labuladong.Algorithms;
  *     public ListNode(int x) { val = x; }
  * }
  */
-public partial class Solution {
+public class Solution {
     public ListNode? GetIntersectionNode(ListNode headA, ListNode headB) {
         int lenA = 0, lenB = 0;
         // 首先计算两条链表长度

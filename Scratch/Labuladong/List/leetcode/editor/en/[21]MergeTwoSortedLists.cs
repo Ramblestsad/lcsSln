@@ -1,4 +1,4 @@
-namespace Scratch.Labuladong.Algorithms;
+namespace Scratch.Labuladong.Algorithms.MergeTwoLists;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /**
@@ -12,7 +12,7 @@ namespace Scratch.Labuladong.Algorithms;
  *     }
  * }
  */
-public partial class Solution {
+public class Solution {
     public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2) {
         // dummy: a placeholder node that points to the head of the merged list
         var dummy = new ListNode();
