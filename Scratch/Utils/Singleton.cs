@@ -11,11 +11,11 @@ public class CustomSingleton {
     private CustomSingleton() {
     }
 
-    public Task ThreadSafeTask() {
+    public ValueTask ThreadSafeTask() {
         lock (_locker) {
             // do something thread safe
 
-            return Task.CompletedTask;
+            return ValueTask.CompletedTask;
         }
     }
 }
