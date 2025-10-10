@@ -18,6 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNext" Version="5.25.1" />
+    <PackageReference Include="DotNext.Threading" Version="5.25.2" />
     <PackageReference Include="Masuit.Tools.Core" Version="2025.5.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="9.0.9" />
