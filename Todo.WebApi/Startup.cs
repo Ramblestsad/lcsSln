@@ -156,7 +156,7 @@ public class Startup {
                 endpoints.MapScalarApiReference("/apidocs", options => {
                     options
                         .WithTitle("Todo.WebApi")
-                        .WithModels(false);
+                        .HideModels();
                 });
             }
         });
