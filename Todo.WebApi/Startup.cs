@@ -26,16 +26,11 @@ public class Startup {
     /// </summary>
     /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services) {
-        services.AddDbContext<ApplicationIdentityDbContext>(opt => {
-                opt.UseNpgsql(
-                    Configuration
-                        .GetConnectionString(
-                            "postgres")
-                    ?? throw new Exception(
-                        "No db connection found in appsettings.json.")
-                );
-            }
-        );
+        services.AddDbContext<ApplicationIdentityDbContext>(options => {
+            options.UseNpgsql(
+                Configuration.GetConnectionString("postgres") ??
+                throw new Exception("No connection string!"));
+        });
 
         services.AddSingleton(MappingConfig.Config);
         services.AddMapster();
