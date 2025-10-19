@@ -50,8 +50,8 @@ public class Solution {
         return last;
     }
 
-    public ListNode? ReverseN(ListNode? head, int n) {
-        if (head == null || head.next == null) {
+    public ListNode? ReverseN(ListNode head, int n) {
+        if (head.next == null) {
             return head;
         }
 

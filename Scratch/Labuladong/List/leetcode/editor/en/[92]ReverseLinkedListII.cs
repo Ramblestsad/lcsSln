@@ -25,13 +25,13 @@ public class Solution {
             pre = pre!.next;
         }
         // 从第left个节点开始反转 n (right - left) 个节点
-        pre!.next = ReverseN(pre.next, right - left + 1);
+        pre!.next = ReverseN(pre.next!, right - left + 1);
 
         return head;
     }
 
-    static ListNode? ReverseN(ListNode? head, int n) {
-        if (head == null || head.next == null) {
+    static ListNode? ReverseN(ListNode head, int n) {
+        if (head.next == null) {
             return head;
         }
 
