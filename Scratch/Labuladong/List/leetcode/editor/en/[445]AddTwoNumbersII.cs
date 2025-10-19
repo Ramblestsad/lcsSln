@@ -19,6 +19,7 @@ public class Solution {
             stk1.Push(l1.val);
             l1 = l1.next;
         }
+
         var stk2 = new Stack<int>();
         while (l2 != null) {
             stk2.Push(l2.val);
@@ -28,7 +29,7 @@ public class Solution {
         var dummy = new ListNode();
         var carry = 0;
 
-        while (stk1.Count>0 || stk2.Count>0 || carry > 0) {
+        while (stk1.Count > 0 || stk2.Count > 0 || carry > 0) {
             var val = carry;
             if (stk1.Count > 0) val += stk1.Pop();
             if (stk2.Count > 0) val += stk2.Pop();
