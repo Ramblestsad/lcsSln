@@ -49,5 +49,29 @@ public partial class Solution {
 
         return last;
     }
+
+    public ListNode? ReverseN(ListNode? head, int n) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode? pre = null;
+        var cur = head;
+        var next = head.next;
+
+        while (n>0) {
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+            if (next.next != null) next = next.next;
+
+            n--;
+        }
+
+        // 此时的 cur 是第 n + 1 个节点，head 是反转后的尾结点，所以接上
+        head.next = cur;
+
+        return pre;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
