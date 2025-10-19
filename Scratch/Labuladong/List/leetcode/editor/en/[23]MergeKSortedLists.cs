@@ -13,7 +13,7 @@ namespace Scratch.Labuladong.Algorithms.MergeKLists;
  * }
  */
 public class Solution {
-    public ListNode? MergeKLists(ListNode?[] lists) {
+    public ListNode? MergeKLists(ListNode[] lists) {
         if (lists.Length == 0) {
             return null!;
         }
@@ -24,7 +24,7 @@ public class Solution {
         var pq = new PriorityQueue<ListNode, int>();
         // push heads of k lists to pa
         foreach (var node in lists) {
-            if (node is not null) pq.Enqueue(node, node.val);
+            pq.Enqueue(node, node.val);
         }
 
         while (pq.Count > 0) {
