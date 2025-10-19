@@ -20,7 +20,9 @@ public class Solution {
         // find N+1 th from end
         var x = FindFromEnd(dummy, n + 1);
         // why pass in dummy not dummy.next or head?
+        // [1,3,2,5,4] n=5
         // Because this fix the corner case n = k(number of list nodes, which is 1st node)
+        // 这种情况，x 就是 dummy
 
         // points to grandson
         x.next = x.next?.next;
