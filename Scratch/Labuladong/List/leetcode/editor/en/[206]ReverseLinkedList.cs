@@ -12,7 +12,7 @@ namespace Scratch.Labuladong.Algorithms.ReverseLinkedList;
  *     }
  * }
  */
-public partial class Solution {
+public class Solution {
     public ListNode? ReverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -76,11 +76,7 @@ public partial class Solution {
 
     private ListNode? _successor = null;
 
-    public ListNode? ReverseNRecursive(ListNode? head, int n) {
-        if (head == null) {
-            // n > length of list
-            return head;
-        }
+    public ListNode? ReverseNRecursive(ListNode head, int n) {
         if (n == 1 || head.next == null) {
             // 记录第 n + 1 个节点
             _successor = head.next;
