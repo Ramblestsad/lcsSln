@@ -45,7 +45,7 @@ public partial class Solution {
         var last = ReverseListRecursive(head.next); // last 始终就是原list的last node
         // head.next 一定不为null 且就是 正在反转的node
         head.next.next = head; // node下一个就是 (head.next).next
-        head.next = null;      // 现在head就是相对的新tail，置为null
+        head.next = null; // 现在head就是相对的新tail，置为null
 
         return last;
     }
@@ -59,7 +59,7 @@ public partial class Solution {
         var cur = head;
         var next = head.next;
 
-        while (n>0) {
+        while (n > 0) {
             cur.next = pre;
             pre = cur;
             cur = next;
@@ -72,6 +72,28 @@ public partial class Solution {
         head.next = cur;
 
         return pre;
+    }
+
+    private ListNode? _successor = null;
+
+    public ListNode? ReverseNRecursive(ListNode? head, int n) {
+        if (head == null) {
+            // n > length of list
+            return head;
+        }
+        if (n == 1 || head.next == null) {
+            // 记录第 n + 1 个节点
+            _successor = head.next;
+            return head;
+        }
+
+        // 以 head.next 为起点，需要反转前 n - 1 个节点
+        var last = ReverseNRecursive(head.next, n - 1);
+
+        head.next.next = head; // 这一步会覆盖之前的head.next = _successor
+        // 让反转之后的 head 节点和后面的节点连起来
+        head.next = _successor;
+        return last;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
