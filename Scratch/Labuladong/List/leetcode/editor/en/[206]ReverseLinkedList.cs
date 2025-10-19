@@ -36,5 +36,18 @@ public partial class Solution {
 
         return pre;
     }
+
+    public ListNode? ReverseListRecursive(ListNode? head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        var last = ReverseListRecursive(head.next);
+        // head.next 一定不为null 且就是 正在反转的node
+        head.next.next = head; // node下一个就是 (head.next).next
+        head.next = null;      // 现在head就是相对的新tail，置为null
+
+        return last;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
