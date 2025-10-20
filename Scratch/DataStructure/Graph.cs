@@ -1,5 +1,3 @@
-using Masuit.Tools;
-
 namespace Scratch.DataStructure;
 
 public class GraphAdjMatrix {
