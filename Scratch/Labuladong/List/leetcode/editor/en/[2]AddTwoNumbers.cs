@@ -32,9 +32,7 @@ public class Solution {
             }
 
             carry = val / 10;
-            val = val % 10;
-            // 构建新节点
-            p.next = new ListNode(val);
+            p.next = new ListNode(val % 10);
             p = p.next;
         }
 
