@@ -12,9 +12,12 @@ namespace Scratch.Labuladong.Algorithms.ReverseLinkedList;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? ReverseList(ListNode head) {
-        if (head == null || head.next == null) {
+public class Solution
+{
+    public ListNode? ReverseList(ListNode head)
+    {
+        if (head == null || head.next == null)
+        {
             return head;
         }
 
@@ -25,7 +28,8 @@ public class Solution {
         //       1  ->  2  ->  5  ->  4
         // pre  cur   next
         //      pre   cur     next
-        while (cur != null) {
+        while (cur != null)
+        {
             // 逐个节点翻转
             cur.next = pre; // 当前节点的下个节点变前一个
             // update 指针：每个指针都往下进一步
@@ -37,8 +41,10 @@ public class Solution {
         return pre;
     }
 
-    public ListNode? ReverseListRecursive(ListNode? head) {
-        if (head == null || head.next == null) {
+    public ListNode? ReverseListRecursive(ListNode? head)
+    {
+        if (head == null || head.next == null)
+        {
             return head;
         }
 
@@ -50,8 +56,10 @@ public class Solution {
         return last;
     }
 
-    public ListNode? ReverseN(ListNode head, int n) {
-        if (head.next == null) {
+    public ListNode? ReverseN(ListNode head, int n)
+    {
+        if (head.next == null)
+        {
             return head;
         }
 
@@ -59,7 +67,8 @@ public class Solution {
         var cur = head;
         var next = head.next;
 
-        while (n > 0) {
+        while (n > 0)
+        {
             cur.next = pre;
             pre = cur;
             cur = next;
@@ -76,8 +85,10 @@ public class Solution {
 
     private ListNode? _successor = null;
 
-    public ListNode? ReverseNRecursive(ListNode head, int n) {
-        if (n == 1 || head.next == null) {
+    public ListNode? ReverseNRecursive(ListNode head, int n)
+    {
+        if (n == 1 || head.next == null)
+        {
             // 记录第 n + 1 个节点
             _successor = head.next;
             return head;

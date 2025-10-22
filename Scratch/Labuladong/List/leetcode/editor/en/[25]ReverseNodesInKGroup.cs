@@ -12,13 +12,16 @@ namespace Scratch.Labuladong.Algorithms.ReverseNodesInKGroup;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? ReverseKGroup(ListNode head, int k) {
+public class Solution
+{
+    public ListNode? ReverseKGroup(ListNode head, int k)
+    {
         // 检验区间 [a, b) 包含 k 个待反转元素
         // 也是递归 base case
         var a = head;
         var b = head;
-        for (var i = 0; i < k; i++) {
+        for (var i = 0; i < k; i++)
+        {
             // 不足 k 个，不需要反转了
             if (b == null) return head;
             b = b.next;
@@ -32,14 +35,16 @@ public class Solution {
         return newHead;
     }
 
-    static ListNode? ReverseN(ListNode head, int n) {
+    static ListNode? ReverseN(ListNode head, int n)
+    {
         if (head.next == null) return head;
 
         ListNode? pre = null;
         var cur = head;
         var nxt = head.next;
 
-        while (n > 0) {
+        while (n > 0)
+        {
             cur.next = pre;
             pre = cur;
             cur = nxt;

@@ -4,41 +4,41 @@
 
 <p><strong>Do not modify</strong> the linked list.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="height: 145px; width: 450px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="height: 145px; width: 450px;" />
 <pre>
 <strong>Input:</strong> head = [3,2,0,-4], pos = 1
 <strong>Output:</strong> tail connects to node index 1
 <strong>Explanation:</strong> There is a cycle in the linked list, where tail connects to the second node.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="height: 105px; width: 201px;" /> 
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="height: 105px; width: 201px;" />
 <pre>
 <strong>Input:</strong> head = [1,2], pos = 0
 <strong>Output:</strong> tail connects to node index 0
 <strong>Explanation:</strong> There is a cycle in the linked list, where tail connects to the first node.
 </pre>
 
-<p><strong class="example">Example 3:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="height: 65px; width: 65px;" /> 
+<p><strong class="example">Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="height: 65px; width: 65px;" />
 <pre>
 <strong>Input:</strong> head = [1], pos = -1
 <strong>Output:</strong> no cycle
 <strong>Explanation:</strong> There is no cycle in the linked list.
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li> 
- <li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li> 
- <li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li> 
+<ul>
+ <li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+ <li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+ <li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li>
 </ul>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
 <details><summary><strong>Related Topics</strong></summary>Hash Table | Linked List | Two Pointers</details><br>
@@ -47,7 +47,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -67,7 +68,8 @@
 
 `fast` 一定比 `slow` 多走了 `k` 步，这多走的 `k` 步其实就是 `fast` 指针在环里转圈圈，所以 `k` 的值就是环长度的「整数倍」。
 
-假设相遇点距环的起点的距离为 `m`，那么结合上图的 `slow` 指针，环的起点距头结点 `head` 的距离为 `k - m`，也就是说如果从 `head` 前进 `k - m` 步就能到达环起点。
+假设相遇点距环的起点的距离为 `m`，那么结合上图的 `slow` 指针，环的起点距头结点 `head` 的距离为 `k - m`，也就是说如果从
+`head` 前进 `k - m` 步就能到达环起点。
 
 巧的是，如果从相遇点继续前进 `k - m` 步，也恰好到达环起点：
 
@@ -76,7 +78,8 @@
 所以，只要我们把快慢指针中的任一个重新指向 `head`，然后两个指针同速前进，`k - m` 步后一定会相遇，相遇之处就是环的起点了。
 
 **详细题解**：
-  - [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+
+- [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
 
 </div>
 
@@ -88,18 +91,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -151,12 +155,12 @@ class Solution:
             slow = slow.next
             if fast == slow:
                 break # <extend down -200>![](https://labuladong.online/algo/images/linked-two-pointer/3.jpeg) #
-        
+
         # 上面的代码类似 hasCycle 函数
         if not fast or not fast.next:
             # fast 遇到空指针说明没有环
             return None
-        
+
         # 重新指向头结点
         slow = head # <extend up -100>![](https://labuladong.online/algo/images/linked-two-pointer/2.jpeg) #
         # 快慢指针同步前进，相交点就是环起点

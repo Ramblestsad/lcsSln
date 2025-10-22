@@ -4,7 +4,7 @@
 
 <p>You must find a solution with a memory complexity better than <code>O(n<sup>2</sup>)</code>.</p>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
@@ -20,23 +20,23 @@
 <strong>Output:</strong> -5
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li><code>n == matrix.length == matrix[i].length</code></li> 
- <li><code>1 &lt;= n &lt;= 300</code></li> 
- <li><code>-10<sup>9</sup> &lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li> 
- <li>All the rows and columns of <code>matrix</code> are <strong>guaranteed</strong> to be sorted in <strong>non-decreasing order</strong>.</li> 
- <li><code>1 &lt;= k &lt;= n<sup>2</sup></code></li> 
+<ul>
+ <li><code>n == matrix.length == matrix[i].length</code></li>
+ <li><code>1 &lt;= n &lt;= 300</code></li>
+ <li><code>-10<sup>9</sup> &lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li>
+ <li>All the rows and columns of <code>matrix</code> are <strong>guaranteed</strong> to be sorted in <strong>non-decreasing order</strong>.</li>
+ <li><code>1 &lt;= k &lt;= n<sup>2</sup></code></li>
 </ul>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Follow up:</strong></p>
 
-<ul> 
- <li>Could you solve the problem with a constant memory (i.e., <code>O(1)</code> memory complexity)?</li> 
- <li>Could you solve the problem in <code>O(n)</code> time complexity? The solution may be too advanced for an interview but you may find reading <a href="http://www.cse.yorku.ca/~andy/pubs/X+Y.pdf" target="_blank">this paper</a> fun.</li> 
+<ul>
+ <li>Could you solve the problem with a constant memory (i.e., <code>O(1)</code> memory complexity)?</li>
+ <li>Could you solve the problem in <code>O(n)</code> time complexity? The solution may be too advanced for an interview but you may find reading <a href="http://www.cse.yorku.ca/~andy/pubs/X+Y.pdf" target="_blank">this paper</a> fun.</li>
 </ul>
 
 <details><summary><strong>Related Topics</strong></summary>Array | Binary Search | Sorting | Heap (Priority Queue) | Matrix</details><br>
@@ -45,7 +45,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 <details><summary><strong>labuladong 思路</strong></summary>
 
@@ -54,13 +55,15 @@
 
 ## 基本思路
 
-这道题其实是前文 [单链表的六大解题套路](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲过的 [✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的变体。
+这道题其实是前文 [单链表的六大解题套路](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+中讲过的 [✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的变体。
 
 矩阵中的每一行都是排好序的，就好比多条有序链表，你用优先级队列施展合并多条有序链表的逻辑就能找到第 `k` 小的元素了。
 
 **详细题解**：
-  - [【练习】优先级队列经典习题](https://labuladong.online/algo/problem-set/binary-heap/)
-  - [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
+
+- [【练习】优先级队列经典习题](https://labuladong.online/algo/problem-set/binary-heap/)
+- [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
 
 </div>
 
@@ -72,18 +75,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 

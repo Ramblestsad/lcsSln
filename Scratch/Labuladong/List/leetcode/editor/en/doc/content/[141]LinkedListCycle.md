@@ -4,41 +4,41 @@
 
 <p>Return&nbsp;<code>true</code><em> if there is a cycle in the linked list</em>. Otherwise, return <code>false</code>.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="width: 300px; height: 97px; margin-top: 8px; margin-bottom: 8px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="width: 300px; height: 97px; margin-top: 8px; margin-bottom: 8px;" />
 <pre>
 <strong>Input:</strong> head = [3,2,0,-4], pos = 1
 <strong>Output:</strong> true
 <strong>Explanation:</strong> There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
 </pre>
 
-<p><strong class="example">Example 2:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="width: 141px; height: 74px;" /> 
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="width: 141px; height: 74px;" />
 <pre>
 <strong>Input:</strong> head = [1,2], pos = 0
 <strong>Output:</strong> true
 <strong>Explanation:</strong> There is a cycle in the linked list, where the tail connects to the 0th node.
 </pre>
 
-<p><strong class="example">Example 3:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="width: 45px; height: 45px;" /> 
+<p><strong class="example">Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="width: 45px; height: 45px;" />
 <pre>
 <strong>Input:</strong> head = [1], pos = -1
 <strong>Output:</strong> false
 <strong>Explanation:</strong> There is no cycle in the linked list.
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li> 
- <li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li> 
- <li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li> 
+<ul>
+ <li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+ <li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+ <li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li>
 </ul>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
 <details><summary><strong>Related Topics</strong></summary>Hash Table | Linked List | Two Pointers</details><br>
@@ -47,7 +47,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -64,7 +65,8 @@
 如果 `fast` 最终遇到空指针，说明链表中没有环；如果 `fast` 最终和 `slow` 相遇，那肯定是 `fast` 超过了 `slow` 一圈，说明链表中含有环。
 
 **详细题解**：
-  - [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+
+- [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
 
 </div>
 
@@ -76,18 +78,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 

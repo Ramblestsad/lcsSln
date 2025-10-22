@@ -2,9 +2,9 @@
 
 <p>You should <strong>preserve</strong> the original relative order of the nodes in each of the two partitions.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/partition.jpg" style="width: 662px; height: 222px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/partition.jpg" style="width: 662px; height: 222px;" />
 <pre>
 <strong>Input:</strong> head = [1,4,3,2,5,2], x = 3
 <strong>Output:</strong> [1,2,2,4,3,5]
@@ -17,13 +17,13 @@
 <strong>Output:</strong> [1,2]
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes in the list is in the range <code>[0, 200]</code>.</li> 
- <li><code>-100 &lt;= Node.val &lt;= 100</code></li> 
- <li><code>-200 &lt;= x &lt;= 200</code></li> 
+<ul>
+ <li>The number of nodes in the list is in the range <code>[0, 200]</code>.</li>
+ <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+ <li><code>-200 &lt;= x &lt;= 200</code></li>
 </ul>
 
 <details><summary><strong>Related Topics</strong></summary>Linked List | Two Pointers</details><br>
@@ -32,7 +32,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -46,10 +47,12 @@
 
 这道题很像 [✔ ✨21. 合并两个有序链表](/problems/merge-two-sorted-lists/)，21 题让你合二为一，这里需要分解让你把原链表一分为二。
 
-具体来说，我们可以把原链表分成两个小链表，一个链表中的元素大小都小于 `x`，另一个链表中的元素都大于等于 `x`，最后再把这两条链表接到一起，就得到了题目想要的结果。细节看代码吧，注意虚拟头结点的运用。
+具体来说，我们可以把原链表分成两个小链表，一个链表中的元素大小都小于 `x`，另一个链表中的元素都大于等于 `x`
+，最后再把这两条链表接到一起，就得到了题目想要的结果。细节看代码吧，注意虚拟头结点的运用。
 
 **详细题解**：
-  - [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+
+- [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
 
 </div>
 
@@ -61,18 +64,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -278,7 +282,8 @@ var partition = function(head, x) {
 <div id="iframe_mydata-partition-list"></div></div>
 </details><hr /><br />
 
-总的来说，如果我们需要把原链表的节点接到新链表上，而不是 new 新节点来组成新链表的话，那么断开节点和原链表之间的链接可能是必要的。那其实我们可以养成一个好习惯，但凡遇到这种情况，就把原链表的节点断开，这样就不会出错了。
+总的来说，如果我们需要把原链表的节点接到新链表上，而不是 new
+新节点来组成新链表的话，那么断开节点和原链表之间的链接可能是必要的。那其实我们可以养成一个好习惯，但凡遇到这种情况，就把原链表的节点断开，这样就不会出错了。
 
 </div>
 </details>

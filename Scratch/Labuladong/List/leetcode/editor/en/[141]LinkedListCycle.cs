@@ -12,11 +12,14 @@ namespace Scratch.Labuladong.Algorithms.LinkedListCycle;
  *     }
  * }
  */
-public class Solution {
-    public bool HasCycle(ListNode head) {
+public class Solution
+{
+    public bool HasCycle(ListNode head)
+    {
         ListNode? slow = head, fast = head;
 
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null)
+        {
             slow = slow?.next;
             fast = fast.next.next;
             if (slow == fast) return true;

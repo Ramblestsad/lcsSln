@@ -2,9 +2,9 @@
 
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/sumii-linked-list.jpg" style="width: 523px; height: 342px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/sumii-linked-list.jpg" style="width: 523px; height: 342px;" />
 <pre>
 <strong>Input:</strong> l1 = [7,2,4,3], l2 = [5,6,4]
 <strong>Output:</strong> [7,8,0,7]
@@ -24,16 +24,16 @@
 <strong>Output:</strong> [0]
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes in each linked list is in the range <code>[1, 100]</code>.</li> 
- <li><code>0 &lt;= Node.val &lt;= 9</code></li> 
- <li>It is guaranteed that the list represents a number that does not have leading zeros.</li> 
+<ul>
+ <li>The number of nodes in each linked list is in the range <code>[1, 100]</code>.</li>
+ <li><code>0 &lt;= Node.val &lt;= 9</code></li>
+ <li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
 </ul>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Could you solve it without reversing the input lists?</p>
 
 <details><summary><strong>Related Topics</strong></summary>Linked List | Math | Stack</details><br>
@@ -42,7 +42,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 <details><summary><strong>labuladong 思路</strong></summary>
 
@@ -51,14 +52,18 @@
 
 ## 基本思路
 
-这道题是 [✔ ✨2. 两数相加](/problems/add-two-numbers/) 的进阶问题，我们模拟加法运算当然是从最低位开始加，这样才能正确的处理进位。但现在单链表的开头是最高位，那么最直接的想法就是先 [翻转链表](https://labuladong.online/algo/data-structure/reverse-linked-list-recursion/)，这样就可以继续玩第 2 题那一套了，没什么难度。
+这道题是 [✔ ✨2. 两数相加](/problems/add-two-numbers/)
+的进阶问题，我们模拟加法运算当然是从最低位开始加，这样才能正确的处理进位。但现在单链表的开头是最高位，那么最直接的想法就是先 [翻转链表](https://labuladong.online/algo/data-structure/reverse-linked-list-recursion/)
+，这样就可以继续玩第 2 题那一套了，没什么难度。
 
-不过本题也说了，如果不让你反转链表怎么办？其实也好办，我们可以利用栈这种先进后出的数据结构，把链表节点从头到尾放进栈中，再从栈拿出来就是从尾到头的顺序，相当于是反转链表的效果，然后又回到了第 2 题的加法逻辑。
+不过本题也说了，如果不让你反转链表怎么办？其实也好办，我们可以利用栈这种先进后出的数据结构，把链表节点从头到尾放进栈中，再从栈拿出来就是从尾到头的顺序，相当于是反转链表的效果，然后又回到了第
+2 题的加法逻辑。
 
 还有一个需要注意的是，计算结果的高位也应该放在结果链表的左侧，也就是插入到 `dummy` 节点的后面。具体看代码吧。
 
 **详细题解**：
-  - [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
+
+- [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
 
 </div>
 
@@ -70,18 +75,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -105,7 +111,7 @@ public:
             stk2.push(l2->val);
             l2 = l2->next;
         }
-        
+
         // 接下来基本上是复用我在第 2 题的代码逻辑
         // 注意新节点要直接插入到 dummy 后面
 

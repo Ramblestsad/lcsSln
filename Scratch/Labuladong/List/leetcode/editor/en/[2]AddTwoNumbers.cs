@@ -12,21 +12,27 @@ namespace Scratch.Labuladong.Algorithms.AddTwoNumbers;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? AddTwoNumbers(ListNode l1, ListNode l2) {
+public class Solution
+{
+    public ListNode? AddTwoNumbers(ListNode l1, ListNode l2)
+    {
         var dummy = new ListNode();
         var p = dummy;
         var p1 = l1;
         var p2 = l2;
         var carry = 0;
 
-        while (p1 != null || p2 != null || carry > 0) {
+        while (p1 != null || p2 != null || carry > 0)
+        {
             var val = carry;
-            if (p1 != null) {
+            if (p1 != null)
+            {
                 val += p1.val;
                 p1 = p1.next;
             }
-            if (p2 != null) {
+
+            if (p2 != null)
+            {
                 val += p2.val;
                 p2 = p2.next;
             }

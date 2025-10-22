@@ -1,8 +1,8 @@
 <p>Given the <code>head</code> of a singly linked list and two integers <code>left</code> and <code>right</code> where <code>left &lt;= right</code>, reverse the nodes of the list from position <code>left</code> to position <code>right</code>, and return <em>the reversed list</em>.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg" style="width: 542px; height: 222px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg" style="width: 542px; height: 222px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,4,5], left = 2, right = 4
 <strong>Output:</strong> [1,4,3,2,5]
@@ -15,17 +15,17 @@
 <strong>Output:</strong> [5]
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes in the list is <code>n</code>.</li> 
- <li><code>1 &lt;= n &lt;= 500</code></li> 
- <li><code>-500 &lt;= Node.val &lt;= 500</code></li> 
- <li><code>1 &lt;= left &lt;= right &lt;= n</code></li> 
+<ul>
+ <li>The number of nodes in the list is <code>n</code>.</li>
+ <li><code>1 &lt;= n &lt;= 500</code></li>
+ <li><code>-500 &lt;= Node.val &lt;= 500</code></li>
+ <li><code>1 &lt;= left &lt;= right &lt;= n</code></li>
 </ul>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <strong>Follow up:</strong> Could you do it in one pass?
 
 <details><summary><strong>Related Topics</strong></summary>Linked List</details><br>
@@ -34,7 +34,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -53,7 +54,8 @@
 关键点还是要明确递归函数的定义，由于内容和图比较多，这里就不写了，请看详细题解。
 
 **详细题解**：
-  - [单链表的花式反转方法汇总](https://labuladong.online/algo/data-structure/reverse-linked-list-recursion/)
+
+- [单链表的花式反转方法汇总](https://labuladong.online/algo/data-structure/reverse-linked-list-recursion/)
 
 </div>
 
@@ -65,18 +67,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 

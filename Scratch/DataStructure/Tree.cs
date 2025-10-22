@@ -4,7 +4,8 @@ namespace Scratch.DataStructure;
 /// Binary tree node
 /// </summary>
 /// <param name="x">node value</param>
-public class TreeNode(int? x) {
+public class TreeNode(int? x)
+{
     public TreeNode? Left;
     public TreeNode? Right;
     public int? Val = x;
@@ -13,16 +14,20 @@ public class TreeNode(int? x) {
 /// <summary>
 /// BST（Binary Search Tree）
 /// </summary>
-public class BinarySearchTree {
+public class BinarySearchTree
+{
     public TreeNode? Root;
 
-    public BinarySearchTree(TreeNode root) {
+    public BinarySearchTree(TreeNode root)
+    {
         Root = root;
     }
 
-    public TreeNode? Search(int num) {
+    public TreeNode? Search(int num)
+    {
         TreeNode? cur = Root;
-        while (cur != null) {
+        while (cur != null)
+        {
             if (cur.Val < num)
                 cur = cur.Right;
             else if (cur.Val > num)
@@ -34,14 +39,16 @@ public class BinarySearchTree {
         return cur;
     }
 
-    public void Insert(int num) {
+    public void Insert(int num)
+    {
         Root ??= new TreeNode(num);
 
         var cur = Root;
         TreeNode? pre = null;
 
         // search for the position to insert
-        while (cur != null) {
+        while (cur != null)
+        {
             pre = cur;
             if (num < cur.Val)
                 cur = cur.Left;
@@ -54,7 +61,8 @@ public class BinarySearchTree {
 
         // insert
         var newNode = new TreeNode(num);
-        if (pre != null) {
+        if (pre != null)
+        {
             if (num < pre.Val)
                 pre.Left = newNode;
             else
@@ -62,12 +70,14 @@ public class BinarySearchTree {
         }
     }
 
-    public void Remove(int num) {
+    public void Remove(int num)
+    {
         if (Root == null)
             return;
         TreeNode? cur = Root, pre = null;
         // search for the node to delete
-        while (cur != null) {
+        while (cur != null)
+        {
             if (cur.Val == num)
                 break;
             pre = cur;
@@ -81,24 +91,30 @@ public class BinarySearchTree {
             return;
 
         // children = 0 / 1
-        if (cur.Left == null || cur.Right == null) {
+        if (cur.Left == null || cur.Right == null)
+        {
             TreeNode? child = cur.Left ?? cur.Right;
             // delete cur: replace cur with child
-            if (cur != Root) {
+            if (cur != Root)
+            {
                 if (pre!.Left == cur)
                     pre.Left = child;
                 else
                     pre.Right = child;
-            } else {
+            }
+            else
+            {
                 // if it's root, update the root
                 Root = child;
             }
         }
         // children = 2
-        else {
+        else
+        {
             // get the next node in the inorder traversal (右子树的最小节点）
             TreeNode? tmp = cur.Right;
-            while (tmp.Left != null) {
+            while (tmp.Left != null)
+            {
                 tmp = tmp.Left;
             }
 
@@ -115,23 +131,27 @@ public class BinarySearchTree {
 /// for insert, delete, and search operations by keeping the height difference
 /// between the left and right subtrees of every node to at most one.
 /// </summary>
-public class AvlTreeNode(int x) {
+public class AvlTreeNode(int x)
+{
     private int _height;
     public AvlTreeNode? Left;
     public AvlTreeNode? Right;
     public int val = x;
 
-    public static int Height(AvlTreeNode? node) {
+    public static int Height(AvlTreeNode? node)
+    {
         // 空节点高度为 -1 ，叶节点高度为 0
         return node?._height ?? -1;
     }
 
-    public static void UpdateHeight(AvlTreeNode node) {
+    public static void UpdateHeight(AvlTreeNode node)
+    {
         // 节点高度等于最高子树高度 + 1
         node._height = Math.Max(Height(node.Left), Height(node.Right)) + 1;
     }
 
-    public static int BalanceFactor(AvlTreeNode? node) {
+    public static int BalanceFactor(AvlTreeNode? node)
+    {
         if (node == null) return 0;
         // 节点平衡因子 = 左子树高度 - 右子树高度
         return Height(node.Left) - Height(node.Right);
@@ -140,10 +160,12 @@ public class AvlTreeNode(int x) {
     }
 }
 
-public class AvlTree {
+public class AvlTree
+{
     public AvlTreeNode? root { get; private set; }
 
-    private static AvlTreeNode? RightRotate(AvlTreeNode? node) {
+    private static AvlTreeNode? RightRotate(AvlTreeNode? node)
+    {
         // 以child为核心！！！
         var child = node?.Left;
         if (child == null || node == null) return child;
@@ -161,7 +183,8 @@ public class AvlTree {
         return child; // return new "balanced" root for the parent node to connect
     }
 
-    private static AvlTreeNode? LeftRotate(AvlTreeNode? node) {
+    private static AvlTreeNode? LeftRotate(AvlTreeNode? node)
+    {
         var child = node?.Right;
         if (child == null || node == null) return child;
         // `if` child has a left child, attach to node's right
@@ -176,7 +199,8 @@ public class AvlTree {
         return child;
     }
 
-    private static AvlTreeNode? Rotate(AvlTreeNode? node) {
+    private static AvlTreeNode? Rotate(AvlTreeNode? node)
+    {
         // 失衡节点的平衡因子	子节点的平衡因子	应采用的旋转方法
         // > 1（左偏树）      >= 0             右旋
         // > 1（左偏树）      < 0              先左旋后右旋
@@ -187,11 +211,15 @@ public class AvlTree {
         // 获取节点 node 的平衡因子
         var balanceFactorInt = AvlTreeNode.BalanceFactor(node);
         // 左偏树
-        if (balanceFactorInt > 1) {
-            if (AvlTreeNode.BalanceFactor(node?.Left) >= 0) {
+        if (balanceFactorInt > 1)
+        {
+            if (AvlTreeNode.BalanceFactor(node?.Left) >= 0)
+            {
                 // 右旋
                 return RightRotate(node);
-            } else {
+            }
+            else
+            {
                 // 先左旋后右旋
                 node!.Left = LeftRotate(node.Left);
                 return RightRotate(node);
@@ -199,11 +227,15 @@ public class AvlTree {
         }
 
         // 右偏树
-        if (balanceFactorInt < -1) {
-            if (AvlTreeNode.BalanceFactor(node?.Right) <= 0) {
+        if (balanceFactorInt < -1)
+        {
+            if (AvlTreeNode.BalanceFactor(node?.Right) <= 0)
+            {
                 // 左旋
                 return LeftRotate(node);
-            } else {
+            }
+            else
+            {
                 // 先右旋后左旋
                 node!.Right = RightRotate(node.Right);
                 return LeftRotate(node);
@@ -214,11 +246,13 @@ public class AvlTree {
         return node;
     }
 
-    public void Insert(int num) {
+    public void Insert(int num)
+    {
         root = InsertHelper(root, num);
     }
 
-    private static AvlTreeNode? InsertHelper(AvlTreeNode? node, int num) {
+    private static AvlTreeNode? InsertHelper(AvlTreeNode? node, int num)
+    {
         /*
          * AVL 树的节点插入操作与二叉搜索树在主体上类似。
          * 唯一的区别在于，在 AVL 树中插入节点后，从该节点到根节点的路径上可能会出现一系列失衡节点。
@@ -245,11 +279,13 @@ public class AvlTree {
         return node;
     }
 
-    public void Remove(int num) {
+    public void Remove(int num)
+    {
         root = RemoveHelper(root, num);
     }
 
-    private static AvlTreeNode? RemoveHelper(AvlTreeNode? node, int num) {
+    private static AvlTreeNode? RemoveHelper(AvlTreeNode? node, int num)
+    {
         /*
          * 类似地，在二叉搜索树的删除节点方法的基础上，需要从底至顶执行旋转操作，使所有失衡节点恢复平衡。
          */
@@ -259,18 +295,23 @@ public class AvlTree {
             node.Left = RemoveHelper(node.Left, num);
         else if (num > node.val)
             node.Right = RemoveHelper(node.Right, num);
-        else {
-            if (node.Left == null || node.Right == null) {
+        else
+        {
+            if (node.Left == null || node.Right == null)
+            {
                 AvlTreeNode? child = node.Left ?? node.Right;
                 // 子节点数量 = 0 ，直接删除 node 并返回
                 if (child == null)
                     return null;
                 // 子节点数量 = 1 ，直接删除 node
                 node = child;
-            } else {
+            }
+            else
+            {
                 // 子节点数量 = 2 ，则将中序遍历的下个节点(右子树的最小节点)删除，并用该节点替换当前节点
                 AvlTreeNode? temp = node.Right;
-                while (temp.Left != null) {
+                while (temp.Left != null)
+                {
                     temp = temp.Left;
                 }
 
@@ -288,19 +329,22 @@ public class AvlTree {
     }
 }
 
-public static class TreeUtils {
+public static class TreeUtils
+{
     /// <summary>
     /// 层序遍历
     /// </summary>
     /// <param name="root"></param>
     /// <returns></returns>
-    public static List<int> LevelOrder(TreeNode root) {
+    public static List<int> LevelOrder(TreeNode root)
+    {
         // 初始化队列，加入根节点
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
         // 初始化一个列表，用于保存遍历序列
         List<int> list = [];
-        while (queue.Count != 0) {
+        while (queue.Count != 0)
+        {
             TreeNode node = queue.Dequeue(); // 队列出队
             list.Add(node.Val!.Value); // 保存节点值
             if (node.Left != null)
@@ -316,7 +360,8 @@ public static class TreeUtils {
     /// 前序遍历
     /// </summary>
     /// <param name="root"></param>
-    public static void PreOrder(TreeNode? root) {
+    public static void PreOrder(TreeNode? root)
+    {
         List<int> list = [];
 
         if (root == null) return;
@@ -330,7 +375,8 @@ public static class TreeUtils {
     /// 中序遍历
     /// </summary>
     /// <param name="root"></param>
-    public static void InOrder(TreeNode? root) {
+    public static void InOrder(TreeNode? root)
+    {
         List<int> list = [];
 
         if (root == null) return;
@@ -344,7 +390,8 @@ public static class TreeUtils {
     /// 后序遍历
     /// </summary>
     /// <param name="root"></param>
-    public static void PostOrder(TreeNode? root) {
+    public static void PostOrder(TreeNode? root)
+    {
         List<int> list = [];
 
         if (root == null) return;
@@ -359,16 +406,19 @@ public static class TreeUtils {
 /// 数组表示下的二叉树类
 /// </summary>
 /// <param name="arr"></param>
-public class ArrayBinaryTree(List<int?> arr) {
+public class ArrayBinaryTree(List<int?> arr)
+{
     private List<int?> _tree = [.. arr];
 
     /* 列表容量 */
-    public int Size() {
+    public int Size()
+    {
         return _tree.Count;
     }
 
     /* 获取索引为 i 节点的值 */
-    public int? Val(int i) {
+    public int? Val(int i)
+    {
         // 若索引越界，则返回 null ，代表空位
         if (i < 0 || i >= Size())
             return null;
@@ -376,25 +426,30 @@ public class ArrayBinaryTree(List<int?> arr) {
     }
 
     /* 获取索引为 i 节点的左子节点的索引 */
-    public int Left(int i) {
+    public int Left(int i)
+    {
         return 2 * i + 1;
     }
 
     /* 获取索引为 i 节点的右子节点的索引 */
-    public int Right(int i) {
+    public int Right(int i)
+    {
         return 2 * i + 2;
     }
 
     /* 获取索引为 i 节点的父节点的索引 */
-    public int Parent(int i) {
+    public int Parent(int i)
+    {
         return ( i - 1 ) / 2;
     }
 
     /* 层序遍历 */
-    public List<int> LevelOrder() {
+    public List<int> LevelOrder()
+    {
         List<int> res = [];
         // 直接遍历数组
-        for (var i = 0; i < Size(); i++) {
+        for (var i = 0; i < Size(); i++)
+        {
             if (Val(i).HasValue)
                 res.Add(Val(i)!.Value);
         }
@@ -403,7 +458,8 @@ public class ArrayBinaryTree(List<int?> arr) {
     }
 
     /* 深度优先遍历 */
-    void Dfs(int i, string order, List<int> res) {
+    void Dfs(int i, string order, List<int> res)
+    {
         // 若为空位，则返回
         if (!Val(i).HasValue)
             return;
@@ -421,21 +477,24 @@ public class ArrayBinaryTree(List<int?> arr) {
     }
 
     /* 前序遍历 */
-    public List<int> PreOrder() {
+    public List<int> PreOrder()
+    {
         List<int> res = [];
         Dfs(0, "pre", res);
         return res;
     }
 
     /* 中序遍历 */
-    public List<int> InOrder() {
+    public List<int> InOrder()
+    {
         List<int> res = [];
         Dfs(0, "in", res);
         return res;
     }
 
     /* 后序遍历 */
-    public List<int> PostOrder() {
+    public List<int> PostOrder()
+    {
         List<int> res = [];
         Dfs(0, "post", res);
         return res;

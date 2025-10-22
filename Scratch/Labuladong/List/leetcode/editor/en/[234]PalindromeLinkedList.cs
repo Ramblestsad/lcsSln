@@ -12,8 +12,10 @@ namespace Scratch.Labuladong.Algorithms.PalindromeLinkedList;
  *     }
  * }
  */
-public class Solution {
-    public bool IsPalindrome(ListNode head) {
+public class Solution
+{
+    public bool IsPalindrome(ListNode head)
+    {
         left = head;
         Traverse(head);
 
@@ -26,7 +28,8 @@ public class Solution {
     // 记录链表是否为回文
     bool res = true;
 
-    void Traverse(ListNode? right) {
+    void Traverse(ListNode? right)
+    {
         if (right == null) return;
 
         // 前序遍历位置

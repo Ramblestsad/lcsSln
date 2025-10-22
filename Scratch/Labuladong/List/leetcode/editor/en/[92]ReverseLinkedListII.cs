@@ -12,33 +12,41 @@ namespace Scratch.Labuladong.Algorithms.ReverseLinkedListII;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? ReverseBetween(ListNode head, int left, int right) {
+public class Solution
+{
+    public ListNode? ReverseBetween(ListNode head, int left, int right)
+    {
         // 找到第 left - 1 个节点，然后复用之前实现的 reverseN 函数
-        if (left == 1) {
+        if (left == 1)
+        {
             // identical to reverse n
             return ReverseN(head, right);
         }
 
         var pre = head;
-        for (int i = 1; i < left - 1; i++) {
+        for (int i = 1; i < left - 1; i++)
+        {
             pre = pre!.next;
         }
+
         // 从第left个节点开始反转 n (right - left) 个节点
         pre!.next = ReverseN(pre.next!, right - left + 1);
 
         return head;
     }
 
-    static ListNode? ReverseN(ListNode head, int n) {
-        if (head.next == null) {
+    static ListNode? ReverseN(ListNode head, int n)
+    {
+        if (head.next == null)
+        {
             return head;
         }
 
         ListNode? pre = null;
         var cur = head;
         var nxt = head.next;
-        while (n > 0) {
+        while (n > 0)
+        {
             cur!.next = pre;
             pre = cur;
             cur = nxt;
@@ -53,7 +61,8 @@ public class Solution {
         return pre;
     }
 
-    public ListNode? ReverseBetweenRecursive(ListNode head, int left, int right) {
+    public ListNode? ReverseBetweenRecursive(ListNode head, int left, int right)
+    {
         if (left == 1) return ReverseNRecursive(head, right);
         // left right 同步减一，最后right就剩区间长度n
 
@@ -64,8 +73,10 @@ public class Solution {
 
     private ListNode? _successor = null;
 
-    ListNode? ReverseNRecursive(ListNode head, int n) {
-        if (n == 1 || head.next == null) {
+    ListNode? ReverseNRecursive(ListNode head, int n)
+    {
+        if (n == 1 || head.next == null)
+        {
             // 记录第 n + 1 个节点
             _successor = head.next;
             return head;

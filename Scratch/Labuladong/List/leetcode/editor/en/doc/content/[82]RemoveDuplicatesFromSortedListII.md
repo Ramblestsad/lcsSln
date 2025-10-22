@@ -1,27 +1,27 @@
 <p>Given the <code>head</code> of a sorted linked list, <em>delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist1.jpg" style="width: 500px; height: 142px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist1.jpg" style="width: 500px; height: 142px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,3,4,4,5]
 <strong>Output:</strong> [1,2,5]
 </pre>
 
-<p><strong class="example">Example 2:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist2.jpg" style="width: 500px; height: 205px;" /> 
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist2.jpg" style="width: 500px; height: 205px;" />
 <pre>
 <strong>Input:</strong> head = [1,1,1,2,3]
 <strong>Output:</strong> [2,3]
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li> 
- <li><code>-100 &lt;= Node.val &lt;= 100</code></li> 
- <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li> 
+<ul>
+ <li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
+ <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+ <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
 
 <details><summary><strong>Related Topics</strong></summary>Linked List | Two Pointers</details><br>
@@ -30,7 +30,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 <details><summary><strong>labuladong 思路</strong></summary>
 
@@ -39,16 +40,21 @@
 
 ## 基本思路
 
-这道题可以有多种解法，最简单粗暴的解法是用 [哈希集合](https://labuladong.online/algo/data-structure-basic/hash-set/) 来记录重复节点，需要额外的空间复杂度，我们不讨论。下面探讨如何用双指针技巧，避免使用额外的空间复杂度来求解。
+这道题可以有多种解法，最简单粗暴的解法是用 [哈希集合](https://labuladong.online/algo/data-structure-basic/hash-set/)
+来记录重复节点，需要额外的空间复杂度，我们不讨论。下面探讨如何用双指针技巧，避免使用额外的空间复杂度来求解。
 
-第一种思路，也是我比较推荐的方式，就是把这种题转化成 [链表的双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲的链表分解的技巧。题目其实就是让你把链表分解成「重复元素」和「不重复元素」两条链表，然后把不重复元素这条链表返回即可。
+第一种思路，也是我比较推荐的方式，就是把这种题转化成 [链表的双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+中讲的链表分解的技巧。题目其实就是让你把链表分解成「重复元素」和「不重复元素」两条链表，然后把不重复元素这条链表返回即可。
 
-第二种思路，可以把这道题理解为 [链表的双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲的 [✨83. 删除排序链表中的重复元素](/problems/remove-duplicates-from-sorted-list/) 的变体，只不过 83 题让你把多于的重复元素去掉，这道题要求你把所有重复的元素全都去掉。
+第二种思路，可以把这道题理解为 [链表的双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+中讲的 [✨83. 删除排序链表中的重复元素](/problems/remove-duplicates-from-sorted-list/) 的变体，只不过 83
+题让你把多于的重复元素去掉，这道题要求你把所有重复的元素全都去掉。
 
 第三种思路，可以用递归思维来做，稍微难理解一些，我也写出来供大家参考。
 
 **详细题解**：
-  - [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
+
+- [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
 
 </div>
 
@@ -60,18 +66,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 

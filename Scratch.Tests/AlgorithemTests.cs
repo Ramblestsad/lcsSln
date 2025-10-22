@@ -3,13 +3,16 @@ using Scratch.DataStructure;
 
 namespace Scratch.Tests;
 
-public class AlgorithmsTests: IDisposable {
-    public void Dispose() {
+public class AlgorithmsTests: IDisposable
+{
+    public void Dispose()
+    {
         // Do some clean-up for every test
     }
 
     [Fact]
-    public void TestQuickSort() {
+    public void TestQuickSort()
+    {
         // Arrange
         var input = new int[] { 64, 34, 25, 12, 22, 11, 90 };
         var expected = new int[] { 11, 12, 22, 25, 34, 64, 90 };
@@ -35,7 +38,8 @@ public class AlgorithmsTests: IDisposable {
     }
 
     [Fact]
-    public void TestMergeSort() {
+    public void TestMergeSort()
+    {
         // Arrange
         var input = new int[] { 64, 34, 25, 12, 22, 11, 90 };
         var expected = new int[] { 11, 12, 22, 25, 34, 64, 90 };
@@ -61,7 +65,8 @@ public class AlgorithmsTests: IDisposable {
     }
 
     [Fact]
-    public void TestHeapSort() {
+    public void TestHeapSort()
+    {
         // Arrange
         var input = new int[] { 64, 34, 25, 12, 22, 11, 90 };
         var expected = new int[] { 11, 12, 22, 25, 34, 64, 90 };
@@ -87,11 +92,13 @@ public class AlgorithmsTests: IDisposable {
     }
 
     [Fact]
-    public void TestBucketSort() {
+    public void TestBucketSort()
+    {
         // Arrange - 生成1000个随机的0-1之间的浮点数
         var random = new Random(23);
         var input = new float[1000];
-        for (var i = 0; i < input.Length; i++) {
+        for (var i = 0; i < input.Length; i++)
+        {
             input[i] = (float)random.NextDouble();
         }
 
@@ -127,11 +134,13 @@ public class AlgorithmsTests: IDisposable {
     }
 
     [Fact]
-    public void TestCountingSort() {
+    public void TestCountingSort()
+    {
         // Arrange - 生成10000个随机的0-1000之间的整数
         var random = new Random(42); // 固定种子确保测试可重复
         var input = new int[10000];
-        for (var i = 0; i < input.Length; i++) {
+        for (var i = 0; i < input.Length; i++)
+        {
             input[i] = random.Next(0, 1001); // 生成0-1000的随机数
         }
 
@@ -173,11 +182,13 @@ public class AlgorithmsTests: IDisposable {
     }
 
     [Fact]
-    public void TestRadixSort() {
+    public void TestRadixSort()
+    {
         // Arrange - 生成50000个随机的0-999999之间的整数
         var random = new Random(42); // 固定种子确保测试可重复
         var input = new int[50000];
-        for (var i = 0; i < input.Length; i++) {
+        for (var i = 0; i < input.Length; i++)
+        {
             input[i] = random.Next(0, 1000000); // 生成0-999999的随机数，测试多位数
         }
 

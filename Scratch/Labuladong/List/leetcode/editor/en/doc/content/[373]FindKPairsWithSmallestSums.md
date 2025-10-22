@@ -4,7 +4,7 @@
 
 <p>Return <em>the</em> <code>k</code> <em>pairs</em> <code>(u<sub>1</sub>, v<sub>1</sub>), (u<sub>2</sub>, v<sub>2</sub>), ..., (u<sub>k</sub>, v<sub>k</sub>)</code> <em>with the smallest sums</em>.</p>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
@@ -21,15 +21,15 @@
 <strong>Explanation:</strong> The first 2 pairs are returned from the sequence: [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li> 
- <li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li> 
- <li><code>nums1</code> and <code>nums2</code> both are sorted in <strong>non-decreasing order</strong>.</li> 
- <li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li> 
- <li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li> 
+<ul>
+ <li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li>
+ <li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>9</sup></code></li>
+ <li><code>nums1</code> and <code>nums2</code> both are sorted in <strong>non-decreasing order</strong>.</li>
+ <li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+ <li><code>k &lt;=&nbsp;nums1.length *&nbsp;nums2.length</code></li>
 </ul>
 
 <details><summary><strong>Related Topics</strong></summary>Array | Heap (Priority Queue)</details><br>
@@ -38,7 +38,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 <details><summary><strong>labuladong 思路</strong></summary>
 
@@ -47,7 +48,8 @@
 
 ## 基本思路
 
-这道题其实是前文 [单链表的六大解题套路](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲过的 [✔ ✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的变体。
+这道题其实是前文 [单链表的六大解题套路](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+中讲过的 [✔ ✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的变体。
 
 怎么把这道题变成合并多个有序链表呢？就比如说题目输入的用例：
 
@@ -63,11 +65,13 @@ nums1 = [1,7,11], nums2 = [2,4,6]
 [11, 2] -> [11, 4] -> [11, 6]
 ```
 
-这三个链表中每个元素（数对之和）是递增的，所以就可以按照 [✔ ✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/) 的思路来合并，取出前 `k` 个作为答案即可。
+这三个链表中每个元素（数对之和）是递增的，所以就可以按照 [✔ ✨23. 合并K个升序链表](/problems/merge-k-sorted-lists/)
+的思路来合并，取出前 `k` 个作为答案即可。
 
 **详细题解**：
-  - [【练习】优先级队列经典习题](https://labuladong.online/algo/problem-set/binary-heap/)
-  - [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
+
+- [【练习】优先级队列经典习题](https://labuladong.online/algo/problem-set/binary-heap/)
+- [【练习】链表双指针经典习题](https://labuladong.online/algo/problem-set/linkedlist-two-pointers/)
 
 </div>
 
@@ -79,18 +83,19 @@ nums1 = [1,7,11], nums2 = [2,4,6]
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -108,7 +113,7 @@ public:
             return (a[0] + a[1]) > (b[0] + b[1]);
         };
         priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> pq(cmp);
-        
+
         // 按照 23 题的逻辑初始化优先级队列
         for (int i = 0; i < nums1.size(); i++) {
             pq.push({nums1[i], nums2[0], 0});
@@ -148,7 +153,7 @@ class Solution:
         # 存储三元组 (num1[i], nums2[i], i)
         # i 记录 nums2 元素的索引位置，用于生成下一个节点
         pq = PriorityQueue()
-        
+
         # 按照 23 题的逻辑初始化优先级队列
         for i in range(len(nums1)):
             pq.put((nums1[i] + nums2[0], nums1[i], nums2[0], 0))
@@ -222,7 +227,7 @@ func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
     // i 记录 nums2 元素的索引位置，用于生成下一个节点
     pq := &PriorityQueue{}
     heap.Init(pq)
-    
+
     // 按照 23 题的逻辑初始化优先级队列
     for i := 0; i < len(nums1); i++ {
         heap.Push(pq, []int{nums1[i], nums2[0], 0})

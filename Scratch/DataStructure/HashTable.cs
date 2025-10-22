@@ -1,29 +1,35 @@
 namespace Scratch.DataStructure;
 
-public class Pair(int key, string val) {
+public class Pair(int key, string val)
+{
     public int Key = key;
     public string Val = val;
 }
 
 /* Hashtable based on array */
-public class ArrayHashMap {
+public class ArrayHashMap
+{
     List<Pair?> _buckets = [];
 
-    public ArrayHashMap() {
+    public ArrayHashMap()
+    {
         // 初始化数组，包含 100 个桶
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 100; i++)
+        {
             _buckets.Add(null);
         }
     }
 
     /* 哈希函数 */
-    static int HashFunc(int key) {
+    static int HashFunc(int key)
+    {
         var index = key % 100;
         return index;
     }
 
     /* 查询操作 */
-    public string? Get(int key) {
+    public string? Get(int key)
+    {
         var index = HashFunc(key);
         Pair? pair = _buckets[index];
         if (pair == null) return null;
@@ -31,23 +37,27 @@ public class ArrayHashMap {
     }
 
     /* 添加操作 */
-    public void Put(int key, string val) {
+    public void Put(int key, string val)
+    {
         Pair pair = new(key, val);
         var index = HashFunc(key);
         _buckets[index] = pair;
     }
 
     /* 删除操作 */
-    public void Remove(int key) {
+    public void Remove(int key)
+    {
         var index = HashFunc(key);
         // 置为 null ，代表删除
         _buckets[index] = null;
     }
 
     /* 获取所有键值对 */
-    public List<Pair> PairSet() {
+    public List<Pair> PairSet()
+    {
         List<Pair> pairSet = [];
-        foreach (Pair? pair in _buckets) {
+        foreach (Pair? pair in _buckets)
+        {
             if (pair != null)
                 pairSet.Add(pair);
         }
@@ -56,9 +66,11 @@ public class ArrayHashMap {
     }
 
     /* 获取所有键 */
-    public List<int> KeySet() {
+    public List<int> KeySet()
+    {
         List<int> keySet = [];
-        foreach (Pair? pair in _buckets) {
+        foreach (Pair? pair in _buckets)
+        {
             if (pair != null)
                 keySet.Add(pair.Key);
         }
@@ -67,9 +79,11 @@ public class ArrayHashMap {
     }
 
     /* 获取所有值 */
-    public List<string> ValueSet() {
+    public List<string> ValueSet()
+    {
         List<string> valueSet = [];
-        foreach (Pair? pair in _buckets) {
+        foreach (Pair? pair in _buckets)
+        {
             if (pair != null)
                 valueSet.Add(pair.Val);
         }
@@ -78,15 +92,18 @@ public class ArrayHashMap {
     }
 
     /* 打印哈希表 */
-    public void Print() {
-        foreach (Pair kv in PairSet()) {
+    public void Print()
+    {
+        foreach (Pair kv in PairSet())
+        {
             Console.WriteLine(kv.Key + " -> " + kv.Val);
         }
     }
 }
 
 /* 链式地址哈希表 */
-public class HashMapChaining {
+public class HashMapChaining
+{
     List<List<Pair>> _buckets; // 桶数组
     int _capacity; // 哈希表容量
     int _extendRatio; // 扩容倍数
@@ -94,33 +111,40 @@ public class HashMapChaining {
     int _size; // 键值对数量
 
     /* 构造方法 */
-    public HashMapChaining() {
+    public HashMapChaining()
+    {
         _size = 0;
         _capacity = 4;
         _loadThres = 2.0 / 3.0;
         _extendRatio = 2;
         _buckets = new List<List<Pair>>(_capacity);
-        for (var i = 0; i < _capacity; i++) {
+        for (var i = 0; i < _capacity; i++)
+        {
             _buckets.Add([]);
         }
     }
 
     /* 哈希函数 */
-    int HashFunc(int key) {
+    int HashFunc(int key)
+    {
         return key % _capacity;
     }
 
     /* 负载因子 */
-    double LoadFactor() {
+    double LoadFactor()
+    {
         return (double)_size / _capacity;
     }
 
     /* 查询操作 */
-    public string? Get(int key) {
+    public string? Get(int key)
+    {
         var index = HashFunc(key);
         // 遍历桶，若找到 key ，则返回对应 val
-        foreach (Pair pair in _buckets[index]) {
-            if (pair.Key == key) {
+        foreach (Pair pair in _buckets[index])
+        {
+            if (pair.Key == key)
+            {
                 return pair.Val;
             }
         }
@@ -130,16 +154,20 @@ public class HashMapChaining {
     }
 
     /* 添加操作 */
-    public void Put(int key, string val) {
+    public void Put(int key, string val)
+    {
         // 当负载因子超过阈值时，执行扩容
-        if (LoadFactor() > _loadThres) {
+        if (LoadFactor() > _loadThres)
+        {
             Extend();
         }
 
         var index = HashFunc(key);
         // 遍历桶，若遇到指定 key ，则更新对应 val 并返回
-        foreach (Pair pair in _buckets[index]) {
-            if (pair.Key == key) {
+        foreach (Pair pair in _buckets[index])
+        {
+            if (pair.Key == key)
+            {
                 pair.Val = val;
                 return;
             }
@@ -151,11 +179,14 @@ public class HashMapChaining {
     }
 
     /* 删除操作 */
-    public void Remove(int key) {
+    public void Remove(int key)
+    {
         var index = HashFunc(key);
         // 遍历桶，从中删除键值对
-        foreach (Pair pair in _buckets[index].ToList()) {
-            if (pair.Key == key) {
+        foreach (Pair pair in _buckets[index].ToList())
+        {
+            if (pair.Key == key)
+            {
                 _buckets[index].Remove(pair);
                 _size--;
                 break;
@@ -164,34 +195,42 @@ public class HashMapChaining {
     }
 
     /* 扩容哈希表 */
-    void Extend() {
+    void Extend()
+    {
         // 暂存原哈希表
         List<List<Pair>> bucketsTmp = _buckets;
         // 初始化扩容后的新哈希表
         _capacity *= _extendRatio;
         _buckets = new List<List<Pair>>(_capacity);
-        for (var i = 0; i < _capacity; i++) {
+        for (var i = 0; i < _capacity; i++)
+        {
             _buckets.Add([]);
         }
 
         _size = 0;
         // 将键值对从原哈希表搬运至新哈希表
-        foreach (List<Pair> bucket in bucketsTmp) {
-            foreach (Pair pair in bucket) {
+        foreach (List<Pair> bucket in bucketsTmp)
+        {
+            foreach (Pair pair in bucket)
+            {
                 Put(pair.Key, pair.Val);
             }
         }
     }
 
     /* 打印哈希表 */
-    public void Print() {
-        foreach (List<Pair> bucket in _buckets) {
+    public void Print()
+    {
+        foreach (List<Pair> bucket in _buckets)
+        {
             List<string> res = [];
-            foreach (Pair pair in bucket) {
+            foreach (Pair pair in bucket)
+            {
                 res.Add(pair.Key + " -> " + pair.Val);
             }
 
-            foreach (var kv in res) {
+            foreach (var kv in res)
+            {
                 Console.WriteLine(kv);
             }
         }
@@ -199,7 +238,8 @@ public class HashMapChaining {
 }
 
 /* 开放寻址哈希表 */
-public class HashMapOpenAddressing {
+public class HashMapOpenAddressing
+{
     Pair[] _buckets; // 桶数组
     int _capacity = 4; // 哈希表容量
     int _extendRatio = 2; // 扩容倍数
@@ -208,31 +248,38 @@ public class HashMapOpenAddressing {
     Pair _tombstone = new(-1, "-1"); // 删除标记
 
     /* 构造方法 */
-    public HashMapOpenAddressing() {
+    public HashMapOpenAddressing()
+    {
         _size = 0;
         _buckets = new Pair[_capacity];
     }
 
     /* 哈希函数 */
-    int HashFunc(int key) {
+    int HashFunc(int key)
+    {
         return key % _capacity;
     }
 
     /* 负载因子 */
-    double LoadFactor() {
+    double LoadFactor()
+    {
         return (double)_size / _capacity;
     }
 
     /* 搜索 key 对应的桶索引 */
-    int FindBucket(int key) {
+    int FindBucket(int key)
+    {
         var index = HashFunc(key);
         var firstTombstone = -1;
         // 线性探测，当遇到空桶时跳出
-        while (_buckets[index] != null) {
+        while (_buckets[index] != null)
+        {
             // 若遇到 key ，返回对应的桶索引
-            if (_buckets[index].Key == key) {
+            if (_buckets[index].Key == key)
+            {
                 // 若之前遇到了删除标记，则将键值对移动至该索引处
-                if (firstTombstone != -1) {
+                if (firstTombstone != -1)
+                {
                     _buckets[firstTombstone] = _buckets[index];
                     _buckets[index] = _tombstone;
                     return firstTombstone; // 返回移动后的桶索引
@@ -242,7 +289,8 @@ public class HashMapOpenAddressing {
             }
 
             // 记录遇到的首个删除标记
-            if (firstTombstone == -1 && _buckets[index] == _tombstone) {
+            if (firstTombstone == -1 && _buckets[index] == _tombstone)
+            {
                 firstTombstone = index;
             }
 
@@ -255,11 +303,13 @@ public class HashMapOpenAddressing {
     }
 
     /* 查询操作 */
-    public string? Get(int key) {
+    public string? Get(int key)
+    {
         // 搜索 key 对应的桶索引
         var index = FindBucket(key);
         // 若找到键值对，则返回对应 val
-        if (_buckets[index] != null && _buckets[index] != _tombstone) {
+        if (_buckets[index] != null && _buckets[index] != _tombstone)
+        {
             return _buckets[index].Val;
         }
 
@@ -268,16 +318,19 @@ public class HashMapOpenAddressing {
     }
 
     /* 添加操作 */
-    public void Put(int key, string val) {
+    public void Put(int key, string val)
+    {
         // 当负载因子超过阈值时，执行扩容
-        if (LoadFactor() > _loadThres) {
+        if (LoadFactor() > _loadThres)
+        {
             Extend();
         }
 
         // 搜索 key 对应的桶索引
         var index = FindBucket(key);
         // 若找到键值对，则覆盖 val 并返回
-        if (_buckets[index] != null && _buckets[index] != _tombstone) {
+        if (_buckets[index] != null && _buckets[index] != _tombstone)
+        {
             _buckets[index].Val = val;
             return;
         }
@@ -288,18 +341,21 @@ public class HashMapOpenAddressing {
     }
 
     /* 删除操作 */
-    public void Remove(int key) {
+    public void Remove(int key)
+    {
         // 搜索 key 对应的桶索引
         var index = FindBucket(key);
         // 若找到键值对，则用删除标记覆盖它
-        if (_buckets[index] != null && _buckets[index] != _tombstone) {
+        if (_buckets[index] != null && _buckets[index] != _tombstone)
+        {
             _buckets[index] = _tombstone;
             _size--;
         }
     }
 
     /* 扩容哈希表 */
-    void Extend() {
+    void Extend()
+    {
         // 暂存原哈希表
         Pair[] bucketsTmp = _buckets;
         // 初始化扩容后的新哈希表
@@ -307,21 +363,30 @@ public class HashMapOpenAddressing {
         _buckets = new Pair[_capacity];
         _size = 0;
         // 将键值对从原哈希表搬运至新哈希表
-        foreach (Pair pair in bucketsTmp) {
-            if (pair != null && pair != _tombstone) {
+        foreach (Pair pair in bucketsTmp)
+        {
+            if (pair != null && pair != _tombstone)
+            {
                 Put(pair.Key, pair.Val);
             }
         }
     }
 
     /* 打印哈希表 */
-    public void Print() {
-        foreach (Pair pair in _buckets) {
-            if (pair == null) {
+    public void Print()
+    {
+        foreach (Pair pair in _buckets)
+        {
+            if (pair == null)
+            {
                 Console.WriteLine("null");
-            } else if (pair == _tombstone) {
+            }
+            else if (pair == _tombstone)
+            {
                 Console.WriteLine("TOMBSTONE");
-            } else {
+            }
+            else
+            {
                 Console.WriteLine(pair.Key + " -> " + pair.Val);
             }
         }
@@ -347,11 +412,14 @@ public class HashMapOpenAddressing {
     使用大质数作为模数，可以最大化地保证哈希值的均匀分布。
  */
 /* 加法哈希 */
-public class SimpleHashAlgorithms {
-    public int AddHash(string key) {
+public class SimpleHashAlgorithms
+{
+    public int AddHash(string key)
+    {
         long hash = 0;
         const int modulus = 1000000007;
-        foreach (var c in key) {
+        foreach (var c in key)
+        {
             hash = ( hash + c ) % modulus;
         }
 
@@ -359,10 +427,12 @@ public class SimpleHashAlgorithms {
     }
 
     /* 乘法哈希 */
-    public int MulHash(string key) {
+    public int MulHash(string key)
+    {
         long hash = 0;
         const int modulus = 1000000007;
-        foreach (var c in key) {
+        foreach (var c in key)
+        {
             hash = ( 31 * hash + c ) % modulus;
         }
 
@@ -370,10 +440,12 @@ public class SimpleHashAlgorithms {
     }
 
     /* 异或哈希 */
-    public int XorHash(string key) {
+    public int XorHash(string key)
+    {
         var hash = 0;
         const int modulus = 1000000007;
-        foreach (var c in key) {
+        foreach (var c in key)
+        {
             hash ^= c;
         }
 
@@ -381,10 +453,12 @@ public class SimpleHashAlgorithms {
     }
 
     /* 旋转哈希 */
-    public int RotHash(string key) {
+    public int RotHash(string key)
+    {
         long hash = 0;
         const int modulus = 1000000007;
-        foreach (var c in key) {
+        foreach (var c in key)
+        {
             hash = ( ( hash << 4 ) ^ ( hash >> 28 ) ^ c ) % modulus;
         }
 

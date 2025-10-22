@@ -12,19 +12,25 @@ namespace Scratch.Labuladong.Algorithms.Partition;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? Partition(ListNode? head, int x) {
+public class Solution
+{
+    public ListNode? Partition(ListNode? head, int x)
+    {
         var less = new ListNode();
         var greater = new ListNode();
         var p1 = less;
         var p2 = greater;
         var p = head;
 
-        while (p != null) {
-            if (p.val < x) {
+        while (p != null)
+        {
+            if (p.val < x)
+            {
                 p1.next = p;
                 p1 = p1.next;
-            } else {
+            }
+            else
+            {
                 p2.next = p;
                 p2 = p2.next;
             }

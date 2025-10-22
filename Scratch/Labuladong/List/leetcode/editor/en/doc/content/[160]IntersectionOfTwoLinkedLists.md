@@ -1,7 +1,7 @@
 <p>Given the heads of two singly linked-lists <code>headA</code> and <code>headB</code>, return <em>the node at which the two lists intersect</em>. If the two linked lists have no intersection at all, return <code>null</code>.</p>
 
-<p>For example, the following two linked lists begin to intersect at node <code>c1</code>:</p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_statement.png" style="width: 500px; height: 162px;" /> 
+<p>For example, the following two linked lists begin to intersect at node <code>c1</code>:</p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_statement.png" style="width: 500px; height: 162px;" />
 <p>The test cases are generated such that there are no cycles anywhere in the entire linked structure.</p>
 
 <p><strong>Note</strong> that the linked lists must <strong>retain their original structure</strong> after the function returns.</p>
@@ -10,19 +10,19 @@
 
 <p>The inputs to the <strong>judge</strong> are given as follows (your program is <strong>not</strong> given these inputs):</p>
 
-<ul> 
- <li><code>intersectVal</code> - The value of the node where the intersection occurs. This is <code>0</code> if there is no intersected node.</li> 
- <li><code>listA</code> - The first linked list.</li> 
- <li><code>listB</code> - The second linked list.</li> 
- <li><code>skipA</code> - The number of nodes to skip ahead in <code>listA</code> (starting from the head) to get to the intersected node.</li> 
- <li><code>skipB</code> - The number of nodes to skip ahead in <code>listB</code> (starting from the head) to get to the intersected node.</li> 
+<ul>
+ <li><code>intersectVal</code> - The value of the node where the intersection occurs. This is <code>0</code> if there is no intersected node.</li>
+ <li><code>listA</code> - The first linked list.</li>
+ <li><code>listB</code> - The second linked list.</li>
+ <li><code>skipA</code> - The number of nodes to skip ahead in <code>listA</code> (starting from the head) to get to the intersected node.</li>
+ <li><code>skipB</code> - The number of nodes to skip ahead in <code>listB</code> (starting from the head) to get to the intersected node.</li>
 </ul>
 
 <p>The judge will then create the linked structure based on these inputs and pass the two heads, <code>headA</code> and <code>headB</code> to your program. If you correctly return the intersected node, then your solution will be <strong>accepted</strong>.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_1_1.png" style="width: 500px; height: 162px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_1_1.png" style="width: 500px; height: 162px;" />
 <pre>
 <strong>Input:</strong> intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
 <strong>Output:</strong> Intersected at '8'
@@ -31,8 +31,8 @@ From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,
 - Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2<sup>nd</sup> node in A and 3<sup>rd</sup> node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3<sup>rd</sup> node in A and 4<sup>th</sup> node in B) point to the same location in memory.
 </pre>
 
-<p><strong class="example">Example 2:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_2.png" style="width: 500px; height: 194px;" /> 
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_2.png" style="width: 500px; height: 194px;" />
 <pre>
 <strong>Input:</strong> intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
 <strong>Output:</strong> Intersected at '2'
@@ -40,8 +40,8 @@ From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,
 From the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.
 </pre>
 
-<p><strong class="example">Example 3:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_3.png" style="width: 300px; height: 189px;" /> 
+<p><strong class="example">Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_3.png" style="width: 300px; height: 189px;" />
 <pre>
 <strong>Input:</strong> intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
 <strong>Output:</strong> No intersection
@@ -49,23 +49,23 @@ From the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,
 Explanation: The two lists do not intersect, so return null.
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes of <code>listA</code> is in the <code>m</code>.</li> 
- <li>The number of nodes of <code>listB</code> is in the <code>n</code>.</li> 
- <li><code>1 &lt;= m, n &lt;= 3 * 10<sup>4</sup></code></li> 
- <li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li> 
- <li><code>0 &lt;= skipA &lt;= m</code></li> 
- <li><code>0 &lt;= skipB &lt;= n</code></li> 
- <li><code>intersectVal</code> is <code>0</code> if <code>listA</code> and <code>listB</code> do not intersect.</li> 
- <li><code>intersectVal == listA[skipA] == listB[skipB]</code> if <code>listA</code> and <code>listB</code> intersect.</li> 
+<ul>
+ <li>The number of nodes of <code>listA</code> is in the <code>m</code>.</li>
+ <li>The number of nodes of <code>listB</code> is in the <code>n</code>.</li>
+ <li><code>1 &lt;= m, n &lt;= 3 * 10<sup>4</sup></code></li>
+ <li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+ <li><code>0 &lt;= skipA &lt;= m</code></li>
+ <li><code>0 &lt;= skipB &lt;= n</code></li>
+ <li><code>intersectVal</code> is <code>0</code> if <code>listA</code> and <code>listB</code> do not intersect.</li>
+ <li><code>intersectVal == listA[skipA] == listB[skipB]</code> if <code>listA</code> and <code>listB</code> intersect.</li>
 </ul>
 
-<p>&nbsp;</p> 
-<strong>Follow up:</strong> Could you write a solution that runs in 
-<code>O(m + n)</code> time and use only 
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you write a solution that runs in
+<code>O(m + n)</code> time and use only
 <code>O(1)</code> memory?
 
 <details><summary><strong>Related Topics</strong></summary>Hash Table | Linked List | Two Pointers</details><br>
@@ -74,7 +74,8 @@ Explanation: The two lists do not intersect, so return null.
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -94,7 +95,8 @@ Explanation: The two lists do not intersect, so return null.
 
 **解决这个问题的关键是，通过某些方式，让 `p1` 和 `p2` 能够同时到达相交节点 `c1`**。
 
-如果用两个指针 `p1` 和 `p2` 分别在两条链表上前进，我们可以让 `p1` 遍历完链表 `A` 之后开始遍历链表 `B`，让 `p2` 遍历完链表 `B` 之后开始遍历链表 `A`，这样相当于「逻辑上」两条链表接在了一起。
+如果用两个指针 `p1` 和 `p2` 分别在两条链表上前进，我们可以让 `p1` 遍历完链表 `A` 之后开始遍历链表 `B`，让 `p2` 遍历完链表
+`B` 之后开始遍历链表 `A`，这样相当于「逻辑上」两条链表接在了一起。
 
 如果这样进行拼接，就可以让 `p1` 和 `p2` 同时进入公共部分，也就是同时到达相交节点 `c1`：
 
@@ -103,7 +105,8 @@ Explanation: The two lists do not intersect, so return null.
 另一种思路，先计算两条链表的长度，然后让 `p1` 和 `p2` 距离链表尾部的距离相同，然后齐头并进，
 
 **详细题解**：
-  - [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+
+- [双指针技巧秒杀七道链表题目](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
 
 </div>
 
@@ -115,18 +118,19 @@ Explanation: The two lists do not intersect, so return null.
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 

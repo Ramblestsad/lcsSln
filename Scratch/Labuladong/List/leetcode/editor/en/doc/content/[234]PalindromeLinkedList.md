@@ -1,31 +1,31 @@
 <p>Given the <code>head</code> of a singly linked list, return <code>true</code><em> if it is a </em><span data-keyword="palindrome-sequence"><em>palindrome</em></span><em> or </em><code>false</code><em> otherwise</em>.</p>
 
-<p>&nbsp;</p> 
-<p><strong class="example">Example 1:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg" style="width: 422px; height: 62px;" /> 
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg" style="width: 422px; height: 62px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,2,1]
 <strong>Output:</strong> true
 </pre>
 
-<p><strong class="example">Example 2:</strong></p> 
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/03/pal2linked-list.jpg" style="width: 182px; height: 62px;" /> 
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/03/pal2linked-list.jpg" style="width: 182px; height: 62px;" />
 <pre>
 <strong>Input:</strong> head = [1,2]
 <strong>Output:</strong> false
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li>The number of nodes in the list is in the range <code>[1, 10<sup>5</sup>]</code>.</li> 
- <li><code>0 &lt;= Node.val &lt;= 9</code></li> 
+<ul>
+ <li>The number of nodes in the list is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+ <li><code>0 &lt;= Node.val &lt;= 9</code></li>
 </ul>
 
-<p>&nbsp;</p> 
-<strong>Follow up:</strong> Could you do it in 
-<code>O(n)</code> time and 
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you do it in
+<code>O(n)</code> time and
 <code>O(1)</code> space?
 
 <details><summary><strong>Related Topics</strong></summary>Linked List | Two Pointers | Stack | Recursion</details><br>
@@ -34,7 +34,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -52,7 +53,8 @@
 
 更聪明一些的办法是借助双指针算法：
 
-**1、先通过 [双指针技巧](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中的快慢指针来找到链表的中点**：
+**1、先通过 [双指针技巧](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中的快慢指针来找到链表的中点
+**：
 
 ![](https://labuladong.online/algo/images/palindrome-list/1.jpg)
 
@@ -65,7 +67,8 @@
 ![](https://labuladong.online/algo/images/palindrome-list/3.jpg)
 
 **详细题解**：
-  - [如何判断回文链表](https://labuladong.online/algo/data-structure/palindrome-linked-list/)
+
+- [如何判断回文链表](https://labuladong.online/algo/data-structure/palindrome-linked-list/)
 
 </div>
 
@@ -77,18 +80,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -105,10 +109,10 @@ public:
             slow = slow->next;
             fast = fast->next->next;
         }
-        
+
         if (fast != nullptr)
             slow = slow->next;
-        
+
         ListNode* left = head;
         ListNode* right = reverse(slow);
         while (right != nullptr) {
@@ -117,7 +121,7 @@ public:
             left = left->next;
             right = right->next;
         }
-        
+
         return true;
     }
 
@@ -148,10 +152,10 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        
+
         if fast:
             slow = slow.next
-        
+
         left = head
         right = self.reverse(slow)
         while right:
@@ -159,7 +163,7 @@ class Solution:
                 return False
             left = left.next
             right = right.next
-        
+
         return True
 
     def reverse(self, head: ListNode) -> ListNode:
@@ -287,7 +291,7 @@ var isPalindrome = function(head) {
         left = left.next;
         right = right.next;
     }
-    
+
     return true;
 };
 

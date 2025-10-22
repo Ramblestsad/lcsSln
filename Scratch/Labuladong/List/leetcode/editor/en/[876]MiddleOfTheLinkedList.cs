@@ -12,13 +12,16 @@ namespace Scratch.Labuladong.Algorithms.MiddleNode;
  *     }
  * }
  */
-public class Solution {
-    public ListNode MiddleNode(ListNode head) {
+public class Solution
+{
+    public ListNode MiddleNode(ListNode head)
+    {
         // 每当慢指针 slow 前进一步，快指针 fast 就前进两步，这样，当 fast 走到链表末尾时，slow 就指向了链表中点。
         var slow = head;
         var fast = head;
 
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null)
+        {
             // Note:
             // 这里需要同时判断 fast != null 和 fast.next != null
             // 如果长度为偶数，fast.next 可能会是 null，此时再访问 fast.next.next 就会抛出异常

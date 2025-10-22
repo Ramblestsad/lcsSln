@@ -2,7 +2,7 @@
 
 <p>Given an integer <code>n</code>, return <em>the</em> <code>n<sup>th</sup></code> <em><strong>ugly number</strong></em>.</p>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
@@ -19,11 +19,11 @@
 <strong>Explanation:</strong> 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
 </pre>
 
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ul> 
- <li><code>1 &lt;= n &lt;= 1690</code></li> 
+<ul>
+ <li><code>1 &lt;= n &lt;= 1690</code></li>
 </ul>
 
 <details><summary><strong>Related Topics</strong></summary>Hash Table | Math | Dynamic Programming | Heap (Priority Queue)</details><br>
@@ -32,7 +32,8 @@
 
 <div id="labuladong"><hr>
 
-**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)，如有需要可以看下，谢谢大家的支持~**
+**通知：为满足广大读者的需求，网站上架 [速成目录](https://labuladong.online/algo/intro/quick-learning-plan/)
+，如有需要可以看下，谢谢大家的支持~**
 
 
 
@@ -46,9 +47,13 @@
 
 这道题很精妙，你看着它好像是道数学题，实际上它却是一个合并多个有序链表的问题，同时用到了筛选素数的思路。
 
-建议你先做一下 [链表双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲到的 [✔ ✨21. 合并两个有序链表（简单）](/problems/merge-two-sorted-lists/)，然后再做一下 [如何高效寻找素数](https://labuladong.online/algo/frequency-interview/print-prime-number/) 中讲的 [✨204. 计数质数（简单）](/problems/count-primes/)，这样的话就能比较容易理解这道题的思路了。
+建议你先做一下 [链表双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+中讲到的 [✔ ✨21. 合并两个有序链表（简单）](/problems/merge-two-sorted-lists/)
+，然后再做一下 [如何高效寻找素数](https://labuladong.online/algo/frequency-interview/print-prime-number/)
+中讲的 [✨204. 计数质数（简单）](/problems/count-primes/)，这样的话就能比较容易理解这道题的思路了。
 
-**类似 [如何高效寻找素数](https://labuladong.online/algo/frequency-interview/print-prime-number/) 的思路：如果一个数 `x` 是丑数，那么 `x * 2, x * 3, x * 5` 都一定是丑数**。
+**类似 [如何高效寻找素数](https://labuladong.online/algo/frequency-interview/print-prime-number/) 的思路：如果一个数 `x`
+是丑数，那么 `x * 2, x * 3, x * 5` 都一定是丑数**。
 
 我们把所有丑数想象成一个从小到大排序的链表，就是这个样子：
 
@@ -76,12 +81,16 @@
 1 -> 1*5 -> 2*5 -> 3*5 -> 4*5 -> 5*5 -> 6*5 -> 8*5 ->...
 ```
 
-我们其实就是想把这三条「有序链表」合并在一起并去重，合并的结果就是丑数的序列。然后求合并后的这条有序链表中第 `n` 个元素是什么。所以这里就和 [链表双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/) 中讲到的合并 `k` 条有序链表的思路基本一样了。
+我们其实就是想把这三条「有序链表」合并在一起并去重，合并的结果就是丑数的序列。然后求合并后的这条有序链表中第 `n`
+个元素是什么。所以这里就和 [链表双指针技巧汇总](https://labuladong.online/algo/essential-technique/linked-list-skills-summary/)
+中讲到的合并 `k` 条有序链表的思路基本一样了。
 
-具体思路看注释吧，你也可以对照我在 [✔ ✨21. 合并两个有序链表（简单）](/problems/merge-two-sorted-lists/) 中给出的思路代码来看本题的思路代码，就能轻松看懂本题的解法代码了。
+具体思路看注释吧，你也可以对照我在 [✔ ✨21. 合并两个有序链表（简单）](/problems/merge-two-sorted-lists/)
+中给出的思路代码来看本题的思路代码，就能轻松看懂本题的解法代码了。
 
 **详细题解**：
-  - [一文秒杀所有丑数系列问题](https://labuladong.online/algo/frequency-interview/ugly-number-summary/)
+
+- [一文秒杀所有丑数系列问题](https://labuladong.online/algo/frequency-interview/ugly-number-summary/)
 
 </div>
 
@@ -93,18 +102,19 @@
 
 ## 解法代码
 
-
-
 <div class="tab-panel"><div class="tab-nav">
 <button data-tab-item="cpp" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">cpp🤖</button>
 
-<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">python🤖</button>
+<button data-tab-item="python" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+python🤖</button>
 
-<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">java🟢</button>
+<button data-tab-item="java" class="tab-nav-button btn active" data-tab-group="default" onclick="switchTab(this)">
+java🟢</button>
 
 <button data-tab-item="go" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">go🤖</button>
 
-<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">javascript🤖</button>
+<button data-tab-item="javascript" class="tab-nav-button btn " data-tab-group="default" onclick="switchTab(this)">
+javascript🤖</button>
 </div><div class="tab-content">
 <div data-tab-item="cpp" class="tab-item " data-tab-group="default"><div class="highlight">
 
@@ -187,7 +197,7 @@ class Solution:
             if min_val == product5:
                 product5 = 5 * ugly[p5]
                 p5 += 1
-        
+
         # 返回第 n 个丑数
         return ugly[n]
 ```

@@ -1,6 +1,7 @@
 namespace Scratch.Utils;
 
-public class CustomSingleton {
+public class CustomSingleton
+{
     private static readonly Lazy<CustomSingleton> s_instance =
         new(() => new CustomSingleton(), true);
 
@@ -8,11 +9,14 @@ public class CustomSingleton {
 
     public static CustomSingleton Instance => s_instance.Value;
 
-    private CustomSingleton() {
+    private CustomSingleton()
+    {
     }
 
-    public ValueTask ThreadSafeTask() {
-        lock (_locker) {
+    public ValueTask ThreadSafeTask()
+    {
+        lock (_locker)
+        {
             // do something thread safe
 
             return ValueTask.CompletedTask;

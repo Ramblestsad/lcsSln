@@ -12,8 +12,10 @@ namespace Scratch.Labuladong.Algorithms.RemoveNthFromEnd;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? RemoveNthFromEnd(ListNode head, int n) {
+public class Solution
+{
+    public ListNode? RemoveNthFromEnd(ListNode head, int n)
+    {
         var dummy = new ListNode();
         dummy.next = head;
 
@@ -30,18 +32,21 @@ public class Solution {
         return dummy.next;
     }
 
-    private static ListNode FindFromEnd(ListNode head, int n) {
+    private static ListNode FindFromEnd(ListNode head, int n)
+    {
         var p1 = head;
 
         // move p1 n steps
-        for (var i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++)
+        {
             p1 = p1!.next;
         }
 
         var p2 = head;
         // move p1, p2 (n-k) steps
         // aka p1 = null
-        while (p1 != null) {
+        while (p1 != null)
+        {
             p1 = p1.next;
             p2 = p2!.next;
         }

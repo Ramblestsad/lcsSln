@@ -12,13 +12,16 @@ namespace Scratch.Labuladong.Algorithms.DetectCycle;
  *     }
  * }
  */
-public class Solution {
-    public ListNode? DetectCycle(ListNode head) {
+public class Solution
+{
+    public ListNode? DetectCycle(ListNode head)
+    {
         var slow = head;
         var fast = head;
 
         // 先找到相遇点
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null)
+        {
             slow = slow?.next;
             fast = fast.next.next;
             if (fast == slow) break;
@@ -35,7 +38,8 @@ public class Solution {
         slow = head;
         // now, slow and fast move at the same pace
         // 因为从头节点和从相遇点再走相同的步数，一定是环的起点。
-        while (slow != fast) {
+        while (slow != fast)
+        {
             fast = fast!.next;
             slow = slow?.next;
         }

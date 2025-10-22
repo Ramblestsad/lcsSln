@@ -7,7 +7,8 @@ namespace Todo.WebApi.Helper;
 /// <summary>
 /// PaginationHelper
 /// </summary>
-public static class PaginationHelper {
+public static class PaginationHelper
+{
     /// <summary>
     /// CreatePagedResponse
     /// </summary>
@@ -23,7 +24,8 @@ public static class PaginationHelper {
         PaginationFilter validFilter,
         int totalRecords,
         IUriService uriService,
-        string route) {
+        string route)
+    {
         if (pagedData.Count >
             validFilter
                 .PageSize) // check if passed in data is not paged and more than the page size
