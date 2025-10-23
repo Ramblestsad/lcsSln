@@ -11,26 +11,18 @@ public class StandardEvent
             Log.Warning("Alert, 10% stock price increase!");
     }
 
-    // convey info.
-    public class PriceChangedEventArgs: EventArgs
+    // convey info
+    public class PriceChangedEventArgs(decimal lastPrice, decimal newPrice): EventArgs
     {
-        public readonly decimal LastPrice;
-        public readonly decimal NewPrice;
-
-        public PriceChangedEventArgs(decimal lastPrice, decimal newPrice)
-        {
-            LastPrice = lastPrice;
-            NewPrice = newPrice;
-        }
+        public readonly decimal LastPrice = lastPrice;
+        public readonly decimal NewPrice = newPrice;
     }
 
     // broadcaster
-    public class Stock
+    public class Stock(string symbol)
     {
-        private readonly string _symbol;
+        private readonly string _symbol = symbol;
         private decimal _price;
-
-        public Stock(string symbol) => this._symbol = symbol;
 
         public decimal Price
         {
