@@ -13,8 +13,25 @@ namespace Scratch.Labuladong.Algorithms.RemoveDuplicatesFromSortedList;
  * }
  */
 public class Solution {
-    public ListNode DeleteDuplicates(ListNode head)
+    public ListNode? DeleteDuplicates(ListNode? head)
     {
+        if (head == null) return null;
+
+        var fast = head;
+        var slow = head;
+
+        while (fast!=null)
+        {
+            if (fast.val != slow.val)
+            {
+                slow.next = fast;
+                slow = slow.next;
+            }
+            fast = fast.next;
+        }
+        // 记得断开与后面重复元素的连接
+        slow.next = null;
+
         return head;
     }
 }
