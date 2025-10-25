@@ -42,7 +42,7 @@
 
 ## 基本思路
 
-思路和 [✨26. 删除有序数组中的重复项](/problems/remove-duplicates-from-sorted-array/) 完全一样，唯一的区别是把数组赋值操作变成操作指针而已。
+思路和 [✔ ✨26. 删除有序数组中的重复项](/problems/remove-duplicates-from-sorted-array/) 完全一样，唯一的区别是把数组赋值操作变成操作指针而已。
 
 ![](https://labuladong.online/algo/images/array-dedup/2.gif)
 
@@ -224,11 +224,13 @@ var deleteDuplicates = function(head) {
 </div></div>
 </div></div>
 
-<hr /><details open hint-container details><summary style="font-size: medium"><strong>🍭🍭 算法可视化 🍭🍭</strong></summary><div id="data_remove-duplicates-from-sorted-list"  category="leetcode" ></div><div class="resizable aspect-ratio-container" style="height: 100%;">
+<hr /><details open hint-container details><summary style="font-size: medium"><strong>🥳🥳 算法可视化 🥳🥳</strong></summary><div id="data_remove-duplicates-from-sorted-list"  category="leetcode" ></div><div class="resizable aspect-ratio-container" style="height: 100%;">
 <div id="iframe_remove-duplicates-from-sorted-list"></div></div>
 </details><hr /><br />
 
 </div>
 </details>
 </div>
+
+
 
