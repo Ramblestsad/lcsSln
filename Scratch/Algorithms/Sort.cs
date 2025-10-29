@@ -64,63 +64,6 @@ public static class Sort
         }
     }
 
-    public static void ShellSort(int[] nums)
-    {
-        // 希尔排序，对 h 有序数组进行插入排序
-        // 逐渐缩小 h，最后 h=1 时，完成整个数组的排序
-        // 确保初始间隔不会太大，至少能将数组分成3个有意义的子序列
-        // 这是 Knuth 序列的经验性选择，在实践中表现良好
-        // 后续流程： 希尔排序会使用 h = 13 → 4 → 1 的顺序进行多轮插入排序，最终完成整个数组的排序
-
-        var n = nums.Length;
-        // 生成函数 (3^k - 1) / 2 即 h = 1, 4, 13, 40, 121, 364...
-        var h = 1;
-        while (h < n / 3)
-        {
-            h = 3 * h + 1;
-        }
-
-        // 36 27 20 60 55 7 28 36 67 44 16
-        // 0  1  2  3  4  5 6  7  8  9  10
-        //             h
-        //             |sortedIndex......|
-        // i-h         |i................|
-        // n = 11 n / 3 = 3
-        // initial h = 4, 即分为以下四组进行组内排序
-        // 0 4 8
-        // 1 5 9
-        // 2 6 10
-        // 3 7
-
-        // 改动一，把插入排序的主要逻辑套在 h 的 while 循环中
-        while (h >= 1)
-        {
-            // 改动二，bas 初始化为 h，而不是 1
-            var sortedIndex = h;
-            while (sortedIndex < n)
-            {
-                // 改动三，把比较和交换元素的步长设置为 h，而不是相邻元素
-                // i>=h 就可以做到，下一个比较的数是组内的后一个数
-                // i 减去一个h，还至少有一个h，也就是组内下一个数
-                for (var i = sortedIndex; i >= h; i -= h)
-                {
-                    if (nums[i] < nums[i - h])
-                    {
-                        ( nums[i], nums[i - h] ) = ( nums[i - h], nums[i] );
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-                sortedIndex++;
-            }
-
-            h /= 3;
-        }
-    }
-
     public static void QuickSort(int[] nums, int left, int right)
     {
         if (left >= right)
@@ -256,6 +199,63 @@ public static class Sort
         for (k = 0; k < tmp.Length; k++)
         {
             nums[left + k] = tmp[k];
+        }
+    }
+
+    public static void ShellSort(int[] nums)
+    {
+        // 希尔排序，对 h 有序数组进行插入排序
+        // 逐渐缩小 h，最后 h=1 时，完成整个数组的排序
+        // 确保初始间隔不会太大，至少能将数组分成3个有意义的子序列
+        // 这是 Knuth 序列的经验性选择，在实践中表现良好
+        // 后续流程： 希尔排序会使用 h = 13 → 4 → 1 的顺序进行多轮插入排序，最终完成整个数组的排序
+
+        var n = nums.Length;
+        // 生成函数 (3^k - 1) / 2 即 h = 1, 4, 13, 40, 121, 364...
+        var h = 1;
+        while (h < n / 3)
+        {
+            h = 3 * h + 1;
+        }
+
+        // 36 27 20 60 55 7 28 36 67 44 16
+        // 0  1  2  3  4  5 6  7  8  9  10
+        //             h
+        //             |sortedIndex......|
+        // i-h         |i................|
+        // n = 11 n / 3 = 3
+        // initial h = 4, 即分为以下四组进行组内排序
+        // 0 4 8
+        // 1 5 9
+        // 2 6 10
+        // 3 7
+
+        // 改动一，把插入排序的主要逻辑套在 h 的 while 循环中
+        while (h >= 1)
+        {
+            // 改动二，bas 初始化为 h，而不是 1
+            var sortedIndex = h;
+            while (sortedIndex < n)
+            {
+                // 改动三，把比较和交换元素的步长设置为 h，而不是相邻元素
+                // i>=h 就可以做到，下一个比较的数是组内的后一个数
+                // i 减去一个h，还至少有一个h，也就是组内下一个数
+                for (var i = sortedIndex; i >= h; i -= h)
+                {
+                    if (nums[i] < nums[i - h])
+                    {
+                        ( nums[i], nums[i - h] ) = ( nums[i - h], nums[i] );
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                sortedIndex++;
+            }
+
+            h /= 3;
         }
     }
 
