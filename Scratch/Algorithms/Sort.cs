@@ -121,10 +121,7 @@ public static class Sort
 
     public static void QuickSort(int[] nums, int left, int right)
     {
-        if (left >= right)
-        {
-            return;
-        }
+        if (left >= right) return;
 
         // ****** 前序位置 ******
         // 对 nums[left..right] 进行切分，将 nums[p] 排好序
