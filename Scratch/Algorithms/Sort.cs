@@ -50,14 +50,8 @@ public static class Sort
             // 将 nums[sortedIndex] 插入到有序数组 [0, sortedIndex) 中
             for (var i = sortedIndex; i > 0; i--)
             {
-                if (nums[i] < nums[i - 1])
-                {
-                    ( nums[i], nums[i - 1] ) = ( nums[i - 1], nums[i] );
-                }
-                else
-                {
-                    break;
-                }
+                if (nums[i] < nums[i - 1]) ( nums[i], nums[i - 1] ) = ( nums[i - 1], nums[i] );
+                else break;
             }
 
             sortedIndex++;
