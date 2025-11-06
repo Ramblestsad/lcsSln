@@ -13,11 +13,33 @@ namespace Scratch.Labuladong.Algorithms.RotateList;
  * }
  */
 public class Solution {
-    public ListNode? RotateRight(ListNode? head, int k)
+    public ListNode? RotateRight(ListNode head, int k)
     {
-        var dummy = new ListNode();
+        if (head == null) return null;
 
-        return dummy.next;
+        var tail = head;
+        var n = 1;
+        while (tail.next != null)
+        {
+            tail = tail.next;
+            n++;
+        }
+
+        k %= n;
+        if (k == 0) return head; // 相当于绕一圈，返回原链表即可
+        tail.next = head; // 原链表接尾、头相接
+
+        var newTailIndex = n - k;
+        var newTail = head;
+        for (int i = 1; i < newTailIndex; i++)
+        {
+            newTail = newTail!.next;
+        }
+
+        var newHead = newTail!.next;
+        newTail.next = null;
+
+        return newHead;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
