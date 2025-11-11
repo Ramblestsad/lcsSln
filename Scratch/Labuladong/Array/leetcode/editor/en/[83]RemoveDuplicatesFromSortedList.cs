@@ -17,7 +17,7 @@ public class Solution {
     {
         if (head == null) return null;
 
-        var fast = head;
+        var fast = head.next;
         var slow = head;
 
         while (fast!=null)
