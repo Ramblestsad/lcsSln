@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="DotNext" Version="5.26.1" />
     <PackageReference Include="DotNext.Threading" Version="5.26.1" />
-    <PackageReference Include="Masuit.Tools.Core" Version="2025.5.2" />
+    <PackageReference Include="Masuit.Tools.Core" Version="2025.6.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0" />
