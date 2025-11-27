@@ -29,6 +29,7 @@ public class Solution
             }
 
             fast++;
+            // 以fast为准，相当于用fast遍历数组，fast前进了，count就+
             count++;
             if (fast < n && nums[fast] != nums[fast - 1])
             {
