@@ -6,3 +6,4 @@ bin
 */logs/
 *.*.DotSettings.user
 */Migrations/
+*/doc/content/**/*.md
