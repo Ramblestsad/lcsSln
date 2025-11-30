@@ -1,5 +1,4 @@
 using Scratch.Algorithms;
-using Scratch.DataStructure;
 
 namespace Scratch.Tests;
 
@@ -7,7 +6,7 @@ public class AlgorithmsTests: IDisposable
 {
     public void Dispose()
     {
-        // Do some clean-up for every test
+        // Do some cleanup for every test
     }
 
     [Fact]
