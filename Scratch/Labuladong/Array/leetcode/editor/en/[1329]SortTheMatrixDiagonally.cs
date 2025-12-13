@@ -26,10 +26,11 @@ public class Solution
             }
         }
 
-        // 从数组末尾删除元素效率较高，所以把 ArrayList 倒序排序
+        // 排序每条对角线
         foreach (var diagonal in diagonals.Values)
         {
             diagonal.Sort();
+            // 从数组末尾删除元素效率较高，所以把 ArrayList 倒序排序
             diagonal.Reverse();
         }
 
@@ -38,6 +39,7 @@ public class Solution
         {
             for (int j = 0; j < n; j++)
             {
+                // 现在每条对角线是倒序的，所以从末尾取最小元素
                 var diagonal = diagonals[i - j];
                 var lastIndex = diagonal.Count - 1;
                 mat[i][j] = diagonal[lastIndex];
