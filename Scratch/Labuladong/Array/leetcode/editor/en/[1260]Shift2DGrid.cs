@@ -24,6 +24,7 @@ public class Solution
             {
                 rowList.Add(num);
             }
+
             res.Add(rowList);
         }
 
@@ -31,14 +32,16 @@ public class Solution
     }
 
     // 通过一维数组的索引访问二维数组的元素
-    int Get(int[][] grid, int index) {
+    int Get(int[][] grid, int index)
+    {
         var n = grid[0].Length;
         int i = index / n, j = index % n;
         return grid[i][j];
     }
 
     // 通过一维数组的索引修改二维数组的元素
-    void Set(int[][] grid, int index, int val) {
+    void Set(int[][] grid, int index, int val)
+    {
         var n = grid[0].Length;
         int i = index / n, j = index % n;
         grid[i][j] = val;
