@@ -54,6 +54,7 @@ public class TodoItemsController: ControllerBase
         [FromQuery] PaginationFilter paginationFilter
     )
     {
+        var totalRecords = await _db.TodoItems.CountAsync();
         // skip data in advance for performance reasons
         var data = await _db.TodoItems
             .OrderBy(e => e.Id)
@@ -65,7 +66,7 @@ public class TodoItemsController: ControllerBase
         var route = Request.Path.Value;
 
         return Ok(PaginationHelper.CreatePagedResponse(
-                      data, paginationFilter, data.Count, _uriService, Request.Path.ToString()));
+                      data, paginationFilter, totalRecords, _uriService, Request.Path.ToString()));
     }
 
     // GET: api/TodoItems/5
