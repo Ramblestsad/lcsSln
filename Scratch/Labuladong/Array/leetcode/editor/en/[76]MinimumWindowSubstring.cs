@@ -18,25 +18,21 @@ public class Solution
         // valid 变量表示窗口中满足 need 条件的字符个数
         // 如果 valid 和 need.size 的大小相同，则说明窗口已满足条件，已经完全覆盖了串 T
         int valid = 0;
-        var sLength = s.Length;
         // 记录最小覆盖子串的起始索引及长度
         int start = 0, len = int.MaxValue;
 
-        while (right < sLength)
+        while (right < s.Length)
         {
             // c 是将移入窗口的字符
             var c = s[right];
             // 右移窗口
             right++;
             // 进行窗口内数据的一系列更新
-            if (window.TryGetValue(c, out var v)) window[c] = v + 1;
-            else window[c] = 1;
-
-            need.TryGetValue(c, out var cv);
-            window.TryGetValue(c, out var wv);
-            if (cv == wv)
+            if (need.TryGetValue(c, out var cv))
             {
-                valid++;
+                if (window.TryGetValue(c, out var wv)) window[c] = wv + 1;
+                else window[c] = 1;
+                if (cv == window[c]) valid++;
             }
 
             // 一直循环外部循环知道window满足要求：包含t所有字符，即valid==need.Count
