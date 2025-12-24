@@ -10,14 +10,8 @@ public class Solution
 
         foreach (var c in t)
         {
-            if (need.TryGetValue(c, out var v))
-            {
-                need[c] = v + 1;
-            }
-            else
-            {
-                need[c] = 1;
-            }
+            if (need.TryGetValue(c, out var v)) need[c] = v + 1;
+            else need[c] = 1;
         }
 
         int left = 0, right = 0;
