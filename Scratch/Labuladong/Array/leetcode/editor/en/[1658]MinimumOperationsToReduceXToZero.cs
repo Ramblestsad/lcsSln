@@ -9,6 +9,8 @@ public class Solution
         int n = nums.Length;
         // 窗口内子数组的目标和
         var target = nums.Sum() - x;
+        if (target < 0) return -1;
+        if (target == 0) return n;
 
         int left = 0, right = 0, windowSum = 0;
         // windowSum 表示当前窗口内子数组的和
