@@ -10,9 +10,9 @@ public class Solution
          * 2、什么时候应该缩小窗口？
          * 3、什么时候得到一个合法的答案？
          * 针对本题，以上三个问题的答案是：
-         * 1、当窗口大小小于等于 indexDiff 时，扩大窗口，包含更多元素。
-         * 2、当窗口大小大于 indexDiff 时，缩小窗口，减少窗口元素。
-         * 3、窗口大小小于等于 indexDiff，且窗口中存在两个不同元素之差小于 t 时，找到一个答案。
+         * 1、当窗口大小 <= indexDiff 时，扩大窗口，包含更多元素。
+         * 2、当窗口大小 > indexDiff 时，缩小窗口，减少窗口元素。
+         * 3、窗口大小  <= indexDiff，且窗口中存在两个不同元素之差小于 valueDiff 时，找到一个答案。
          */
 
         /*
@@ -38,7 +38,7 @@ public class Solution
                 return true;
 
             //扩大窗口
-            window.Add(nums[right]);
+            window.Add(x);
             right++;
 
             if (right - left > indexDiff)
