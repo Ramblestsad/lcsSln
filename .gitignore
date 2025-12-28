@@ -8,4 +8,4 @@ bin
 */Migrations/
 Scratch/Labuladong/Array/leetcode/editor/en/doc/content/*.md
 Scratch/Labuladong/List/leetcode/editor/en/doc/content/*.md
-Scratch/Publish/
+**/artifacts/
