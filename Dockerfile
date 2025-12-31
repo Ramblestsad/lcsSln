@@ -5,7 +5,7 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0-bookworm-slim AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 COPY ["Todo.WebApi/Todo.WebApi.csproj", "Todo.WebApi/"]
 COPY ["Todo.DAL/Todo.DAL.csproj", "Todo.DAL/"]
