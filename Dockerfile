@@ -16,7 +16,7 @@ WORKDIR "/src/Todo.WebApi"
 RUN dotnet build Todo.WebApi.csproj -c Release -o /app/build
 #dotnet publish Todo.WebApi/Todo.WebApi.csproj -c Release \
 #  -r osx-arm64 --self-contained true /p:PublishSingleFile=true
-RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish -p:PublishProfile=Docker-linux-arm64
+RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish -p:PublishProfile=docker
 
 FROM base AS final
 WORKDIR /app
