@@ -9,6 +9,7 @@ using Scalar.AspNetCore;
 using Serilog;
 using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
+using Todo.WebApi.Grpc.Greeter;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Response.Pagination;
 using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
@@ -78,6 +79,7 @@ public class Startup
         });
 
         services.AddControllers();
+        services.AddGrpc();
 
         // jwt authentication
         var jwtSection = Configuration.GetSection("Jwt");
@@ -166,6 +168,7 @@ public class Startup
             endpoints.MapControllers();
             endpoints.MapGet(
                 "/", async context => { await context.Response.WriteAsync("Temp Index!"); });
+            endpoints.MapGrpcService<GreeterService>();
             if (env.IsDevelopment())
             {
                 endpoints.MapOpenApi();

@@ -20,7 +20,10 @@ spec:
                     image: api:latest              # 本地 build 的镜像名
                     imagePullPolicy: IfNotPresent
                     ports:
-                        -   containerPort: 7878           # 容器内部暴露端口
+                        -   name: http
+                            containerPort: 8080
+                        -   name: grpc
+                            containerPort: 8081           # 容器内部暴露端口
                     resources:
                         requests:
                             cpu: "100m"              # 最少要给 0.1 CPU
