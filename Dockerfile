@@ -5,14 +5,14 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0-bookworm-slim AS build
 WORKDIR /src
 COPY ["Todo.WebApi/Todo.WebApi.csproj", "Todo.WebApi/"]
 COPY ["Todo.DAL/Todo.DAL.csproj", "Todo.DAL/"]
 RUN dotnet restore "Todo.WebApi/Todo.WebApi.csproj"
 COPY . .
 
-WORKDIR "/src/Todo.WebApi"
+WORKDIR /src/Todo.WebApi
 RUN dotnet build Todo.WebApi.csproj -c Release -o /app/build
 #dotnet publish Todo.WebApi/Todo.WebApi.csproj -c Release \
 #  -r osx-arm64 --self-contained true /p:PublishSingleFile=true
