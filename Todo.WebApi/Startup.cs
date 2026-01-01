@@ -158,9 +158,9 @@ public class Startup
 
         app.UseSerilogRequestLogging();
         app.UseHttpsRedirection();
-        app.UseAuthentication();
         app.UseRouting();
         app.UseCors();
+        app.UseAuthentication();
         app.UseAuthorization();
         app.UseEndpoints(endpoints =>
         {
