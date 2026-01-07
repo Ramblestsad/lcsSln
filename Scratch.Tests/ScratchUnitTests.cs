@@ -1,24 +1,20 @@
+using FluentAssertions;
+
 namespace Scratch.Tests;
 
 [Trait("Scratch", "Unit")]
 public class ScratchUnitTests: IDisposable
 {
-    public ScratchUnitTests()
-    {
-        throw new NotImplementedException();
-    }
-
     public void Dispose()
     {
-        // Do some clean-up for every test
-        throw new NotImplementedException();
+        // Do some cleanup for every test
     }
 
     [Fact]
     [Trait("Scratch", "Dummy")]
     public void AbsTest()
     {
-        Assert.Equal(4, Math.Abs(-4));
+        Math.Abs(-4).Should().Be(4);
     }
 
     [Fact]
@@ -30,12 +26,12 @@ public class ScratchUnitTests: IDisposable
 
     [Theory]
     [Trait("Scratch", "Dummy")]
-    [InlineData(2)]
-    [InlineData(4)]
-    [InlineData(7)]
-    public void IsEvenTheory(int number)
+    [InlineData(2, true)]
+    [InlineData(4, true)]
+    [InlineData(7, false)]
+    public void IsEvenTheory(int number, bool expected)
     {
-        Assert.True(IsEven(number));
+        IsEven(number).Should().Be(expected);
     }
 
     bool IsEven(int number)
