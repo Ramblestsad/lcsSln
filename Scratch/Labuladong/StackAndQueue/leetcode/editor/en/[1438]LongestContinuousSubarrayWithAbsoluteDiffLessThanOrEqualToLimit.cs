@@ -21,7 +21,7 @@ public class Solution
         while (right < nums.Length)
         {
             // 扩大窗口，更新窗口最值
-            window.push(nums[right]);
+            window.Push(nums[right]);
             right++;
             windowSize++;
 
@@ -51,7 +51,7 @@ public class Solution
         // 元素升序排列的单调队列，头部是最小值
         LinkedList<T> minQ = new LinkedList<T>();
 
-        public void push(T elem)
+        public void Push(T elem)
         {
             // 维护常规队列，直接在队尾插入元素
             q.AddLast(elem);
