@@ -1,43 +1,54 @@
-namespace Scratch.Labuladong.Algorithms.LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit;
+namespace Scratch.Labuladong.Algorithms.ShortestSubarrayWithSumAtLeastK;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
-    public int LongestSubarray(int[] nums, int limit)
+    public int ShortestSubarray(int[] nums, int k)
     {
         /*
-         * 当窗口内绝对值之差不超过 limit 时扩大窗口，
-         * 当新加入窗口的元素使得绝对值之差超过 limit 时开始收缩窗口，
-         * 窗口的最大宽度即最长子数组的长度。
+         * 前缀和技巧 预计算一个 preSum 数组，
+         * 然后在这个 preSum 数组上施展 滑动窗口算法 寻找一个差值大于等于 k 且宽度最小的「窗口」，
+         * 这个窗口的大小就是题目想要的结果。
+         *
+         * 当滑动窗口扩大时，新进入窗口的元素 preSum[right] 需要知道窗口中最小的那个元素是多少，
+         * 和最小的那个元素相减才能得到尽可能大的子数组和
          */
 
-        var window = new MonotonicQueue<int>();
-        var left = 0;
-        var right = 0;
-        var windowSize = 0;
-        var res = 0;
-
-        // sliding window
-        while (right < nums.Length)
+        var n = nums.Length;
+        // 看题目的数据范围，前缀和数组中元素可能非常大，所以用 long 类型
+        var preSum = new long[n + 1];
+        preSum[0] = 0;
+        // 计算 nums 的前缀和数组
+        for (var i = 1; i <= n; i++)
         {
-            // 扩大窗口，更新窗口最值
-            window.Push(nums[right]);
-            right++;
-            windowSize++;
-
-            while (( window.Max() - window.Min() ) > limit)
-            {
-                // 缩小窗口，更新窗口最值
-                window.Pop();
-                left++;
-                windowSize--;
-            }
-
-            // 在窗口收缩判断完之后才更新答案
-            res = Math.Max(res, windowSize);
+            preSum[i] = preSum[i - 1] + nums[i - 1];
         }
 
-        return res;
+        // 单调队列结构辅助滑动窗口算法
+        var window = new MonotonicQueue<long>();
+        var left = 0;
+        var right = 0;
+        var len = int.MaxValue;
+
+        while (right < preSum.Length)
+        {
+            // 扩大窗口，元素入队
+            window.Push(preSum[right]);
+            right++;
+
+            // 若新进入窗口的元素和窗口中的最小值之差大于等于 k，
+            // 说明得到了符合条件的子数组，缩小窗口，使子数组长度尽可能小
+            while (right < preSum.Length && !window.IsEmpty()
+                                         && preSum[right] - window.Min() >= k)
+            {
+                len = Math.Min(len, right - left); // right++; 之后，right 已经指向**下一个**要加入的前缀和下标
+                // 缩小窗口
+                window.Pop();
+                left++;
+            }
+        }
+
+        return len == int.MaxValue ? -1 : len;
     }
 
     class MonotonicQueue<T> where T: IComparable<T>
