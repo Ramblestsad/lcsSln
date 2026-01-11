@@ -6,7 +6,7 @@ public class ListNode(int val = 0, ListNode? next = null)
     public ListNode? next = next;
 }
 
-public class MonotonicQueue<T> where T: IComparable
+public class MonotonicQueue<T> where T: IComparable<T>
 {
     // 常规队列，存储所有元素
     LinkedList<T> q = new LinkedList<T>();
@@ -47,7 +47,7 @@ public class MonotonicQueue<T> where T: IComparable
 
     public T Min()
     {
-        // minQ 的头部是最大元素
+        // minQ 的头部是最小元素
         return minQ.First!.Value;
     }
 
