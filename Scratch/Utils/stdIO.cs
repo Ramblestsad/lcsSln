@@ -1,12 +1,12 @@
 namespace Scratch.Utils;
 
-public class StdRead
+public static class StdRead
 {
     /// <summary>
     /// 读取一行字符串
     /// </summary>
     /// <returns>string</returns>
-    public string? ReadOneLine()
+    public static string? ReadOneLine()
     {
         var line = Console.ReadLine();
 
@@ -17,7 +17,7 @@ public class StdRead
     /// 按空格读取多个值
     /// </summary>
     /// <returns>(int, long)</returns>
-    public (int, long) ReadMultiVal()
+    public static (int, long) ReadMultiVal()
     {
         var parts = Console.ReadLine()?.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
@@ -31,7 +31,7 @@ public class StdRead
     /// 读取一行并解析成数组
     /// </summary>
     /// <returns>int[]</returns>
-    public int[] ReadToArr()
+    public static int[] ReadToArr()
     {
         var nums = Console.ReadLine()?
             .Split(' ', StringSplitOptions.RemoveEmptyEntries)
@@ -44,7 +44,7 @@ public class StdRead
     /// <summary>
     /// 连续读取多行输入（直到 EOF）
     /// </summary>
-    public List<string> ReadMultiLines()
+    public static List<string> ReadMultiLines()
     {
         using var reader = new StreamReader(Console.OpenStandardInput());
         var lines = new List<string>();
@@ -58,7 +58,7 @@ public class StdRead
         return lines;
     }
 
-    public List<string> ReadMultiLinesWithN()
+    public static List<string> ReadMultiLinesWithN()
     {
         using var reader = new StreamReader(Console.OpenStandardInput());
         var n = int.Parse(reader.ReadLine()!);
@@ -111,5 +111,53 @@ class FastScanner
         }
 
         return val * sign;
+    }
+}
+
+public static class FileReader
+{
+    public static async Task ReadAll(string filePath)
+    {
+        // var text = File.ReadAllText(filePath);
+        var text = await File.ReadAllTextAsync(filePath);
+        Console.WriteLine(text);
+    }
+
+    public static async Task ReadByLine(string filePath)
+    {
+        await foreach (var line in File.ReadLinesAsync(filePath))
+        {
+            Console.WriteLine(line);
+        }
+    }
+
+    public static async Task ReadByByte(string filePath)
+    {
+        // var bytes = await File.ReadAllBytesAsync(filePath);
+        await using var fs = File.OpenRead(filePath);
+
+        var buffer = new byte[4096];
+        int n;
+
+        while (( n = await fs.ReadAsync(buffer, 0, buffer.Length) ) > 0)
+        {
+            // process buffer[..n]
+        }
+    }
+
+    public static async Task ReadByByteMem(string filePath)
+    {
+        await using var fs = File.OpenRead("input.bin");
+
+        var buffer = new byte[4096];
+
+        while (true)
+        {
+            var n = await fs.ReadAsync(buffer.AsMemory());
+            if (n == 0)
+                break;
+
+            // process buffer[..n]
+        }
     }
 }
