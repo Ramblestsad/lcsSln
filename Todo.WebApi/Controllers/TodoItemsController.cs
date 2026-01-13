@@ -6,6 +6,7 @@ using Todo.DAL.Context;
 using Todo.DAL.Entity;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
+using Todo.WebApi.Models;
 using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi.Controllers;
@@ -51,9 +52,11 @@ public class TodoItemsController: ControllerBase
     [HttpGet]
     [ServiceFilter(typeof(ActionTimingFilter))]
     public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(
-        [FromQuery] PaginationFilter paginationFilter
+        [FromQuery] PaginationFilter paginationFilter,
+        [FromServices] CurrentUser user
     )
     {
+        Console.WriteLine(user.Name);
         var totalRecords = await _db.TodoItems.CountAsync();
         // skip data in advance for performance reasons
         var data = await _db.TodoItems

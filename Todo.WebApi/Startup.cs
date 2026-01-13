@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Text;
 using Mapster;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -12,6 +13,7 @@ using Todo.WebApi.Configuration;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Middleware;
+using Todo.WebApi.Models;
 using Todo.WebApi.Response.Pagination;
 using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
 
@@ -66,6 +68,27 @@ public class Startup
             var request = accessor.HttpContext?.Request;
             var uri = string.Concat(request?.Scheme, "://", request?.Host.ToUriComponent());
             return new UriService(uri);
+        });
+
+        services.AddScoped<CurrentUser>(sp =>
+        {
+            var accessor = sp.GetRequiredService<IHttpContextAccessor>();
+            var ctx = accessor.HttpContext;
+
+            var cu = new CurrentUser();
+            var user = ctx?.User;
+
+            if (user?.Identity?.IsAuthenticated == true)
+            {
+                cu.IsAuthenticated = true;
+                cu.Subject = user.FindFirst("sub")?.Value
+                             ?? user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                cu.Name = user.Identity?.Name;
+                cu.Roles = user.FindAll(ClaimTypes.Role)
+                    .Select(c => c.Value).Distinct().ToArray();
+            }
+
+            return cu;
         });
 
         services.AddCors(options =>
