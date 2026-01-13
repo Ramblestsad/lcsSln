@@ -1,4 +1,3 @@
-using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -50,6 +49,7 @@ public class TodoItemsController: ControllerBase
     /// </summary>
     /// <returns></returns>
     [HttpGet]
+    [ServiceFilter(typeof(ActionTimingFilter))]
     public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(
         [FromQuery] PaginationFilter paginationFilter
     )

@@ -9,7 +9,9 @@ using Scalar.AspNetCore;
 using Serilog;
 using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
+using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
+using Todo.WebApi.Middleware;
 using Todo.WebApi.Response.Pagination;
 using static System.Net.Mime.MediaTypeNames; // Production Env Exception Content-Type construct
 
@@ -79,6 +81,8 @@ public class Startup
 
         services.AddControllers();
         services.AddGrpc();
+        services.AddTransient<RequestTimingMiddleware>();
+        services.AddScoped<ActionTimingFilter>();
 
         // jwt authentication
         var jwtSection = Configuration.GetSection("Jwt");
@@ -159,6 +163,7 @@ public class Startup
         app.UseSerilogRequestLogging();
         app.UseHttpsRedirection();
         app.UseRouting();
+        app.UseMiddleware<RequestTimingMiddleware>();
         app.UseCors();
         app.UseAuthentication();
         app.UseAuthorization();

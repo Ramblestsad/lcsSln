@@ -24,6 +24,20 @@ The app listens on ports `8080` (HTTP/1.1 + HTTP/2) and `8081` (HTTP/2) as confi
 - Naming: PascalCase for types/methods/properties, camelCase for locals and parameters.
 - Keep controller actions concise and use async patterns for I/O (see `Controllers/`).
 
+## Middleware Example
+
+Middleware is configured in `Startup.Configure`. Example: add lightweight request timing and attach a response header:
+
+```csharp
+app.Use(async (context, next) =>
+{
+    var started = DateTimeOffset.UtcNow;
+    await next();
+    var elapsedMs = (DateTimeOffset.UtcNow - started).TotalMilliseconds;
+    context.Response.Headers["X-Request-Duration-Ms"] = elapsedMs.ToString("F0");
+});
+```
+
 ## Testing Guidelines
 There is no dedicated test project in this repository. If you add tests, prefer:
 - A sibling test project (e.g., `Todo.WebApi.Tests/`) using xUnit or NUnit.
