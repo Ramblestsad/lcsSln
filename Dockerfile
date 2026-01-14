@@ -25,4 +25,4 @@ RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish \
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["./Todo.WebApi"]
+ENTRYPOINT ["Todo.WebApi"]
