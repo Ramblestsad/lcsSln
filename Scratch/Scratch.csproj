@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="DotNext" Version="5.26.3" />
-    <PackageReference Include="DotNext.Threading" Version="5.26.2" />
+    <PackageReference Include="DotNext.Threading" Version="5.26.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.2" />
