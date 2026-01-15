@@ -411,9 +411,9 @@ public class HashMapOpenAddressing
     几个简单的哈希算法。
     使用大质数作为模数，可以最大化地保证哈希值的均匀分布。
  */
-/* 加法哈希 */
 public class SimpleHashAlgorithms
 {
+    /* 加法哈希 */
     public int AddHash(string key)
     {
         long hash = 0;
