@@ -1,0 +1,3 @@
+- [ ] 改造Serilog使其输出符合otel的json结构日志。
+- [ ] 引入otel方便云平台后端collect logs, metrix, tracing。
+- [ ] 引入rabbitmq，新建示例接口。
