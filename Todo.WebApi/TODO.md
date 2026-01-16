@@ -1,5 +1,6 @@
 - [ ] 改造Serilog使其输出符合otel的json结构日志。
 - [ ] 引入otel方便云平台后端collect logs, metric, tracing。
 - [ ] 引入rabbitmq，新建示例接口。
+- [ ] redis示例接口
 - [ ] 单体情况下的分库分表。
 - [ ] 微服务情况下的分库分表。
