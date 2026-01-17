@@ -127,7 +127,10 @@ public class HashMapChaining
     /* 哈希函数 */
     int HashFunc(int key)
     {
-        return key % _capacity;
+        var h = key.GetHashCode();
+        h = h & 0x7fffffff;
+
+        return h % _capacity;
     }
 
     /* 负载因子 */
