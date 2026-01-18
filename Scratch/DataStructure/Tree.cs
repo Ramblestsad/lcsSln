@@ -357,6 +357,83 @@ public static class TreeUtils
     }
 
     /// <summary>
+    /// 带深度的层序遍历
+    /// </summary>
+    /// <param name="root"></param>
+    public static void LevelOrderTraverse(TreeNode root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        Queue<TreeNode> q = new();
+        q.Enqueue(root);
+        // 记录当前遍历到的层数（根节点视为第 1 层）
+        var depth = 1;
+
+        while (q.Count != 0)
+        {
+            var sz = q.Count;
+            for (int i = 0; i < sz; i++)
+            {
+                TreeNode cur = q.Dequeue();
+                // 访问 cur 节点，同时知道它所在的层数
+                Console.WriteLine("depth = " + depth + ", val = " + cur.Val);
+
+                // 把 cur 的左右子节点加入队列
+                if (cur.Left != null)
+                {
+                    q.Enqueue(cur.Left);
+                }
+
+                if (cur.Right != null)
+                {
+                    q.Enqueue(cur.Right);
+                }
+            }
+
+            depth++;
+        }
+    }
+
+    struct State(TreeNode node, int depth)
+    {
+        public TreeNode node = node;
+        public int depth = depth;
+    }
+
+    public static void LevelOrderTraverseWeight(TreeNode root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        Queue<State> q = new();
+        // 根节点的路径权重和是 1
+        q.Enqueue(new State(root, 1));
+
+        while (q.Count != 0)
+        {
+            State cur = q.Dequeue();
+            // 访问 cur 节点，同时知道它的路径权重和
+            Console.WriteLine("depth = " + cur.depth + ", val = " + cur.node.Val);
+
+            // 把 cur 的左右子节点加入队列
+            if (cur.node.Left != null)
+            {
+                q.Enqueue(new State(cur.node.Left, cur.depth + 1));
+            }
+
+            if (cur.node.Right != null)
+            {
+                q.Enqueue(new State(cur.node.Right, cur.depth + 1));
+            }
+        }
+    }
+
+    /// <summary>
     /// 前序遍历
     /// </summary>
     /// <param name="root"></param>
