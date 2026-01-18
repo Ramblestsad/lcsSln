@@ -6,7 +6,5 @@ bin
 */logs/
 *.*.DotSettings.user
 */Migrations/
-Scratch/Labuladong/Array/leetcode/editor/en/doc/content/*.md
-Scratch/Labuladong/List/leetcode/editor/en/doc/content/*.md
-Scratch/Labuladong/StackAndQueue/leetcode/editor/en/doc/content/*.md
+Scratch/Labuladong/**/leetcode/editor/en/doc/content/*.md
 **/artifacts/
