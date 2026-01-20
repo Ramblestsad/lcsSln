@@ -1,7 +1,8 @@
 - [ ] 改造Serilog使其输出符合otel的json结构日志。
 - [ ] 引入otel方便云平台后端collect logs, metric, tracing。
+- [ ] traceId 全链路传递示例。
+- [ ] redis 示例接口。
 - [ ] 引入rabbitmq，新建示例接口。
-- [ ] redis 示例接口
-- [ ] 添加api-gateway 服务（yarp)
+- [ ] 添加api-gateway 服务（yarp)。
 - [ ] 单体情况下的分库分表。
 - [ ] 微服务情况下的分库分表。
