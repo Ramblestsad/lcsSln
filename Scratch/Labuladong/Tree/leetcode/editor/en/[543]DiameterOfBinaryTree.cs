@@ -20,6 +20,7 @@ public class Solution
 
     public int DiameterOfBinaryTree(TreeNode root)
     {
+        // 每一条二叉树的「Diameter」长度，就是一个节点的左右子树的最大深度之和。
         MaxDepth(root);
 
         return maxDiameter;
