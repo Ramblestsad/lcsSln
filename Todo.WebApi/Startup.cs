@@ -190,6 +190,29 @@ public class Startup
         app.UseCors();
         app.UseAuthentication();
         app.UseAuthorization();
+
+        app.Use(async (ctx, next) =>
+        {
+            await next();
+
+            if (ctx.Response.HasStarted)
+            {
+                return;
+            }
+
+            if (ctx.Response.StatusCode == StatusCodes.Status404NotFound)
+            {
+                ctx.Response.ContentType = "application/json";
+                await ctx.Response.WriteAsJsonAsync(new { code = 1004, msg = "Nothing flourished here" });
+            }
+            else if (ctx.Response.StatusCode == StatusCodes.Status405MethodNotAllowed)
+            {
+                // 注意：框架可能已经设置了 Allow header，这里不动它
+                ctx.Response.ContentType = "application/json";
+                await ctx.Response.WriteAsJsonAsync(new { code = 1005, msg = "Method Not Allowed" });
+            }
+        });
+
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
