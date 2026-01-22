@@ -26,4 +26,3 @@ FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 ENTRYPOINT ["./Todo.WebApi"]
-d'd's's
