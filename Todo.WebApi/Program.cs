@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Serilog;
 
 namespace Todo.WebApi;
@@ -24,13 +23,5 @@ internal class Program
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services);
             })
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-                webBuilder.ConfigureKestrel(options =>
-                {
-                    options.ListenAnyIP(8080, o => o.Protocols = HttpProtocols.Http1AndHttp2);
-                    options.ListenAnyIP(8081, o => o.Protocols = HttpProtocols.Http2);
-                });
-            });
+            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
 }

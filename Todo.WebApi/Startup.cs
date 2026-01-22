@@ -184,7 +184,6 @@ public class Startup
         }
 
         app.UseSerilogRequestLogging();
-        app.UseHttpsRedirection();
         app.UseRouting();
         app.UseMiddleware<RequestTimingMiddleware>();
         app.UseCors();
@@ -199,6 +198,12 @@ public class Startup
             {
                 return;
             }
+
+            var isGrpc = ( ctx.Request.ContentType ?? string.Empty )
+                .StartsWith("application/grpc", StringComparison.OrdinalIgnoreCase);
+
+            if (isGrpc)
+                return;
 
             if (ctx.Response.StatusCode == StatusCodes.Status404NotFound)
             {
@@ -216,8 +221,6 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
-            endpoints.MapGet(
-                "/", async context => { await context.Response.WriteAsync("Temp Index!"); });
             endpoints.MapGrpcServices();
             if (env.IsDevelopment())
             {

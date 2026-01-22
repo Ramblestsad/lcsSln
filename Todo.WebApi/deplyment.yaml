@@ -17,6 +17,13 @@ spec:
         spec: # Pod 的运行时规范
             containers: # 列表，定义该 Pod 中运行的容器们
                 -   name: api                      # 容器的名字，必须在 Pod 内唯一
+                    env:
+                        -   name: ASPNETCORE_ENVIRONMENT
+                            value: Production
+                        -   name: ASPNETCORE_URLS
+                            value: http://0.0.0.0:8080;http://0.0.0.0:8081
+                        -   name: ConnectionStrings__postgres
+                            value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
                     image: api:latest              # 本地 build 的镜像名
                     imagePullPolicy: IfNotPresent
                     ports:
