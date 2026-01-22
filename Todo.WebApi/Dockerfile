@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
 
-FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-amd64 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0-noble-amd64 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0-noble AS build
 ENV ASPNETCORE_ENVIRONMENT=Production
 WORKDIR /src
 COPY ["Todo.WebApi/Todo.WebApi.csproj", "Todo.WebApi/"]
@@ -14,7 +14,7 @@ RUN dotnet restore "Todo.WebApi/Todo.WebApi.csproj"
 COPY . .
 
 WORKDIR /src/Todo.WebApi
-RUN dotnet build -c Release -o /app/build
+# RUN dotnet build -c Release -o /app/build
 RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish \
     -p:PublishProfile=docker \
     -p:SelfContained=false \
@@ -25,4 +25,5 @@ RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish \
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["Todo.WebApi"]
+ENTRYPOINT ["./Todo.WebApi"]
+d'd's's
