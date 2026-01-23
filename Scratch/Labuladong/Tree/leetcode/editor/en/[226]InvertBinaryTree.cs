@@ -33,5 +33,20 @@ public class Solution
         Traverse(root.left);
         Traverse(root.right);
     }
+
+    public TreeNode? RecurInvertTree(TreeNode? root)
+    {
+        if (root == null) return null;
+
+        // 利用函数定义，先翻转左右子树
+        var left = RecurInvertTree(root.left);
+        var right = RecurInvertTree(root.right);
+
+        // 然后交换左右子节点
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
