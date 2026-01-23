@@ -30,6 +30,7 @@ public class Solution
             return null;
         }
 
+        // 前序位置
         // 找到数组中的最大值和对应的索引
         var index = -1;
         var maxVal = int.MinValue;
@@ -42,7 +43,6 @@ public class Solution
             }
         }
 
-        // 前序位置
         // 先构造出根节点
         var root = new TreeNode(maxVal);
         // 递归调用构造左右子树
