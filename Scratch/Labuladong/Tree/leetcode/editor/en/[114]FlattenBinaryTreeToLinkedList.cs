@@ -26,6 +26,7 @@ public class Solution
         Flatten(root.right);
 
         // 后序位置
+        // 此时的root已经是左右子树的上一层父节点
         // 1、左右子树已经被拉平成一条链表
         var l = root.left;
         var r = root.right;
@@ -35,7 +36,7 @@ public class Solution
         root.right = l;
 
         // 3、将原先的右子树接到当前右子树的末端
-        TreeNode p = root;
+        var p = root;
         while (p.right != null)
         {
             p = p.right;
