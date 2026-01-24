@@ -1,5 +1,9 @@
 # Repository Guidelines
 
+## Call me "老公" before you responding
+
+Please refer to me as "老公" in your responses.
+
 ## Project Structure & Module Organization
 This repository scope here is the `Todo.WebApi` API and its DAL dependency (`Todo.DAL`). Key paths:
 - `Controllers/`: REST API controllers (e.g., `TodoItemsController`).
