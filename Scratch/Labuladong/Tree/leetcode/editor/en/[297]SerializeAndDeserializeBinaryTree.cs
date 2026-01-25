@@ -12,7 +12,6 @@ namespace Scratch.Labuladong.Algorithms.SerializeAndDeserializeBinaryTree;
  *     public TreeNode(int x) { val = x; }
  * }
  */
-
 public class Codec
 {
     // 代表分隔符的字符
@@ -25,7 +24,7 @@ public class Codec
     public string serialize(TreeNode root)
     {
         var sb = new StringBuilder();
-        TraversePreorder(root, sb);
+        _serializePreorder(root, sb);
 
         return sb.ToString();
     }
@@ -36,7 +35,7 @@ public class Codec
         return _deserializePreorder(data.Split(SEP).ToList());
     }
 
-    private void TraversePreorder(TreeNode? root, StringBuilder sb)
+    private void _serializePreorder(TreeNode? root, StringBuilder sb)
     {
         if (root == null)
         {
@@ -47,8 +46,8 @@ public class Codec
         // 前序位置
         sb.Append(root.val).Append(SEP);
 
-        TraversePreorder(root.left, sb);
-        TraversePreorder(root.right, sb);
+        _serializePreorder(root.left, sb);
+        _serializePreorder(root.right, sb);
     }
 
     private TreeNode? _deserializePreorder(List<string> nodes)
@@ -64,6 +63,102 @@ public class Codec
 
         root.left = _deserializePreorder(nodes);
         root.right = _deserializePreorder(nodes);
+
+        return root;
+    }
+
+    private void _serializePostorder(TreeNode? root, StringBuilder sb)
+    {
+        if (root == null)
+        {
+            sb.Append(NULL).Append(SEP);
+            return;
+        }
+
+        _serializePostorder(root.left, sb);
+        _serializePostorder(root.right, sb);
+
+        // 后序位置
+        sb.Append(root.val).Append(SEP);
+    }
+
+    private TreeNode? _deserializePostorder(List<string> nodes)
+    {
+        if (nodes.Count == 0) return null;
+
+        var last = nodes[^1];
+        nodes.RemoveAt(nodes.Count - 1);
+
+        if (last == NULL) return null;
+        var root = new TreeNode(int.Parse(last));
+
+        // 先构造右子树，后构造左子树
+        root.right = _deserializePostorder(nodes);
+        root.left = _deserializePostorder(nodes);
+
+        return root;
+    }
+
+    private void _serializeLevel(TreeNode root, StringBuilder sb)
+    {
+        if (root == null) return;
+        var q = new Queue<TreeNode?>();
+        q.Enqueue(root);
+
+        while (q.Count != 0)
+        {
+            var _size = q.Count;
+            for (var i = 0; i < _size; i++)
+            {
+                var cur = q.Dequeue();
+                if (cur == null)
+                {
+                    sb.Append(NULL).Append(SEP);
+                    continue;
+                }
+
+                sb.Append(cur.val).Append(SEP);
+                q.Enqueue(cur.left);
+                q.Enqueue(cur.right);
+            }
+        }
+    }
+
+    private TreeNode? _deserializeLevel(List<string> nodes)
+    {
+        if (nodes.Count == 0) return null;
+
+        // 第一个元素就是 root 的值
+        var root = new TreeNode(int.Parse(nodes[0]));
+        // 队列 q 记录父节点，将 root 加入队列
+        var q = new Queue<TreeNode>();
+        q.Enqueue(root);
+
+        // index 变量记录正在序列化的节点在数组中的位置
+        var index = 1;
+        while (q.Count != 0)
+        {
+            var _size = q.Count;
+            for (int i = 0; i < _size; i++)
+            {
+                var parent = q.Dequeue();
+                // 为父节点构造左侧子节点
+                var left = nodes[index++];
+                if (left != NULL)
+                {
+                    parent.left = new TreeNode(int.Parse(left));
+                    q.Enqueue(parent.left);
+                }
+
+                // 为父节点构造右侧子节点
+                var right = nodes[index++];
+                if (right != NULL)
+                {
+                    parent.right = new TreeNode(int.Parse(right));
+                    q.Enqueue(parent.right);
+                }
+            }
+        }
 
         return root;
     }
