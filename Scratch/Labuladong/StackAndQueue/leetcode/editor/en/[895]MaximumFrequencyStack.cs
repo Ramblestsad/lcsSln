@@ -40,8 +40,7 @@ public class FreqStack
         var toRm = maxVals.Pop();
 
         // 修改 VF 表：v 对应的 freq 减一
-        valToFreq.TryGetValue(toRm, out var freq);
-        freq -= 1;
+        if (valToFreq.TryGetValue(toRm, out var freq)) freq -= 1;
         valToFreq[toRm] = freq;
 
         // 更新 maxFreq
