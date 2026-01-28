@@ -32,7 +32,7 @@ public class Solution
             for (var j = 0; j < n - i; j++)
             {
                 // swap(matrix[i][j], matrix[n-j-1][n-i-1])
-                ( matrix[i][j], matrix[n-j-1][n-i-1] ) = ( matrix[n-j-1][n-i-1], matrix[i][j] );
+                ( matrix[i][j], matrix[n - j - 1][n - i - 1] ) = ( matrix[n - j - 1][n - i - 1], matrix[i][j] );
             }
         }
     }

@@ -1,7 +1,8 @@
 namespace Scratch.Labuladong.Algorithms.RemoveElement;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-public class Solution {
+public class Solution
+{
     public int RemoveElement(int[] nums, int val)
     {
         var fast = 0;
@@ -14,6 +15,7 @@ public class Solution {
                 nums[slow] = nums[fast];
                 slow++;
             }
+
             fast++;
         }
 

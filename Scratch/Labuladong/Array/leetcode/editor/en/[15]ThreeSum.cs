@@ -1,8 +1,10 @@
 namespace Scratch.Labuladong.Algorithms.ThreeSum;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-public class Solution {
-    public List<IList<int>> ThreeSum(int[] nums) {
+public class Solution
+{
+    public List<IList<int>> ThreeSum(int[] nums)
+    {
         Array.Sort(nums);
         var target = 0;
         var n = nums.Length;
@@ -19,6 +21,7 @@ public class Solution {
                 tuple.Add(nums[i]);
                 res.Add(tuple);
             }
+
             // 跳过第一个数字重复的情况，否则会出现重复结果
             while (i < n - 1 && nums[i] == nums[i + 1]) i++;
         }
@@ -59,6 +62,5 @@ public class Solution {
 
         return res;
     }
-
 }
 //leetcode submit region end(Prohibit modification and deletion)

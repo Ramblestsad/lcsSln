@@ -1,7 +1,8 @@
 namespace Scratch.Labuladong.Algorithms.LongestPalindromicSubstring;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-public class Solution {
+public class Solution
+{
     public string LongestPalindrome(string s)
     {
         // for 0 <= i < len(s):

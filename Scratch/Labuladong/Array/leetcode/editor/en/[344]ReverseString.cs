@@ -1,7 +1,8 @@
 namespace Scratch.Labuladong.Algorithms.ReverseString;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-public class Solution {
+public class Solution
+{
     public void ReverseString(char[] s)
     {
         var left = 0;

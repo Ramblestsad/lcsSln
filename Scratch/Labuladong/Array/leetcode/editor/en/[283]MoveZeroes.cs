@@ -1,7 +1,8 @@
 namespace Scratch.Labuladong.Algorithms.MoveZeroes;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-public class Solution {
+public class Solution
+{
     public void MoveZeroes(int[] nums)
     {
         // 变形为先拿到去除0的数组，然后加0

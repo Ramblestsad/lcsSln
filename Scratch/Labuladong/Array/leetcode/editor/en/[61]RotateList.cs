@@ -12,7 +12,8 @@ namespace Scratch.Labuladong.Algorithms.RotateList;
  *     }
  * }
  */
-public class Solution {
+public class Solution
+{
     public ListNode? RotateRight(ListNode head, int k)
     {
         if (head == null) return null;
