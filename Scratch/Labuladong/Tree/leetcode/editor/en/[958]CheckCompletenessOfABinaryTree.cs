@@ -18,6 +18,9 @@ public class Solution
 {
     public bool IsCompleteTree(TreeNode? root)
     {
+        // 完全二叉树在层序遍历中，一旦出现第一个 null（缺口），
+        // 后面出队的节点必须全是 null；
+        // 否则就说明“缺口后面还有真实节点”，结构不可能是完全二叉树。
         if (root == null) return true;
 
         var q = new Queue<TreeNode?>();
