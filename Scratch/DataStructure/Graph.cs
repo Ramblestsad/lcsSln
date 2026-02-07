@@ -3,7 +3,7 @@ namespace Scratch.DataStructure;
 public class GraphAdjMatrix
 {
     // 邻接矩阵，行列索引对应“顶点索引”
-    List<List<int>> adjMatrix;
+    List<List<int>> graph;
 
     // 顶点列表，元素代表“顶点值”，索引代表“顶点索引”
     List<int> vertices;
@@ -11,7 +11,7 @@ public class GraphAdjMatrix
     public GraphAdjMatrix(int[] inVertices, int[][] edges)
     {
         vertices = [];
-        adjMatrix = [];
+        graph = [];
         // 添加顶点
         foreach (var val in inVertices)
         {
@@ -39,13 +39,13 @@ public class GraphAdjMatrix
 
         // 在邻接矩阵中添加一列
         // 原先的矩阵所有行最后加一个0就代表新加了一列
-        foreach (var row in adjMatrix)
+        foreach (var row in graph)
         {
             row.Add(0);
         }
 
         // 最后再attach新行
-        adjMatrix.Add(newRow);
+        graph.Add(newRow);
     }
 
     public void RemoveVertex(int index)
@@ -55,9 +55,9 @@ public class GraphAdjMatrix
         // 在顶点列表中移除索引 index 的顶点
         vertices.RemoveAt(index);
         // 在邻接矩阵中删除索引 index 的行
-        adjMatrix.RemoveAt(index);
+        graph.RemoveAt(index);
         // 在邻接矩阵中删除索引 index 的列
-        foreach (var row in adjMatrix)
+        foreach (var row in graph)
         {
             row.RemoveAt(index);
         }
@@ -75,8 +75,8 @@ public class GraphAdjMatrix
         if (i < 0 || j < 0 || i >= vertices.Count || j >= vertices.Count || i == j)
             throw new IndexOutOfRangeException();
         // 在无向图中，邻接矩阵关于主对角线对称，即满足 (i, j) == (j, i)
-        adjMatrix[i][j] = 1;
-        adjMatrix[j][i] = 1;
+        graph[i][j] = 1;
+        graph[j][i] = 1;
     }
 
     /// <summary>
@@ -90,8 +90,8 @@ public class GraphAdjMatrix
         // 索引越界与相等处理
         if (i < 0 || j < 0 || i >= vertices.Count || j >= vertices.Count || i == j)
             throw new IndexOutOfRangeException();
-        adjMatrix[i][j] = 0;
-        adjMatrix[j][i] = 0;
+        graph[i][j] = 0;
+        graph[j][i] = 0;
     }
 }
 
@@ -108,11 +108,11 @@ public class GraphAdjList
      */
 
     // 邻接表，key：顶点，value：该顶点的所有邻接顶点
-    public Dictionary<Vertex, List<Vertex>> adjList;
+    public Dictionary<Vertex, List<Vertex>> graph;
 
     public GraphAdjList(Vertex[][] edges)
     {
-        adjList = [];
+        graph = [];
         // 添加所有顶点和边
         foreach (var edge in edges)
         {
@@ -124,43 +124,43 @@ public class GraphAdjList
 
     int Size()
     {
-        return adjList.Count;
+        return graph.Count;
     }
 
     public void AddEdge(Vertex vet1, Vertex vet2)
     {
-        if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
+        if (!graph.ContainsKey(vet1) || !graph.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
         // 添加边 vet1 - vet2
-        adjList[vet1].Add(vet2);
-        adjList[vet2].Add(vet1);
+        graph[vet1].Add(vet2);
+        graph[vet2].Add(vet1);
     }
 
     public void RemoveEdge(Vertex vet1, Vertex vet2)
     {
-        if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
+        if (!graph.ContainsKey(vet1) || !graph.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
         // 删除边 vet1 - vet2
-        adjList[vet1].Remove(vet2);
-        adjList[vet2].Remove(vet1);
+        graph[vet1].Remove(vet2);
+        graph[vet2].Remove(vet1);
     }
 
     public void AddVertex(Vertex vet)
     {
-        if (adjList.ContainsKey(vet))
+        if (graph.ContainsKey(vet))
             return;
 
-        adjList.Add(vet, []);
+        graph.Add(vet, []);
     }
 
     public void RemoveVertex(Vertex vet)
     {
-        if (!adjList.ContainsKey(vet))
+        if (!graph.ContainsKey(vet))
             throw new InvalidOperationException();
         // 在邻接表中删除顶点 vet 对应的链表
-        adjList.Remove(vet);
+        graph.Remove(vet);
         // 遍历其他顶点的链表，删除所有包含 vet 的边
-        foreach (List<Vertex> list in adjList.Values)
+        foreach (var list in graph.Values)
         {
             list.Remove(vet);
         }
@@ -190,7 +190,7 @@ public static class GraphTraverse
         {
             var vet = que.Dequeue(); // 队首顶点出队
             res.Add(vet); // 记录访问顶点
-            foreach (var adjVet in graph.adjList[vet])
+            foreach (var adjVet in graph.graph[vet])
             {
                 if (visited.Contains(adjVet))
                 {
@@ -217,7 +217,7 @@ public static class GraphTraverse
         List<Vertex> res = [];
         // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [];
-        GraphTraverse.DFS(graph, visited, res, startVet);
+        DFS(graph, visited, res, startVet);
         return res;
 
         /*
@@ -232,7 +232,7 @@ public static class GraphTraverse
         res.Add(vet); // 记录访问顶点
         visited.Add(vet); // 标记该顶点已被访问
         // 遍历该顶点的所有邻接顶点
-        foreach (Vertex adjVet in graph.adjList[vet])
+        foreach (Vertex adjVet in graph.graph[vet])
         {
             if (visited.Contains(adjVet))
             {
