@@ -14,12 +14,22 @@ public class MyCalendar
         var cur = ( start: startTime, end: endTime );
 
         // 找到 start <= startTime 的最近一个（earlier）
-        var earlier = events.GetViewBetween(( int.MinValue, int.MinValue ), cur).Max;
-        if (!earlier.Equals(default) && startTime < earlier.end) return false;
+        var earlierView = events.GetViewBetween(( int.MinValue, int.MinValue ), cur);
+        if (earlierView.Count > 0)
+        {
+            var earlier = earlierView.Max;
+            // 1、之前的那个日程还没结束，这个日程就开始了
+            if (startTime < earlier.end) return false;
+        }
 
         // 找到 start >= startTime 的最近一个（later）
-        var later = events.GetViewBetween(cur, ( int.MaxValue, int.MaxValue )).Min;
-        if (!later.Equals(default) && endTime > later.start) return false;
+        var laterView = events.GetViewBetween(cur, ( int.MaxValue, int.MaxValue ));
+        if (laterView.Count > 0)
+        {
+            var later = laterView.Min;
+            // 2、这个日程还没结束的时候，下个日程就开始了
+            if (endTime > later.start) return false;
+        }
 
         events.Add(cur);
         return true;
