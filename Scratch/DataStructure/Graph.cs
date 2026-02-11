@@ -181,7 +181,6 @@ public static class GraphTraverse
         List<Vertex> res = [];
         // 哈希集合，用于记录已被访问过的顶点
         HashSet<Vertex> visited = [startVet];
-        visited.Add(startVet);
         // 队列用于实现 BFS
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
