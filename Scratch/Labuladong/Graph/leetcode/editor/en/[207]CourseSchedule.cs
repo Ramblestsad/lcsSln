@@ -56,10 +56,6 @@ public class Solution
 
         // 如果所有节点都被遍历过，说明不成环
         return count == numCourses;
-
-        // 不仅要判断是否存在环，还要返回这个环具体有哪些节点，怎么办？
-        // 最简单直接的解法是，在 bool[] onPath 数组的基础上，再使用一个 Stack<int> path 栈，把遍历过程中经过的节点顺序也保存下来。
-        // 比如path 从栈底到栈顶的元素是 [0,4,5,9,8,7,6]。此时又一次遇到了节点 5，那么就可以知道 [5,9,8,7,6] 这部分是环了
     }
 
     private List<int>[] _buildG(int numCourses, int[][] prerequisites)
@@ -104,6 +100,10 @@ public class Solution
         }
 
         return false;
+
+        // 不仅要判断是否存在环，还要返回这个环具体有哪些节点，怎么办？
+        // 最简单直接的解法是，在 bool[] onPath 数组的基础上，再使用一个 Stack<int> path 栈，把遍历过程中经过的节点顺序也保存下来。
+        // 比如path 从栈底到栈顶的元素是 [0,4,5,9,8,7,6]。此时又一次遇到了节点 5，那么就可以知道 [5,9,8,7,6] 这部分是环了
     }
 
     void _dfs(List<int>[] graph, int s)
