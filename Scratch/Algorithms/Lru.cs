@@ -84,6 +84,7 @@ public class Lru
             _deleteKey(key);
             // 新插入的数据为最近使用的数据
             _addRecently(key, val);
+            return;
         }
 
         // key未存在
