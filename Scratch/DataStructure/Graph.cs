@@ -309,6 +309,21 @@ public class UF
         }
 
         return parent[x];
+
+        // 递归版本的路径压缩的迭代表示
+        // 先找到根节点
+        // int root = x;
+        // while (parent[root] != root) {
+        //     root = parent[root];
+        // }
+        // 然后把 x 到根节点之间的所有节点直接接到根节点下面
+        // int old_parent = parent[x];
+        // while (x != root) {
+        //     parent[x] = root;
+        //     x = old_parent;
+        //     old_parent = parent[old_parent];
+        // }
+        // return root;
     }
 
     public int Count()
