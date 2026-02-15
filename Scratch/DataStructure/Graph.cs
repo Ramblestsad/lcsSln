@@ -243,3 +243,84 @@ public static class GraphTraverse
         }
     }
 }
+
+// Union Find 结构
+public class UF
+{
+    // 记录连通分量
+    private int count;
+
+    // 节点 x 的父节点是 parent[x]
+    private int[] parent;
+
+    // 记录每棵树的「重量」（节点数量）
+    private int[] size;
+
+    // 构造函数，n 为图的节点总数
+    public UF(int n)
+    {
+        // 一开始互不连通
+        count = n;
+        // 父节点指针初始指向自己
+        parent = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            parent[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public void Union(int p, int q)
+    {
+        var rootP = Find(p);
+        var rootQ = Find(q);
+        if (rootP == rootQ) return;
+
+        // 将两棵树合并为一棵
+        // 把小树接到大树下面，更平衡
+        if (size[rootP] > size[rootQ])
+        {
+            parent[rootQ] = rootP;
+            size[rootP] += size[rootQ];
+        }
+        else
+        {
+            parent[rootP] = rootQ;
+            size[rootQ] += size[rootP];
+        }
+
+        // 连通分量个数减一
+        count--;
+    }
+
+    public bool Connected(int p, int q)
+    {
+        var rootP = Find(p);
+        var rootQ = Find(q);
+        return rootP == rootQ;
+    }
+
+    public int Find(int x)
+    {
+        if (parent[x] != x)
+        {
+            parent[x] = Find(parent[x]);
+        }
+
+        return parent[x];
+    }
+
+    public int Count()
+    {
+        return count;
+    }
+
+    // 返回节点 x 所在连通分量的节点总数
+    public int Size(int x)
+    {
+        var root = Find(x);
+
+        return size[root];
+    }
+}
