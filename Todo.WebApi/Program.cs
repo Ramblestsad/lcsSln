@@ -111,11 +111,7 @@ var jwtSettings = jwtSection.Get<JwtSettings>()!;
 var encryptedKey = Encoding.ASCII.GetBytes(jwtSettings.Key!);
 
 builder.Services
-    .AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.RequireHttpsMetadata = false;
