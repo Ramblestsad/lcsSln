@@ -406,3 +406,87 @@ public static class DijkstraAlgorithm
         return distTo;
     }
 }
+
+public static class AStarAlgorithm
+{
+    // 对于任意节点 x，我们定义三个量：
+    // g(x) 表示从起点 src 到节点 x 实际走过的路径长度。
+    // h(x) 是从节点 x 到终点 dst 的预估距离（启发函数估算）。
+    // f(x) = g(x) + h(x) 作为优先级队列中节点的排序依据。
+
+    //State 类增加 f 字段，优先级队列按 f 排序。
+    // 入队时计算 f = g + h。
+
+    // 接近终点时 f(x) 的增速慢，节点排在优先级队列前面，更容易出队，算法也就会优先向终点的方向进行搜索；
+    // 反之，远离终点时 f(x) 的增速快，搜索的优先级就会降低。
+
+    class State(int node, int distFromStart, int f)
+    {
+        public int node = node;
+
+        // g(x)，从起点到当前节点的实际距离
+        public int distFromStart = distFromStart;
+
+        // f(x) = g(x) + h(x)，用于优先级队列排序
+        public int f = f;
+    }
+
+    // 启发函数，估算从 node 到 dst 的距离。具体实现取决于问题场景
+    static int _heuristicFn(int node, int dst)
+    {
+        // 启发函数必须满足可接受性（Admissibility）条件：
+        //      对于所有节点 x，h(x) 不能大于从 x 到终点的实际最短距离（高估）。
+
+        // 曼哈顿距离，适用于只能上下左右 4 个方向移动，每格的代价为 1 的场景：
+        var h = Math.Abs(node - dst) + Math.Abs(node - dst);
+
+        // 切比雪夫距离，适用于上、下、左、右、左上、右上、左下、右下 8 个方向移动，且每格移动的代价为 1 的场景：
+        // var h = Math.Max(Math.Abs(node - dst), Math.Abs(node - dst));
+
+        // 欧几里得距离，适用于向任何角度、任何方向移动的场景：
+        // var h = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+
+        return h;
+    }
+
+    // A* 算法，计算从 src 到 dst 的最短路径
+    static int AStar(List<int[]>[] graph, int src, int dst)
+    {
+        var n = graph.Length;
+        var distTo = new int[n];
+        Array.Fill(distTo, int.MaxValue);
+        distTo[src] = 0;
+
+        // 按 f(x) 从小到大排序
+        var pq = new PriorityQueue<State, int>();
+        // 起点入队，f = g + h = 0 + h(src)
+        var init = new State(src, 0, _heuristicFn(src, dst));
+        pq.Enqueue(init, init.f);
+
+        while (pq.Count > 0)
+        {
+            var s = pq.Dequeue();
+            var curNode = s.node;
+            var curDist = s.distFromStart;
+
+            if (curNode == dst) return curDist;
+
+            if (distTo[curNode] < curDist) continue;
+
+            foreach (var e in graph[curNode])
+            {
+                var nextNode = e[0];
+                var nextDist = curDist + e[1];
+
+                if (distTo[nextNode] <= nextDist) continue;
+
+                distTo[nextNode] = nextDist;
+                // 入队时计算 f = g + h
+                var f = nextDist + _heuristicFn(nextNode, dst);
+                pq.Enqueue(new State(nextNode, nextDist, f), f);
+            }
+        }
+
+        return -1;
+    }
+}
