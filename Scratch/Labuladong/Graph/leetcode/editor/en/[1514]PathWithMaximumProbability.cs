@@ -62,6 +62,8 @@ public class Solution
             var curProbFromStart = s.probFromStart;
 
             // 已经存在更优路径，则跳过
+            // 用 > 而不是 >=，因为如果 probTo[curNode] == curProbFromStart，
+            // 说明这就是当前最优的路径，不应该跳过，需要继续处理（展开邻居）。
             if (probTo[curNode] > curProbFromStart) continue;
             // 判断是否已经到达目标点
             if (curNode == dst) return probTo[curNode];
@@ -72,6 +74,7 @@ public class Solution
                 var nextProbFromStart = curProbFromStart * e[1]; // 这里是乘法，因为是概率，每过一条边，prob减小
 
                 // 已经存在更优路径，则跳过
+                // 用 >= 而不是 >，因为如果概率相等，再入队也不会改善结果，只会浪费时间。
                 if (probTo[nextNode] >= nextProbFromStart) continue;
 
                 pq.Enqueue(new State(nextNode, nextProbFromStart), nextProbFromStart);
