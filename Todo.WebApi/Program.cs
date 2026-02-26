@@ -17,8 +17,6 @@ using Todo.WebApi.Models;
 using Todo.WebApi.Response.Pagination;
 using static System.Net.Mime.MediaTypeNames;
 
-#region Builder
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, services, configuration) =>
 {
@@ -26,8 +24,6 @@ builder.Host.UseSerilog((context, services, configuration) =>
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services);
 });
-
-#endregion
 
 #region Services
 
