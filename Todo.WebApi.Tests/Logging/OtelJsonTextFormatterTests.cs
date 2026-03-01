@@ -89,7 +89,8 @@ public sealed class OtelJsonTextFormatterTests
         var logEvent = CreateLogEvent(
             LogEventLevel.Error,
             "failed {Code}",
-            exception, ( "Code", 500 )
+            exception,
+            ( "Code", 500 )
         );
 
         var json = Render(formatter, logEvent);
