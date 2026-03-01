@@ -80,7 +80,10 @@ public sealed class OtelJsonTextFormatter: ITextFormatter
             writer.WriteEndObject();
         }
 
-        output.Write(Encoding.UTF8.GetString(memoryStream.ToArray()));
+        output.Write(Encoding.UTF8.GetString(
+                         memoryStream.GetBuffer().AsSpan(0, (int)memoryStream.Length)
+                     )
+        );
         output.WriteLine();
     }
 
