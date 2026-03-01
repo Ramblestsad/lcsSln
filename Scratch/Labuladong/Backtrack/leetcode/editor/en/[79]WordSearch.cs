@@ -10,6 +10,7 @@ public class Solution
         var m = board.Length;
         var n = board[0].Length;
 
+        // 对网格中每个格子作为起点，尝试用 DFS 匹配 word 的每一个字符。
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
@@ -25,6 +26,7 @@ public class Solution
     // 从 (i, j) 开始向四周搜索，试图匹配 word[p..]
     private void _dfs(char[][] board, int i, int j, string word, int p)
     {
+        // p 是当前要匹配 word 的第几个字符
         if (p == word.Length)
         {
             // 整个 word 已经被匹配完，找到了一个答案
