@@ -1,4 +1,4 @@
-- [ ] 改造Serilog使其输出符合otel的json结构日志。
+- [x] 改造Serilog使其输出符合otel的json结构日志。
 - [ ] 引入otel export 到 collector: logs, metric, trace_id
 - [ ] redis 示例接口。
 - [ ] 添加websocket SignalR 示例接口。

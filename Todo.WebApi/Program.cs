@@ -12,6 +12,7 @@ using Todo.DAL.Context;
 using Todo.WebApi.Configuration;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
+using Todo.WebApi.Logging;
 using Todo.WebApi.Middleware;
 using Todo.WebApi.Models;
 using Todo.WebApi.Response.Pagination;
@@ -20,9 +21,40 @@ using static System.Net.Mime.MediaTypeNames;
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, services, configuration) =>
 {
+    var resourceOptions =
+        context.Configuration
+            .GetSection(ObservabilityResourceOptions.SectionName)
+            .Get<ObservabilityResourceOptions>()
+        ?? new ObservabilityResourceOptions();
+
+    resourceOptions.ServiceName = string.IsNullOrWhiteSpace(resourceOptions.ServiceName)
+        ? "Todo.WebApi"
+        : resourceOptions.ServiceName;
+    resourceOptions.ServiceVersion = string.IsNullOrWhiteSpace(resourceOptions.ServiceVersion)
+        ? "1.0.0"
+        : resourceOptions.ServiceVersion;
+    resourceOptions.DeploymentEnvironment = string.IsNullOrWhiteSpace(resourceOptions.DeploymentEnvironment)
+        ? context.HostingEnvironment.EnvironmentName
+        : resourceOptions.DeploymentEnvironment;
+
     configuration
         .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services);
+        .ReadFrom.Services(services)
+        .Enrich.With<ActivityContextEnricher>();
+
+    if (context.HostingEnvironment.IsDevelopment())
+    {
+        configuration.WriteTo.Console(
+            outputTemplate:
+            "[{Timestamp:HH:mm:ss} {Level:u3}] " +
+            "[tr:{trace_id} sp:{span_id}] " +
+            "{SourceContext} {Message:lj}{NewLine}{Exception}");
+        // configuration.WriteTo.Console();
+    }
+    else
+    {
+        configuration.WriteTo.Console(new OtelJsonTextFormatter(resourceOptions));
+    }
 });
 
 #region Services
@@ -95,6 +127,9 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+
+builder.Services.Configure<ObservabilityResourceOptions>(
+    builder.Configuration.GetSection(ObservabilityResourceOptions.SectionName));
 
 builder.Services.AddControllers();
 builder.Services.AddGrpc();
