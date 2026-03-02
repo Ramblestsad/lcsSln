@@ -1,0 +1,86 @@
+receivers:
+    otlp:
+        protocols:
+            grpc:
+            http:
+
+    # Example only:
+    # - In Docker, change include path to your container log path.
+    # - In Kubernetes, change include path to /var/log/containers/*todo-webapi*.log.
+    filelog:
+        include:
+            - /var/lib/docker/containers/*/*.log
+        start_at: end
+        operators:
+            # Parse Docker JSON envelope: {"log":"...", "stream":"stdout", ...}
+            -   type: json_parser
+                parse_from: body
+            # Parse inner application log (OTel JSON from stdout)
+            -   type: json_parser
+                parse_from: attributes.log
+            -   type: move
+                from: attributes.body
+                to: body
+            -   type: move
+                from: attributes.trace_id
+                to: attributes.trace_id
+            -   type: move
+                from: attributes.span_id
+                to: attributes.span_id
+
+processors:
+    memory_limiter:
+        check_interval: 1s
+        limit_mib: 512
+        spike_limit_mib: 128
+
+    batch:
+        send_batch_size: 1024
+        timeout: 1s
+
+    resource:
+        attributes:
+            -   key: deployment.environment
+                action: upsert
+                value: docker
+
+exporters:
+    loki:
+        endpoint: http://loki:3100/loki/api/v1/push
+        default_labels_enabled:
+            exporter: false
+            job: true
+            instance: true
+            level: true
+        labels:
+            attributes:
+                trace_id: trace_id
+                span_id: span_id
+                service_name: service.name
+
+    otlp/tempo:
+        endpoint: tempo:4317
+        tls:
+            insecure: true
+
+    prometheusremotewrite:
+        endpoint: http://prometheus:9090/api/v1/write
+        tls:
+            insecure: true
+
+service:
+    pipelines:
+        logs:
+            receivers: [ filelog ]
+            processors: [ memory_limiter, resource, batch ]
+            exporters: [ loki ]
+
+        traces:
+            receivers: [ otlp ]
+            processors: [ memory_limiter, resource, batch ]
+            exporters: [ otlp/tempo ]
+
+        metrics:
+            receivers: [ otlp ]
+            processors: [ memory_limiter, resource, batch ]
+            exporters: [ prometheusremotewrite ]

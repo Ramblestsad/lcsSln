@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using Scalar.AspNetCore;
 using Serilog;
 using Todo.DAL.Context;
@@ -19,24 +22,30 @@ using Todo.WebApi.Response.Pagination;
 using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var configuredObservabilityOptions = builder.Configuration
+                                         .GetSection(ObservabilityResourceOptions.SectionName)
+                                         .Get<ObservabilityResourceOptions>()
+                                     ?? new ObservabilityResourceOptions();
+var resolvedResource = OtelSettingsResolver.ResolveResource(
+    configuredObservabilityOptions,
+    builder.Environment.EnvironmentName);
+var observabilityOptions = new ObservabilityResourceOptions
+{
+    ServiceName = resolvedResource.ServiceName,
+    ServiceVersion = resolvedResource.ServiceVersion,
+    DeploymentEnvironment = resolvedResource.DeploymentEnvironment
+};
+
+var configuredOtelOptions = builder.Configuration
+                                .GetSection(OtelOptions.SectionName)
+                                .Get<OtelOptions>()
+                            ?? new OtelOptions();
+var otlpExporterSettings = OtelSettingsResolver.ResolveExporterSettings(configuredOtelOptions);
+var traceSampler = OtelSettingsResolver.ResolveSampler(configuredOtelOptions);
+
 builder.Host.UseSerilog((context, services, configuration) =>
 {
-    var resourceOptions =
-        context.Configuration
-            .GetSection(ObservabilityResourceOptions.SectionName)
-            .Get<ObservabilityResourceOptions>()
-        ?? new ObservabilityResourceOptions();
-
-    resourceOptions.ServiceName = string.IsNullOrWhiteSpace(resourceOptions.ServiceName)
-        ? "Todo.WebApi"
-        : resourceOptions.ServiceName;
-    resourceOptions.ServiceVersion = string.IsNullOrWhiteSpace(resourceOptions.ServiceVersion)
-        ? "1.0.0"
-        : resourceOptions.ServiceVersion;
-    resourceOptions.DeploymentEnvironment = string.IsNullOrWhiteSpace(resourceOptions.DeploymentEnvironment)
-        ? context.HostingEnvironment.EnvironmentName
-        : resourceOptions.DeploymentEnvironment;
-
     configuration
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services)
@@ -53,7 +62,7 @@ builder.Host.UseSerilog((context, services, configuration) =>
     }
     else
     {
-        configuration.WriteTo.Console(new OtelJsonTextFormatter(resourceOptions));
+        configuration.WriteTo.Console(new OtelJsonTextFormatter(observabilityOptions));
     }
 });
 
@@ -130,6 +139,61 @@ builder.Services.AddCors(options =>
 
 builder.Services.Configure<ObservabilityResourceOptions>(
     builder.Configuration.GetSection(ObservabilityResourceOptions.SectionName));
+builder.Services.PostConfigure<ObservabilityResourceOptions>(options =>
+{
+    options.ServiceName = observabilityOptions.ServiceName;
+    options.ServiceVersion = observabilityOptions.ServiceVersion;
+    options.DeploymentEnvironment = observabilityOptions.DeploymentEnvironment;
+});
+builder.Services.Configure<OtelOptions>(
+    builder.Configuration.GetSection(OtelOptions.SectionName));
+
+builder.Services
+    .AddOpenTelemetry()
+    .ConfigureResource(resourceBuilder =>
+    {
+        resourceBuilder
+            .AddService(
+                serviceName: observabilityOptions.ServiceName,
+                serviceVersion: observabilityOptions.ServiceVersion)
+            .AddAttributes(new Dictionary<string, object>
+            {
+                ["deployment.environment"] = observabilityOptions.DeploymentEnvironment
+            });
+    })
+    .WithTracing(tracing =>
+    {
+        tracing
+            .SetSampler(traceSampler)
+            .AddAspNetCoreInstrumentation(options => { options.RecordException = true; })
+            .AddHttpClientInstrumentation(options => { options.RecordException = true; })
+            .AddOtlpExporter(options =>
+            {
+                options.Endpoint = otlpExporterSettings.Endpoint;
+                options.Protocol = otlpExporterSettings.Protocol;
+                if (!string.IsNullOrWhiteSpace(otlpExporterSettings.Headers))
+                {
+                    options.Headers = otlpExporterSettings.Headers;
+                }
+            });
+    })
+    .WithMetrics(metrics =>
+    {
+        metrics
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddRuntimeInstrumentation()
+            .AddProcessInstrumentation()
+            .AddOtlpExporter(options =>
+            {
+                options.Endpoint = otlpExporterSettings.Endpoint;
+                options.Protocol = otlpExporterSettings.Protocol;
+                if (!string.IsNullOrWhiteSpace(otlpExporterSettings.Headers))
+                {
+                    options.Headers = otlpExporterSettings.Headers;
+                }
+            });
+    });
 
 builder.Services.AddControllers();
 builder.Services.AddGrpc();
