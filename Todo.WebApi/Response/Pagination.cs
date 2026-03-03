@@ -10,16 +10,21 @@ public interface IUriService
 
 public class UriService: IUriService
 {
-    private readonly string _baseUri;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public UriService(string baseUri)
+    public UriService(IHttpContextAccessor httpContextAccessor)
     {
-        _baseUri = baseUri;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public Uri GetPageUri(PaginationFilter filter, string route)
     {
-        var endpointUri = new Uri(string.Concat(_baseUri, route));
+        var request = _httpContextAccessor.HttpContext?.Request
+                      ?? throw new InvalidOperationException(
+                          "An active HTTP request is required to generate pagination links.");
+
+        var endpointUri = new Uri(
+            $"{request.Scheme}://{request.Host.ToUriComponent()}{route}");
         var modifiedUri = QueryHelpers.AddQueryString(
             endpointUri.ToString(), "pageNumber", filter.PageNumber.ToString());
         modifiedUri = QueryHelpers.AddQueryString(

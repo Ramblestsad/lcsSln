@@ -10,13 +10,7 @@ public static class RequestContextServiceCollectionExtensions
     {
         services.AddHttpContextAccessor();
 
-        services.AddSingleton<IUriService>(provider =>
-        {
-            var accessor = provider.GetRequiredService<IHttpContextAccessor>();
-            var request = accessor.HttpContext?.Request;
-            var uri = string.Concat(request?.Scheme, "://", request?.Host.ToUriComponent());
-            return new UriService(uri);
-        });
+        services.AddScoped<IUriService, UriService>();
 
         services.AddScoped<CurrentUser>(provider =>
         {

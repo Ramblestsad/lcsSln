@@ -7,6 +7,7 @@ using Todo.DAL.Entity;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Models;
+using Todo.WebApi.Response;
 using Todo.WebApi.Response.Pagination;
 
 namespace Todo.WebApi.Controllers;
@@ -51,25 +52,30 @@ public class TodoItemsController: ControllerBase
     /// <returns></returns>
     [HttpGet]
     [ServiceFilter(typeof(ActionTimingFilter))]
-    public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(
+    public async Task<ActionResult<PagedResponse<List<TodoItem>>>> GetTodoItems(
         [FromQuery] PaginationFilter paginationFilter,
         [FromServices] CurrentUser user
     )
     {
-        Console.WriteLine(user.Name);
+        _logger.LogDebug("Fetching todos for user {UserName}", user.Name);
+        var validFilter = new PaginationFilter(
+            paginationFilter.PageNumber,
+            paginationFilter.PageSize);
         var totalRecords = await _db.TodoItems.CountAsync();
         // skip data in advance for performance reasons
         var data = await _db.TodoItems
+            .AsNoTracking()
             .OrderBy(e => e.Id)
-            .Skip(( paginationFilter.PageNumber - 1 ) * paginationFilter.PageSize)
-            .Take(paginationFilter.PageSize)
+            .Skip(( validFilter.PageNumber - 1 ) * validFilter.PageSize)
+            .Take(validFilter.PageSize)
             .ToListAsync();
 
-        // obtain route
-        var route = Request.Path.Value;
-
         return Ok(PaginationHelper.CreatePagedResponse(
-                      data, paginationFilter, totalRecords, _uriService, Request.Path.ToString()));
+                      data,
+                      validFilter,
+                      totalRecords,
+                      _uriService,
+                      Request.Path.ToString()));
     }
 
     // GET: api/TodoItems/5
