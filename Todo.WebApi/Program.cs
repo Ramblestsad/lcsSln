@@ -8,7 +8,6 @@ using Todo.WebApi.Extensions;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Middleware;
-using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,27 +55,21 @@ else
     {
         exceptionHandlerApp.Run(async context =>
         {
-            context.Response.StatusCode =
-                StatusCodes.Status500InternalServerError;
-            context.Response.ContentType = Text.Plain;
-            await context.Response.WriteAsync(
-                "An exception was thrown.");
-
-            var exceptionHandlerPathFeature =
-                context.Features
-                    .Get<IExceptionHandlerPathFeature>();
-
-            if (exceptionHandlerPathFeature?.Error is
-                FileNotFoundException)
+            var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+            var logger = context.RequestServices
+                .GetRequiredService<ILoggerFactory>()
+                .CreateLogger("GlobalExceptionHandler");
+            if (exceptionHandlerPathFeature?.Error is not null)
             {
-                await context.Response.WriteAsync(
-                    " The file was not found.");
+                logger.LogError(
+                    exceptionHandlerPathFeature.Error,
+                    "Unhandled exception. RequestPath: {RequestPath}",
+                    exceptionHandlerPathFeature.Path);
             }
 
-            if (exceptionHandlerPathFeature?.Path == "/")
-            {
-                await context.Response.WriteAsync(" Page: Home.");
-            }
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            context.Response.ContentType = "application/json";
+            await context.Response.WriteAsJsonAsync(new { code = 500, msg = "Internal Server Error" });
         });
     });
     app.UseHsts();
