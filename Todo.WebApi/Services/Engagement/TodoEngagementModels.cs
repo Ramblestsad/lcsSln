@@ -1,4 +1,4 @@
-namespace Todo.WebApi.Services.Redis;
+namespace Todo.WebApi.Services.Engagement;
 
 public record HotTodoScore(long TodoId, double Score);
 

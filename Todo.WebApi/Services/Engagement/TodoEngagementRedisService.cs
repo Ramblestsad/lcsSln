@@ -1,6 +1,6 @@
 using StackExchange.Redis;
 
-namespace Todo.WebApi.Services.Redis;
+namespace Todo.WebApi.Services.Engagement;
 
 public class TodoEngagementRedisService: ITodoEngagementRedisService
 {
