@@ -1,6 +1,6 @@
 - [x] 改造Serilog使其输出符合otel的json结构日志。
 - [x] 引入otel export 到 collector: logs, metric, trace_id
-- [ ] redis 示例接口。
+- [x] redis 示例接口。
 - [ ] 添加websocket SignalR 示例接口。
 - [ ] 引入rabbitmq，新建示例接口，Worker项目作为消费者消费消息。
 - [ ] 添加api-gateway 服务（yarp)。
