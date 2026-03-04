@@ -7,7 +7,6 @@ public class Solution
     {
         var bankSet = new HashSet<string>(bank);
         if (!bankSet.Contains(endGene)) return -1;
-        char[] AGCT = ['A', 'G', 'C', 'T'];
 
         var q = new Queue<string>();
         var visited = new HashSet<string>();
