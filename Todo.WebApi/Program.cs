@@ -7,7 +7,9 @@ using Todo.DAL.Context;
 using Todo.WebApi.Extensions;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
+using Todo.WebApi.Hubs;
 using Todo.WebApi.Middleware;
+using Todo.WebApi.Services.Realtime;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,8 @@ builder.Services.AddTodoRedis(builder.Configuration);
 builder.Services.AddTodoRequestContext();
 builder.Services.AddTodoDefaultCors();
 builder.Services.AddTodoAuth(builder.Configuration);
+builder.Services.AddTodoSignalR(builder.Configuration);
+builder.Services.AddScoped<IChatRoomRedisService, ChatRoomRedisService>();
 
 builder.Services.AddControllers();
 builder.Services.AddGrpc();
@@ -110,6 +114,7 @@ app.Use(async (ctx, next) =>
 });
 
 app.MapControllers();
+app.MapHub<ChatHub>("/hubs/chat").RequireAuthorization();
 app.MapGrpcServices();
 if (app.Environment.IsDevelopment())
 {

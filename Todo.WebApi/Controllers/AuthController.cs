@@ -125,6 +125,8 @@ public class AuthController: ControllerBase
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity([
+                new Claim(JwtRegisteredClaimNames.Sub, identityUser.Id),
+                new Claim(ClaimTypes.NameIdentifier, identityUser.Id),
                 new Claim(ClaimTypes.Name, identityUser.UserName!),
                 new Claim(ClaimTypes.Email, identityUser.Email!)
             ]),
