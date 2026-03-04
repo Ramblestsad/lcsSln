@@ -66,5 +66,55 @@ public class Solution
     {
         return Math.Max(Math.Abs(x - ( n - 1 )), Math.Abs(y - ( n - 1 )));
     }
+
+    public int BFSVersion(int[][] grid)
+    {
+        var m = grid.Length;
+        var n = grid[0].Length;
+        if (grid[0][0] == 1 || grid[m - 1][n - 1] == 1) return -1;
+
+        var q = new Queue<int[]>();
+        var visited = new bool[m][];
+        for (int i = 0; i < m; i++)
+        {
+            visited[i] = new bool[n];
+        }
+
+        q.Enqueue([0, 0]);
+        visited[0][0] = true;
+
+        var dirs = new int[][] { [-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1] };
+
+        var pathLen = 1;
+        while (q.Count > 0)
+        {
+            var sz = q.Count;
+            for (int s = 0; s < sz; s++)
+            {
+                var cur = q.Dequeue();
+                var x = cur[0];
+                var y = cur[1];
+                if (x == m - 1 && y == n - 1) return pathLen;
+
+                // 向八个方向扩散
+                for (int i = 0; i < 8; i++)
+                {
+                    var nextX = x + dirs[i][0];
+                    var nextY = x + dirs[i][1];
+                    // 确保相邻的这个坐标没有越界且值为 0 且之前没有走过
+                    if (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n
+                        && grid[nextX][nextY] == 0 && !visited[nextX][nextY])
+                    {
+                        q.Enqueue([nextX, nextY]);
+                        visited[nextX][nextY] = true;
+                    }
+                }
+            }
+
+            pathLen++;
+        }
+
+        return -1;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
