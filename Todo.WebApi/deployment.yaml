@@ -1,0 +1,141 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: default
+  labels:
+    app: api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: todo-api:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: ASPNETCORE_URLS
+              value: http://0.0.0.0:8080;http://0.0.0.0:8081
+            - name: ConnectionStrings__postgres
+              value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: grpc
+              containerPort: 8081
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-worker-deployment
+  namespace: default
+  labels:
+    app: order-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-worker
+  template:
+    metadata:
+      labels:
+        app: order-worker
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: order-worker
+          image: todo-order-worker:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DOTNET_ENVIRONMENT
+              value: Production
+            - name: ConnectionStrings__postgres
+              value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
+            - name: RabbitMq__Host
+              value: 192.168.65.2
+            - name: RabbitMq__Port
+              value: "5672"
+            - name: RabbitMq__Username
+              value: guest
+            - name: RabbitMq__Password
+              value: guest
+            - name: RabbitMq__VirtualHost
+              value: /
+            - name: RabbitMq__OrderExchange
+              value: todo.order.exchange
+            - name: RabbitMq__InventoryExchange
+              value: todo.inventory.exchange
+            - name: RabbitMq__InventoryReserveQueue
+              value: todo.inventory.reserve.q
+            - name: RabbitMq__OrderResultQueue
+              value: todo.order.result.q
+            - name: RabbitMq__RetryCount
+              value: "5"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-worker-deployment
+  namespace: default
+  labels:
+    app: inventory-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-worker
+  template:
+    metadata:
+      labels:
+        app: inventory-worker
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: inventory-worker
+          image: todo-inventory-worker:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DOTNET_ENVIRONMENT
+              value: Production
+            - name: ConnectionStrings__postgres
+              value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
+            - name: RabbitMq__Host
+              value: 192.168.65.2
+            - name: RabbitMq__Port
+              value: "5672"
+            - name: RabbitMq__Username
+              value: guest
+            - name: RabbitMq__Password
+              value: guest
+            - name: RabbitMq__VirtualHost
+              value: /
+            - name: RabbitMq__OrderExchange
+              value: todo.order.exchange
+            - name: RabbitMq__InventoryExchange
+              value: todo.inventory.exchange
+            - name: RabbitMq__InventoryReserveQueue
+              value: todo.inventory.reserve.q
+            - name: RabbitMq__OrderResultQueue
+              value: todo.order.result.q
+            - name: RabbitMq__RetryCount
+              value: "5"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"

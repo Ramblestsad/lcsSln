@@ -9,6 +9,7 @@ using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Hubs;
 using Todo.WebApi.Middleware;
+using Todo.WebApi.Services.Engagement;
 using Todo.WebApi.Services.Realtime;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,23 +24,24 @@ builder.Services.AddDbContext<ApplicationIdentityDbContext>(options =>
         builder.Configuration.GetConnectionString("postgres") ??
         throw new Exception("No connection string!"));
 });
-
 builder.Services.AddSingleton(MappingConfig.Config);
 builder.Services.AddMapster();
-
 builder.Services.AddTodoRedis(builder.Configuration);
 builder.Services.AddTodoRequestContext();
 builder.Services.AddTodoDefaultCors();
 builder.Services.AddTodoAuth(builder.Configuration);
 builder.Services.AddTodoSignalR(builder.Configuration);
-builder.Services.AddScoped<IChatRoomRedisService, ChatRoomRedisService>();
-
 builder.Services.AddControllers();
 builder.Services.AddGrpc();
+builder.Services.AddOpenApi();
+
+// middlewares/filters
+builder.Services.AddScoped<ITodoEngagementRedisService, TodoEngagementRedisService>();
+builder.Services.AddScoped<IChatRoomRedisService, ChatRoomRedisService>();
+
+// services
 builder.Services.AddTransient<RequestTimingMiddleware>();
 builder.Services.AddScoped<ActionTimingFilter>();
-
-builder.Services.AddOpenApi();
 
 #endregion
 
@@ -86,6 +88,7 @@ app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// global 404/405 but bypass grpc
 app.Use(async (ctx, next) =>
 {
     await next();

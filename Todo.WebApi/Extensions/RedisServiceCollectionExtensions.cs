@@ -1,7 +1,6 @@
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using Todo.WebApi.Configuration;
-using Todo.WebApi.Services.Engagement;
 
 namespace Todo.WebApi.Extensions;
 
@@ -26,8 +25,6 @@ public static class RedisServiceCollectionExtensions
                 .Value;
             return ConnectionMultiplexer.Connect(redisOptions.ConnectionString);
         });
-
-        services.AddScoped<ITodoEngagementRedisService, TodoEngagementRedisService>();
 
         return services;
     }

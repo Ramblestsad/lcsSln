@@ -5,6 +5,5 @@ bin
 .DS_Store
 */logs/
 *.*.DotSettings.user
-*/Migrations/
 Scratch/Labuladong/**/leetcode/editor/en/doc/content/*.md
 **/artifacts/
