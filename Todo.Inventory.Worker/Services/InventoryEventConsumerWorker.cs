@@ -19,7 +19,7 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
     private readonly ILogger<InventoryEventConsumerWorker> _logger;
     private readonly RabbitMqOptions _options;
     private IConnection? _connection;
-    private IModel? _channel;
+    private IChannel? _channel;
     private AsyncEventingBasicConsumer? _consumer;
     private string? _consumerTag;
     private CancellationToken _stoppingToken;
@@ -44,19 +44,18 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
             Port = _options.Port,
             UserName = _options.Username,
             Password = _options.Password,
-            VirtualHost = _options.VirtualHost,
-            DispatchConsumersAsync = true
+            VirtualHost = _options.VirtualHost
         };
 
-        _connection = factory.CreateConnection();
-        _channel = _connection.CreateModel();
-        EnsureConsumeTopology(_channel);
-        _channel.BasicQos(0, 1, false);
+        _connection = await factory.CreateConnectionAsync(stoppingToken);
+        _channel = await _connection.CreateChannelAsync(cancellationToken: stoppingToken);
+        await EnsureConsumeTopologyAsync(_channel, stoppingToken);
+        await _channel.BasicQosAsync(0, 1, false, stoppingToken);
 
         _consumer = new AsyncEventingBasicConsumer(_channel);
-        _consumer.Received += OnReceivedAsync;
+        _consumer.ReceivedAsync += OnReceivedAsync;
 
-        _consumerTag = _channel.BasicConsume(_options.InventoryReserveQueue, autoAck: false, _consumer);
+        _consumerTag = await _channel.BasicConsumeAsync(_options.InventoryReserveQueue, autoAck: false, _consumer, stoppingToken);
         _logger.LogInformation("Inventory order-created consumer started. Queue={Queue}.", _options.InventoryReserveQueue);
 
         try
@@ -68,13 +67,13 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
         }
     }
 
-    public override Task StopAsync(CancellationToken cancellationToken)
+    public override async Task StopAsync(CancellationToken cancellationToken)
     {
         try
         {
             if (_channel is { IsOpen: true } && !string.IsNullOrWhiteSpace(_consumerTag))
             {
-                _channel.BasicCancel(_consumerTag);
+                await _channel.BasicCancelAsync(_consumerTag, noWait: false, cancellationToken);
             }
         }
         catch (Exception ex)
@@ -84,17 +83,25 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
 
         if (_consumer is not null)
         {
-            _consumer.Received -= OnReceivedAsync;
+            _consumer.ReceivedAsync -= OnReceivedAsync;
         }
 
-        _channel?.Dispose();
-        _connection?.Dispose();
+        if (_channel is not null)
+        {
+            await _channel.DisposeAsync();
+        }
+
+        if (_connection is not null)
+        {
+            await _connection.DisposeAsync();
+        }
+
         _channel = null;
         _connection = null;
         _consumer = null;
         _consumerTag = null;
 
-        return base.StopAsync(cancellationToken);
+        await base.StopAsync(cancellationToken);
     }
 
     private async Task OnReceivedAsync(object sender, BasicDeliverEventArgs eventArgs)
@@ -110,11 +117,11 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
         {
             if (handled)
             {
-                channel.BasicAck(eventArgs.DeliveryTag, false);
+                await channel.BasicAckAsync(eventArgs.DeliveryTag, false, _stoppingToken);
             }
             else
             {
-                channel.BasicNack(eventArgs.DeliveryTag, false, true);
+                await channel.BasicNackAsync(eventArgs.DeliveryTag, false, true, _stoppingToken);
             }
         }
         catch (Exception ex)
@@ -123,12 +130,39 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
         }
     }
 
-    private void EnsureConsumeTopology(IModel channel)
+    private async Task EnsureConsumeTopologyAsync(IChannel channel, CancellationToken cancellationToken)
     {
-        channel.ExchangeDeclare(_options.OrderExchange, ExchangeType.Direct, durable: true, autoDelete: false);
-        channel.ExchangeDeclare(_options.InventoryExchange, ExchangeType.Direct, durable: true, autoDelete: false);
-        channel.QueueDeclare(_options.InventoryReserveQueue, durable: true, exclusive: false, autoDelete: false);
-        channel.QueueBind(_options.InventoryReserveQueue, _options.OrderExchange, routingKey: MessagingEventTypes.OrderCreated);
+        await channel.ExchangeDeclareAsync(
+            exchange: _options.OrderExchange,
+            type: ExchangeType.Direct,
+            durable: true,
+            autoDelete: false,
+            arguments: null,
+            passive: false,
+            cancellationToken: cancellationToken);
+        await channel.ExchangeDeclareAsync(
+            exchange: _options.InventoryExchange,
+            type: ExchangeType.Direct,
+            durable: true,
+            autoDelete: false,
+            arguments: null,
+            passive: false,
+            cancellationToken: cancellationToken);
+        await channel.QueueDeclareAsync(
+            queue: _options.InventoryReserveQueue,
+            durable: true,
+            exclusive: false,
+            autoDelete: false,
+            arguments: null,
+            passive: false,
+            cancellationToken: cancellationToken);
+        await channel.QueueBindAsync(
+            queue: _options.InventoryReserveQueue,
+            exchange: _options.OrderExchange,
+            routingKey: MessagingEventTypes.OrderCreated,
+            arguments: null,
+            noWait: false,
+            cancellationToken: cancellationToken);
     }
 
     private async Task<bool> HandleMessageAsync(BasicDeliverEventArgs eventArgs, CancellationToken cancellationToken)
