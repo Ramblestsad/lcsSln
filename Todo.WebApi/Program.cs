@@ -1,9 +1,7 @@
 using Mapster;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using Serilog;
-using Todo.DAL.Context;
 using Todo.WebApi.Extensions;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
@@ -11,6 +9,7 @@ using Todo.WebApi.Hubs;
 using Todo.WebApi.Middleware;
 using Todo.WebApi.Services.Engagement;
 using Todo.WebApi.Services.Realtime;
+using Todo.WebApi.Services.Todo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +17,7 @@ builder.AddTodoObservability();
 
 #region Services
 
-builder.Services.AddDbContext<ApplicationIdentityDbContext>(options =>
-{
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("postgres") ??
-        throw new Exception("No connection string!"));
-});
+builder.Services.AddTodoPostgresDatabases(builder.Configuration);
 builder.Services.AddSingleton(MappingConfig.Config);
 builder.Services.AddMapster();
 builder.Services.AddTodoRedis(builder.Configuration);
@@ -42,6 +36,8 @@ builder.Services.AddScoped<IChatRoomRedisService, ChatRoomRedisService>();
 // services
 builder.Services.AddTransient<RequestTimingMiddleware>();
 builder.Services.AddScoped<ActionTimingFilter>();
+builder.Services.AddScoped<ITodoQueryService, TodoQueryService>();
+builder.Services.AddScoped<ITodoCommandService, TodoCommandService>();
 
 #endregion
 

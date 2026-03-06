@@ -204,7 +204,9 @@ public sealed class TodoWebApiFactory: WebApplicationFactory<Program>
         {
             configBuilder.AddInMemoryCollection(new Dictionary<string, string?>
             {
-                ["SignalR:UseRedisBackplane"] = "false"
+                ["SignalR:UseRedisBackplane"] = "false",
+                ["ConnectionStrings:postgresWrite"] = "Host=localhost;Database=test-write;",
+                ["ConnectionStrings:postgresRead"] = "Host=localhost;Database=test-read;"
             });
         });
 

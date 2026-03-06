@@ -1,14 +1,12 @@
-using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Todo.DAL.Context;
 using Todo.DAL.Entity;
 using Todo.WebApi.Filters;
 using Todo.WebApi.Helper;
 using Todo.WebApi.Models;
 using Todo.WebApi.Response;
 using Todo.WebApi.Response.Pagination;
+using Todo.WebApi.Services.Todo;
 
 namespace Todo.WebApi.Controllers;
 
@@ -21,9 +19,9 @@ namespace Todo.WebApi.Controllers;
 [ApiController]
 public class TodoItemsController: ControllerBase
 {
-    private readonly ApplicationIdentityDbContext _db;
+    private readonly ITodoCommandService _todoCommandService;
+    private readonly ITodoQueryService _todoQueryService;
     private readonly ILogger<TodoItemsController> _logger;
-    private readonly IMapper _mapper;
     private readonly IUriService _uriService;
 
     /// <summary>
@@ -34,15 +32,15 @@ public class TodoItemsController: ControllerBase
     /// <param name="logger"></param>
     /// <param name="mapper"></param>
     public TodoItemsController(
-        ApplicationIdentityDbContext context,
+        ITodoQueryService todoQueryService,
+        ITodoCommandService todoCommandService,
         IUriService uriService,
-        ILogger<TodoItemsController> logger,
-        IMapper mapper)
+        ILogger<TodoItemsController> logger)
     {
-        _db = context;
-        this._uriService = uriService;
-        this._logger = logger;
-        _mapper = mapper;
+        _todoQueryService = todoQueryService;
+        _todoCommandService = todoCommandService;
+        _uriService = uriService;
+        _logger = logger;
     }
 
     // GET: api/TodoItems
@@ -54,26 +52,20 @@ public class TodoItemsController: ControllerBase
     [ServiceFilter(typeof(ActionTimingFilter))]
     public async Task<ActionResult<PagedResponse<List<TodoItem>>>> GetTodoItems(
         [FromQuery] PaginationFilter paginationFilter,
-        [FromServices] CurrentUser user
+        [FromServices] CurrentUser user,
+        CancellationToken cancellationToken
     )
     {
         _logger.LogDebug("Fetching todos for user {UserName}", user.Name);
         var validFilter = new PaginationFilter(
             paginationFilter.PageNumber,
             paginationFilter.PageSize);
-        var totalRecords = await _db.TodoItems.CountAsync();
-        // skip data in advance for performance reasons
-        var data = await _db.TodoItems
-            .AsNoTracking()
-            .OrderBy(e => e.Id)
-            .Skip(( validFilter.PageNumber - 1 ) * validFilter.PageSize)
-            .Take(validFilter.PageSize)
-            .ToListAsync();
+        var result = await _todoQueryService.GetTodoItemsAsync(validFilter, cancellationToken);
 
         return Ok(PaginationHelper.CreatePagedResponse(
-                      data,
+                      result.Items.ToList(),
                       validFilter,
-                      totalRecords,
+                      result.TotalRecords,
                       _uriService,
                       Request.Path.ToString()));
     }
@@ -85,9 +77,9 @@ public class TodoItemsController: ControllerBase
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
+    public async Task<ActionResult<TodoItem>> GetTodoItem(long id, CancellationToken cancellationToken)
     {
-        var todoItem = await _db.TodoItems.FindAsync(id);
+        var todoItem = await _todoQueryService.GetTodoItemAsync(id, cancellationToken);
 
         if (todoItem == null)
         {
@@ -108,27 +100,17 @@ public class TodoItemsController: ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+    public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem, CancellationToken cancellationToken)
     {
         if (id != todoItem.Id)
         {
             return BadRequest();
         }
 
-        _db.Entry(todoItem).State = EntityState.Modified;
-
-        try
+        var result = await _todoCommandService.UpdateTodoItemAsync(id, todoItem, cancellationToken);
+        if (result == TodoCommandStatus.NotFound)
         {
-            await _db.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!TodoItemExists(id))
-            {
-                return NotFound();
-            }
-
-            throw;
+            return NotFound();
         }
 
         return NoContent();
@@ -155,14 +137,13 @@ public class TodoItemsController: ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
+    public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem, CancellationToken cancellationToken)
     {
-        _db.TodoItems.Add(todoItem);
-        await _db.SaveChangesAsync();
+        var createdTodoItem = await _todoCommandService.CreateTodoItemAsync(todoItem, cancellationToken);
 
         // return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
         return CreatedAtAction(
-            nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
+            nameof(GetTodoItem), new { id = createdTodoItem.Id }, createdTodoItem);
     }
 
     /// <summary>
@@ -171,20 +152,14 @@ public class TodoItemsController: ControllerBase
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteTodoItem(long id)
+    public async Task<IActionResult> DeleteTodoItem(long id, CancellationToken cancellationToken)
     {
-        var todoItem = await _db.TodoItems.FindAsync(id);
-        if (todoItem == null)
+        var result = await _todoCommandService.DeleteTodoItemAsync(id, cancellationToken);
+        if (result == TodoCommandStatus.NotFound)
         {
             return NotFound();
         }
 
-        _db.TodoItems.Remove(todoItem);
-        await _db.SaveChangesAsync();
-
         return NoContent();
     }
-
-    private bool TodoItemExists(long id) =>
-        _db.TodoItems.Any(e => e.Id == id);
 }

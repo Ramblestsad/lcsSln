@@ -9,6 +9,11 @@ namespace Todo.DAL.Context;
 
 public class ApplicationIdentityDbContext: IdentityDbContext<IdentityUser>
 {
+    protected ApplicationIdentityDbContext(DbContextOptions options)
+        : base(options)
+    {
+    }
+
     public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)
         : base(options)
     {
@@ -73,11 +78,11 @@ public class DesignTimeDbContextFactory: IDesignTimeDbContextFactory<Application
             .Build();
 
         var builder = new DbContextOptionsBuilder<ApplicationIdentityDbContext>();
-        var connStr = configuration.GetConnectionString("postgres");
+        var connStr = configuration.GetConnectionString("postgresWrite");
         if (string.IsNullOrWhiteSpace(connStr))
         {
             throw new InvalidOperationException(
-                "Connection string 'ConnectionStrings:postgres' is missing for design-time DbContext.");
+                "Connection string 'ConnectionStrings:postgresWrite' is missing for design-time DbContext.");
         }
 
         builder.UseNpgsql(connStr);
