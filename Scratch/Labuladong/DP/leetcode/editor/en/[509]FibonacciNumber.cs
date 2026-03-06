@@ -82,18 +82,17 @@ public class Solution
     {
         if (n is 0 or 1) return n;
 
-        // dp table
-        var dp = new int[n + 1];
         // base case
-        dp[0] = 0;
-        dp[1] = 1;
+        int dp_i_1 = 1, dp_i_2 = 0;
         // 状态转移
         for (int i = 2; i <= n; i++)
         {
-            dp[i] = dp[i - 1] + dp[i - 2];
+            var dp_i = dp_i_1 + dp_i_2;
+            dp_i_2 = dp_i_1;
+            dp_i_1 = dp_i;
         }
 
-        return dp[n];
+        return dp_i_1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
