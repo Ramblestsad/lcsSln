@@ -15,16 +15,17 @@ public static class SignalRServiceCollectionExtensions
             return services;
         }
 
-        var redisConnection = configuration
+        var redisOptions = configuration
             .GetSection(RedisOptions.SectionName)
-            .GetValue<string>(nameof(RedisOptions.ConnectionString));
-        if (string.IsNullOrWhiteSpace(redisConnection))
+            .Get<RedisOptions>()
+            ?? new RedisOptions();
+        if (string.IsNullOrWhiteSpace(redisOptions.ConnectionString))
         {
             throw new InvalidOperationException(
                 "SignalR Redis backplane is enabled, but Redis connection string is missing.");
         }
 
-        signalRBuilder.AddStackExchangeRedis(redisConnection);
+        signalRBuilder.AddStackExchangeRedis(redisOptions.ConnectionString);
         return services;
     }
 }

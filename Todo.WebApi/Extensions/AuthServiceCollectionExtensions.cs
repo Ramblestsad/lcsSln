@@ -29,20 +29,26 @@ public static class AuthServiceCollectionExtensions
             options.Password.RequiredUniqueChars = 1;
         });
 
-        services
-            .AddOptions<JwtSettings>()
-            .Bind(configuration.GetSection("Jwt"))
-            .Validate(options =>
-                          !string.IsNullOrWhiteSpace(options.Key), "Jwt:Key is required.")
-            .Validate(options =>
-                          !string.IsNullOrWhiteSpace(options.Issuer), "Jwt:Issuer is required.")
-            .Validate(options =>
-                          !string.IsNullOrWhiteSpace(options.Audience), "Jwt:Audience is required.")
-            .ValidateOnStart();
+        services.Configure<JwtSettings>(configuration.GetSection("Jwt"));
 
         var jwtSettings = configuration.GetSection("Jwt").Get<JwtSettings>()
                           ?? throw new InvalidOperationException("Jwt settings are missing.");
-        var encryptedKey = Encoding.ASCII.GetBytes(jwtSettings.Key!);
+        if (string.IsNullOrWhiteSpace(jwtSettings.Key))
+        {
+            throw new InvalidOperationException("Jwt:Key is required.");
+        }
+
+        if (string.IsNullOrWhiteSpace(jwtSettings.Issuer))
+        {
+            throw new InvalidOperationException("Jwt:Issuer is required.");
+        }
+
+        if (string.IsNullOrWhiteSpace(jwtSettings.Audience))
+        {
+            throw new InvalidOperationException("Jwt:Audience is required.");
+        }
+
+        var encryptedKey = Encoding.ASCII.GetBytes(jwtSettings.Key);
 
         services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

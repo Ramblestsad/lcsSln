@@ -18,6 +18,12 @@ public static class ObservabilityExtensions
         var resolvedResource = OtelSettingsResolver.ResolveResource(
             configuredObservabilityOptions,
             builder.Environment.EnvironmentName);
+        var resolvedObservabilityOptions = new ObservabilityResourceOptions
+        {
+            ServiceName = resolvedResource.ServiceName,
+            ServiceVersion = resolvedResource.ServiceVersion,
+            DeploymentEnvironment = resolvedResource.DeploymentEnvironment
+        };
 
         var configuredOtelOptions = builder.Configuration
                                         .GetSection(OtelOptions.SectionName)
@@ -43,29 +49,9 @@ public static class ObservabilityExtensions
             }
             else
             {
-                configuration.WriteTo.Console(new OtelJsonTextFormatter(new ObservabilityResourceOptions
-                {
-                    ServiceName =
-                        resolvedResource.ServiceName,
-                    ServiceVersion =
-                        resolvedResource.ServiceVersion,
-                    DeploymentEnvironment =
-                        resolvedResource
-                            .DeploymentEnvironment
-                }));
+                configuration.WriteTo.Console(new OtelJsonTextFormatter(resolvedObservabilityOptions));
             }
         });
-
-        builder.Services.Configure<ObservabilityResourceOptions>(
-            builder.Configuration.GetSection(ObservabilityResourceOptions.SectionName));
-        builder.Services.PostConfigure<ObservabilityResourceOptions>(options =>
-        {
-            options.ServiceName = resolvedResource.ServiceName;
-            options.ServiceVersion = resolvedResource.ServiceVersion;
-            options.DeploymentEnvironment = resolvedResource.DeploymentEnvironment;
-        });
-        builder.Services.Configure<OtelOptions>(
-            builder.Configuration.GetSection(OtelOptions.SectionName));
 
         builder.Services
             .AddOpenTelemetry()
