@@ -47,7 +47,52 @@ public class Solution
 {
     public int MinFallingPathSum(int[][] matrix)
     {
-        throw new NotImplementedException();
+        var n = matrix.Length;
+        var res = int.MaxValue;
+
+        memo = new int[n][];
+        for (int i = 0; i < n; i++)
+        {
+            memo[i] = new int[n];
+            Array.Fill(memo[i], 66666);
+        }
+
+        // 终点可能在最后一行的任意一列，所以需要穷举一下j
+        for (int j = 0; j < n; j++)
+        {
+            res = Math.Min(res, dp(matrix, n - 1, j));
+        }
+
+        return res;
+    }
+
+    private int[][] memo = null!;
+
+    // 从第一行（matrix[0][..]）向下落，落到位置 matrix[i][j] 的最小路径和为 dp(matrix, i, j)。
+    private int dp(int[][] matrix, int i, int j)
+    {
+        // 对于 matrix[i][j]，只有可能从
+        // matrix[i-1][j], matrix[i-1][j-1], matrix[i-1][j+1]
+        // 这三个位置转移过来。
+
+        // 1、索引合法性检查
+        if (i < 0 || j < 0 ||
+            i >= matrix.Length ||
+            j >= matrix[0].Length) return 99999;
+
+        // 2、base case
+        if (i == 0) return matrix[0][j];
+
+        // 3、查找备忘录剪枝
+        if (memo[i][j] != 66666) return memo[i][j];
+
+        // 进行状态转移
+        var minPreState = Math.Min(
+            dp(matrix, i - 1, j),
+            Math.Min(dp(matrix, i - 1, j - 1), dp(matrix, i - 1, j + 1)));
+        memo[i][j] = matrix[i][j] + minPreState;
+
+        return memo[i][j];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
