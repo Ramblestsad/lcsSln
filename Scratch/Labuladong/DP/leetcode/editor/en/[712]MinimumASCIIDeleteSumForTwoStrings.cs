@@ -113,7 +113,7 @@ public class Solution
         return memo[i][j];
     }
 
-    public int MinimumDeleteSumDpTable(String s1, String s2)
+    public int MinimumDeleteSumDpTable(string s1, string s2)
     {
         var m = s1.Length;
         var n = s2.Length;
