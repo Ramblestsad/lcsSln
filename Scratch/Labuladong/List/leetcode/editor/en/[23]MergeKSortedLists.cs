@@ -43,7 +43,7 @@ public class Solution
     }
 
     /* time complexity:
-     * The most number elements in pa is k, time complexity for every Enqueue or Dequeue is O(logk)
+     * The most number elements in pq is k, time complexity for every Enqueue or Dequeue is O(logk)
      * Every nodes in k lists will be enqueued and dequeued, so O(Nlogk)
      */
 }
