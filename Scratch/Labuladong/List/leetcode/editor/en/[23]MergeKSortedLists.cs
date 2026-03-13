@@ -25,7 +25,7 @@ public class Solution
         var p = dummy;
         // construct minHeap
         var pq = new PriorityQueue<ListNode, int>();
-        // push heads of k lists to pa
+        // push heads of k lists to pq
         foreach (var node in lists)
         {
             pq.Enqueue(node, node.val);
