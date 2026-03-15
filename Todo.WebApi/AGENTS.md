@@ -14,6 +14,29 @@ This repository scope here is the `Todo.WebApi` API and its DAL dependency (`Tod
 - `appsettings.json` / `appsettings.Development.json`: configuration (Serilog, connection strings, JWT).
 - `../Todo.DAL/`: data access layer project referenced by `Todo.WebApi`.
 
+## Fast Context Bootstrapping
+When starting work in this repository, build context in this order unless the user asks otherwise:
+- Read `Program.cs` first to understand app composition, middleware ordering, endpoint mapping, and which subsystems are active.
+- Read `Todo.WebApi.csproj` next to confirm target framework, package stack, protobuf setup, and the sibling `../Todo.DAL/Todo.DAL.csproj` dependency.
+- Read the relevant file in `Extensions/` before diving into implementation. This project centralizes service registration and infrastructure wiring there.
+- After finding the wiring point, read the matching runtime code in `Controllers/`, `Services/`, `Grpc/`, `Hubs/`, `Middleware/`, `Filters/`, or `Helper/`.
+- For data-access or entity questions, inspect `../Todo.DAL/` early instead of inferring DAL behavior from API code.
+
+This application is a single ASP.NET Core host that serves HTTP controllers, gRPC, and SignalR together. Prefer understanding the composition root and dependency registration first, then trace into the concrete business code.
+
+## Task-Oriented Entry Map
+Use these entry points to avoid broad codebase searches:
+- Auth or JWT work: start with `Extensions/AuthServiceCollectionExtensions.cs`, `Configuration/JwtSettings.cs`, and `Controllers/AuthController.cs`.
+- Database, EF Core, or Postgres work: start with `Extensions/DatabaseServiceCollectionExtensions.cs`, `Configuration/PostgresConnectionStringResolver.cs`, and `../Todo.DAL/`.
+- Redis-backed features: start with `Extensions/RedisServiceCollectionExtensions.cs`, `Services/Engagement/`, and `Services/Realtime/`.
+- SignalR or chat work: start with `Extensions/SignalRServiceCollectionExtensions.cs`, `Hubs/ChatHub.cs`, and `Services/Realtime/`.
+- gRPC work: start with `Protos/`, `Grpc/`, and `Extensions/GrpcRegisterExtension.cs`.
+- Observability or logging work: start with `Extensions/ObservabilityExtensions.cs`, `Logging/`, and `deploy/observability/README.md`.
+- Request pipeline work: start with `Program.cs`, `Middleware/RequestTimingMiddleware.cs`, and `Filters/`.
+- Todo business logic work: start with `Controllers/TodoItemsController.cs` and `Services/Todo/`.
+
+Before making changes, prefer locating the registration point and the endpoint mapping first. Only then trace into the concrete service, controller, or middleware implementation.
+
 ## Build, Test, and Development Commands
 - `dotnet build`: compile the web API project.
 - `dotnet run --project Todo.WebApi.csproj`: run the API using the default profile.
@@ -27,10 +50,15 @@ The app listens on ports `8080` (HTTP/1.1 + HTTP/2) and `8081` (HTTP/2) as confi
 - Indentation: 4 spaces, braces on new lines (standard C# style).
 - Naming: PascalCase for types/methods/properties, camelCase for locals and parameters.
 - Keep controller actions concise and use async patterns for I/O (see `Controllers/`).
+- Prefer extending the existing `Extensions`, `Services`, `Controllers`, `Filters`, and `Middleware` structure instead of introducing a new architectural pattern for a single change.
+- Do not add abstractions preemptively. Add interfaces, base classes, wrappers, or extra layers only when there is proven duplication, multiple real implementations, or a clear replacement requirement.
+- Favor local, surgical edits over broad refactors. If a change only touches one flow, keep the implementation close to that flow.
+- Do not turn straightforward CRUD or single-path request handling into CQRS, domain events, mediator pipelines, or generic frameworks unless the user explicitly asks for that design.
+- Reuse established .NET and ASP.NET Core primitives before creating custom infrastructure.
 
 ## Middleware Example
 
-Middleware is configured in `Startup.Configure`. Example: add lightweight request timing and attach a response header:
+Middleware is configured in `Program.cs`. Example: add lightweight request timing and attach a response header:
 
 ```csharp
 app.Use(async (context, next) =>
