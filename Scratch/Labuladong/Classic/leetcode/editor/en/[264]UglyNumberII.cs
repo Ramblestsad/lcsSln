@@ -45,6 +45,7 @@ public class Solution
 {
     public int NthUglyNumber(int n)
     {
+        throw new NotImplementedException();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
