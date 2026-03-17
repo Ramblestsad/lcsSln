@@ -26,7 +26,7 @@ public class Solution
             fast = fast.next.next;
             if (fast == slow) break;
         }
-        // slow 走k布，fast一定走2k步
+        // slow 走k步，fast一定走2k步
         // 差值 k 即为 fast在环里绕的步数
         // 设 m 为 环起始点到相遇点的距离
         // 那么从head到环起点的距离为：k-m,因为slow走到相遇点为k
