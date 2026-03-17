@@ -54,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.FibonacciNumber;
 //leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
-    public int FibRecurseive(int n)
+    public int FibRecursive(int n)
     {
         // 备忘录全初始化为 -1
         // 因为斐波那契数肯定是非负整数，所以初始化为特殊值 -1 表示未计算
