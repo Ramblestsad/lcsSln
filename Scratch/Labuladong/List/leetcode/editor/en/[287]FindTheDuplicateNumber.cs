@@ -63,6 +63,7 @@ public class Solution
     {
         // n + 1 elements
         // [1, n]
+        // 把数组索引下标 i 作为链表节点的值 val，把 nums[i] 作为链表的 next 指针，指向值为 nums[nums[i]] 的链表节点。
 
         var fast = 0;
         var slow = 0;
