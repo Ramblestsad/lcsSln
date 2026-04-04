@@ -5,7 +5,9 @@ package greeter.v1;
 // C# namespace
 option csharp_namespace = "Todo.WebApi.Grpc.Greeter";
 
+// The Greeter service provides greeting operations.
 service Greeter {
+    // Sends a greeting
     rpc SayHello (HelloRequest) returns (HelloReply);
 }
 
