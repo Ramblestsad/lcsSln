@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=787 lang=csharp
+ * @lcpr version=30402
+ *
+ * [787] Cheapest Flights Within K Stops
+ */
+
 namespace Scratch.Labuladong.Algorithms.CheapestFlightsWithinKStops;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FindCheapestPrice(int n, int[][] flights, int src, int dst, int k)
@@ -75,4 +82,4 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

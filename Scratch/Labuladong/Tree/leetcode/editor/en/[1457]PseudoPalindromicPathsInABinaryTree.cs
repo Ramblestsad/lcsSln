@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1457 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1457] Pseudo Palindromic Paths In A Binary Tree
+ */
+
 namespace Scratch.Labuladong.Algorithms.PseudoPalindromicPathsInABinaryTree;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -55,4 +62,4 @@ public class Solution
         count[node.val]--;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,8 +1,15 @@
+/*
+ * @lc app=leetcode id=773 lang=csharp
+ * @lcpr version=30402
+ *
+ * [773] Sliding Puzzle
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SlidingPuzzle;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Solution
 {
@@ -63,4 +70,4 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

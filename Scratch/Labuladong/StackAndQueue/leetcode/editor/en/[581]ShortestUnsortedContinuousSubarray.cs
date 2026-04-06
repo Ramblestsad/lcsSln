@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=581 lang=csharp
+ * @lcpr version=30402
+ *
+ * [581] Shortest Unsorted Continuous Subarray
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShortestUnsortedContinuousSubarray;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FindUnsortedSubarray(int[] nums)
@@ -70,4 +77,4 @@ public class Solution
         return right - left + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

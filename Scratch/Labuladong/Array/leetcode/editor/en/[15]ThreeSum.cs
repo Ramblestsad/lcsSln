@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=15 lang=csharp
+ * @lcpr version=30402
+ *
+ * [15] Three Sum
+ */
+
 namespace Scratch.Labuladong.Algorithms.ThreeSum;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> ThreeSum(int[] nums)
@@ -63,4 +70,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

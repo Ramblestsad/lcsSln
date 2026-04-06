@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=958 lang=csharp
+ * @lcpr version=30402
+ *
+ * [958] Check Completeness Of A Binary Tree
+ */
+
 namespace Scratch.Labuladong.Algorithms.CheckCompletenessOfABinaryTree;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -53,4 +60,4 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

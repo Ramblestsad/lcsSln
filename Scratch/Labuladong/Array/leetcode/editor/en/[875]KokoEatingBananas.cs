@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=875 lang=csharp
+ * @lcpr version=30402
+ *
+ * [875] Koko Eating Bananas
+ */
+
 namespace Scratch.Labuladong.Algorithms.KokoEatingBananas;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinEatingSpeed(int[] piles, int h)
@@ -36,4 +43,4 @@ public class Solution
         return hours;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

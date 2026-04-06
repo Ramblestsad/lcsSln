@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=739 lang=csharp
+ * @lcpr version=30402
+ *
+ * [739] Daily Temperatures
+ */
+
 namespace Scratch.Labuladong.Algorithms.DailyTemperatures;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] DailyTemperatures(int[] temperatures)
@@ -25,4 +32,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

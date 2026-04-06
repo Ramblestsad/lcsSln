@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=127 lang=csharp
+ * @lcpr version=30402
+ *
+ * [127] Word Ladder
+ */
+
 namespace Scratch.Labuladong.Algorithms.WordLadder;
 
 //A transformation sequence from word beginWord to word endWord using a
@@ -57,7 +64,7 @@ namespace Scratch.Labuladong.Algorithms.WordLadder;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LadderLength(string beginWord, string endWord, IList<string> wordList)
@@ -112,4 +119,4 @@ public class Solution
         return 0;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=438 lang=csharp
+ * @lcpr version=30402
+ *
+ * [438] Find All Anagrams In A String
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindAllAnagramsInAString;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<int> FindAnagrams(string s, string p)
@@ -57,4 +64,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

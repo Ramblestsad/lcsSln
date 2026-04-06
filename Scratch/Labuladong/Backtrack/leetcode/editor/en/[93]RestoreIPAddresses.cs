@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=93 lang=csharp
+ * @lcpr version=30402
+ *
+ * [93] Restore IP Addresses
+ */
+
 namespace Scratch.Labuladong.Algorithms.RestoreIPAddresses;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private List<string> res = new();
@@ -60,4 +67,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

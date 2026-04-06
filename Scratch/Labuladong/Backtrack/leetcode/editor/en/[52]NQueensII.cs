@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=52 lang=csharp
+ * @lcpr version=30402
+ *
+ * [52] N Queens II
+ */
+
 namespace Scratch.Labuladong.Algorithms.NQueensII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int res = 0;
@@ -88,4 +95,4 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=20 lang=csharp
+ * @lcpr version=30402
+ *
+ * [20] Valid Parentheses
+ */
+
 namespace Scratch.Labuladong.Algorithms.ValidParentheses;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool IsValid(string s)
@@ -40,4 +47,4 @@ public class Solution
         return '[';
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

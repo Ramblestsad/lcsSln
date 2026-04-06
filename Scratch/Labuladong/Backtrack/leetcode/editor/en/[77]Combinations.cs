@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=77 lang=csharp
+ * @lcpr version=30402
+ *
+ * [77] Combinations
+ */
+
 namespace Scratch.Labuladong.Algorithms.Combinations;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new List<IList<int>>();
@@ -33,4 +40,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

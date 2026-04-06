@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=1201 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1201] Ugly Number III
+ */
+
 namespace Scratch.Labuladong.Algorithms.UglyNumberIII;
 
 //An ugly number is a positive integer that is divisible by a, b, or c.
@@ -47,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.UglyNumberIII;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int NthUglyNumber(int n, int a, int b, int c)
@@ -112,4 +119,4 @@ public class Solution
         return gcd(b, a % b);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

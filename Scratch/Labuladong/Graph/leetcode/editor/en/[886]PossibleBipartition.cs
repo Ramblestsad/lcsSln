@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=886 lang=csharp
+ * @lcpr version=30402
+ *
+ * [886] Possible Bipartition
+ */
+
 namespace Scratch.Labuladong.Algorithms.PossibleBipartition;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private bool ok = true;
@@ -64,4 +71,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

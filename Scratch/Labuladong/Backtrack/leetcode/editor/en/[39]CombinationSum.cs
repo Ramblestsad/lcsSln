@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=39 lang=csharp
+ * @lcpr version=30402
+ *
+ * [39] Combination Sum
+ */
+
 namespace Scratch.Labuladong.Algorithms.CombinationSum;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -44,4 +51,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

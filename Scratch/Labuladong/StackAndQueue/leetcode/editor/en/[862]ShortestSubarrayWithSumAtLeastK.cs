@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=862 lang=csharp
+ * @lcpr version=30402
+ *
+ * [862] Shortest Subarray With Sum At Least K
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShortestSubarrayWithSumAtLeastK;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int ShortestSubarray(int[] nums, int k)
@@ -128,4 +135,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

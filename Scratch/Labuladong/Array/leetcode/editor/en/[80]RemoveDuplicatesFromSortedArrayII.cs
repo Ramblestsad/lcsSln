@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=80 lang=csharp
+ * @lcpr version=30402
+ *
+ * [80] Remove Duplicates From Sorted Array II
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveDuplicatesFromSortedArrayII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int RemoveDuplicates(int[] nums)
@@ -41,4 +48,4 @@ public class Solution
         return slow + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

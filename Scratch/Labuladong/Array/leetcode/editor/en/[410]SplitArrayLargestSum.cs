@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=410 lang=csharp
+ * @lcpr version=30402
+ *
+ * [410] Split Array Largest Sum
+ */
+
 namespace Scratch.Labuladong.Algorithms.SplitArrayLargestSum;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int SplitArray(int[] nums, int k)
@@ -44,4 +51,4 @@ public class Solution
         return days;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

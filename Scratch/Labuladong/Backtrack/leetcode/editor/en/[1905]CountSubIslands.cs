@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1905 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1905] Count Sub Islands
+ */
+
 namespace Scratch.Labuladong.Algorithms.CountSubIslands;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CountSubIslands(int[][] grid1, int[][] grid2)
@@ -54,4 +61,4 @@ public class Solution
         dfs(grid, i, j - 1);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

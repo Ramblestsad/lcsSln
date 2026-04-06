@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=518 lang=csharp
+ * @lcpr version=30402
+ *
+ * [518] Coin Change II
+ */
+
 namespace Scratch.Labuladong.Algorithms.CoinChangeII;
 
 //You are given an integer array coins representing coins of different
@@ -56,7 +63,7 @@ namespace Scratch.Labuladong.Algorithms.CoinChangeII;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 转化为背包问题的描述形式：
@@ -127,4 +134,4 @@ public class Solution
         return dp[n][amount];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

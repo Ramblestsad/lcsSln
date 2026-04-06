@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=59 lang=csharp
+ * @lcpr version=30402
+ *
+ * [59] Spiral Matrix II
+ */
+
 namespace Scratch.Labuladong.Algorithms.SpiralMatrixII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] GenerateMatrix(int n)
@@ -72,4 +79,4 @@ public class Solution
         return matrix;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

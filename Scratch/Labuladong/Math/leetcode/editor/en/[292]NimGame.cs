@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=292 lang=csharp
+ * @lcpr version=30402
+ *
+ * [292] Nim Game
+ */
+
 namespace Scratch.Labuladong.Algorithms.NimGame;
 
 //You are playing the following Nim Game with your friend:
@@ -56,7 +63,7 @@ namespace Scratch.Labuladong.Algorithms.NimGame;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool CanWinNim(int n)
@@ -66,4 +73,4 @@ public class Solution
         return n % 4 != 0;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

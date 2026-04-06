@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1109 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1109] Corporate Flight Bookings
+ */
+
 namespace Scratch.Labuladong.Algorithms.CorporateFlightBookings;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] CorpFlightBookings(int[][] bookings, int n)
@@ -62,4 +69,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

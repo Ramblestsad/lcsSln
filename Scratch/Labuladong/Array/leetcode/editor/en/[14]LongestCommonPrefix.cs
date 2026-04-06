@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=14 lang=csharp
+ * @lcpr version=30402
+ *
+ * [14] Longest Common Prefix
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestCommonPrefix;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string LongestCommonPrefix(string[] strs)
@@ -37,4 +44,4 @@ public class Solution
         return strs[0];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

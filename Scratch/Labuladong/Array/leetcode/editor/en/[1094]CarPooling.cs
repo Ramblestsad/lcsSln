@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1094 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1094] Car Pooling
+ */
+
 namespace Scratch.Labuladong.Algorithms.CarPooling;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool CarPooling(int[][] trips, int capacity)
@@ -71,4 +78,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

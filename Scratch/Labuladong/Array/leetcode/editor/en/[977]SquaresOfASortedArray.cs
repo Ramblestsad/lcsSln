@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=977 lang=csharp
+ * @lcpr version=30402
+ *
+ * [977] Squares Of A Sorted Array
+ */
+
 namespace Scratch.Labuladong.Algorithms.SquaresOfASortedArray;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] SortedSquares(int[] nums)
@@ -32,4 +39,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

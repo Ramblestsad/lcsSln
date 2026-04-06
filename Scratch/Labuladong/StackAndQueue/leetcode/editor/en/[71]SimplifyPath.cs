@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=71 lang=csharp
+ * @lcpr version=30402
+ *
+ * [71] Simplify Path
+ */
+
 namespace Scratch.Labuladong.Algorithms.SimplifyPath;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string SimplifyPath(string path)
@@ -35,4 +42,4 @@ public class Solution
         return res.Length == 0 ? "/" : res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

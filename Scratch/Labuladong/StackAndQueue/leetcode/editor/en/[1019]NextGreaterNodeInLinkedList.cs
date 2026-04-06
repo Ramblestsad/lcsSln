@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1019 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1019] Next Greater Node In Linked List
+ */
+
 namespace Scratch.Labuladong.Algorithms.NextGreaterNodeInLinkedList;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -40,4 +47,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

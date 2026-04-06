@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=219 lang=csharp
+ * @lcpr version=30402
+ *
+ * [219] Contains Duplicate II
+ */
+
 namespace Scratch.Labuladong.Algorithms.ContainsDuplicateII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool ContainsNearbyDuplicate(int[] nums, int k)
@@ -34,4 +41,4 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

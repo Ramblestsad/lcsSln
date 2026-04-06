@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1004 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1004] Max Consecutive Ones III
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaxConsecutiveOnesIII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LongestOnes(int[] nums, int k)
@@ -39,4 +46,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

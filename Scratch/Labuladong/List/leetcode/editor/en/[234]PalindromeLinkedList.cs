@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=234 lang=csharp
+ * @lcpr version=30402
+ *
+ * [234] Palindrome Linked List
+ */
+
 namespace Scratch.Labuladong.Algorithms.PalindromeLinkedList;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -44,4 +51,4 @@ public class Solution
         left = left.next;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

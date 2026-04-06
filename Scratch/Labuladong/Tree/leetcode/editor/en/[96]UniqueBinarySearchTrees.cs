@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=96 lang=csharp
+ * @lcpr version=30402
+ *
+ * [96] Unique Binary Search Trees
+ */
+
 namespace Scratch.Labuladong.Algorithms.UniqueBinarySearchTrees;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 备忘录
@@ -41,4 +48,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

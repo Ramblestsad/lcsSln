@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=641 lang=csharp
+ * @lcpr version=30402
+ *
+ * [641] Design Circular Deque
+ */
+
 namespace Scratch.Labuladong.Algorithms.DesignCircularDeque;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class MyCircularDeque
 {
     private ArrayDeque<int> q;
@@ -228,4 +235,4 @@ public class ArrayDeque<T>
  * bool param_7 = obj.IsEmpty();
  * bool param_8 = obj.IsFull();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

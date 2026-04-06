@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=980 lang=csharp
+ * @lcpr version=30402
+ *
+ * [980] Unique Paths III
+ */
+
 namespace Scratch.Labuladong.Algorithms.UniquePathsIII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[][] dirs = new int[][] { [0, 1], [0, -1], [1, 0], [-1, 0] };
@@ -73,4 +80,4 @@ public class Solution
         visitedCount--;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=167 lang=csharp
+ * @lcpr version=30402
+ *
+ * [167] Two Sum II Input Array Is Sorted
+ */
+
 namespace Scratch.Labuladong.Algorithms.TwoSumIIInputArrayIsSorted;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] TwoSum(int[] numbers, int target)
@@ -20,4 +27,4 @@ public class Solution
         return [-1, -1];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

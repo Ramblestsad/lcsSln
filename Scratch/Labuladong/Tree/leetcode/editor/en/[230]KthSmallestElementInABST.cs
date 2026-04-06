@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=230 lang=csharp
+ * @lcpr version=30402
+ *
+ * [230] Kth Smallest Element In ABST
+ */
+
 namespace Scratch.Labuladong.Algorithms.KthSmallestElementInABST;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -42,4 +49,4 @@ public class Solution
         Traverse(root.right, k);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

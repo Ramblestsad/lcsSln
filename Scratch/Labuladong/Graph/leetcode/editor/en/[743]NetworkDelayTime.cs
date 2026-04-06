@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=743 lang=csharp
+ * @lcpr version=30402
+ *
+ * [743] Network Delay Time
+ */
+
 namespace Scratch.Labuladong.Algorithms.NetworkDelayTime;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     class State
@@ -100,4 +107,4 @@ public class Solution
         return distTo;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

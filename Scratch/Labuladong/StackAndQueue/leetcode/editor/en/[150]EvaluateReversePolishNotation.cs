@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=150 lang=csharp
+ * @lcpr version=30402
+ *
+ * [150] Evaluate Reverse Polish Notation
+ */
+
 namespace Scratch.Labuladong.Algorithms.EvaluateReversePolishNotation;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int EvalRPN(string[] tokens)
@@ -33,4 +40,4 @@ public class Solution
         return stk.Pop();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

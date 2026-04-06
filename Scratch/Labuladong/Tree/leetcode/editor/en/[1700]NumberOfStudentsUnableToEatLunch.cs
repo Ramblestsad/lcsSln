@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1700 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1700] Number Of Students Unable To Eat Lunch
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumberOfStudentsUnableToEatLunch;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CountStudents(int[] students, int[] sandwiches)
@@ -23,4 +30,4 @@ public class Solution
         return 0;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

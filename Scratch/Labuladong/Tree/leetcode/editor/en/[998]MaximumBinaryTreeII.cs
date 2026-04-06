@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=998 lang=csharp
+ * @lcpr version=30402
+ *
+ * [998] Maximum Binary Tree II
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumBinaryTreeII;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -41,4 +48,4 @@ public class Solution
         return root;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

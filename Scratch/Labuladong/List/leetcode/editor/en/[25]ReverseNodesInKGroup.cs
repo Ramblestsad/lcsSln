@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=25 lang=csharp
+ * @lcpr version=30402
+ *
+ * [25] Reverse Nodes In K Group
+ */
+
 namespace Scratch.Labuladong.Algorithms.ReverseNodesInKGroup;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -59,4 +66,4 @@ public class Solution
         return pre;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

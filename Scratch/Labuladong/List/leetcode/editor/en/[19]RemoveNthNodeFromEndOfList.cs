@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=19 lang=csharp
+ * @lcpr version=30402
+ *
+ * [19] Remove Nth Node From End Of List
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveNthFromEnd;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -55,4 +62,4 @@ public class Solution
         return p2!;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1696 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1696] Jump Game VI
+ */
+
 namespace Scratch.Labuladong.Algorithms.JumpGameVI;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxResult(int[] nums, int k)
@@ -103,4 +110,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=424 lang=csharp
+ * @lcpr version=30402
+ *
+ * [424] Longest Repeating Character Replacement
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestRepeatingCharacterReplacement;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CharacterReplacement(string s, int k)
@@ -49,4 +56,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

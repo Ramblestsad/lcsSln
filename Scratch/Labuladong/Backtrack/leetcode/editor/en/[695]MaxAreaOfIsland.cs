@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=695 lang=csharp
+ * @lcpr version=30402
+ *
+ * [695] Max Area Of Island
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaxAreaOfIsland;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxAreaOfIsland(int[][] grid)
@@ -43,4 +50,4 @@ public class Solution
                + dfs(grid, i, j - 1) + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

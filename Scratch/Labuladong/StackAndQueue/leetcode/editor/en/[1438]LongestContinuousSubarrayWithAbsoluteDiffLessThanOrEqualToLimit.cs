@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1438 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1438] Longest Continuous Subarray With Absolute Diff Less Than Or Equal To Limit
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LongestSubarray(int[] nums, int limit)
@@ -117,4 +124,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

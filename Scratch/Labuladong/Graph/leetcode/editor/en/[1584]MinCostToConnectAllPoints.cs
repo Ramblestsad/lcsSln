@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1584 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1584] Min Cost To Connect All Points
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinCostToConnectAllPoints;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinCostConnectPoints(int[][] points)
@@ -134,4 +141,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

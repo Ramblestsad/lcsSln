@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=918 lang=csharp
+ * @lcpr version=30402
+ *
+ * [918] Maximum Sum Circular Subarray
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumSumCircularSubarray;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxSubarraySumCircular(int[] nums)
@@ -111,4 +118,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

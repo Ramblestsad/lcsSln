@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=877 lang=csharp
+ * @lcpr version=30402
+ *
+ * [877] Stone Game
+ */
+
 namespace Scratch.Labuladong.Algorithms.StoneGame;
 
 //Alice and Bob play a game with piles of stones. There are an even number of
@@ -57,7 +64,7 @@ namespace Scratch.Labuladong.Algorithms.StoneGame;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool StoneGame(int[] piles)
@@ -65,4 +72,4 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1514 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1514] Path With Maximum Probability
+ */
+
 namespace Scratch.Labuladong.Algorithms.PathWithMaximumProbability;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public double MaxProbability(int n, int[][] edges, double[] succProb, int start_node, int end_node)
@@ -85,4 +92,4 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=752 lang=csharp
+ * @lcpr version=30402
+ *
+ * [752] Open The Lock
+ */
+
 namespace Scratch.Labuladong.Algorithms.OpenTheLock;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int OpenLock(string[] deadends, string target)
@@ -79,4 +86,4 @@ public class Solution
         return neighbors;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1368 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1368] Minimum Cost To Make At Least One Valid Path In A Grid
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumCostToMakeAtLeastOneValidPathInAGrid;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinCost(int[][] grid)
@@ -87,4 +94,4 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

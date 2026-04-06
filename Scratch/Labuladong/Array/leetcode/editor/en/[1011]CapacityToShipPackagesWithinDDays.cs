@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1011 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1011] Capacity To Ship Packages Within D Days
+ */
+
 namespace Scratch.Labuladong.Algorithms.CapacityToShipPackagesWithinDDays;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int ShipWithinDays(int[] weights, int days)
@@ -57,4 +64,4 @@ public class Solution
         return days;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

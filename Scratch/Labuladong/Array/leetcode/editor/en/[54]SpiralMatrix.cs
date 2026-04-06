@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=54 lang=csharp
+ * @lcpr version=30402
+ *
+ * [54] Spiral Matrix
+ */
+
 namespace Scratch.Labuladong.Algorithms.SpiralMatrix;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<int> SpiralOrder(int[][] matrix)
@@ -67,4 +74,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=712 lang=csharp
+ * @lcpr version=30402
+ *
+ * [712] Minimum ASCII Delete Sum For Two Strings
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumASCIIDeleteSumForTwoStrings;
 
 //Given two strings s1 and s2, return the lowest ASCII sum of deleted
@@ -46,7 +53,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumASCIIDeleteSumForTwoStrings;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[][] memo = null!;
@@ -151,4 +158,4 @@ public class Solution
         return dp[m][n];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

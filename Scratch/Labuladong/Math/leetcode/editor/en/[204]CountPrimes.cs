@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=204 lang=csharp
+ * @lcpr version=30402
+ *
+ * [204] Count Primes
+ */
+
 namespace Scratch.Labuladong.Algorithms.CountPrimes;
 
 //Given an integer n, return the number of prime numbers that are strictly less
@@ -41,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.CountPrimes;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CountPrimes(int n)
@@ -71,4 +78,4 @@ public class Solution
         return count;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

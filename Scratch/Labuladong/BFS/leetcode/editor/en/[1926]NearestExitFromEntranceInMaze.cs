@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1926 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1926] Nearest Exit From Entrance In Maze
+ */
+
 namespace Scratch.Labuladong.Algorithms.NearestExitFromEntranceInMaze;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int NearestExit(char[][] maze, int[] entrance)
@@ -45,4 +52,4 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

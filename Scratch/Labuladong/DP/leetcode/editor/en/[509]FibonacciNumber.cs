@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=509 lang=csharp
+ * @lcpr version=30402
+ *
+ * [509] Fibonacci Number
+ */
+
 namespace Scratch.Labuladong.Algorithms.FibonacciNumber;
 
 //The Fibonacci numbers, commonly denoted F(n) form a sequence, called the
@@ -51,7 +58,7 @@ namespace Scratch.Labuladong.Algorithms.FibonacciNumber;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FibRecursive(int n)
@@ -95,4 +102,4 @@ public class Solution
         return dp_i_1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

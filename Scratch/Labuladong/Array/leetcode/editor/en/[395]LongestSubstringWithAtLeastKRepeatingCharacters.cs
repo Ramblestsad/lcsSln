@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=395 lang=csharp
+ * @lcpr version=30402
+ *
+ * [395] Longest Substring With At Least K Repeating Characters
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestSubstringWithAtLeastKRepeatingCharacters;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LongestSubstring(string s, int k)
@@ -59,4 +66,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

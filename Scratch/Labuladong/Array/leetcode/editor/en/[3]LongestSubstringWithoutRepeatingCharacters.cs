@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=3 lang=csharp
+ * @lcpr version=30402
+ *
+ * [3] Longest Substring Without Repeating Characters
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestSubstringWithoutRepeatingCharacters;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LengthOfLongestSubstring(string s)
@@ -34,4 +41,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

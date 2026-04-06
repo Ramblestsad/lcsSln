@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=83 lang=csharp
+ * @lcpr version=30402
+ *
+ * [83] Remove Duplicates From Sorted List
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveDuplicatesFromSortedList;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -38,4 +45,4 @@ public class Solution
         return head;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

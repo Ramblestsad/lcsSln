@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=967 lang=csharp
+ * @lcpr version=30402
+ *
+ * [967] Numbers With Same Consecutive Differences
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumbersWithSameConsecutiveDifferences;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<int> res = new List<int>();
@@ -46,4 +53,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

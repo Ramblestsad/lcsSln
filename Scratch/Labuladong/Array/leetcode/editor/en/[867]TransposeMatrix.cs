@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=867 lang=csharp
+ * @lcpr version=30402
+ *
+ * [867] Transpose Matrix
+ */
+
 namespace Scratch.Labuladong.Algorithms.TransposeMatrix;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] Transpose(int[][] matrix)
@@ -20,4 +27,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

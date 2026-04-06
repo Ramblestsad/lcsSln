@@ -1,8 +1,15 @@
+/*
+ * @lc app=leetcode id=17 lang=csharp
+ * @lcpr version=30402
+ *
+ * [17] Letter Combinations Of A Phone Number
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.LetterCombinationsOfAPhoneNumber;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Solution
 {
@@ -39,4 +46,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

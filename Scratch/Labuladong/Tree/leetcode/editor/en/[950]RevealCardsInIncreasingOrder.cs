@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=950 lang=csharp
+ * @lcpr version=30402
+ *
+ * [950] Reveal Cards In Increasing Order
+ */
+
 namespace Scratch.Labuladong.Algorithms.RevealCardsInIncreasingOrder;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] DeckRevealedIncreasing(int[] deck)
@@ -27,4 +34,4 @@ public class Solution
         return res.ToArray();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

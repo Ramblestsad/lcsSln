@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=61 lang=csharp
+ * @lcpr version=30402
+ *
+ * [61] Rotate List
+ */
+
 namespace Scratch.Labuladong.Algorithms.RotateList;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -43,4 +50,4 @@ public class Solution
         return newHead;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

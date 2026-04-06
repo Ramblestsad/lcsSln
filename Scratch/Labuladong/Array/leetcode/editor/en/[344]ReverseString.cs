@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=344 lang=csharp
+ * @lcpr version=30402
+ *
+ * [344] Reverse String
+ */
+
 namespace Scratch.Labuladong.Algorithms.ReverseString;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void ReverseString(char[] s)
@@ -16,4 +23,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

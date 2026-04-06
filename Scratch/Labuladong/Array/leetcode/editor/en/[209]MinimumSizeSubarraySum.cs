@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=209 lang=csharp
+ * @lcpr version=30402
+ *
+ * [209] Minimum Size Subarray Sum
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumSizeSubarraySum;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinSubArrayLen(int target, int[] nums)
@@ -27,4 +34,4 @@ public class Solution
         return res == int.MaxValue ? 0 : res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

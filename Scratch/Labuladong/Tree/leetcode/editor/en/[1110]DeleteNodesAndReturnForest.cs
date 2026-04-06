@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1110 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1110] Delete Nodes And Return Forest
+ */
+
 namespace Scratch.Labuladong.Algorithms.DeleteNodesAndReturnForest;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -57,4 +64,4 @@ public class Solution
         return deleted ? null : node;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

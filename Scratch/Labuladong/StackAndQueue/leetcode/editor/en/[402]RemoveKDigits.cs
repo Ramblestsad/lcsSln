@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=402 lang=csharp
+ * @lcpr version=30402
+ *
+ * [402] Remove K Digits
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveKDigits;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string RemoveKdigits(string num, int k)
@@ -44,4 +51,4 @@ public class Solution
         return new string(arr);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

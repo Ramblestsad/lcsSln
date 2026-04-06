@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1944 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1944] Number Of Visible People In A Queue
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumberOfVisiblePeopleInAQueue;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] CanSeePersonsCount(int[] heights)
@@ -28,4 +35,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

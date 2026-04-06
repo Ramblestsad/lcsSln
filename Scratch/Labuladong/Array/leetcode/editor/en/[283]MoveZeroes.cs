@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=283 lang=csharp
+ * @lcpr version=30402
+ *
+ * [283] Move Zeroes
+ */
+
 namespace Scratch.Labuladong.Algorithms.MoveZeroes;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void MoveZeroes(int[] nums)
@@ -37,4 +44,4 @@ public class Solution
         return slow;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

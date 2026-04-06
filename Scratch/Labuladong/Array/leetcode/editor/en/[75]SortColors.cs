@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=75 lang=csharp
+ * @lcpr version=30402
+ *
+ * [75] Sort Colors
+ */
+
 namespace Scratch.Labuladong.Algorithms.SortColors;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void SortColors(int[] nums)
@@ -34,4 +41,4 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

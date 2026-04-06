@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=51 lang=csharp
+ * @lcpr version=30402
+ *
+ * [51] N Queens
+ */
+
 namespace Scratch.Labuladong.Algorithms.NQueens;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<IList<string>> res = new List<IList<string>>();
@@ -88,4 +95,4 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

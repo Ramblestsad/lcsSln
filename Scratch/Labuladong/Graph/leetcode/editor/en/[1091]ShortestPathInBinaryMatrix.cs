@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=1091 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1091] Shortest Path In Binary Matrix
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShortestPathInBinaryMatrix;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 8 个方向
@@ -117,4 +124,4 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

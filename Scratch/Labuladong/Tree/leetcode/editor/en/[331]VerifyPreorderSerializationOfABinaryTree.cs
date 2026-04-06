@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=331 lang=csharp
+ * @lcpr version=30402
+ *
+ * [331] Verify Preorder Serialization Of A Binary Tree
+ */
+
 namespace Scratch.Labuladong.Algorithms.VerifyPreorderSerializationOfABinaryTree;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool IsValidSerialization(string preorder)
@@ -22,4 +29,4 @@ public class Solution
         return _deserialize(nodes) && _deserialize(nodes);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

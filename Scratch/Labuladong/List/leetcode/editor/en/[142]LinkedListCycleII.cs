@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=142 lang=csharp
+ * @lcpr version=30402
+ *
+ * [142] Linked List Cycle II
+ */
+
 namespace Scratch.Labuladong.Algorithms.DetectCycle;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -47,4 +54,4 @@ public class Solution
         return slow;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

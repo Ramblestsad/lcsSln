@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=300 lang=csharp
+ * @lcpr version=30402
+ *
+ * [300] Longest Increasing Subsequence
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestIncreasingSubsequence;
 
 //Given an integer array nums, return the length of the longest strictly
@@ -47,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.LongestIncreasingSubsequence;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // dp[i] 表示以 nums[i] 这个数结尾的最长递增子序列的长度。
@@ -77,4 +84,4 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

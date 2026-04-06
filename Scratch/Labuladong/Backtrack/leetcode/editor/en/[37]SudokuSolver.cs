@@ -1,6 +1,13 @@
+/*
+ * @lc app=leetcode id=37 lang=csharp
+ * @lcpr version=30402
+ *
+ * [37] Sudoku Solver
+ */
+
 namespace Scratch.Labuladong.Algorithms.SudokuSolver;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 标记是否已经找到可行解
@@ -77,4 +84,4 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end

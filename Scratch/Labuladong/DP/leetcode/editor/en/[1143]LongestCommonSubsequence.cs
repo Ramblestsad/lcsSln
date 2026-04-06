@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode id=1143 lang=csharp
+ * @lcpr version=30402
+ *
+ * [1143] Longest Common Subsequence
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestCommonSubsequence;
 
 //Given two strings text1 and text2, return the length of their longest common
@@ -55,7 +62,7 @@ namespace Scratch.Labuladong.Algorithms.LongestCommonSubsequence;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[][] memo = null!;
@@ -105,4 +112,4 @@ public class Solution
         return memo[i][j];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
