@@ -7,3 +7,6 @@ bin
 *.*.DotSettings.user
 Scratch/Labuladong/**/leetcode/editor/en/doc/content/*.md
 **/artifacts/
+**/secrets.yaml
+**/secrets.local.yaml
+**/secrets.dev.yaml

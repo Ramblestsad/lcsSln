@@ -24,8 +24,34 @@ spec:
               value: Production
             - name: ASPNETCORE_URLS
               value: http://0.0.0.0:8080;http://0.0.0.0:8081
-            - name: ConnectionStrings__postgres
-              value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
+            - name: ConnectionStrings__postgresWrite
+              valueFrom:
+                secretKeyRef:
+                  name: todo-webapi-secrets
+                  key: postgres-write-connection-string
+            - name: ConnectionStrings__postgresRead
+              valueFrom:
+                secretKeyRef:
+                  name: todo-webapi-secrets
+                  key: postgres-read-connection-string
+            - name: Redis__ConnectionString
+              valueFrom:
+                secretKeyRef:
+                  name: todo-webapi-secrets
+                  key: redis-connection-string
+            - name: SignalR__UseRedisBackplane
+              value: "true"
+            - name: Jwt__Key
+              valueFrom:
+                secretKeyRef:
+                  name: todo-webapi-secrets
+                  key: jwt-key
+            - name: Jwt__Issuer
+              value: AxesServiceServer
+            - name: Jwt__Audience
+              value: AxesClient
+            - name: Jwt__Subject
+              value: AxesServiceToken
           ports:
             - name: http
               containerPort: 8080
@@ -62,7 +88,10 @@ spec:
             - name: DOTNET_ENVIRONMENT
               value: Production
             - name: ConnectionStrings__postgres
-              value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
+              valueFrom:
+                secretKeyRef:
+                  name: todo-worker-secrets
+                  key: postgres-connection-string
             - name: RabbitMq__Host
               value: 192.168.65.2
             - name: RabbitMq__Port
@@ -114,7 +143,10 @@ spec:
             - name: DOTNET_ENVIRONMENT
               value: Production
             - name: ConnectionStrings__postgres
-              value: Host=192.168.65.2;Database=axes;Username=postgres;Password=5161
+              valueFrom:
+                secretKeyRef:
+                  name: todo-worker-secrets
+                  key: postgres-connection-string
             - name: RabbitMq__Host
               value: 192.168.65.2
             - name: RabbitMq__Port
