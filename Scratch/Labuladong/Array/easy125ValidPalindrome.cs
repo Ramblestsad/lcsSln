@@ -14,7 +14,6 @@ public class Solution
 {
     public bool IsPalindrome(string s)
     {
-
         var builder = new StringBuilder(s.Length);
         foreach (var ch in s)
         {
