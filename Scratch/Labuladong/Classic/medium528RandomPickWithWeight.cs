@@ -115,6 +115,7 @@ public class Solution
     }
 
     // 搜索左侧边界的二分搜索
+    // the minimum position of the 1st one >= target.
     private int left_bound(int[] nums, int target)
     {
         if (nums.Length == 0) return -1;
