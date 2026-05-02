@@ -40,7 +40,7 @@ public class Solution
         // 从相遇点到环起点的距离同样为：k-m, 因为fast在环里绕k步到相遇点，那么减掉m即为环起点
 
         // fast 为空或这到达list尽头说明无环
-        if (fast == null || fast?.next == null) return null;
+        if (fast == null || fast.next == null) return null;
 
         slow = head;
         // now, slow and fast move at the same pace
