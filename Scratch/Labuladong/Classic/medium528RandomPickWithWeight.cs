@@ -119,12 +119,12 @@ public class Solution
     {
         if (nums.Length == 0) return -1;
         int left = 0, right = nums.Length;
-        while (left <= right)
+        while (left < right)
         {
             var mid = left + ( right - left ) / 2;
             if (nums[mid] == target)
             {
-                right = mid - 1;
+                right = mid;
             }
             else if (nums[mid] < target)
             {
@@ -132,7 +132,7 @@ public class Solution
             }
             else if (nums[mid] > target)
             {
-                right = mid - 1;
+                right = mid;
             }
         }
 
