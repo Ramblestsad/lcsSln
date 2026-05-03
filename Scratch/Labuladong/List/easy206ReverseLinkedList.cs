@@ -21,7 +21,7 @@ namespace Scratch.Labuladong.Algorithms.ReverseLinkedList;
  */
 public class Solution
 {
-    public ListNode? ReverseList(ListNode head)
+    public ListNode? ReverseList(ListNode? head)
     {
         if (head == null || head.next == null)
         {
