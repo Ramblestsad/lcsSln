@@ -6,18 +6,18 @@ public class ListNode(int val = 0, ListNode? next = null)
     public ListNode? next = next;
 }
 
-public class MonotonicQueue<T> where T: IComparable<T>
+public class MonotonicQueue<T> where T : IComparable<T>
 {
     // 常规队列，存储所有元素
-    LinkedList<T> q = new LinkedList<T>();
+    LinkedList<T> q = new();
 
     // 元素降序排列的单调队列，头部是最大值
-    LinkedList<T> maxQ = new LinkedList<T>();
+    LinkedList<T> maxQ = new();
 
     // 元素升序排列的单调队列，头部是最小值
-    LinkedList<T> minQ = new LinkedList<T>();
+    LinkedList<T> minQ = new();
 
-    public void push(T elem)
+    public void Push(T elem)
     {
         // 维护常规队列，直接在队尾插入元素
         q.AddLast(elem);
@@ -88,6 +88,7 @@ public class TreeNode
     public int val;
     public TreeNode? left;
     public TreeNode? right;
+
     public TreeNode(int val = 0, TreeNode? left = null, TreeNode? right = null)
     {
         this.val = val;
