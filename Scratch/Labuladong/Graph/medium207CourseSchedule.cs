@@ -25,8 +25,8 @@ public class Solution
         var indegree = new int[numCourses];
         foreach (var edge in prerequisites)
         {
-            var from = edge[0];
-            var to = edge[1];
+            var from = edge[1];
+            var to = edge[0];
             // 节点 to 的入度加一
             indegree[to]++;
         }
@@ -77,8 +77,8 @@ public class Solution
 
         foreach (var edge in prerequisites)
         {
-            var from = edge[0];
-            var to = edge[1];
+            var from = edge[1];
+            var to = edge[0];
             graph[from].Add(to);
         }
 
@@ -106,7 +106,7 @@ public class Solution
             _dfs(g, i);
         }
 
-        return false;
+        return hasCycle;
 
         // 不仅要判断是否存在环，还要返回这个环具体有哪些节点，怎么办？
         // 最简单直接的解法是，在 bool[] onPath 数组的基础上，再使用一个 Stack<int> path 栈，把遍历过程中经过的节点顺序也保存下来。

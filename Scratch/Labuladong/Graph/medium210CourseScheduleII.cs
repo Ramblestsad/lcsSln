@@ -33,7 +33,7 @@ public class Solution
         if (hasCycle) return [];
 
         // 逆后序遍历结果即为拓扑排序结果
-        // postorder.Reverse();
+        postorder.Reverse();
 
         return postorder.ToArray();
     }
@@ -50,9 +50,9 @@ public class Solution
 
         foreach (var edge in prerequisites)
         {
-            var prereq = edge[1];
-            var c = edge[0];
-            graph[c].Add(prereq);
+            var from = edge[1];
+            var to = edge[0];
+            graph[from].Add(to);
         }
 
         return graph;
