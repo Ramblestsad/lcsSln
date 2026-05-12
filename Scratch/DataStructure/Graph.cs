@@ -303,6 +303,12 @@ public class UF
 
     public int Find(int x)
     {
+        // naive impl:
+        // while (parent[x] != x)
+        //     x = parent[x];
+        // return x;
+
+        // path compress
         if (parent[x] != x)
         {
             parent[x] = Find(parent[x]);
