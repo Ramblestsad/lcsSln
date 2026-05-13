@@ -16,6 +16,9 @@ trim_trailing_whitespace = true
 
 # C# files
 [*.cs]
+# ReSharper inspections
+resharper_inconsistent_naming_highlighting = hint
+dotnet_diagnostic.CS0414.severity = suggestion
 max_line_length = 120
 # New line preferences
 csharp_new_line_before_open_brace = all
