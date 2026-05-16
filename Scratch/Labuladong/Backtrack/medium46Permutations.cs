@@ -68,7 +68,7 @@ public class Solution
             used[i] = true;
             track.Add(nums[i]);
             // 进入下一层
-            _backtrack(nums);
+            _K_backtrack(nums, k);
             // 撤销选择
             track.RemoveAt(track.Count - 1);
             used[i] = false;
