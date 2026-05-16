@@ -12,9 +12,9 @@ public class Solution
 {
     public List<IList<int>> res = new();
 
-    public List<int> track = new();
+    public List<int> track = [];
 
-    private int trackSum = 0;
+    private int trackSum;
 
     public IList<IList<int>> CombinationSum(int[] candidates, int target)
     {

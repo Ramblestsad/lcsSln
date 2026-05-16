@@ -10,10 +10,10 @@ namespace Scratch.Labuladong.Algorithms.Subsets;
 // @lc code=start
 public class Solution
 {
-    public List<IList<int>> res = new List<IList<int>>();
+    public List<IList<int>> res = [];
 
     // 记录回溯算法的递归路径
-    private List<int> track = new List<int>();
+    private List<int> track = [];
 
     public IList<IList<int>> Subsets(int[] nums)
     {
