@@ -70,6 +70,7 @@ public class Solution
         {
             for (int j = 0; j < i; j++)
             {
+                // 寻找 nums[0..i-1] 中比 nums[i] 小的元素
                 if (nums[j] < nums[i])
                     dp[i] = Math.Max(dp[i], dp[j] + 1);
             }
