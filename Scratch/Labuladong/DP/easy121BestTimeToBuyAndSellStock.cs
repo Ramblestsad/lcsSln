@@ -21,7 +21,7 @@ public class Solution
 
         for (var i = 0; i < n; i++)
         {
-            if (i - 1 == -1)
+            if (i == 0)
             {
                 // base case
                 dp[i][0] = 0;
