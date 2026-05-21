@@ -96,14 +96,14 @@ class FastScanner
     {
         int c;
         while (( c = ReadByte() ) <= ' ' && c != -1) ;
-        int sign = 1;
+        var sign = 1;
         if (c == '-')
         {
             sign = -1;
             c = ReadByte();
         }
 
-        int val = 0;
+        var val = 0;
         while (c > ' ')
         {
             val = val * 10 + ( c - '0' );
@@ -137,9 +137,8 @@ public static class FileReader
         await using var fs = File.OpenRead(filePath);
 
         var buffer = new byte[4096];
-        int n;
 
-        while (( n = await fs.ReadAsync(buffer, 0, buffer.Length) ) > 0)
+        while (( await fs.ReadAsync(buffer, 0, buffer.Length) ) > 0)
         {
             // process buffer[..n]
         }
