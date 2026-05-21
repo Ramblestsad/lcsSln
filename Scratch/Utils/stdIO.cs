@@ -36,7 +36,7 @@ public static class StdRead
         var nums = Console.ReadLine()?
             .Split(' ', StringSplitOptions.RemoveEmptyEntries)
             .Select(int.Parse)
-            .ToArray() ?? Array.Empty<int>();
+            .ToArray() ?? [];
 
         return nums;
     }
@@ -138,7 +138,7 @@ public static class FileReader
 
         var buffer = new byte[4096];
 
-        while (( await fs.ReadAsync(buffer, 0, buffer.Length) ) > 0)
+        while (await fs.ReadAsync(buffer, 0, buffer.Length) > 0)
         {
             // process buffer[..n]
         }
