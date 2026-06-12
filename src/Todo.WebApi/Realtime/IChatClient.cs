@@ -1,5 +1,3 @@
-using Todo.WebApi.Realtime;
-
 namespace Todo.WebApi.Realtime;
 
 public interface IChatClient

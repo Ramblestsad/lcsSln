@@ -1,6 +1,3 @@
-using Todo.DAL.Inventory;
-using Todo.DAL.Messaging;
-using Todo.DAL.Orders;
 using Todo.DAL.Todos;
 
 namespace Todo.WebApi.Todos;

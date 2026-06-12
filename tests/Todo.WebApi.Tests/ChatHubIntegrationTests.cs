@@ -138,7 +138,8 @@ public sealed class ChatHubIntegrationTests(TodoWebApiFactory factory): IClassFi
 
         var secondSnapshotTask =
             new TaskCompletionSource<RoomSnapshotDto>(TaskCreationOptions.RunContinuationsAsynchronously);
-        secondConnection.On<RoomSnapshotDto>("RoomSnapshot", snapshot => secondSnapshotTask.TrySetResult(snapshot));
+        var task = secondSnapshotTask;
+        secondConnection.On<RoomSnapshotDto>("RoomSnapshot", snapshot => task.TrySetResult(snapshot));
 
         await firstConnection.StartAsync(ct);
         await secondConnection.StartAsync(ct);

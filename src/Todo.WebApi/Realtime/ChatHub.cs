@@ -2,7 +2,6 @@ using System.Security.Claims;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using Todo.WebApi.Realtime;
 
 namespace Todo.WebApi.Realtime;
 
@@ -140,7 +139,7 @@ public class ChatHub: Hub<IChatClient>
             Context.ConnectionId);
     }
 
-    public async Task SendRoomMessageAsync(string roomId, string content)
+    public async Task SendRoomMessageAsync(string roomId, string? content)
     {
         if (!TryValidateRoomId(roomId, out var normalizedRoomId))
         {
@@ -207,7 +206,7 @@ public class ChatHub: Hub<IChatClient>
         await Clients.Caller.SystemNotice(new SystemNoticeDto(code, message, roomId));
     }
 
-    private static bool TryValidateRoomId(string roomId, out string normalizedRoomId)
+    private static bool TryValidateRoomId(string? roomId, out string normalizedRoomId)
     {
         normalizedRoomId = roomId?.Trim() ?? string.Empty;
         return RoomIdPattern.IsMatch(normalizedRoomId);
