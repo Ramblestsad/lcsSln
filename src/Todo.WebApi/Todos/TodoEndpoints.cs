@@ -13,7 +13,6 @@ public static class TodoEndpoints
         app.MapGet("/api/TodoItems", GetTodoItemsAsync)
             .RequireAuthorization()
             .WithTags("TodoItems")
-            .AddEndpointFilter<TodoEndpointTimingFilter>()
             .WithName("GetTodoItems")
             .Produces<PagedResponse<List<TodoItem>>>()
             .Produces(StatusCodes.Status401Unauthorized);
@@ -62,10 +61,12 @@ public static class TodoEndpoints
         ITodoQueryService todoQueryService,
         IUriService uriService,
         HttpContext httpContext,
-        ILogger<TodoEndpointTimingFilter> logger,
+        ILoggerFactory loggerFactory,
         CancellationToken cancellationToken)
     {
-        logger.LogDebug("Fetching todos for user {UserName}", user.Name);
+        loggerFactory.CreateLogger("TodoEndpoints").LogDebug(
+            "Fetching todos for user {UserName}",
+            user.Name);
         var validFilter = new PaginationFilter(pageNumber, pageSize);
         var result = await todoQueryService.GetTodoItemsAsync(validFilter, cancellationToken);
 

@@ -6,7 +6,6 @@ using Todo.WebApi.Auth;
 using Todo.WebApi.Engagement;
 using Todo.WebApi.Infrastructure.Extensions;
 using Todo.WebApi.Infrastructure.Mapping;
-using Todo.WebApi.Infrastructure.Middleware;
 using Todo.WebApi.Orders;
 using Todo.WebApi.Realtime;
 using Todo.WebApi.Todos;
@@ -33,8 +32,6 @@ builder.Services.AddScoped<ITodoEngagementRedisService, TodoEngagementRedisServi
 builder.Services.AddScoped<IChatRoomRedisService, ChatRoomRedisService>();
 
 // services
-builder.Services.AddTransient<RequestTimingMiddleware>();
-builder.Services.AddScoped<TodoEndpointTimingFilter>();
 builder.Services.AddScoped<ITodoQueryService, TodoQueryService>();
 builder.Services.AddScoped<ITodoCommandService, TodoCommandService>();
 builder.Services.AddScoped<OrderCommandService>();
@@ -79,7 +76,6 @@ else
 
 app.UseSerilogRequestLogging();
 app.UseRouting();
-app.UseMiddleware<RequestTimingMiddleware>();
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
