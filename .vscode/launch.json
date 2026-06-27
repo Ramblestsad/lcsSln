@@ -12,12 +12,6 @@
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/src/Todo.WebApi/Todo.WebApi.csproj"
-        },
-        {
-            "name": "C#: Zelve Debug",
-            "type": "dotnet",
-            "request": "launch",
-            "projectPath": "${workspaceFolder}/Zelve/Zelve.csproj"
         }
     ]
 }
