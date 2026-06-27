@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=114 lang=csharp
- * @lcpr version=30402
- *
- * [114] Flatten Binary Tree To Linked List
- */
-
 namespace Scratch.Labuladong.Algorithms.FlattenBinaryTreeToLinkedList;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -52,4 +45,4 @@ public class Solution
         p.right = r;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

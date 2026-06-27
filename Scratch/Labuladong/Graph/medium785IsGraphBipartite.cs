@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=785 lang=csharp
- * @lcpr version=30402
- *
- * [785] Is Graph Bipartite
- */
-
 namespace Scratch.Labuladong.Algorithms.IsGraphBipartite;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     // 记录图是否符合二分图性质
@@ -60,4 +53,4 @@ public class Solution
         }
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

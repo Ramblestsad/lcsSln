@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=64 lang=csharp
- * @lcpr version=30403
- *
- * [64] Minimum Path Sum
- */
-
 namespace Scratch.Labuladong.Algorithms.MinPathSum;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MinPathSum(int[][] grid)
@@ -56,14 +49,4 @@ public class Solution
         return memo[i][j];
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [[1,3,1],[1,5,1],[4,2,1]]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [[1,2,3],[4,5,6]]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

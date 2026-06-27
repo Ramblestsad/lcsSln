@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=76 lang=csharp
- * @lcpr version=30402
- *
- * [76] Minimum Window Substring
- */
-
 namespace Scratch.Labuladong.Algorithms.MinimumWindowSubstring;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public string MinWindow(string s, string t)
@@ -71,4 +64,4 @@ public class Solution
         return len == int.MaxValue ? "" : s.Substring(start, len);
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

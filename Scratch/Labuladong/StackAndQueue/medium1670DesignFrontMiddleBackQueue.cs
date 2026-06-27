@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1670 lang=csharp
- * @lcpr version=30402
- *
- * [1670] Design Front Middle Back Queue
- */
-
 namespace Scratch.Labuladong.Algorithms.DesignFrontMiddleBackQueue;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class FrontMiddleBackQueue
 {
     // 用两个列表表示队列的左右两部分，以便操作中间元素
@@ -128,4 +121,4 @@ public class FrontMiddleBackQueue
  * int param_5 = obj.PopMiddle();
  * int param_6 = obj.PopBack();
  */
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

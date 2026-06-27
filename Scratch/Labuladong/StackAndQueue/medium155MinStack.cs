@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=155 lang=csharp
- * @lcpr version=30402
- *
- * [155] Min Stack
- */
-
 namespace Scratch.Labuladong.Algorithms.MinStack;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class MinStack
 {
     // 记录栈中的所有元素
@@ -58,4 +51,4 @@ public class MinStack
  * int param_3 = obj.Top();
  * int param_4 = obj.GetMin();
  */
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

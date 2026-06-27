@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=34 lang=csharp
- * @lcpr version=30402
- *
- * [34] Find First And Last Position Of Element In Sorted Array
- */
-
 namespace Scratch.Labuladong.Algorithms.FindFirstAndLastPositionOfElementInSortedArray;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[] SearchRange(int[] nums, int target)
@@ -64,4 +57,4 @@ public class Solution
         return [firstPos, lastPos];
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

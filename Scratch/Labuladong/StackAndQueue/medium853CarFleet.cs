@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=853 lang=csharp
- * @lcpr version=30402
- *
- * [853] Car Fleet
- */
-
 namespace Scratch.Labuladong.Algorithms.CarFleet;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int CarFleet(int target, int[] position, int[] speed)
@@ -69,4 +62,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=226 lang=csharp
- * @lcpr version=30402
- *
- * [226] Invert Binary Tree
- */
-
 namespace Scratch.Labuladong.Algorithms.InvertBinaryTree;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -56,4 +49,4 @@ public class Solution
         return root;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

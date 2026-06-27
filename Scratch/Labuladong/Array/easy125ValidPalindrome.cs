@@ -1,14 +1,8 @@
-/*
- * @lc app=leetcode id=125 lang=csharp
- * @lcpr version=30402
- *
- * [125] Valid Palindrome
- */
+using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.ValidPalindrome;
 
-// @lc code=start
-using System.Text;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 public class Solution
 {
@@ -40,4 +34,4 @@ public class Solution
         return true;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

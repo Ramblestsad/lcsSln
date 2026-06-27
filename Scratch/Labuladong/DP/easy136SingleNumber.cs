@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=136 lang=csharp
- * @lcpr version=30403
- *
- * [136] Single Number
- */
-
 namespace Scratch.Labuladong.Algorithms.SingleNumber;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int SingleNumber(int[] nums)
@@ -22,18 +15,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [2,2,1]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [4,1,2,1,2]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [1]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

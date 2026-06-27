@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=56 lang=csharp
- * @lcpr version=30403
- *
- * [56] Merge Intervals
- */
-
 namespace Scratch.Labuladong.Algorithms.MergeIntervals;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[][] Merge(int[][] intervals)
@@ -38,18 +31,4 @@ public class Solution
         return res.ToArray();
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [[1,3],[2,6],[8,10],[15,18]]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [[1,4],[4,5]]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [[4,7],[1,4]]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

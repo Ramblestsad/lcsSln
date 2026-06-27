@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=433 lang=csharp
- * @lcpr version=30402
- *
- * [433] Minimum Genetic Mutation
- */
-
 namespace Scratch.Labuladong.Algorithms.MinimumGeneticMutation;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MinMutation(string startGene, string endGene, string[] bank)
@@ -65,4 +58,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=131 lang=csharp
- * @lcpr version=30402
- *
- * [131] Palindrome Partitioning
- */
-
 namespace Scratch.Labuladong.Algorithms.PalindromePartitioning;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     private List<IList<string>> res = new();
@@ -54,4 +47,4 @@ public class Solution
         return true;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

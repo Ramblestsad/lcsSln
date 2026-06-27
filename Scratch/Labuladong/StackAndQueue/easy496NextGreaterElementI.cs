@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=496 lang=csharp
- * @lcpr version=30402
- *
- * [496] Next Greater Element I
- */
-
 namespace Scratch.Labuladong.Algorithms.NextGreaterElementI;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[] NextGreaterElement(int[] nums1, int[] nums2)
@@ -60,4 +53,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=5 lang=csharp
- * @lcpr version=30402
- *
- * [5] Longest Palindromic Substring
- */
-
 namespace Scratch.Labuladong.Algorithms.LongestPalindromicSubstring;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public string LongestPalindrome(string s)
@@ -50,4 +43,4 @@ public class Solution
         return s[( l + 1 )..r];
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

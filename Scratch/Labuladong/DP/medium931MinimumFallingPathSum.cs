@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=931 lang=csharp
- * @lcpr version=30402
- *
- * [931] Minimum Falling Path Sum
- */
-
 namespace Scratch.Labuladong.Algorithms.MinimumFallingPathSum;
 
 //Given an n x n array of integers matrix, return the minimum sum of any
@@ -49,7 +42,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumFallingPathSum;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MinFallingPathSum(int[][] matrix)
@@ -102,4 +95,4 @@ public class Solution
         return memo[i][j];
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

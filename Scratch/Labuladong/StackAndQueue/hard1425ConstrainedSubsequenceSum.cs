@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1425 lang=csharp
- * @lcpr version=30402
- *
- * [1425] Constrained Subsequence Sum
- */
-
 namespace Scratch.Labuladong.Algorithms.ConstrainedSubsequenceSum;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int ConstrainedSubsetSum(int[] nums, int k)
@@ -120,4 +113,4 @@ public class Solution
         }
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

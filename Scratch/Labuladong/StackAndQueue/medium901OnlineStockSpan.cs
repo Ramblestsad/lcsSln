@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=901 lang=csharp
- * @lcpr version=30402
- *
- * [901] Online Stock Span
- */
-
 namespace Scratch.Labuladong.Algorithms.OnlineStockSpan;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class StockSpanner
 {
     private Stack<(int price, int cnt)> stk = new();
@@ -34,4 +27,4 @@ public class StockSpanner
  * StockSpanner obj = new StockSpanner();
  * int param_1 = obj.Next(price);
  */
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=106 lang=csharp
- * @lcpr version=30402
- *
- * [106] Construct Binary Tree From Inorder And Postorder Traversal
- */
-
 namespace Scratch.Labuladong.Algorithms.ConstructBinaryTreeFromInorderAndPostorderTraversal;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -64,4 +57,4 @@ public class Solution
         return root;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

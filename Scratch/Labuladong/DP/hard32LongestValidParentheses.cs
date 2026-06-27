@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=32 lang=csharp
- * @lcpr version=30403
- *
- * [32] Longest Valid Parentheses
- */
-
 namespace Scratch.Labuladong.Algorithms.LongestValidParen;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int LongestValidParentheses(string s)
@@ -53,18 +46,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// "(()"\n
-// @lcpr case=end
-
-// @lcpr case=start
-// ")()())"\n
-// @lcpr case=end
-
-// @lcpr case=start
-// ""\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

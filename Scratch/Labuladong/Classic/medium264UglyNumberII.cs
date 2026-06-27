@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=264 lang=csharp
- * @lcpr version=30402
- *
- * [264] Ugly Number II
- */
-
 namespace Scratch.Labuladong.Algorithms.UglyNumberII;
 
 //An ugly number is a positive integer whose prime factors are limited to 2, 3,
@@ -47,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.UglyNumberII;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     // 基于筛数法筛选质数的思路和丑数的定义
@@ -96,4 +89,4 @@ public class Solution
         return ugly[n];
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

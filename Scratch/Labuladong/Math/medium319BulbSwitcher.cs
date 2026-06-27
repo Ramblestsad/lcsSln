@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=319 lang=csharp
- * @lcpr version=30402
- *
- * [319] Bulb Switcher
- */
-
 namespace Scratch.Labuladong.Algorithms.BulbSwitcher;
 
 //There are n bulbs that are initially off. You first turn on all the bulbs,
@@ -57,7 +50,7 @@ namespace Scratch.Labuladong.Algorithms.BulbSwitcher;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int BulbSwitch(int n)
@@ -65,4 +58,4 @@ public class Solution
         return (int)Math.Sqrt(n);
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

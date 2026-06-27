@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=79 lang=csharp
- * @lcpr version=30402
- *
- * [79] Word Search
- */
-
 namespace Scratch.Labuladong.Algorithms.WordSearch;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     private bool found = false;
@@ -57,4 +50,4 @@ public class Solution
         board[i][j] = (char)( -board[i][j] );
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1475 lang=csharp
- * @lcpr version=30402
- *
- * [1475] Final Prices With A Special Discount In A Shop
- */
-
 namespace Scratch.Labuladong.Algorithms.FinalPricesWithASpecialDiscountInAShop;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[] FinalPrices(int[] prices)
@@ -31,4 +24,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

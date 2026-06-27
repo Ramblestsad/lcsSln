@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=222 lang=csharp
- * @lcpr version=30402
- *
- * [222] Count Complete Tree Nodes
- */
-
 namespace Scratch.Labuladong.Algorithms.CountCompleteTreeNodes;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -50,4 +43,4 @@ public class Solution
         return 1 + CountNodes(root!.left) + CountNodes(root.right);
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

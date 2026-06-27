@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=35 lang=csharp
- * @lcpr version=30403
- *
- * [35] Search Insert Position
- */
-
 namespace Scratch.Labuladong.Algorithms.SeatchInsertPos;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int SearchInsert(int[] nums, int target)
@@ -36,18 +29,4 @@ public class Solution
         return i;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [1,3,5,6]\n5\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [1,3,5,6]\n2\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [1,3,5,6]\n7\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

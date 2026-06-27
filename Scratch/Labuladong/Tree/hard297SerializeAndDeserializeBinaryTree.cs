@@ -1,15 +1,8 @@
-/*
- * @lc app=leetcode id=297 lang=csharp
- * @lcpr version=30402
- *
- * [297] Serialize And Deserialize Binary Tree
- */
-
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SerializeAndDeserializeBinaryTree;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -175,4 +168,4 @@ public class Codec
 // Codec ser = new Codec();
 // Codec deser = new Codec();
 // TreeNode ans = deser.deserialize(ser.serialize(root));
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

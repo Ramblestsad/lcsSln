@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=200 lang=csharp
- * @lcpr version=30402
- *
- * [200] Number Of Islands
- */
-
 namespace Scratch.Labuladong.Algorithms.NumberOfIslands;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int NumIslands(char[][] grid)
@@ -56,4 +49,4 @@ public class Solution
         _dfs(grid, i, j - 1);
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

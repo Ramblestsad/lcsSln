@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1658 lang=csharp
- * @lcpr version=30402
- *
- * [1658] Minimum Operations To Reduce X To Zero
- */
-
 namespace Scratch.Labuladong.Algorithms.MinimumOperationsToReduceXToZero;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     // 等价于寻找 nums 中元素和为 sum(nums) - x 的最长子数组
@@ -46,4 +39,4 @@ public class Solution
         return maxLen == int.MinValue ? -1 : n - maxLen;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

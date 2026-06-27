@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=138 lang=csharp
- * @lcpr version=30403
- *
- * [138] Copy List with Random Pointer
- */
-
 namespace Scratch.Labuladong.Algorithms.CopyListRandom;
 
 public class Node
@@ -21,7 +14,7 @@ public class Node
     }
 }
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /*
 // Definition for a Node.
 public class Node {
@@ -47,18 +40,18 @@ public class Solution
         var originToClone = new Dictionary<Node, Node>();
 
         // 第一次遍历：先把所有节点clone出来
-        for (Node? p = head; p != null; p=p.next)
+        for (Node? p = head; p != null; p = p.next)
         {
             originToClone[p] = new Node(p.val);
         }
 
         // 第二次遍历：把克隆节点的结构连接好
-        for (Node? p = head; p != null; p=p.next)
+        for (Node? p = head; p != null; p = p.next)
         {
             if (p.next != null)
             {
                 originToClone.TryGetValue(p, out var cloneNode);
-                originToClone.TryGetValue(p.next, out  var cloneNodeNext);
+                originToClone.TryGetValue(p.next, out var cloneNodeNext);
                 cloneNode!.next = cloneNodeNext;
             }
 
@@ -73,18 +66,4 @@ public class Solution
         return originToClone[head];
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [[7,null],[13,0],[11,4],[10,2],[1,0]]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [[1,1],[2,1]]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [[3,null],[3,0],[3,null]]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=62 lang=csharp
- * @lcpr version=30403
- *
- * [62] Unique Paths
- */
-
 namespace Scratch.Labuladong.Algorithms.UniquePaths;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     private int[][] memo = [];
@@ -49,14 +42,4 @@ public class Solution
         return memo[x][y];
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// 3\n7\n
-// @lcpr case=end
-
-// @lcpr case=start
-// 3\n2\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=121 lang=csharp
- * @lcpr version=30403
- *
- * [121] Best Time to Buy and Sell Stock
- */
-
 namespace Scratch.Labuladong.Algorithms.BestTimeToBuyAndSell;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MaxProfit(int[] prices)
@@ -36,14 +29,4 @@ public class Solution
         return dp[n - 1][0];
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [7,1,5,3,6,4]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [7,6,4,3,1]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

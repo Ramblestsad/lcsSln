@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=116 lang=csharp
- * @lcpr version=30402
- *
- * [116] Populating Next Right Pointers In Each Node
- */
-
 namespace Scratch.Labuladong.Algorithms.PopulatingNextRightPointersInEachNode;
 
 public class Node
@@ -32,7 +25,7 @@ public class Node
     }
 }
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public Node? Connect(Node? root)
@@ -59,4 +52,4 @@ public class Solution
         Traverse(node1.right, node2.left);
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

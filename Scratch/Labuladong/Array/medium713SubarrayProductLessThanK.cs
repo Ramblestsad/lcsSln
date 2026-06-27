@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=713 lang=csharp
- * @lcpr version=30402
- *
- * [713] Subarray Product Less Than K
- */
-
 namespace Scratch.Labuladong.Algorithms.SubarrayProductLessThanK;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int NumSubarrayProductLessThanK(int[] nums, int k)
@@ -39,4 +32,4 @@ public class Solution
         return count;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

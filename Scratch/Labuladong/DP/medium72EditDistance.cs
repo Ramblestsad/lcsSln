@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=72 lang=csharp
- * @lcpr version=30402
- *
- * [72] Edit Distance
- */
-
 namespace Scratch.Labuladong.Algorithms.EditDistance;
 
 //Given two strings word1 and word2, return the minimum number of operations
@@ -59,7 +52,7 @@ namespace Scratch.Labuladong.Algorithms.EditDistance;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MinDistanceDPRecur(string word1, string word2)
@@ -179,4 +172,4 @@ public class Solution
         return dp[m][n];
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=46 lang=csharp
- * @lcpr version=30402
- *
- * [46] Permutations
- */
-
 namespace Scratch.Labuladong.Algorithms.Permutations;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -75,4 +68,4 @@ public class Solution
         }
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

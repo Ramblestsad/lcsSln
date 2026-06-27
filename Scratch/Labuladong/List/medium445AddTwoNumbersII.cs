@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=445 lang=csharp
- * @lcpr version=30402
- *
- * [445] Add Two Numbers II
- */
-
 namespace Scratch.Labuladong.Algorithms.AddTwoNumbersII;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -57,4 +50,4 @@ public class Solution
         return dummy.next;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

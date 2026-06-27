@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=210 lang=csharp
- * @lcpr version=30402
- *
- * [210] Course Schedule II
- */
-
 namespace Scratch.Labuladong.Algorithms.CourseScheduleII;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     // 记录后序遍历结果
@@ -121,4 +114,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

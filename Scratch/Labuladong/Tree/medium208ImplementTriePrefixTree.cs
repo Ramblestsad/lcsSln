@@ -1,14 +1,8 @@
-/*
- * @lc app=leetcode id=208 lang=csharp
- * @lcpr version=30403
- *
- * [208] Implement Trie (Prefix Tree)
- */
+using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.ImplTrie;
 
-// @lc code=start
-using System.Text;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 public class Trie
 {
@@ -451,10 +445,4 @@ public class TrieSet
  * bool param_2 = obj.Search(word);
  * bool param_3 = obj.StartsWith(prefix);
  */
-// @lc code=end
-
-/*
-// @lcpr case=start
-// ["Trie","insert","search","search","startsWith","insert","search"]\n[[],["apple"],["apple"],["app"],["app"],["app"],["app"]]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

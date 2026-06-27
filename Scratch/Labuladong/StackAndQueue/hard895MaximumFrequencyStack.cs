@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=895 lang=csharp
- * @lcpr version=30402
- *
- * [895] Maximum Frequency Stack
- */
-
 namespace Scratch.Labuladong.Algorithms.MaximumFrequencyStack;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class FreqStack
 {
     /// 记录 FreqStack 中元素的最大频率
@@ -67,4 +60,4 @@ public class FreqStack
  * obj.Push(val);
  * int param_2 = obj.Pop();
  */
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,14 +1,8 @@
-/*
- * @lc app=leetcode id=394 lang=csharp
- * @lcpr version=30403
- *
- * [394] Decode String
- */
+using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.DecodeString;
 
-// @lc code=start
-using System.Text;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 public class Solution
 {
@@ -66,18 +60,4 @@ public class Solution
         return cur.ToString();
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// "3[a]2[bc]"\n
-// @lcpr case=end
-
-// @lcpr case=start
-// "3[a2[c]]"\n
-// @lcpr case=end
-
-// @lcpr case=start
-// "2[abc]3[cd]ef"\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

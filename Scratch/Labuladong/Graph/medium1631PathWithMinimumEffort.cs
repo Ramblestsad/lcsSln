@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1631 lang=csharp
- * @lcpr version=30402
- *
- * [1631] Path With Minimum Effort
- */
-
 namespace Scratch.Labuladong.Algorithms.PathWithMinimumEffort;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MinimumEffortPath(int[][] heights)
@@ -101,4 +94,4 @@ public class Solution
         return neighbors;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

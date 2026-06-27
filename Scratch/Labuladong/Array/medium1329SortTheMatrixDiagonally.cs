@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1329 lang=csharp
- * @lcpr version=30402
- *
- * [1329] Sort The Matrix Diagonally
- */
-
 namespace Scratch.Labuladong.Algorithms.SortTheMatrixDiagonally;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[][] DiagonalSort(int[][] mat)
@@ -57,4 +50,4 @@ public class Solution
         return mat;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

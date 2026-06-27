@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=1260 lang=csharp
- * @lcpr version=30402
- *
- * [1260] Shift 2D Grid
- */
-
 namespace Scratch.Labuladong.Algorithms.Shift2DGrid;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public IList<IList<int>> ShiftGrid(int[][] grid, int k)
@@ -66,4 +59,4 @@ public class Solution
         }
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=45 lang=csharp
- * @lcpr version=30402
- *
- * [45] Jump Game II
- */
-
 namespace Scratch.Labuladong.Algorithms.JumpGameII;
 
 //You are given a 0-indexed array of integers nums of length n. You are
@@ -56,7 +49,7 @@ namespace Scratch.Labuladong.Algorithms.JumpGameII;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int Jump(int[] nums)
@@ -91,4 +84,4 @@ public class Solution
         return -1;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

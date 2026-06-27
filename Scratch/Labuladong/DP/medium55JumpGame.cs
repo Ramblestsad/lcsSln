@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=55 lang=csharp
- * @lcpr version=30402
- *
- * [55] Jump Game
- */
-
 namespace Scratch.Labuladong.Algorithms.JumpGame;
 
 //You are given an integer array nums. You are initially positioned at the
@@ -47,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.JumpGame;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public bool CanJump(int[] nums)
@@ -66,4 +59,4 @@ public class Solution
         return farthest >= n - 1;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

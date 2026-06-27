@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=207 lang=csharp
- * @lcpr version=30402
- *
- * [207] Course Schedule
- */
-
 namespace Scratch.Labuladong.Algorithms.CourseSchedule;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public bool CanFinish(int numCourses, int[][] prerequisites)
@@ -140,4 +133,4 @@ public class Solution
         onPath[s] = false;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,10 +1,3 @@
-/*
- * @lc app=leetcode id=24 lang=csharp
- * @lcpr version=30402
- *
- * [24] Swap Nodes In Pairs
- */
-
 namespace Scratch.Labuladong.Algorithms.SwapNodesInPairs;
 
 //Given a linked list, swap every two adjacent nodes and return its head. You
@@ -64,7 +57,7 @@ namespace Scratch.Labuladong.Algorithms.SwapNodesInPairs;
 //
 //
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -121,4 +114,4 @@ public class Solution
         return pre;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,14 +1,8 @@
-/*
- * @lc app=leetcode id=22 lang=csharp
- * @lcpr version=30403
- *
- * [22] Generate Parentheses
- */
+using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.GenParen;
 
-// @lc code=start
-using System.Text;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 public class Solution
 {
@@ -55,14 +49,4 @@ public class Solution
         track.Remove(track.Length - 1, 1);
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// 3\n
-// @lcpr case=end
-
-// @lcpr case=start
-// 1\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

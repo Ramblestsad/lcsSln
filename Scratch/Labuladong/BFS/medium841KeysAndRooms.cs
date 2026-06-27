@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=841 lang=csharp
- * @lcpr version=30402
- *
- * [841] Keys And Rooms
- */
-
 namespace Scratch.Labuladong.Algorithms.KeysAndRooms;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public bool CanVisitAllRooms(IList<IList<int>> rooms)
@@ -40,4 +33,4 @@ public class Solution
         return true;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

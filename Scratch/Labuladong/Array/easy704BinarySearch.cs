@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=704 lang=csharp
- * @lcpr version=30402
- *
- * [704] Binary Search
- */
-
 namespace Scratch.Labuladong.Algorithms.BinarySearch;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int Search(int[] nums, int target)
@@ -26,4 +19,4 @@ public class Solution
         return -1;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=2073 lang=csharp
- * @lcpr version=30402
- *
- * [2073] Time Needed To Buy Tickets
- */
-
 namespace Scratch.Labuladong.Algorithms.TimeNeededToBuyTickets;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int TimeRequiredToBuy(int[] tickets, int k)
@@ -37,4 +30,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

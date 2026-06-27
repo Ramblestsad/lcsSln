@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=23 lang=csharp
- * @lcpr version=30402
- *
- * [23] Merge K Sorted Lists
- */
-
 namespace Scratch.Labuladong.Algorithms.MergeKLists;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -54,4 +47,4 @@ public class Solution
      * Every nodes in k lists will be enqueued and dequeued, so O(Nlogk)
      */
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

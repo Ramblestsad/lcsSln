@@ -1,15 +1,8 @@
-/*
- * @lc app=leetcode id=988 lang=csharp
- * @lcpr version=30402
- *
- * [988] Smallest String Starting From Leaf
- */
-
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SmallestStringStartingFromLeaf;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -23,7 +16,6 @@ namespace Scratch.Labuladong.Algorithms.SmallestStringStartingFromLeaf;
  *     }
  * }
  */
-
 public class Solution
 {
     // 遍历过程中的路径
@@ -65,4 +57,4 @@ public class Solution
         path.Remove(path.Length - 1, 1);
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

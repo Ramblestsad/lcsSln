@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=90 lang=csharp
- * @lcpr version=30402
- *
- * [90] Subsets II
- */
-
 namespace Scratch.Labuladong.Algorithms.SubsetsII;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -37,4 +30,4 @@ public class Solution
         }
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

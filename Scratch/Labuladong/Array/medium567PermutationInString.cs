@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=567 lang=csharp
- * @lcpr version=30402
- *
- * [567] Permutation In String
- */
-
 namespace Scratch.Labuladong.Algorithms.PermutationInString;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     // 判断 s2 是否包含 s1 的排列
@@ -58,4 +51,4 @@ public class Solution
         return false;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

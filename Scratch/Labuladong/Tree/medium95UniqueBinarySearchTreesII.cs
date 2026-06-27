@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=95 lang=csharp
- * @lcpr version=30402
- *
- * [95] Unique Binary Search Trees II
- */
-
 namespace Scratch.Labuladong.Algorithms.UniqueBinarySearchTreesII;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -64,4 +57,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

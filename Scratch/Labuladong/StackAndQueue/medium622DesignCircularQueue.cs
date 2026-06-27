@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=622 lang=csharp
- * @lcpr version=30402
- *
- * [622] Design Circular Queue
- */
-
 namespace Scratch.Labuladong.Algorithms.DesignCircularQueue;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class MyCircularQueue
 {
     private ArrayQueue<int> q;
@@ -165,4 +158,4 @@ public class ArrayQueue<T>
  * bool param_5 = obj.IsEmpty();
  * bool param_6 = obj.IsFull();
  */
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

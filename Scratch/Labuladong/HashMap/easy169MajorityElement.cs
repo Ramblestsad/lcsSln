@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=169 lang=csharp
- * @lcpr version=30403
- *
- * [169] Majority Element
- */
-
 namespace Scratch.Labuladong.Algorithms.MajorityElement;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int MajorityElement(int[] nums)
@@ -36,14 +29,4 @@ public class Solution
         return target;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [3,2,3]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [2,2,1,1,1,2,2]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

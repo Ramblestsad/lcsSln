@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=240 lang=csharp
- * @lcpr version=30403
- *
- * [240] Search a 2D Matrix II
- */
-
 namespace Scratch.Labuladong.Algorithms.Search2DMatrixII;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public bool SearchMatrix(int[][] matrix, int target)
@@ -39,14 +32,4 @@ public class Solution
         return false;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]]\n5\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]]\n20\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

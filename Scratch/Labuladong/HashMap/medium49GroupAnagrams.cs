@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=49 lang=csharp
- * @lcpr version=30403
- *
- * [49] Group Anagrams
- */
-
 namespace Scratch.Labuladong.Algorithms.GroupAnagrams;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public IList<IList<string>> GroupAnagrams(string[] strs)
@@ -22,6 +15,7 @@ public class Solution
                 list = [];
                 codeToGroup.Add(code, list);
             }
+
             list.Add(str);
         }
 
@@ -46,18 +40,4 @@ public class Solution
         return new string(cnt);
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// ["eat","tea","tan","ate","nat","bat"]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [""]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// ["a"]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

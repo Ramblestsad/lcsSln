@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=118 lang=csharp
- * @lcpr version=30403
- *
- * [118] Pascal's Triangle
- */
-
 namespace Scratch.Labuladong.Algorithms.PascalTri;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public IList<IList<int>> Generate(int numRows)
@@ -41,14 +34,4 @@ public class Solution
         return curRow;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// 5\n
-// @lcpr case=end
-
-// @lcpr case=start
-// 1\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

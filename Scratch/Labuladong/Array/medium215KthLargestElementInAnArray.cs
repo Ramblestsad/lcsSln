@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=215 lang=csharp
- * @lcpr version=30403
- *
- * [215] Kth Largest Element in an Array
- */
-
 namespace Scratch.Labuladong.Algorithms.KLargestElement;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int FindKthLargest(int[] nums, int k)
@@ -23,14 +16,4 @@ public class Solution
         return pq.Peek();
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [3,2,1,5,6,4]\n2\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [3,2,3,1,2,4,5,5,6]\n4\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

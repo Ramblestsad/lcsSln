@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=206 lang=csharp
- * @lcpr version=30402
- *
- * [206] Reverse Linked List
- */
-
 namespace Scratch.Labuladong.Algorithms.ReverseLinkedList;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -110,4 +103,4 @@ public class Solution
         return last;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

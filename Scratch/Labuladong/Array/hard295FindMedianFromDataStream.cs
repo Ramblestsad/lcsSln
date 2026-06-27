@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=295 lang=csharp
- * @lcpr version=30403
- *
- * [295] Find Median from Data Stream
- */
-
 namespace Scratch.Labuladong.Algorithms.FindMedianFromDataStream;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class MedianFinder
 {
     // 右半边，最小堆，堆顶是右半边最小值
@@ -60,10 +53,4 @@ public class MedianFinder
  * obj.AddNum(num);
  * double param_2 = obj.FindMedian();
  */
-// @lc code=end
-
-/*
-// @lcpr case=start
-// ["MedianFinder","addNum","addNum","findMedian","addNum","findMedian"]\n[[],[1],[2],[],[3],[]]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=198 lang=csharp
- * @lcpr version=30403
- *
- * [198] House Robber
- */
-
 namespace Scratch.Labuladong.Algorithms.HouseRobber;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     private int[] memo = [];
@@ -41,14 +34,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [1,2,3,1]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [2,7,9,3,1]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

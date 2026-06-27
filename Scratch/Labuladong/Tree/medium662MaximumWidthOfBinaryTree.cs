@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=662 lang=csharp
- * @lcpr version=30402
- *
- * [662] Maximum Width Of Binary Tree
- */
-
 namespace Scratch.Labuladong.Algorithms.MaximumWidthOfBinaryTree;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -70,4 +63,4 @@ public class Solution
         return maxWidth;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

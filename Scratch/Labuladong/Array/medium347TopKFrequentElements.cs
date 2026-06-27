@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=347 lang=csharp
- * @lcpr version=30403
- *
- * [347] Top K Frequent Elements
- */
-
 namespace Scratch.Labuladong.Algorithms.TopKFreqElements;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[] TopKFrequent(int[] nums, int k)
@@ -36,18 +29,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// [1,1,1,2,2,3]\n2\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [1]\n1\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [1,2,1,2,1,2,3,1,3,2]\n2\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

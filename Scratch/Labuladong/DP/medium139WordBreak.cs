@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=139 lang=csharp
- * @lcpr version=30403
- *
- * [139] Word Break
- */
-
 namespace Scratch.Labuladong.Algorithms.WordBreak;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     private int[] memo = [];
@@ -65,18 +58,4 @@ public class Solution
         return false;
     }
 }
-// @lc code=end
-
-/*
-// @lcpr case=start
-// "leetcode"\n["leet","code"]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// "applepenapple"\n["apple","pen"]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// "catsandog"\n["cats","dog","sand","and","cat"]\n
-// @lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)

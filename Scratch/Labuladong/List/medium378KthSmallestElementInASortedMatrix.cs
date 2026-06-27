@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=378 lang=csharp
- * @lcpr version=30402
- *
- * [378] Kth Smallest Element In A Sorted Matrix
- */
-
 namespace Scratch.Labuladong.Algorithms.KthSmallestElementInASortedMatrix;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int KthSmallest(int[][] matrix, int k)
@@ -39,4 +32,4 @@ public class Solution
         return res;
     }
 }
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

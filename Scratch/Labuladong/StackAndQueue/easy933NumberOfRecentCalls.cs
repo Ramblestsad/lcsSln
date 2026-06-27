@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=933 lang=csharp
- * @lcpr version=30402
- *
- * [933] Number Of Recent Calls
- */
-
 namespace Scratch.Labuladong.Algorithms.NumberOfRecentCalls;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class RecentCounter
 {
     private Queue<int> q = new();
@@ -30,4 +23,4 @@ public class RecentCounter
  * RecentCounter obj = new RecentCounter();
  * int param_1 = obj.Ping(t);
  */
-// @lc code=end
+//leetcode submit region end(Prohibit modification and deletion)

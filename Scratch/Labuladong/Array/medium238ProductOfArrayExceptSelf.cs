@@ -1,13 +1,6 @@
-/*
- * @lc app=leetcode id=238 lang=csharp
- * @lcpr version=30402
- *
- * [238] Product of Array Except Self
- */
-
 namespace Scratch.Labuladong.Algorithms.ProductOfArrayExceptSelf;
 
-// @lc code=start
+//leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {
     public int[] ProductExceptSelf(int[] nums)
@@ -41,13 +34,4 @@ public class Solution
         return answer;
     }
 }
-// @lc code=end
-/*
-@lcpr case=start
-[1,2,3,4]\n
-@lcpr case=end
-
-@lcpr case=start
-[-1,1,0,-3,3]\n
-@lcpr case=end
- */
+//leetcode submit region end(Prohibit modification and deletion)
