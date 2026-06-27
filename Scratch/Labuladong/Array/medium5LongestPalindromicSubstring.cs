@@ -1,5 +1,28 @@
 namespace Scratch.Labuladong.Algorithms.LongestPalindromicSubstring;
 
+// 5. Longest Palindromic Substring (Medium)
+//
+// Given a string s, return the longest palindromic substring in s.
+//
+// Example 1:
+//
+// Input: s = "babad"
+// Output: "bab"
+// Explanation: "aba" is also a valid answer.
+//
+// Example 2:
+//
+// Input: s = "cbbd"
+// Output: "bb"
+//
+// Constraints:
+//
+// - 1 <= s.length <= 1000
+//
+// - s consist of only digits and English letters.
+//
+// Related Topics: Two Pointers, String, Dynamic Programming
+
 //leetcode submit region begin(Prohibit modification and deletion)
 public class Solution
 {

@@ -2,6 +2,26 @@ using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.GenParen;
 
+// 22. Generate Parentheses (Medium)
+//
+// Given n pairs of parentheses, write a function to generate all combinations of well-formed
+// parentheses.
+//
+// Example 1:
+//
+// Input: n = 3
+// Output: ["((()))","(()())","(())()","()(())","()()()"]
+// Example 2:
+//
+// Input: n = 1
+// Output: ["()"]
+//
+// Constraints:
+//
+// - 1 <= n <= 8
+//
+// Related Topics: String, Dynamic Programming, Backtracking
+
 //leetcode submit region begin(Prohibit modification and deletion)
 
 public class Solution
