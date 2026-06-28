@@ -3,6 +3,7 @@
 obj
 bin
 .DS_Store
+.codegraph/
 */logs/
 *.*.DotSettings.user
 Scratch/Labuladong/**/leetcode/editor/en/doc/content/*.md
