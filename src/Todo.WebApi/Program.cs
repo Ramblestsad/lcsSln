@@ -7,7 +7,7 @@ using Todo.WebApi.Engagement;
 using Todo.WebApi.Infrastructure.Extensions;
 using Todo.WebApi.Infrastructure.Mapping;
 using Todo.WebApi.Orders;
-using Todo.WebApi.Realtime;
+using Todo.WebApi.Chat;
 using Todo.WebApi.Todos;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,11 +27,9 @@ builder.Services.AddTodoSignalR(builder.Configuration);
 builder.Services.AddGrpc();
 builder.Services.AddOpenApi();
 
-// middlewares/filters
+// services
 builder.Services.AddScoped<ITodoEngagementRedisService, TodoEngagementRedisService>();
 builder.Services.AddScoped<IChatRoomRedisService, ChatRoomRedisService>();
-
-// services
 builder.Services.AddScoped<ITodoQueryService, TodoQueryService>();
 builder.Services.AddScoped<ITodoCommandService, TodoCommandService>();
 builder.Services.AddScoped<OrderCommandService>();

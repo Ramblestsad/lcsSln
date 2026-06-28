@@ -3,7 +3,7 @@ using System.Text.Json;
 using FluentAssertions;
 using Serilog.Events;
 using Serilog.Parsing;
-using Todo.WebApi.Infrastructure.Configuration;
+using Todo.Observability;
 using Todo.WebApi.Infrastructure.Logging;
 using Xunit;
 

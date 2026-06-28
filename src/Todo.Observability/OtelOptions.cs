@@ -1,10 +1,11 @@
-namespace Todo.WebApi.Infrastructure.Configuration;
+namespace Todo.Observability;
 
 public sealed class OtelOptions
 {
     public const string SectionName = "OpenTelemetry";
 
-    // Environment variables (OTEL_*) take precedence over these defaults.
+    public bool ExportEnabled { get; set; } = true;
+
     public string Endpoint { get; set; } = "http://localhost:4317";
 
     public string Protocol { get; set; } = "grpc";

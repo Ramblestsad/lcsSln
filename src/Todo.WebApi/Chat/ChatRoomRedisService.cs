@@ -1,7 +1,7 @@
 using System.Text.Json;
 using StackExchange.Redis;
 
-namespace Todo.WebApi.Realtime;
+namespace Todo.WebApi.Chat;
 
 public class ChatRoomRedisService: IChatRoomRedisService
 {

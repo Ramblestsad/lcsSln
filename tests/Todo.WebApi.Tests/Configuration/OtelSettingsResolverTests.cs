@@ -1,7 +1,7 @@
 using FluentAssertions;
 using OpenTelemetry.Exporter;
 using OpenTelemetry.Trace;
-using Todo.WebApi.Infrastructure.Configuration;
+using Todo.Observability;
 using Xunit;
 
 namespace Todo.WebApi.Tests.Configuration;
@@ -18,7 +18,7 @@ public sealed class OtelSettingsResolverTests
             ServiceName = "Todo.WebApi", ServiceVersion = "2.0.0", DeploymentEnvironment = "Production"
         };
 
-        var resolved = OtelSettingsResolver.ResolveResource(resource, "Production");
+        var resolved = OtelSettingsResolver.ResolveResource(resource, "Production", "Todo.WebApi");
 
         resolved.ServiceName.Should().Be("todo-webapi-env");
         resolved.ServiceVersion.Should().Be("2.0.0");

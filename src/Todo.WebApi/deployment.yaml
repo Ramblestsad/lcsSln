@@ -97,9 +97,15 @@ spec:
             - name: RabbitMq__Port
               value: "5672"
             - name: RabbitMq__Username
-              value: guest
+              valueFrom:
+                secretKeyRef:
+                  name: todo-worker-secrets
+                  key: rabbitmq-username
             - name: RabbitMq__Password
-              value: guest
+              valueFrom:
+                secretKeyRef:
+                  name: todo-worker-secrets
+                  key: rabbitmq-password
             - name: RabbitMq__VirtualHost
               value: /
             - name: RabbitMq__OrderExchange
@@ -152,9 +158,15 @@ spec:
             - name: RabbitMq__Port
               value: "5672"
             - name: RabbitMq__Username
-              value: guest
+              valueFrom:
+                secretKeyRef:
+                  name: todo-worker-secrets
+                  key: rabbitmq-username
             - name: RabbitMq__Password
-              value: guest
+              valueFrom:
+                secretKeyRef:
+                  name: todo-worker-secrets
+                  key: rabbitmq-password
             - name: RabbitMq__VirtualHost
               value: /
             - name: RabbitMq__OrderExchange

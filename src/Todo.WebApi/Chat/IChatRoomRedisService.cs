@@ -1,4 +1,4 @@
-namespace Todo.WebApi.Realtime;
+namespace Todo.WebApi.Chat;
 
 public interface IChatRoomRedisService
 {

@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
@@ -7,8 +8,6 @@ using RabbitMQ.Client.Events;
 using Todo.DAL.Data;
 using Todo.DAL.Messaging;
 using Todo.DAL.Inventory;
-using Todo.DAL.Orders;
-using Todo.DAL.Todos;
 using Todo.Inventory.Worker.Configuration;
 
 namespace Todo.Inventory.Worker.Services;
@@ -16,6 +15,7 @@ namespace Todo.Inventory.Worker.Services;
 public sealed class InventoryEventConsumerWorker : BackgroundService
 {
     private const string ConsumerName = "inventory-order-created-consumer";
+    private static readonly ActivitySource ActivitySource = new("Todo.Inventory.Worker");
 
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<InventoryEventConsumerWorker> _logger;
@@ -169,15 +169,23 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
 
     private async Task<bool> HandleMessageAsync(BasicDeliverEventArgs eventArgs, CancellationToken cancellationToken)
     {
+        using var activity = ActivitySource.StartActivity("inventory.order-created.consume", ActivityKind.Consumer);
+        activity?.SetTag("messaging.system", "rabbitmq");
+        activity?.SetTag("messaging.destination.name", _options.InventoryReserveQueue);
+        activity?.SetTag("messaging.rabbitmq.routing_key", eventArgs.RoutingKey);
+
         try
         {
             var payload = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
             var message = JsonSerializer.Deserialize<OrderCreatedEvent>(payload);
             if (message is null)
             {
+                activity?.SetStatus(ActivityStatusCode.Error, "Invalid payload");
                 _logger.LogWarning("Ignoring order-created message with invalid payload.");
                 return true;
             }
+
+            activity?.SetTag("messaging.message.type", MessagingEventTypes.OrderCreated);
 
             using var scope = _scopeFactory.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationIdentityDbContext>();
@@ -253,6 +261,7 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
         }
         catch (Exception ex)
         {
+            activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
             _logger.LogError(ex, "Failed to process order-created message.");
             return false;
         }

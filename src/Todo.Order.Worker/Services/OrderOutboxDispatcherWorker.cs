@@ -1,4 +1,5 @@
 using System.Text;
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
@@ -9,6 +10,8 @@ namespace Todo.Order.Worker.Services;
 
 public sealed class OrderOutboxDispatcherWorker : BackgroundService
 {
+    private static readonly ActivitySource ActivitySource = new("Todo.Order.Worker");
+
     private readonly IServiceScopeFactory scopeFactory;
     private readonly ILogger<OrderOutboxDispatcherWorker> logger;
     private readonly RabbitMqOptions options;
@@ -60,6 +63,11 @@ public sealed class OrderOutboxDispatcherWorker : BackgroundService
             return;
         }
 
+        using var activity = ActivitySource.StartActivity("order.outbox.dispatch", ActivityKind.Producer);
+        activity?.SetTag("messaging.system", "rabbitmq");
+        activity?.SetTag("messaging.destination.name", options.OrderExchange);
+        activity?.SetTag("messaging.batch.message_count", pendingMessages.Count);
+
         foreach (var message in pendingMessages)
         {
             try
@@ -86,6 +94,7 @@ public sealed class OrderOutboxDispatcherWorker : BackgroundService
             }
             catch (Exception ex)
             {
+                activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
                 message.RetryCount += 1;
                 message.LastError = ex.Message[..Math.Min(1000, ex.Message.Length)];
                 logger.LogError(ex, "Failed to publish order outbox message {MessageId}.", message.MessageId);

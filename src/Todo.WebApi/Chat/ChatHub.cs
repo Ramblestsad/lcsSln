@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Todo.WebApi.Realtime;
+namespace Todo.WebApi.Chat;
 
 [Authorize]
 public class ChatHub: Hub<IChatClient>

@@ -1,14 +1,13 @@
 using System.Text;
 using System.Text.Json;
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Todo.DAL.Data;
 using Todo.DAL.Messaging;
-using Todo.DAL.Inventory;
 using Todo.DAL.Orders;
-using Todo.DAL.Todos;
 using Todo.Order.Worker.Configuration;
 
 namespace Todo.Order.Worker.Services;
@@ -16,6 +15,7 @@ namespace Todo.Order.Worker.Services;
 public sealed class InventoryResultConsumerWorker : BackgroundService
 {
     private const string ConsumerName = "order-result-consumer";
+    private static readonly ActivitySource ActivitySource = new("Todo.Order.Worker");
 
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly ILogger<InventoryResultConsumerWorker> _logger;
@@ -167,15 +167,23 @@ public sealed class InventoryResultConsumerWorker : BackgroundService
 
     private async Task<bool> HandleMessageAsync(BasicDeliverEventArgs eventArgs, CancellationToken cancellationToken)
     {
+        using var activity = ActivitySource.StartActivity("order.inventory-result.consume", ActivityKind.Consumer);
+        activity?.SetTag("messaging.system", "rabbitmq");
+        activity?.SetTag("messaging.destination.name", _options.OrderResultQueue);
+        activity?.SetTag("messaging.rabbitmq.routing_key", eventArgs.RoutingKey);
+
         try
         {
             var payload = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
             var message = JsonSerializer.Deserialize<InventoryResultEvent>(payload);
             if (message is null)
             {
+                activity?.SetStatus(ActivityStatusCode.Error, "Invalid payload");
                 _logger.LogWarning("Ignoring inventory result message with invalid payload.");
                 return true;
             }
+
+            activity?.SetTag("messaging.message.type", message.EventType);
 
             using var scope = _scopeFactory.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationIdentityDbContext>();
@@ -226,6 +234,7 @@ public sealed class InventoryResultConsumerWorker : BackgroundService
         }
         catch (Exception ex)
         {
+            activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
             _logger.LogError(ex, "Failed to process inventory result message.");
             return false;
         }

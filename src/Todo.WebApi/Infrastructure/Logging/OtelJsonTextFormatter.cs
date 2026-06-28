@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using Serilog.Events;
 using Serilog.Formatting;
-using Todo.WebApi.Infrastructure.Configuration;
+using Todo.Observability;
 
 namespace Todo.WebApi.Infrastructure.Logging;
 

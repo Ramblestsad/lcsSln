@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Todo.WebApi.Realtime;
+using Todo.WebApi.Chat;
 using Xunit;
 
 namespace Todo.WebApi.Tests;
@@ -138,8 +138,7 @@ public sealed class ChatHubIntegrationTests(TodoWebApiFactory factory): IClassFi
 
         var secondSnapshotTask =
             new TaskCompletionSource<RoomSnapshotDto>(TaskCreationOptions.RunContinuationsAsynchronously);
-        var task = secondSnapshotTask;
-        secondConnection.On<RoomSnapshotDto>("RoomSnapshot", snapshot => task.TrySetResult(snapshot));
+        secondConnection.On<RoomSnapshotDto>("RoomSnapshot", snapshot => secondSnapshotTask.TrySetResult(snapshot));
 
         await firstConnection.StartAsync(ct);
         await secondConnection.StartAsync(ct);

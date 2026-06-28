@@ -2,7 +2,7 @@ using System.Globalization;
 using OpenTelemetry.Exporter;
 using OpenTelemetry.Trace;
 
-namespace Todo.WebApi.Infrastructure.Configuration;
+namespace Todo.Observability;
 
 public sealed record ResolvedResourceSettings(
     string ServiceName,
@@ -18,11 +18,12 @@ public static class OtelSettingsResolver
 {
     public static ResolvedResourceSettings ResolveResource(
         ObservabilityResourceOptions options,
-        string environmentName)
+        string environmentName,
+        string defaultServiceName)
     {
         var serviceName =
             GetSetting("OTEL_SERVICE_NAME", options.ServiceName)
-            ?? "Todo.WebApi";
+            ?? defaultServiceName;
         var serviceVersion =
             string.IsNullOrWhiteSpace(options.ServiceVersion)
                 ? "1.0.0"
