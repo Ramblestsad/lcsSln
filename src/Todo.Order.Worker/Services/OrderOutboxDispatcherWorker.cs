@@ -1,5 +1,5 @@
-using System.Text;
 using System.Diagnostics;
+using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
@@ -8,7 +8,7 @@ using Todo.Order.Worker.Configuration;
 
 namespace Todo.Order.Worker.Services;
 
-public sealed class OrderOutboxDispatcherWorker : BackgroundService
+public sealed class OrderOutboxDispatcherWorker: BackgroundService
 {
     private static readonly ActivitySource ActivitySource = new("Todo.Order.Worker");
 
@@ -54,7 +54,9 @@ public sealed class OrderOutboxDispatcherWorker : BackgroundService
         await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
 
         var pendingMessages = await dbContext.OrderOutboxMessages
-            .FromSqlRaw("""
+            .FromSqlRaw(
+                // language=PostgreSQL
+                """
                 SELECT *
                 FROM order_outbox_messages
                 WHERE "PublishedOnUtc" IS NULL
