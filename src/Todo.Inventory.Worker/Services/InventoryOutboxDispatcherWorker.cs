@@ -1,6 +1,8 @@
+using System.Data.Common;
 using System.Diagnostics;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using Todo.DAL.Data;
@@ -10,6 +12,8 @@ namespace Todo.Inventory.Worker.Services;
 
 public sealed class InventoryOutboxDispatcherWorker: BackgroundService
 {
+    private const int BatchSize = 20;
+    private const int OutboxLockSeconds = 300;
     private static readonly ActivitySource ActivitySource = new("Todo.Inventory.Worker");
 
     private readonly IServiceScopeFactory scopeFactory;
@@ -51,20 +55,7 @@ public sealed class InventoryOutboxDispatcherWorker: BackgroundService
     {
         using var scope = scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationIdentityDbContext>();
-        await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
-
-        var pendingMessages = await dbContext.InventoryOutboxMessages
-            .FromSqlRaw(
-                // language=PostgreSQL
-                """
-                SELECT *
-                FROM inventory_outbox_messages
-                WHERE "PublishedOnUtc" IS NULL
-                ORDER BY "Id"
-                LIMIT 20
-                FOR UPDATE SKIP LOCKED
-                """)
-            .ToListAsync(cancellationToken);
+        var pendingMessages = await ClaimPendingMessagesAsync(dbContext, cancellationToken);
 
         if (pendingMessages.Count == 0)
         {
@@ -97,20 +88,101 @@ public sealed class InventoryOutboxDispatcherWorker: BackgroundService
                     body: body,
                     cancellationToken: cancellationToken);
 
-                message.PublishedOnUtc = DateTimeOffset.UtcNow;
-                message.LastError = null;
+                await MarkPublishedAsync(dbContext, message.Id, cancellationToken);
             }
             catch (Exception ex)
             {
                 activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
-                message.RetryCount += 1;
-                message.LastError = ex.Message[..Math.Min(1000, ex.Message.Length)];
+                await MarkFailedAsync(dbContext, message.Id, ex.Message, cancellationToken);
                 logger.LogError(ex, "Failed to publish inventory outbox message {MessageId}.", message.MessageId);
             }
         }
+    }
 
-        await dbContext.SaveChangesAsync(cancellationToken);
+    private static async Task<List<PendingOutboxMessage>> ClaimPendingMessagesAsync(
+        ApplicationIdentityDbContext dbContext,
+        CancellationToken cancellationToken)
+    {
+        await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
+        await using var command = dbContext.Database.GetDbConnection().CreateCommand();
+        command.Transaction = transaction.GetDbTransaction();
+        command.CommandText =
+            // language=PostgreSQL
+            """
+            WITH picked AS (
+                SELECT "Id"
+                FROM inventory_outbox_messages
+                WHERE "PublishedOnUtc" IS NULL
+                  AND ("LockedUntilUtc" IS NULL OR "LockedUntilUtc" <= now())
+                ORDER BY "Id"
+                LIMIT @limit
+                FOR UPDATE SKIP LOCKED
+            )
+            UPDATE inventory_outbox_messages AS outbox
+            SET "LockedUntilUtc" = now() + (@lockSeconds * INTERVAL '1 second')
+            FROM picked
+            WHERE outbox."Id" = picked."Id"
+            RETURNING outbox."Id", outbox."MessageId", outbox."CorrelationId", outbox."EventType", outbox."Payload";
+            """;
+        AddParameter(command, "limit", BatchSize);
+        AddParameter(command, "lockSeconds", OutboxLockSeconds);
+
+        var messages = new List<PendingOutboxMessage>();
+        await using (var reader = await command.ExecuteReaderAsync(cancellationToken))
+        {
+            while (await reader.ReadAsync(cancellationToken))
+            {
+                messages.Add(new PendingOutboxMessage(
+                    reader.GetInt64(0),
+                    reader.GetGuid(1),
+                    reader.GetGuid(2),
+                    reader.GetString(3),
+                    reader.GetString(4)));
+            }
+        }
+
         await transaction.CommitAsync(cancellationToken);
+        return messages;
+    }
+
+    private static async Task MarkPublishedAsync(
+        ApplicationIdentityDbContext dbContext,
+        long id,
+        CancellationToken cancellationToken)
+    {
+        await dbContext.InventoryOutboxMessages
+            .Where(message => message.Id == id)
+            .ExecuteUpdateAsync(
+                setters => setters
+                    .SetProperty(message => message.PublishedOnUtc, DateTimeOffset.UtcNow)
+                    .SetProperty(message => message.LockedUntilUtc, (DateTimeOffset?)null)
+                    .SetProperty(message => message.LastError, (string?)null),
+                cancellationToken);
+    }
+
+    private static async Task MarkFailedAsync(
+        ApplicationIdentityDbContext dbContext,
+        long id,
+        string error,
+        CancellationToken cancellationToken)
+    {
+        var lastError = error[..Math.Min(1000, error.Length)];
+        await dbContext.InventoryOutboxMessages
+            .Where(message => message.Id == id)
+            .ExecuteUpdateAsync(
+                setters => setters
+                    .SetProperty(message => message.RetryCount, message => message.RetryCount + 1)
+                    .SetProperty(message => message.LockedUntilUtc, (DateTimeOffset?)null)
+                    .SetProperty(message => message.LastError, lastError),
+                cancellationToken);
+    }
+
+    private static void AddParameter(DbCommand command, string name, object value)
+    {
+        var parameter = command.CreateParameter();
+        parameter.ParameterName = name;
+        parameter.Value = value;
+        command.Parameters.Add(parameter);
     }
 
     private ConnectionFactory BuildConnectionFactory()
@@ -188,4 +260,11 @@ public sealed class InventoryOutboxDispatcherWorker: BackgroundService
             options.OrderExchange,
             options.InventoryExchange);
     }
+
+    private sealed record PendingOutboxMessage(
+        long Id,
+        Guid MessageId,
+        Guid CorrelationId,
+        string EventType,
+        string Payload);
 }

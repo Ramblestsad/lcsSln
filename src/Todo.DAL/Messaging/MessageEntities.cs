@@ -22,6 +22,8 @@ public class OrderOutboxMessage
 
     public DateTimeOffset? PublishedOnUtc { get; set; }
 
+    public DateTimeOffset? LockedUntilUtc { get; set; }
+
     public int RetryCount { get; set; }
 
     [MaxLength(1024)]
@@ -61,6 +63,8 @@ public class InventoryOutboxMessage
     public DateTimeOffset OccurredOnUtc { get; set; }
 
     public DateTimeOffset? PublishedOnUtc { get; set; }
+
+    public DateTimeOffset? LockedUntilUtc { get; set; }
 
     public int RetryCount { get; set; }
 

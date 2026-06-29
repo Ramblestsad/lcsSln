@@ -47,11 +47,15 @@ public class ApplicationIdentityDbContext: IdentityDbContext<IdentityUser>
         builder.Entity<OrderOutboxMessage>()
             .HasIndex(x => x.PublishedOnUtc);
         builder.Entity<OrderOutboxMessage>()
+            .HasIndex(x => new { x.PublishedOnUtc, x.LockedUntilUtc, x.Id });
+        builder.Entity<OrderOutboxMessage>()
             .HasIndex(x => x.MessageId)
             .IsUnique();
 
         builder.Entity<InventoryOutboxMessage>()
             .HasIndex(x => x.PublishedOnUtc);
+        builder.Entity<InventoryOutboxMessage>()
+            .HasIndex(x => new { x.PublishedOnUtc, x.LockedUntilUtc, x.Id });
         builder.Entity<InventoryOutboxMessage>()
             .HasIndex(x => x.MessageId)
             .IsUnique();
