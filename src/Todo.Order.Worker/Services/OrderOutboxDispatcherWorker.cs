@@ -51,11 +51,17 @@ public sealed class OrderOutboxDispatcherWorker : BackgroundService
     {
         using var scope = scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationIdentityDbContext>();
+        await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
 
         var pendingMessages = await dbContext.OrderOutboxMessages
-            .Where(x => x.PublishedOnUtc == null)
-            .OrderBy(x => x.Id)
-            .Take(20)
+            .FromSqlRaw("""
+                SELECT *
+                FROM order_outbox_messages
+                WHERE "PublishedOnUtc" IS NULL
+                ORDER BY "Id"
+                LIMIT 20
+                FOR UPDATE SKIP LOCKED
+                """)
             .ToListAsync(cancellationToken);
 
         if (pendingMessages.Count == 0)
@@ -102,6 +108,7 @@ public sealed class OrderOutboxDispatcherWorker : BackgroundService
         }
 
         await dbContext.SaveChangesAsync(cancellationToken);
+        await transaction.CommitAsync(cancellationToken);
     }
 
     private ConnectionFactory BuildConnectionFactory()

@@ -7,7 +7,6 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Todo.DAL.Data;
 using Todo.DAL.Messaging;
-using Todo.DAL.Inventory;
 using Todo.Inventory.Worker.Configuration;
 
 namespace Todo.Inventory.Worker.Services;
@@ -15,6 +14,7 @@ namespace Todo.Inventory.Worker.Services;
 public sealed class InventoryEventConsumerWorker : BackgroundService
 {
     private const string ConsumerName = "inventory-order-created-consumer";
+    private const int InitialStockQuantity = 100;
     private static readonly ActivitySource ActivitySource = new("Todo.Inventory.Worker");
 
     private readonly IServiceScopeFactory _scopeFactory;
@@ -184,6 +184,12 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
                 _logger.LogWarning("Ignoring order-created message with invalid payload.");
                 return true;
             }
+            if (message.Quantity <= 0 || string.IsNullOrWhiteSpace(message.Sku))
+            {
+                activity?.SetStatus(ActivityStatusCode.Error, "Invalid order-created message");
+                _logger.LogWarning("Ignoring order-created message with invalid order data.");
+                return true;
+            }
 
             activity?.SetTag("messaging.message.type", MessagingEventTypes.OrderCreated);
 
@@ -209,40 +215,46 @@ public sealed class InventoryEventConsumerWorker : BackgroundService
                 ProcessedAtUtc = DateTimeOffset.UtcNow
             });
 
-            var stock = await dbContext.InventoryStocks.FirstOrDefaultAsync(x => x.Sku == message.Sku, cancellationToken);
-            if (stock is null)
-            {
-                stock = new InventoryStock
-                {
-                    Sku = message.Sku,
-                    AvailableQuantity = 100,
-                    UpdatedAtUtc = DateTimeOffset.UtcNow
-                };
-                dbContext.InventoryStocks.Add(stock);
-            }
-
+            var now = DateTimeOffset.UtcNow;
             var resultEvent = new InventoryResultEvent
             {
                 MessageId = Guid.NewGuid(),
                 OrderId = message.OrderId,
-                OccurredOnUtc = DateTimeOffset.UtcNow
+                OccurredOnUtc = now
             };
+
+            await dbContext.Database.ExecuteSqlInterpolatedAsync(
+                $"""
+                INSERT INTO inventory_stocks ("Sku", "AvailableQuantity", "UpdatedAtUtc")
+                VALUES ({message.Sku}, {InitialStockQuantity}, {now})
+                ON CONFLICT ("Sku") DO NOTHING
+                """,
+                cancellationToken);
 
             if (message.SimulateInventoryFailure)
             {
                 resultEvent.EventType = MessagingEventTypes.InventoryFailed;
                 resultEvent.FailureReason = "Simulated inventory failure.";
             }
-            else if (stock.AvailableQuantity < message.Quantity)
-            {
-                resultEvent.EventType = MessagingEventTypes.InventoryFailed;
-                resultEvent.FailureReason = $"Insufficient stock for SKU {message.Sku}.";
-            }
             else
             {
-                stock.AvailableQuantity -= message.Quantity;
-                stock.UpdatedAtUtc = DateTimeOffset.UtcNow;
-                resultEvent.EventType = MessagingEventTypes.InventoryReserved;
+                var reserved = await dbContext.InventoryStocks
+                    .Where(x => x.Sku == message.Sku && x.AvailableQuantity >= message.Quantity)
+                    .ExecuteUpdateAsync(
+                        setters => setters
+                            .SetProperty(x => x.AvailableQuantity, x => x.AvailableQuantity - message.Quantity)
+                            .SetProperty(x => x.UpdatedAtUtc, now),
+                        cancellationToken);
+
+                if (reserved == 0)
+                {
+                    resultEvent.EventType = MessagingEventTypes.InventoryFailed;
+                    resultEvent.FailureReason = $"Insufficient stock for SKU {message.Sku}.";
+                }
+                else
+                {
+                    resultEvent.EventType = MessagingEventTypes.InventoryReserved;
+                }
             }
 
             dbContext.InventoryOutboxMessages.Add(new InventoryOutboxMessage
