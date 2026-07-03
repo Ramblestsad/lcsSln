@@ -1,28 +1,26 @@
-using Microsoft.Extensions.Configuration;
 using Serilog;
+using Serilog.Events;
 
 namespace Scratch.Utils;
 
 public static class ScratchUtils
 {
     /// <summary>
-    ///     Initialize Serilog from the appsettings.json file.
-    ///     And write log to both the console and log file in directory logs.
+    ///     Initialize Serilog.
     /// </summary>
     public static void SerilogInit()
     {
-        var configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("./appsettings.json")
-            .AddJsonFile(
-                $"appsettings." +
-                $"{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}" +
-                $".json",
-                true)
-            .Build();
         Log.Logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(configuration)
+            .MinimumLevel.Debug()
+            .MinimumLevel.Override("Default", LogEventLevel.Information)
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+            .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
+            .Destructure.ToMaximumDepth(4)
+            .Destructure.ToMaximumStringLength(100)
+            .Destructure.ToMaximumCollectionCount(10)
+            .Enrich.FromLogContext()
+            .Enrich.WithProperty("Application", "Scratch")
+            .WriteTo.Console()
             .CreateLogger();
-        // Log.Debug("Serilog Initialized");
     }
 }

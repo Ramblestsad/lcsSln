@@ -1,6 +1,7 @@
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using Serilog;
+using Serilog.Events;
 using Todo.Observability;
 using Todo.WebApi.Infrastructure.Logging;
 
@@ -33,11 +34,20 @@ public static class ObservabilityExtensions
             DeploymentEnvironment = resolvedResource.DeploymentEnvironment
         };
 
-        builder.Host.UseSerilog((context, services, configuration) =>
+        builder.Host.UseSerilog((context, _, configuration) =>
         {
             configuration
-                .ReadFrom.Configuration(context.Configuration)
-                .ReadFrom.Services(services)
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Default", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
+                .Destructure.ToMaximumDepth(4)
+                .Destructure.ToMaximumStringLength(100)
+                .Destructure.ToMaximumCollectionCount(10)
+                .Enrich.FromLogContext()
+                .Enrich.WithProperty(
+                    "Application",
+                    context.HostingEnvironment.IsDevelopment() ? "Todo.Api" : "Todo.WebApi")
                 .Enrich.With<ActivityContextEnricher>();
 
             if (context.HostingEnvironment.IsDevelopment())
