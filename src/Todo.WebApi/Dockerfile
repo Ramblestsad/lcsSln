@@ -15,8 +15,9 @@ COPY . .
 
 WORKDIR /src/src/Todo.WebApi
 # RUN dotnet build -c Release -o /app/build
-RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish \
-    -p:DebugType=None \
+RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish\
+    -p:UseAppHost=false\
+    -p:DebugType=None\
     -p:DebugSymbols=false
 
 FROM base AS final

@@ -7,8 +7,9 @@ COPY ["src/Todo.DAL/Todo.DAL.csproj", "src/Todo.DAL/"]
 RUN dotnet restore "src/Todo.Inventory.Worker/Todo.Inventory.Worker.csproj"
 COPY . .
 WORKDIR /src/src/Todo.Inventory.Worker
-RUN dotnet publish "Todo.Inventory.Worker.csproj" -c Release -o /app/publish \
-    -p:DebugType=None \
+RUN dotnet publish "Todo.Inventory.Worker.csproj" -c Release -o /app/publish\
+    -p:UseAppHost=false\
+    -p:DebugType=None\
     -p:DebugSymbols=false
 
 FROM mcr.microsoft.com/dotnet/runtime:10.0-noble AS final
