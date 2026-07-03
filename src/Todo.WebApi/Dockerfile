@@ -16,13 +16,10 @@ COPY . .
 WORKDIR /src/src/Todo.WebApi
 # RUN dotnet build -c Release -o /app/build
 RUN dotnet publish "Todo.WebApi.csproj" -c Release -o /app/publish \
-    -p:PublishProfile=docker \
-    -p:SelfContained=false \
-    -p:PublishSingleFile=true \
     -p:DebugType=None \
     -p:DebugSymbols=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["./Todo.WebApi"]
+ENTRYPOINT ["dotnet", "Todo.WebApi.dll"]

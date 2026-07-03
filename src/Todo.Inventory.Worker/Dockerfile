@@ -8,7 +8,6 @@ RUN dotnet restore "src/Todo.Inventory.Worker/Todo.Inventory.Worker.csproj"
 COPY . .
 WORKDIR /src/src/Todo.Inventory.Worker
 RUN dotnet publish "Todo.Inventory.Worker.csproj" -c Release -o /app/publish \
-    -p:SelfContained=false \
     -p:DebugType=None \
     -p:DebugSymbols=false
 
