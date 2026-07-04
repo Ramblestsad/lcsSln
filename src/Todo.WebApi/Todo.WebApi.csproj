@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.80.0"/>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.80.0" />
     <!--    <PackageReference Include="Grpc.Tools" Version="2.68.1">-->
     <PackageReference Include="Grpc.Tools" Version="2.81.1">
       <PrivateAssets>all</PrivateAssets>
@@ -35,19 +35,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Todo.DAL\Todo.DAL.csproj"/>
-    <ProjectReference Include="..\Todo.Observability\Todo.Observability.csproj"/>
+    <ProjectReference Include="..\Todo.DAL\Todo.DAL.csproj" />
+    <ProjectReference Include="..\Todo.Observability\Todo.Observability.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Remove="Properties\PublishProfiles\docker.pubxml"/>
+    <None Remove="Properties\PublishProfiles\docker.pubxml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="Greeter\Protos\**\*.proto" GrpcServices="Server"/>
+    <Protobuf Include="Greeter\Protos\**\*.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>
