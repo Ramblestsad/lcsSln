@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=785 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.IsGraphBipartite;
 
 // 785. Is Graph Bipartite? (Medium)
@@ -52,7 +57,7 @@ namespace Scratch.Labuladong.Algorithms.IsGraphBipartite;
 //
 // Related Topics: Depth-First Search, Breadth-First Search, Union-Find, Graph Theory
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 记录图是否符合二分图性质
@@ -105,4 +110,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[0,2],[0,1,3],[0,2]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,3],[0,2],[1,3],[0,2]]\n
+// @lcpr case=end
+ */

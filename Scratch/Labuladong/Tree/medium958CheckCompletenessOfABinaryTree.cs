@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=958 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CheckCompletenessOfABinaryTree;
 
 // 958. Check Completeness of a Binary Tree (Medium)
@@ -29,7 +34,7 @@ namespace Scratch.Labuladong.Algorithms.CheckCompletenessOfABinaryTree;
 //
 // Related Topics: Tree, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -82,4 +87,14 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,5,6]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4,5,null,7]\n
+// @lcpr case=end
+ */

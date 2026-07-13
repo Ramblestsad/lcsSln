@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=394 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.DecodeString;
@@ -43,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.DecodeString;
 //
 // Related Topics: String, Stack, Recursion
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Solution
 {
@@ -101,4 +106,18 @@ public class Solution
         return cur.ToString();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "3[a]2[bc]"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "3[a2[c]]"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "2[abc]3[cd]ef"\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=210 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CourseScheduleII;
 
 // 210. Course Schedule II (Medium)
@@ -47,7 +52,7 @@ namespace Scratch.Labuladong.Algorithms.CourseScheduleII;
 //
 // Related Topics: Depth-First Search, Breadth-First Search, Graph Theory, Topological Sort
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 记录后序遍历结果
@@ -161,4 +166,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 2\n[[1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 4\n[[1,0],[2,0],[3,1],[3,2]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n[]\n
+// @lcpr case=end
+ */

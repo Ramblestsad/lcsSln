@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=875 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.KokoEatingBananas;
 
 // 875. Koko Eating Bananas (Medium)
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.KokoEatingBananas;
 //
 // Related Topics: Array, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinEatingSpeed(int[] piles, int h)
@@ -75,4 +80,18 @@ public class Solution
         return hours;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,6,7,11]\n8\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [30,11,23,4,20]\n5\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [30,11,23,4,20]\n6\n
+// @lcpr case=end
+ */

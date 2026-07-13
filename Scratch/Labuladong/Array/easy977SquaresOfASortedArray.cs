@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=977 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SquaresOfASortedArray;
 
 // 977. Squares of a Sorted Array (Easy)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.SquaresOfASortedArray;
 //
 // Related Topics: Array, Two Pointers, Sorting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] SortedSquares(int[] nums)
@@ -62,4 +67,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [-4,-1,0,3,10]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-7,-3,2,3,11]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=901 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.OnlineStockSpan;
 
 // 901. Online Stock Span (Medium)
@@ -50,7 +55,7 @@ namespace Scratch.Labuladong.Algorithms.OnlineStockSpan;
 //
 // Related Topics: Stack, Design, Monotonic Stack, Data Stream
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class StockSpanner
 {
     private Stack<(int price, int cnt)> stk = new();
@@ -77,4 +82,10 @@ public class StockSpanner
  * StockSpanner obj = new StockSpanner();
  * int param_1 = obj.Next(price);
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["StockSpanner","next","next","next","next","next","next","next"]\n[[],[100],[80],[60],[70],[60],[75],[85]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=641 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DesignCircularDeque;
 
 // 641. Design Circular Deque (Medium)
@@ -60,7 +65,7 @@ namespace Scratch.Labuladong.Algorithms.DesignCircularDeque;
 //
 // Related Topics: Array, Linked List, Design, Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class MyCircularDeque
 {
     private ArrayDeque<int> q;
@@ -288,4 +293,10 @@ public class ArrayDeque<T>
  * bool param_7 = obj.IsEmpty();
  * bool param_8 = obj.IsFull();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["MyCircularDeque","insertLast","insertLast","insertFront","insertFront","getRear","isFull","deleteLast","insertFront","getFront"]\n[[3],[1],[2],[3],[4],[],[],[],[4],[]]\n
+// @lcpr case=end
+ */

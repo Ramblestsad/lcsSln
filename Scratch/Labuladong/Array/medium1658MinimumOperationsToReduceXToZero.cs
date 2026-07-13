@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1658 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumOperationsToReduceXToZero;
 
 // 1658. Minimum Operations to Reduce X to Zero (Medium)
@@ -37,7 +42,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumOperationsToReduceXToZero;
 //
 // Related Topics: Array, Hash Table, Binary Search, Sliding Window, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 等价于寻找 nums 中元素和为 sum(nums) - x 的最长子数组
@@ -76,4 +81,18 @@ public class Solution
         return maxLen == int.MinValue ? -1 : n - maxLen;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,1,4,2,3]\n5\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,6,7,8,9]\n4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [3,2,20,1,1,3]\n10\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1700 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumberOfStudentsUnableToEatLunch;
 
 // 1700. Number of Students Unable to Eat Lunch (Easy)
@@ -62,7 +67,7 @@ namespace Scratch.Labuladong.Algorithms.NumberOfStudentsUnableToEatLunch;
 //
 // Related Topics: Array, Stack, Queue, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CountStudents(int[] students, int[] sandwiches)
@@ -85,4 +90,14 @@ public class Solution
         return 0;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,1,0,0]\n[0,1,0,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,1,1,0,0,1]\n[1,0,0,0,1,1]\n
+// @lcpr case=end
+ */

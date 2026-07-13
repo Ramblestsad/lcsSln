@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1905 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CountSubIslands;
 
 // 1905. Count Sub Islands (Medium)
@@ -43,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.CountSubIslands;
 //
 // Related Topics: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CountSubIslands(int[][] grid1, int[][] grid2)
@@ -97,4 +102,14 @@ public class Solution
         dfs(grid, i, j - 1);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,1,1,0,0],[0,1,1,1,1],[0,0,0,0,0],[1,0,0,0,0],[1,1,0,1,1]]\n[[1,1,1,0,0],[0,0,1,1,1],[0,1,0,0,0],[1,0,1,1,0],[0,1,0,1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,0,1,0,1],[1,1,1,1,1],[0,0,0,0,0],[1,1,1,1,1],[1,0,1,0,1]]\n[[0,0,0,0,0],[1,1,1,1,1],[0,1,0,1,0],[0,1,0,1,0],[1,0,0,0,1]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=2 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.AddTwoNumbers;
 
 // 2. Add Two Numbers (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.AddTwoNumbers;
 //
 // Related Topics: Linked List, Math, Recursion
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -79,4 +84,18 @@ public class Solution
         return dummy.next;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,4,3]\n[5,6,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0]\n[0]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [9,9,9,9,9,9,9]\n[9,9,9,9]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=39 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CombinationSum;
 
 // 39. Combination Sum (Medium)
@@ -43,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.CombinationSum;
 //
 // Related Topics: Array, Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -87,4 +92,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,3,6,7]\n7\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,3,5]\n8\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2]\n1\n
+// @lcpr case=end
+ */

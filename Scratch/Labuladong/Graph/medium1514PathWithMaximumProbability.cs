@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1514 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PathWithMaximumProbability;
 
 // 1514. Path with Maximum Probability (Medium)
@@ -50,7 +55,7 @@ namespace Scratch.Labuladong.Algorithms.PathWithMaximumProbability;
 //
 // Related Topics: Array, Graph Theory, Heap (Priority Queue), Shortest Path
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public double MaxProbability(int n, int[][] edges, double[] succProb, int start_node, int end_node)
@@ -135,4 +140,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 3\n[[0,1],[1,2],[0,2]]\n[0.5,0.5,0.2]\n0\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n[[0,1],[1,2],[0,2]]\n[0.5,0.5,0.3]\n0\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n[[0,1]]\n[0.5]\n0\n2\n
+// @lcpr case=end
+ */

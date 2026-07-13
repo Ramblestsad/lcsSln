@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=111 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumDepthOfBinaryTree;
 
 // 111. Minimum Depth of Binary Tree (Easy)
@@ -27,7 +32,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumDepthOfBinaryTree;
 //
 // Related Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -103,4 +108,14 @@ public class Solution
         curDepth--;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,9,20,null,null,15,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,null,3,null,4,null,5,null,6]\n
+// @lcpr case=end
+ */

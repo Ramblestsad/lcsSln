@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1696 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.JumpGameVI;
 
 // 1696. Jump Game VI (Medium)
@@ -40,7 +45,7 @@ namespace Scratch.Labuladong.Algorithms.JumpGameVI;
 //
 // Related Topics: Array, Dynamic Programming, Queue, Heap (Priority Queue), Monotonic Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxResult(int[] nums, int k)
@@ -143,4 +148,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,-1,-2,4,-7,3]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [10,-5,-2,4,0,3]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,-5,-20,4,-1,3,-6,-3]\n2\n
+// @lcpr case=end
+ */

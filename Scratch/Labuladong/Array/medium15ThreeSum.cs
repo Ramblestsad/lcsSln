@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=15 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ThreeSum;
 
 // 15. 3Sum (Medium)
@@ -38,7 +43,7 @@ namespace Scratch.Labuladong.Algorithms.ThreeSum;
 //
 // Related Topics: Array, Two Pointers, Sorting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> ThreeSum(int[] nums)
@@ -101,4 +106,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [-1,0,1,2,-1,-4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,1,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,0,0]\n
+// @lcpr case=end
+ */

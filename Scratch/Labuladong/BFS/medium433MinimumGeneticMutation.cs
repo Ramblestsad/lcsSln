@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=433 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumGeneticMutation;
 
 // 433. Minimum Genetic Mutation (Medium)
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumGeneticMutation;
 //
 // Related Topics: Hash Table, String, Breadth-First Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinMutation(string startGene, string endGene, string[] bank)
@@ -97,4 +102,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "AACCGGTT"\n"AACCGGTA"\n["AACCGGTA"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "AACCGGTT"\n"AAACGGTA"\n["AACCGGTA","AACCGCTA","AAACGGTA"]\n
+// @lcpr case=end
+ */

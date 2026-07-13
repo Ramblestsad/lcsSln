@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=988 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SmallestStringStartingFromLeaf;
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.SmallestStringStartingFromLeaf;
 //
 // Related Topics: String, Backtracking, Tree, Depth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -94,4 +99,18 @@ public class Solution
         path.Remove(path.Length - 1, 1);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [0,1,2,3,4,3,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [25,1,3,1,3,0,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,2,1,null,1,0,null,0]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=128 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestConsecutiveSeq;
 
 // 128. Longest Consecutive Sequence (Medium)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.LongestConsecutiveSeq;
 //
 // Related Topics: Array, Hash Table, Union-Find
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LongestConsecutive(int[] nums)
@@ -68,4 +73,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [100,4,200,1,3,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,3,7,2,5,8,4,6,0,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,0,1,2]\n
+// @lcpr case=end
+ */

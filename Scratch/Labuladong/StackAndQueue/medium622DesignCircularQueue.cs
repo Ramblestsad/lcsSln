@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=622 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DesignCircularQueue;
 
 // 622. Design Circular Queue (Medium)
@@ -64,7 +69,7 @@ namespace Scratch.Labuladong.Algorithms.DesignCircularQueue;
 //
 // Related Topics: Array, Linked List, Design, Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class MyCircularQueue
 {
     private ArrayQueue<int> q;
@@ -222,4 +227,10 @@ public class ArrayQueue<T>
  * bool param_5 = obj.IsEmpty();
  * bool param_6 = obj.IsFull();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["MyCircularQueue","enQueue","enQueue","enQueue","enQueue","Rear","isFull","deQueue","enQueue","Rear"]\n[[3],[1],[2],[3],[4],[],[],[],[4],[]]\n
+// @lcpr case=end
+ */

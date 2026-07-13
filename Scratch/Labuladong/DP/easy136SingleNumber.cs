@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=136 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SingleNumber;
 
 // 136. Single Number (Easy)
@@ -36,7 +41,7 @@ namespace Scratch.Labuladong.Algorithms.SingleNumber;
 //
 // Related Topics: Array, Bit Manipulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int SingleNumber(int[] nums)
@@ -51,4 +56,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,2,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,1,2,1,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
+// @lcpr case=end
+ */

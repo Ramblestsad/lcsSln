@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1475 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FinalPricesWithASpecialDiscountInAShop;
 
 // 1475. Final Prices With a Special Discount in a Shop (Easy)
@@ -43,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.FinalPricesWithASpecialDiscountInAShop;
 //
 // Related Topics: Array, Stack, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] FinalPrices(int[] prices)
@@ -67,4 +72,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [8,4,6,2,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [10,1,1,6]\n
+// @lcpr case=end
+ */

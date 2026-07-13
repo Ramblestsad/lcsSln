@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=729 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MyCalendarI;
 
 // 729. My Calendar I (Medium)
@@ -44,7 +49,7 @@ namespace Scratch.Labuladong.Algorithms.MyCalendarI;
 //
 // Related Topics: Array, Binary Search, Design, Segment Tree, Ordered Set
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class MyCalendar
 {
     // 什么情况下一个日程会有冲突？有两种情况:
@@ -85,4 +90,10 @@ public class MyCalendar
  * MyCalendar obj = new MyCalendar();
  * bool param_1 = obj.Book(startTime,endTime);
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["MyCalendar","book","book","book"]\n[[],[10,20],[15,25],[20,30]]\n
+// @lcpr case=end
+ */

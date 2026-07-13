@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=167 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.TwoSumIIInputArrayIsSorted;
 
 // 167. Two Sum II - Input Array Is Sorted (Medium)
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.TwoSumIIInputArrayIsSorted;
 //
 // Related Topics: Array, Two Pointers, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] TwoSum(int[] numbers, int target)
@@ -66,4 +71,18 @@ public class Solution
         return [-1, -1];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,7,11,15]\n9\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,3,4]\n6\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-1,0]\n-1\n
+// @lcpr case=end
+ */

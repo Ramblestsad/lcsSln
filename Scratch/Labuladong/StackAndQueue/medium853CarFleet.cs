@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=853 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CarFleet;
 
 // 853. Car Fleet (Medium)
@@ -76,7 +81,7 @@ namespace Scratch.Labuladong.Algorithms.CarFleet;
 //
 // Related Topics: Array, Stack, Sorting, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CarFleet(int target, int[] position, int[] speed)
@@ -138,4 +143,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 12\n[10,8,0,5,3]\n[2,4,1,1,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 10\n[3]\n[3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 100\n[0,2,4]\n[4,2,1]\n
+// @lcpr case=end
+ */

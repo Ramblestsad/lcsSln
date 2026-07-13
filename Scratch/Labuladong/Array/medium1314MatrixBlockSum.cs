@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1314 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MatrixBlockSum;
 
 // 1314. Matrix Block Sum (Medium)
@@ -33,7 +38,7 @@ namespace Scratch.Labuladong.Algorithms.MatrixBlockSum;
 //
 // Related Topics: Array, Matrix, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] MatrixBlockSum(int[][] mat, int k)
@@ -112,4 +117,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n2\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=153 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindMinRotatedSortedArr;
 
 // 153. Find Minimum in Rotated Sorted Array (Medium)
@@ -49,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.FindMinRotatedSortedArr;
 //
 // Related Topics: Array, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FindMin(int[] nums)
@@ -76,4 +81,18 @@ public class Solution
         return nums[left];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,4,5,1,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,5,6,7,0,1,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [11,13,15,17]\n
+// @lcpr case=end
+ */

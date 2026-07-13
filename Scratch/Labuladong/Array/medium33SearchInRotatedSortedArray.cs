@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=33 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SearchInRotatedSortedArr;
 
 // 33. Search in Rotated Sorted Array (Medium)
@@ -41,7 +46,7 @@ namespace Scratch.Labuladong.Algorithms.SearchInRotatedSortedArr;
 //
 // Related Topics: Array, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int Search(int[] nums, int target)
@@ -86,4 +91,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [4,5,6,7,0,1,2]\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,5,6,7,0,1,2]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n0\n
+// @lcpr case=end
+ */

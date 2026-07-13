@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=503 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NextGreaterElementII;
 
 // 503. Next Greater Element II (Medium)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.NextGreaterElementII;
 //
 // Related Topics: Array, Stack, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] NextGreaterElements(int[] nums)
@@ -56,4 +61,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4,3]\n
+// @lcpr case=end
+ */

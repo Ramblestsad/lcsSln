@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=283 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MoveZeroes;
 
 // 283. Move Zeroes (Easy)
@@ -26,7 +31,7 @@ namespace Scratch.Labuladong.Algorithms.MoveZeroes;
 //
 // Related Topics: Array, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void MoveZeroes(int[] nums)
@@ -63,4 +68,14 @@ public class Solution
         return slow;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [0,1,0,3,12]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0]\n
+// @lcpr case=end
+ */

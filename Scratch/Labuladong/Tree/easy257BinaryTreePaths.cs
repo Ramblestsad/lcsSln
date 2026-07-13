@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=257 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.BinaryTreePaths;
 
 // 257. Binary Tree Paths (Easy)
@@ -24,7 +29,7 @@ namespace Scratch.Labuladong.Algorithms.BinaryTreePaths;
 //
 // Related Topics: String, Backtracking, Tree, Depth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -73,4 +78,14 @@ public class Solution
         path.RemoveAt(path.Count - 1);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,null,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=230 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.KthSmallestElementInABST;
 
 // 230. Kth Smallest Element in a BST (Medium)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.KthSmallestElementInABST;
 //
 // Related Topics: Tree, Depth-First Search, Binary Search Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -70,4 +75,14 @@ public class Solution
         Traverse(root.right, k);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,1,4,null,2]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,3,6,2,4,null,null,1]\n3\n
+// @lcpr case=end
+ */

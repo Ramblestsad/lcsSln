@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=402 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveKDigits;
 
 // 402. Remove K Digits (Medium)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.RemoveKDigits;
 //
 // Related Topics: String, Stack, Greedy, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string RemoveKdigits(string num, int k)
@@ -79,4 +84,18 @@ public class Solution
         return new string(arr);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "1432219"\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "10200"\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "10"\n2\n
+// @lcpr case=end
+ */

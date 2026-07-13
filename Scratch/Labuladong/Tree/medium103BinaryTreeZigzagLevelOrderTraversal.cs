@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=103 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.BinaryTreeZigzagLevelOrderTraversal;
 
 // 103. Binary Tree Zigzag Level Order Traversal (Medium)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.BinaryTreeZigzagLevelOrderTraversal;
 //
 // Related Topics: Tree, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -83,4 +88,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,9,20,null,null,15,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n
+// @lcpr case=end
+ */

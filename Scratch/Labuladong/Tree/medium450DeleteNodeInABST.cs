@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=450 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DeleteNodeInABST;
 
 // 450. Delete Node in a BST (Medium)
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.DeleteNodeInABST;
 //
 // Related Topics: Tree, Binary Search Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -105,4 +110,18 @@ public class Solution
         return node;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [5,3,6,2,4,null,7]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,3,6,2,4,null,7]\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n0\n
+// @lcpr case=end
+ */

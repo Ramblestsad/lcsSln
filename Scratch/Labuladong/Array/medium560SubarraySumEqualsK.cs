@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=560 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SubarrySumEqualK;
 
 // 560. Subarray Sum Equals K (Medium)
@@ -26,7 +31,7 @@ namespace Scratch.Labuladong.Algorithms.SubarrySumEqualK;
 //
 // Related Topics: Array, Hash Table, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int SubarraySum(int[] nums, int k)
@@ -62,4 +67,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,1,1]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3]\n3\n
+// @lcpr case=end
+ */

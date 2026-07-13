@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1368 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumCostToMakeAtLeastOneValidPathInAGrid;
 
 // 1368. Minimum Cost to Make at Least One Valid Path in a Grid (Hard)
@@ -58,7 +63,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumCostToMakeAtLeastOneValidPathInAG
 //
 // Related Topics: Array, Breadth-First Search, Graph Theory, Heap (Priority Queue), Matrix, Shortest Path
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinCost(int[][] grid)
@@ -145,4 +150,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,1,1,1],[2,2,2,2],[1,1,1,1],[2,2,2,2]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,1,3],[3,2,2],[1,1,4]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2],[4,3]]\n
+// @lcpr case=end
+ */

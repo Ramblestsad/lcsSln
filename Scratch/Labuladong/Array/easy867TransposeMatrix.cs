@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=867 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.TransposeMatrix;
 
 // 867. Transpose Matrix (Easy)
@@ -31,7 +36,7 @@ namespace Scratch.Labuladong.Algorithms.TransposeMatrix;
 //
 // Related Topics: Array, Matrix, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] Transpose(int[][] matrix)
@@ -51,4 +56,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3],[4,5,6]]\n
+// @lcpr case=end
+ */

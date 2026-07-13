@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=713 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SubarrayProductLessThanK;
 
 // 713. Subarray Product Less Than K (Medium)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.SubarrayProductLessThanK;
 //
 // Related Topics: Array, Binary Search, Sliding Window, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int NumSubarrayProductLessThanK(int[] nums, int k)
@@ -60,4 +65,14 @@ public class Solution
         return count;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [686, 28, 455, 675, 605, 29, 942, 48, 502, 889, 854, 206, 231, 796, 272, 565, 887, 969, 558, 13, 22, 455, 145, 804, 15]\n515854\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [542, 433, 935, 193, 280, 849, 122, 107, 688, 913, 31, 311, 814, 507, 596, 109, 340, 981, 662, 145, 955, 692, 659, 46, 276, 734, 177, 727, 329, 320, 93, 78, 451, 129, 226, 491, 595, 175, 894, 662, 699, 871, 340, 375, 98, 38, 414, 306, 20, 548, 459, 577, 626, 942, 92, 322, 665, 497, 593, 877, 247, 487, 67, 320, 78, 775, 431, 193, 175, 957, 926, 816, 776, 967, 600, 114, 474, 810, 513, 43, 586, 559, 880, 540, 122, 95, 408, 621, 850, 598]\n425740\n
+// @lcpr case=end
+ */

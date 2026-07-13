@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=721 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.AccountsMerge;
 
 //Given a list of accounts where each element accounts[i] is a list of strings,
@@ -67,7 +72,7 @@ namespace Scratch.Labuladong.Algorithms.AccountsMerge;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<IList<string>> AccountsMerge(IList<IList<string>> accounts)
@@ -135,4 +140,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [["Gabe","Gabe0@m.co","Gabe3@m.co","Gabe1@m.co"],["Kevin","Kevin3@m.co","Kevin5@m.co","Kevin0@m.co"],["Ethan","Ethan5@m.co","Ethan4@m.co","Ethan0@m.co"],["Hanzo","Hanzo3@m.co","Hanzo1@m.co","Hanzo0@m.co"],["Fern","Fern5@m.co","Fern1@m.co","Fern0@m.co"]]\n
+// @lcpr case=end
+ */

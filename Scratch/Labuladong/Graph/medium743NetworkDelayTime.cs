@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=743 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NetworkDelayTime;
 
 // 743. Network Delay Time (Medium)
@@ -42,7 +47,7 @@ namespace Scratch.Labuladong.Algorithms.NetworkDelayTime;
 //
 // Related Topics: Depth-First Search, Breadth-First Search, Graph Theory, Heap (Priority Queue), Shortest Path
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     class State
@@ -142,4 +147,18 @@ public class Solution
         return distTo;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[2,1,1],[2,3,1],[3,4,1]]\n4\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,1]]\n2\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,1]]\n2\n2\n
+// @lcpr case=end
+ */

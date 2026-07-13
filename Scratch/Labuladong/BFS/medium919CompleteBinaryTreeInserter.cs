@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=919 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CompleteBinaryTreeInserter;
 
 // 919. Complete Binary Tree Inserter (Medium)
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.CompleteBinaryTreeInserter;
 //
 // Related Topics: Tree, Breadth-First Search, Design, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -115,4 +120,10 @@ public class CBTInserter
  * int param_1 = obj.Insert(val);
  * TreeNode param_2 = obj.Get_root();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["CBTInserter","insert","insert","get_root"]\n[[[1,2]],[3],[4],[]]\n
+// @lcpr case=end
+ */

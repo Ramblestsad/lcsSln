@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=35 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SeatchInsertPos;
 
 // 35. Search Insert Position (Easy)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.SeatchInsertPos;
 //
 // Related Topics: Array, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int SearchInsert(int[] nums, int target)
@@ -63,4 +68,18 @@ public class Solution
         return i;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,3,5,6]\n5\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,3,5,6]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,3,5,6]\n7\n
+// @lcpr case=end
+ */

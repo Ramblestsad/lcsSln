@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=994 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RottingOranges;
 
 //You are given an m x n grid where each cell can have one of three values:
@@ -57,7 +62,7 @@ namespace Scratch.Labuladong.Algorithms.RottingOranges;
 //
 //
 //
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int OrangesRotting(int[][] grid)
@@ -113,4 +118,18 @@ public class Solution
         return step == 0 ? 0 : step - 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[2,1,1],[1,1,0],[0,1,1]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[2,1,1],[0,1,1],[1,0,1]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[0,2]]\n
+// @lcpr case=end
+ */

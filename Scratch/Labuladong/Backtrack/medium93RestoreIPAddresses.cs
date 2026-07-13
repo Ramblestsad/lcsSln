@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=93 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RestoreIPAddresses;
 
 // 93. Restore IP Addresses (Medium)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.RestoreIPAddresses;
 //
 // Related Topics: String, Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private List<string> res = new();
@@ -95,4 +100,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "25525511135"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "0000"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "101023"\n
+// @lcpr case=end
+ */

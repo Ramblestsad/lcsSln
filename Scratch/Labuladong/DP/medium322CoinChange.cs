@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=322 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CoinChange;
 
 //You are given an integer array coins representing coins of different
@@ -49,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.CoinChange;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CoinChange(int[] coins, int amount)
@@ -114,4 +119,18 @@ public class Solution
         return memo[amount];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,5]\n11\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n0\n
+// @lcpr case=end
+ */

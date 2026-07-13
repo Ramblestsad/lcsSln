@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1926 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NearestExitFromEntranceInMaze;
 
 // 1926. Nearest Exit from Entrance in Maze (Medium)
@@ -62,7 +67,7 @@ namespace Scratch.Labuladong.Algorithms.NearestExitFromEntranceInMaze;
 //
 // Related Topics: Array, Breadth-First Search, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int NearestExit(char[][] maze, int[] entrance)
@@ -107,4 +112,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [["+","+",".","+"],[".",".",".","+"],["+","+","+","."]]\n[1,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [["+","+","+"],[".",".","."],["+","+","+"]]\n[1,0]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[".","+"]]\n[0,0]\n
+// @lcpr case=end
+ */

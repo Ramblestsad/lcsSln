@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=862 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShortestSubarrayWithSumAtLeastK;
 
 // 862. Shortest Subarray with Sum at Least K (Hard)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.ShortestSubarrayWithSumAtLeastK;
 //
 // Related Topics: Array, Binary Search, Queue, Sliding Window, Heap (Priority Queue), Prefix Sum, Monotonic Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int ShortestSubarray(int[] nums, int k)
@@ -158,4 +163,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,-1,2]\n3\n
+// @lcpr case=end
+ */

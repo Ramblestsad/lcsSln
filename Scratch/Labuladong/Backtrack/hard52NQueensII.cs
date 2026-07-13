@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=52 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NQueensII;
 
 // 52. N-Queens II (Hard)
@@ -24,7 +29,7 @@ namespace Scratch.Labuladong.Algorithms.NQueensII;
 //
 // Related Topics: Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int res = 0;
@@ -112,4 +117,14 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n
+// @lcpr case=end
+ */

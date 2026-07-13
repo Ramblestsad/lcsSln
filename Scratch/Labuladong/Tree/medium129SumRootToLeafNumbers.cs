@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=129 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SumRootToLeafNumbers;
@@ -44,7 +49,7 @@ namespace Scratch.Labuladong.Algorithms.SumRootToLeafNumbers;
 //
 // Related Topics: Tree, Depth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -89,4 +94,14 @@ public class Solution
         path.Remove(path.Length - 1, 1);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,9,0,5,1]\n
+// @lcpr case=end
+ */

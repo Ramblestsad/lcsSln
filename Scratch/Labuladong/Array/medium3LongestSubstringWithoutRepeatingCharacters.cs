@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=3 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestSubstringWithoutRepeatingCharacters;
 
 // 3. Longest Substring Without Repeating Characters (Medium)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.LongestSubstringWithoutRepeatingCharacte
 //
 // Related Topics: Hash Table, String, Sliding Window
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LengthOfLongestSubstring(string s)
@@ -66,4 +71,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "abcabcbb"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "bbbbb"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "pwwkew"\n
+// @lcpr case=end
+ */

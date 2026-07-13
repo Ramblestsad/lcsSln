@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1019 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NextGreaterNodeInLinkedList;
 
 // 1019. Next Greater Node In Linked List (Medium)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.NextGreaterNodeInLinkedList;
 //
 // Related Topics: Array, Linked List, Stack, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -70,4 +75,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,1,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,7,4,3,5]\n
+// @lcpr case=end
+ */

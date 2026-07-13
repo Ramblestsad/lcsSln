@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=354 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RussianDollEnvelopes;
 
 //You are given a 2D array of integers envelopes where envelopes[i] = [wi, hi]
@@ -45,7 +50,7 @@ namespace Scratch.Labuladong.Algorithms.RussianDollEnvelopes;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 这道题目其实是最长递增子序列的一个变种。
@@ -109,4 +114,14 @@ public class Solution
         return piles;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[5,4],[6,4],[6,7],[2,3]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,1],[1,1],[1,1]]\n
+// @lcpr case=end
+ */

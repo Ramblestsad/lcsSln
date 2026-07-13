@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1609 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.EvenOddTree;
 
 // 1609. Even Odd Tree (Medium)
@@ -52,7 +57,7 @@ namespace Scratch.Labuladong.Algorithms.EvenOddTree;
 //
 // Related Topics: Tree, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -108,4 +113,18 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,10,4,3,null,7,9,12,8,6,null,null,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,4,2,3,3,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,9,1,3,5,7]\n
+// @lcpr case=end
+ */

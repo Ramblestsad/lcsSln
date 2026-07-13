@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=388 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestAbsoluteFilePath;
 
 // 388. Longest Absolute File Path (Medium)
@@ -70,7 +75,7 @@ namespace Scratch.Labuladong.Algorithms.LongestAbsoluteFilePath;
 //
 // Related Topics: String, Stack, Depth-First Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LengthLongestPath(string input)
@@ -112,4 +117,18 @@ public class Solution
         return max;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "a"\n
+// @lcpr case=end
+ */

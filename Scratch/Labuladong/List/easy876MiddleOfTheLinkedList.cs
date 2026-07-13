@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=876 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MiddleNode;
 
 // 876. Middle of the Linked List (Easy)
@@ -26,7 +31,7 @@ namespace Scratch.Labuladong.Algorithms.MiddleNode;
 //
 // Related Topics: Linked List, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -59,4 +64,14 @@ public class Solution
         return slow!;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4,5,6]\n
+// @lcpr case=end
+ */

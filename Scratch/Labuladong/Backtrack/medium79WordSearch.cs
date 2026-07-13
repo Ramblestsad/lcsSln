@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=79 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.WordSearch;
 
 // 79. Word Search (Medium)
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.WordSearch;
 //
 // Related Topics: Array, String, Backtracking, Depth-First Search, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private bool found = false;
@@ -89,4 +94,18 @@ public class Solution
         board[i][j] = (char)( -board[i][j] );
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]\n"ABCCED"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]\n"SEE"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]\n"ABCB"\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=491 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NonDecreasingSubsequences;
 
 // 491. Non-decreasing Subsequences (Medium)
@@ -23,7 +28,7 @@ namespace Scratch.Labuladong.Algorithms.NonDecreasingSubsequences;
 //
 // Related Topics: Array, Hash Table, Backtracking, Bit Manipulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -63,4 +68,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [4,6,7,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,4,3,2,1]\n
+// @lcpr case=end
+ */

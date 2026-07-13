@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=347 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.TopKFreqElements;
 
 // 347. Top K Frequent Elements (Medium)
@@ -38,7 +43,7 @@ namespace Scratch.Labuladong.Algorithms.TopKFreqElements;
 //
 // Related Topics: Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] TopKFrequent(int[] nums, int k)
@@ -67,4 +72,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,1,1,2,2,3]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,1,2,1,2,3,1,3,2]\n2\n
+// @lcpr case=end
+ */

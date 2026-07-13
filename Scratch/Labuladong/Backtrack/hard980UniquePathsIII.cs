@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=980 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.UniquePathsIII;
 
 // 980. Unique Paths III (Hard)
@@ -56,7 +61,7 @@ namespace Scratch.Labuladong.Algorithms.UniquePathsIII;
 //
 // Related Topics: Array, Backtracking, Bit Manipulation, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[][] dirs = new int[][] { [0, 1], [0, -1], [1, 0], [-1, 0] };
@@ -129,4 +134,18 @@ public class Solution
         visitedCount--;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,0,0,0],[0,0,0,0],[0,0,2,-1]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,0,0,0],[0,0,0,0],[0,0,0,2]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[0,1],[2,0]]\n
+// @lcpr case=end
+ */

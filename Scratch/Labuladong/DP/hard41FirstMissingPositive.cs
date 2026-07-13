@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=41 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FirstMissingPositive;
 
 // 41. First Missing Positive (Hard)
@@ -33,7 +38,7 @@ namespace Scratch.Labuladong.Algorithms.FirstMissingPositive;
 //
 // Related Topics: Array, Hash Table
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FirstMissingPositive(int[] nums)
@@ -70,4 +75,18 @@ public class Solution
         return n + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,0]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [3,4,-1,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [7,8,9,11,12]\n
+// @lcpr case=end
+ */

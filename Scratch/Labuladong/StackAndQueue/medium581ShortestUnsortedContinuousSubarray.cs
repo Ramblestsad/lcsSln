@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=581 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShortestUnsortedContinuousSubarray;
 
 // 581. Shortest Unsorted Continuous Subarray (Medium)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.ShortestUnsortedContinuousSubarray;
 //
 // Related Topics: Array, Two Pointers, Stack, Greedy, Sorting, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FindUnsortedSubarray(int[] nums)
@@ -105,4 +110,18 @@ public class Solution
         return right - left + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,6,4,8,10,9,15]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
+// @lcpr case=end
+ */

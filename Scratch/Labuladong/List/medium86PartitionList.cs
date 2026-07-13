@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=86 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.Partition;
 
 // 86. Partition List (Medium)
@@ -27,7 +32,7 @@ namespace Scratch.Labuladong.Algorithms.Partition;
 //
 // Related Topics: Linked List, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -71,4 +76,14 @@ public class Solution
         return less.next;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,4,3,2,5,2]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,1]\n2\n
+// @lcpr case=end
+ */

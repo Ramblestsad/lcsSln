@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=967 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumbersWithSameConsecutiveDifferences;
 
 // 967. Numbers With Same Consecutive Differences (Medium)
@@ -26,7 +31,7 @@ namespace Scratch.Labuladong.Algorithms.NumbersWithSameConsecutiveDifferences;
 //
 // Related Topics: Backtracking, Breadth-First Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<int> res = new List<int>();
@@ -72,4 +77,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 3\n7\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 2\n1\n
+// @lcpr case=end
+ */

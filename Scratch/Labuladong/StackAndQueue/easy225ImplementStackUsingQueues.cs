@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=225 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ImplementStackUsingQueues;
 
 // 225. Implement Stack using Queues (Easy)
@@ -52,7 +57,7 @@ namespace Scratch.Labuladong.Algorithms.ImplementStackUsingQueues;
 //
 // Related Topics: Stack, Design, Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class MyStack
 {
     private Queue<int> q = new();
@@ -102,4 +107,10 @@ public class MyStack
  * int param_3 = obj.Top();
  * bool param_4 = obj.Empty();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["MyStack","push","push","top","pop","empty"]\n[[],[1],[2],[],[],[]]\n
+// @lcpr case=end
+ */

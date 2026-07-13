@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=125 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.ValidPalindrome;
@@ -37,7 +42,7 @@ namespace Scratch.Labuladong.Algorithms.ValidPalindrome;
 //
 // Related Topics: Two Pointers, String
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Solution
 {
@@ -69,4 +74,18 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "A man, a plan, a canal: Panama"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "race a car"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// " "\n
+// @lcpr case=end
+ */

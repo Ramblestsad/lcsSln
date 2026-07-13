@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=304 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RangeSumQuery2DImmutable;
 
 // 304. Range Sum Query 2D - Immutable (Medium)
@@ -51,7 +56,7 @@ namespace Scratch.Labuladong.Algorithms.RangeSumQuery2DImmutable;
 //
 // Related Topics: Array, Design, Matrix, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class NumMatrix
 {
     private int[,] PreSum { get; set; } = null!;
@@ -102,4 +107,10 @@ public class NumMatrix
  * NumMatrix obj = new NumMatrix(matrix);
  * int param_1 = obj.SumRegion(row1,col1,row2,col2);
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["NumMatrix","sumRegion","sumRegion","sumRegion"]\n[[[[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]],[2,1,4,3],[1,1,2,2],[1,2,2,4]]\n
+// @lcpr case=end
+ */

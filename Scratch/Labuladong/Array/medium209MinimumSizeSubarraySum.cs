@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=209 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumSizeSubarraySum;
 
 // 209. Minimum Size Subarray Sum (Medium)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumSizeSubarraySum;
 //
 // Related Topics: Array, Binary Search, Sliding Window, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinSubArrayLen(int target, int[] nums)
@@ -62,4 +67,18 @@ public class Solution
         return res == int.MaxValue ? 0 : res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 7\n[2,3,1,2,4,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 4\n[1,4,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 11\n[1,1,1,1,1,1,1,1]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=42 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.TrappingRainWater;
 
 //Given n non-negative integers representing an elevation map where the width
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.TrappingRainWater;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int Trap(int[] height)
@@ -137,4 +142,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [0,1,0,2,1,0,1,3,2,1,2,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,2,0,3,2,5]\n
+// @lcpr case=end
+ */

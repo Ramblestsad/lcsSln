@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=105 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ConstructBinaryTreeFromPreorderAndInorderTraversal;
 
 // 105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.ConstructBinaryTreeFromPreorderAndInorde
 //
 // Related Topics: Array, Hash Table, Divide and Conquer, Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -90,4 +95,14 @@ public class Solution
         return root;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,9,20,15,7]\n[9,3,15,20,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-1]\n[-1]\n
+// @lcpr case=end
+ */

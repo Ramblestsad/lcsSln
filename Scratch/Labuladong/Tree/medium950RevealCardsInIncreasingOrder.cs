@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=950 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RevealCardsInIncreasingOrder;
 
 // 950. Reveal Cards In Increasing Order (Medium)
@@ -52,7 +57,7 @@ namespace Scratch.Labuladong.Algorithms.RevealCardsInIncreasingOrder;
 //
 // Related Topics: Array, Queue, Sorting, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] DeckRevealedIncreasing(int[] deck)
@@ -79,4 +84,14 @@ public class Solution
         return res.ToArray();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [17,13,11,2,3,5,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,1000]\n
+// @lcpr case=end
+ */

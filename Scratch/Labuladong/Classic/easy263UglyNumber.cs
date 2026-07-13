@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=263 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.UglyNumber;
 
 //An ugly number is a positive integer which does not have a prime factor other
@@ -45,7 +50,7 @@ namespace Scratch.Labuladong.Algorithms.UglyNumber;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 正整数唯一分解定理：
@@ -65,4 +70,18 @@ public class Solution
         return n == 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 6\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 14\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=95 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.UniqueBinarySearchTreesII;
 
 // 95. Unique Binary Search Trees II (Medium)
@@ -21,7 +26,7 @@ namespace Scratch.Labuladong.Algorithms.UniqueBinarySearchTreesII;
 //
 // Related Topics: Dynamic Programming, Backtracking, Tree, Binary Search Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -78,4 +83,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=496 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NextGreaterElementI;
 
 // 496. Next Greater Element I (Easy)
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.NextGreaterElementI;
 //
 // Related Topics: Array, Hash Table, Stack, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] NextGreaterElement(int[] nums1, int[] nums2)
@@ -99,4 +104,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [4,1,2]\n[1,3,4,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,4]\n[1,2,3,4]\n
+// @lcpr case=end
+ */

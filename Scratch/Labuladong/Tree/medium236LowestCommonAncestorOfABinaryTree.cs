@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=236 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LowestCommonAncestorOfABinaryTree;
 
 // 236. Lowest Common Ancestor of a Binary Tree (Medium)
@@ -40,7 +45,7 @@ namespace Scratch.Labuladong.Algorithms.LowestCommonAncestorOfABinaryTree;
 //
 // Related Topics: Tree, Depth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -83,4 +88,18 @@ public class Solution
         return left ?? right;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,5,1,6,2,0,8,null,null,7,4]\n5\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [3,5,1,6,2,0,8,null,null,7,4]\n5\n4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n1\n2\n
+// @lcpr case=end
+ */

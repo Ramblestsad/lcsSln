@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=150 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.EvaluateReversePolishNotation;
 
 // 150. Evaluate Reverse Polish Notation (Medium)
@@ -54,7 +59,7 @@ namespace Scratch.Labuladong.Algorithms.EvaluateReversePolishNotation;
 //
 // Related Topics: Array, Math, Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int EvalRPN(string[] tokens)
@@ -87,4 +92,18 @@ public class Solution
         return stk.Pop();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["2","1","+","3","*"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// ["4","13","5","/","+"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]\n
+// @lcpr case=end
+ */

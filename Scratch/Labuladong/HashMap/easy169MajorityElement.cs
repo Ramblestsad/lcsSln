@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=169 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MajorityElement;
 
 // 169. Majority Element (Easy)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.MajorityElement;
 //
 // Related Topics: Array, Hash Table, Divide and Conquer, Sorting, Counting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MajorityElement(int[] nums)
@@ -59,4 +64,14 @@ public class Solution
         return target;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,2,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,2,1,1,1,2,2]\n
+// @lcpr case=end
+ */

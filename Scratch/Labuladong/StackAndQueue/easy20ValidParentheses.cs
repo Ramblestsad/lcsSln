@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=20 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ValidParentheses;
 
 // 20. Valid Parentheses (Easy)
@@ -51,7 +56,7 @@ namespace Scratch.Labuladong.Algorithms.ValidParentheses;
 //
 // Related Topics: String, Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool IsValid(string s)
@@ -91,4 +96,26 @@ public class Solution
         return '[';
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "()"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "()[]{}"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "(]"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "([])"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "([)]"\n
+// @lcpr case=end
+ */

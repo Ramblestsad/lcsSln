@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=886 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PossibleBipartition;
 
 // 886. Possible Bipartition (Medium)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.PossibleBipartition;
 //
 // Related Topics: Depth-First Search, Breadth-First Search, Union-Find, Graph Theory
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private bool ok = true;
@@ -99,4 +104,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 4\n[[1,2],[1,3],[2,4]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n[[1,2],[1,3],[2,3]]\n
+// @lcpr case=end
+ */

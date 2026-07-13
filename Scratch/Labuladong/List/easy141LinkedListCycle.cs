@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=141 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LinkedListCycle;
 
 // 141. Linked List Cycle (Easy)
@@ -41,7 +46,7 @@ namespace Scratch.Labuladong.Algorithms.LinkedListCycle;
 //
 // Related Topics: Hash Table, Linked List, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -69,4 +74,18 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,2,0,-4]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n-1\n
+// @lcpr case=end
+ */

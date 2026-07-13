@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=331 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.VerifyPreorderSerializationOfABinaryTree;
 
 // 331. Verify Preorder Serialization of a Binary Tree (Medium)
@@ -42,7 +47,7 @@ namespace Scratch.Labuladong.Algorithms.VerifyPreorderSerializationOfABinaryTree
 //
 // Related Topics: String, Stack, Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool IsValidSerialization(string preorder)
@@ -64,4 +69,18 @@ public class Solution
         return _deserialize(nodes) && _deserialize(nodes);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "9,3,4,#,#,1,#,#,2,#,6,#,#"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "1,#"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "9,#,#,1"\n
+// @lcpr case=end
+ */

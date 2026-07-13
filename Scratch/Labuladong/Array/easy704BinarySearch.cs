@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=704 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.BinarySearch;
 
 // 704. Binary Search (Easy)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.BinarySearch;
 //
 // Related Topics: Array, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int Search(int[] nums, int target)
@@ -51,4 +56,14 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [-1,0,3,5,9,12]\n9\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-1,0,3,5,9,12]\n2\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=424 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestRepeatingCharacterReplacement;
 
 // 424. Longest Repeating Character Replacement (Medium)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.LongestRepeatingCharacterReplacement;
 //
 // Related Topics: Hash Table, String, Sliding Window
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int CharacterReplacement(string s, int k)
@@ -81,4 +86,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "ABAB"\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "AABABBA"\n1\n
+// @lcpr case=end
+ */

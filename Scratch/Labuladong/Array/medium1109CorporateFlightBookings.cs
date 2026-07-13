@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1109 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CorporateFlightBookings;
 
 // 1109. Corporate Flight Bookings (Medium)
@@ -48,7 +53,7 @@ namespace Scratch.Labuladong.Algorithms.CorporateFlightBookings;
 //
 // Related Topics: Array, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] CorpFlightBookings(int[][] bookings, int n)
@@ -110,4 +115,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,10],[2,3,20],[2,5,25]]\n5\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,10],[2,2,15]]\n2\n
+// @lcpr case=end
+ */

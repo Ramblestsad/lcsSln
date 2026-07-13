@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=700 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SearchInABinarySearchTree;
 
 // 700. Search in a Binary Search Tree (Easy)
@@ -29,7 +34,7 @@ namespace Scratch.Labuladong.Algorithms.SearchInABinarySearchTree;
 //
 // Related Topics: Tree, Binary Search Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -55,4 +60,14 @@ public class Solution
         return root;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [4,2,7,1,3]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [4,2,7,1,3]\n5\n
+// @lcpr case=end
+ */

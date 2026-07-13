@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1094 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CarPooling;
 
 // 1094. Car Pooling (Medium)
@@ -37,7 +42,7 @@ namespace Scratch.Labuladong.Algorithms.CarPooling;
 //
 // Related Topics: Array, Sorting, Heap (Priority Queue), Simulation, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool CarPooling(int[][] trips, int capacity)
@@ -108,4 +113,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[2,1,5],[3,3,7]]\n4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[2,1,5],[3,3,7]]\n5\n
+// @lcpr case=end
+ */

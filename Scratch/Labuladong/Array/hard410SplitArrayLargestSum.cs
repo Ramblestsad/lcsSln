@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=410 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SplitArrayLargestSum;
 
 // 410. Split Array Largest Sum (Hard)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.SplitArrayLargestSum;
 //
 // Related Topics: Array, Binary Search, Dynamic Programming, Greedy, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int SplitArray(int[] nums, int k)
@@ -79,4 +84,14 @@ public class Solution
         return days;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [7,2,5,10,8]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4,5]\n2\n
+// @lcpr case=end
+ */

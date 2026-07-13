@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=64 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinPathSum;
 
 // 64. Minimum Path Sum (Medium)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.MinPathSum;
 //
 // Related Topics: Array, Dynamic Programming, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinPathSum(int[][] grid)
@@ -79,4 +84,14 @@ public class Solution
         return memo[i][j];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,3,1],[1,5,1],[4,2,1]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3],[4,5,6]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=139 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.WordBreak;
 
 // 139. Word Break (Medium)
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.WordBreak;
 //
 // Related Topics: Array, Hash Table, String, Dynamic Programming, Trie, Memoization
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[] memo = [];
@@ -97,4 +102,18 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "leetcode"\n["leet","code"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "applepenapple"\n["apple","pen"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "catsandog"\n["cats","dog","sand","and","cat"]\n
+// @lcpr case=end
+ */

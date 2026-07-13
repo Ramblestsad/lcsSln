@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=344 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ReverseString;
 
 // 344. Reverse String (Easy)
@@ -23,7 +28,7 @@ namespace Scratch.Labuladong.Algorithms.ReverseString;
 //
 // Related Topics: Two Pointers, String
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void ReverseString(char[] s)
@@ -39,4 +44,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["h","e","l","l","o"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// ["H","a","n","n","a","h"]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=77 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.Combinations;
 
 // 77. Combinations (Medium)
@@ -29,7 +34,7 @@ namespace Scratch.Labuladong.Algorithms.Combinations;
 //
 // Related Topics: Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new List<IList<int>>();
@@ -62,4 +67,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 4\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n1\n
+// @lcpr case=end
+ */

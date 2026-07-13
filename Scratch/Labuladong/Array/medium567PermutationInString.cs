@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=567 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PermutationInString;
 
 // 567. Permutation in String (Medium)
@@ -25,7 +30,7 @@ namespace Scratch.Labuladong.Algorithms.PermutationInString;
 //
 // Related Topics: Hash Table, Two Pointers, String, Sliding Window
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 判断 s2 是否包含 s1 的排列
@@ -76,4 +81,14 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "ab"\n"eidbaooo"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "ab"\n"eidboaoo"\n
+// @lcpr case=end
+ */

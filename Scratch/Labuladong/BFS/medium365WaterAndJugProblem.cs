@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=365 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.WaterAndJugProblem;
 
 // You are given two jugs with capacities x liters and y liters. You have an
@@ -72,7 +77,7 @@ namespace Scratch.Labuladong.Algorithms.WaterAndJugProblem;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool CanMeasureWater(int x, int y, int target)
@@ -137,4 +142,10 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 3\n5\n4\n
+// @lcpr case=end
+ */

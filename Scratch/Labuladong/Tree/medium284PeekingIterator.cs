@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=284 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PeekingIterator;
 
 // 284. Peeking Iterator (Medium)
@@ -50,7 +55,7 @@ namespace Scratch.Labuladong.Algorithms.PeekingIterator;
 //
 // Related Topics: Array, Design, Iterator
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 // C# IEnumerator interface reference:
 // https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerator?view=netframework-4.8
 
@@ -88,4 +93,10 @@ class PeekingIterator
         return hasNext;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["PeekingIterator","next","peek","next","next","hasNext"]\n[[[1,2,3]],[],[],[],[],[]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=208 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.ImplTrie;
@@ -47,7 +52,7 @@ namespace Scratch.Labuladong.Algorithms.ImplTrie;
 //
 // Related Topics: Hash Table, String, Design, Trie
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Trie
 {
@@ -490,4 +495,10 @@ public class TrieSet
  * bool param_2 = obj.Search(word);
  * bool param_3 = obj.StartsWith(prefix);
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["Trie","insert","search","search","startsWith","insert","search"]\n[[],["apple"],["apple"],["app"],["app"],["app"],["app"]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=695 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaxAreaOfIsland;
 
 // 695. Max Area of Island (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.MaxAreaOfIsland;
 //
 // Related Topics: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxAreaOfIsland(int[][] grid)
@@ -77,4 +82,14 @@ public class Solution
                + dfs(grid, i, j - 1) + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[0,0,0,0,0,0,0,0]]\n
+// @lcpr case=end
+ */

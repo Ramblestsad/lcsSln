@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1425 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ConstrainedSubsequenceSum;
 
 // 1425. Constrained Subsequence Sum (Hard)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.ConstrainedSubsequenceSum;
 //
 // Related Topics: Array, Dynamic Programming, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int ConstrainedSubsetSum(int[] nums, int k)
@@ -148,4 +153,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [10,2,-10,5,20]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-1,-2,-3]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [10,-2,-10,-5,20]\n2\n
+// @lcpr case=end
+ */

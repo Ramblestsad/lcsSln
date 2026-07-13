@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=895 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumFrequencyStack;
 
 // 895. Maximum Frequency Stack (Hard)
@@ -49,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.MaximumFrequencyStack;
 //
 // Related Topics: Hash Table, Stack, Design, Ordered Set
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class FreqStack
 {
     /// 记录 FreqStack 中元素的最大频率
@@ -109,4 +114,10 @@ public class FreqStack
  * obj.Push(val);
  * int param_2 = obj.Pop();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["FreqStack","push","push","push","push","push","push","pop","pop","pop","pop"]\n[[],[5],[7],[5],[7],[4],[5],[],[],[],[]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=239 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SlidingWindowMaximum;
 
 // 239. Sliding Window Maximum (Hard)
@@ -37,7 +42,7 @@ namespace Scratch.Labuladong.Algorithms.SlidingWindowMaximum;
 //
 // Related Topics: Array, Queue, Sliding Window, Heap (Priority Queue), Monotonic Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] MaxSlidingWindow(int[] nums, int k)
@@ -104,4 +109,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,3,-1,-3,5,3,6,7]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n1\n
+// @lcpr case=end
+ */

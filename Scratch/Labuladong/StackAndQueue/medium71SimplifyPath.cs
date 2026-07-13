@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=71 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SimplifyPath;
 
 // 71. Simplify Path (Medium)
@@ -89,7 +94,7 @@ namespace Scratch.Labuladong.Algorithms.SimplifyPath;
 //
 // Related Topics: String, Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string SimplifyPath(string path)
@@ -124,4 +129,26 @@ public class Solution
         return res.Length == 0 ? "/" : res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "/home/"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "/home//foo/"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "/home/user/Documents/../Pictures"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "/../"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "/.../a/../b/c/../d/./"\n
+// @lcpr case=end
+ */

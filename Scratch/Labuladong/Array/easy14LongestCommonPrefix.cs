@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=14 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestCommonPrefix;
 
 // 14. Longest Common Prefix (Easy)
@@ -27,7 +32,7 @@ namespace Scratch.Labuladong.Algorithms.LongestCommonPrefix;
 //
 // Related Topics: Array, String, Trie
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string LongestCommonPrefix(string[] strs)
@@ -64,4 +69,14 @@ public class Solution
         return strs[0];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["flower","flow","flight"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// ["dog","racecar","car"]\n
+// @lcpr case=end
+ */

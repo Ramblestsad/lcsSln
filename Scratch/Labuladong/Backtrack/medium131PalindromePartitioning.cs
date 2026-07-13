@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=131 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PalindromePartitioning;
 
 // 131. Palindrome Partitioning (Medium)
@@ -22,7 +27,7 @@ namespace Scratch.Labuladong.Algorithms.PalindromePartitioning;
 //
 // Related Topics: String, Dynamic Programming, Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private List<IList<string>> res = new();
@@ -69,4 +74,14 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "aab"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "a"\n
+// @lcpr case=end
+ */

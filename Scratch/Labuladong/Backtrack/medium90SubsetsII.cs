@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=90 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SubsetsII;
 
 // 90. Subsets II (Medium)
@@ -24,7 +29,7 @@ namespace Scratch.Labuladong.Algorithms.SubsetsII;
 //
 // Related Topics: Array, Backtracking, Bit Manipulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -54,4 +59,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0]\n
+// @lcpr case=end
+ */

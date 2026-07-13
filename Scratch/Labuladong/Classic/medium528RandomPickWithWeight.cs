@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=528 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RandomPickWithWeight;
 
 //You are given a 0-indexed array of positive integers w where w[i] describes
@@ -76,7 +81,7 @@ namespace Scratch.Labuladong.Algorithms.RandomPickWithWeight;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 前缀和数组
@@ -139,4 +144,10 @@ public class Solution
  * Solution obj = new Solution(w);
  * int param_1 = obj.PickIndex();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["Solution","pickIndex"]\n[[[1]],[]]\n["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]\n[[[1,3]],[],[],[],[],[]]\n
+// @lcpr case=end
+ */

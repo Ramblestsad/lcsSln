@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1329 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SortTheMatrixDiagonally;
 
 // 1329. Sort the Matrix Diagonally (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.SortTheMatrixDiagonally;
 //
 // Related Topics: Array, Sorting, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] DiagonalSort(int[][] mat)
@@ -84,4 +89,14 @@ public class Solution
         return mat;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[3,3,1,1],[2,2,1,2],[1,1,1,2]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[11,25,66,1,69,7],[23,55,17,45,15,52],[75,31,36,44,58,8],[22,27,33,25,68,4],[84,28,14,11,5,50]]\n
+// @lcpr case=end
+ */

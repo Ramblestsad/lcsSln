@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1004 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaxConsecutiveOnesIII;
 
 // 1004. Max Consecutive Ones III (Medium)
@@ -29,7 +34,7 @@ namespace Scratch.Labuladong.Algorithms.MaxConsecutiveOnesIII;
 //
 // Related Topics: Array, Binary Search, Sliding Window, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LongestOnes(int[] nums, int k)
@@ -68,4 +73,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,1,1,0,0,0,1,1,1,1,0]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]\n3\n
+// @lcpr case=end
+ */

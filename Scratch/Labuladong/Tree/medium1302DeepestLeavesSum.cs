@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1302 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DeepestLeavesSum;
 
 // 1302. Deepest Leaves Sum (Medium)
@@ -22,7 +27,7 @@ namespace Scratch.Labuladong.Algorithms.DeepestLeavesSum;
 //
 // Related Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -62,4 +67,14 @@ public class Solution
         return sum;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,5,null,6,7,null,null,null,null,8]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]\n
+// @lcpr case=end
+ */

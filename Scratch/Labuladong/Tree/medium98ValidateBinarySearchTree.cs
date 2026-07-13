@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=98 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ValidateBinarySearchTree;
 
 // 98. Validate Binary Search Tree (Medium)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.ValidateBinarySearchTree;
 //
 // Related Topics: Tree, Depth-First Search, Binary Search Tree, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -67,4 +72,14 @@ public class Solution
                && _isValidBST(root.right, root, bigTreeNode);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,1,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,1,4,null,null,3,6]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=933 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumberOfRecentCalls;
 
 // 933. Number of Recent Calls (Easy)
@@ -42,7 +47,7 @@ namespace Scratch.Labuladong.Algorithms.NumberOfRecentCalls;
 //
 // Related Topics: Design, Queue, Data Stream
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class RecentCounter
 {
     private Queue<int> q = new();
@@ -65,4 +70,10 @@ public class RecentCounter
  * RecentCounter obj = new RecentCounter();
  * int param_1 = obj.Ping(t);
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["RecentCounter","ping","ping","ping","ping"]\n[[],[1],[100],[3001],[3002]]\n
+// @lcpr case=end
+ */

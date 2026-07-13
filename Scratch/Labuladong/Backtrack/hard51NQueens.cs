@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=51 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NQueens;
 
 // 51. N-Queens (Hard)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.NQueens;
 //
 // Related Topics: Array, Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<IList<string>> res = new List<IList<string>>();
@@ -116,4 +121,14 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n
+// @lcpr case=end
+ */

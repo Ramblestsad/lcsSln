@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=219 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ContainsDuplicateII;
 
 // 219. Contains Duplicate II (Easy)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.ContainsDuplicateII;
 //
 // Related Topics: Array, Hash Table, Sliding Window
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool ContainsNearbyDuplicate(int[] nums, int k)
@@ -64,4 +69,18 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,1]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,0,1,1]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,1,2,3]\n2\n
+// @lcpr case=end
+ */

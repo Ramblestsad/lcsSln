@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=23 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MergeKLists;
 
 // 23. Merge k Sorted Lists (Hard)
@@ -45,7 +50,7 @@ namespace Scratch.Labuladong.Algorithms.MergeKLists;
 //
 // Related Topics: Linked List, Divide and Conquer, Heap (Priority Queue), Merge Sort
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -92,4 +97,18 @@ public class Solution
      * Every nodes in k lists will be enqueued and dequeued, so O(Nlogk)
      */
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,4,5],[1,3,4],[2,6]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[]]\n
+// @lcpr case=end
+ */

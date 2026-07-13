@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=138 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CopyListRandom;
 
 public class Node
@@ -65,7 +70,7 @@ public class Node
 //
 // Related Topics: Hash Table, Linked List
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /*
 // Definition for a Node.
 public class Node {
@@ -117,4 +122,18 @@ public class Solution
         return originToClone[head];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[7,null],[13,0],[11,4],[10,2],[1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,1],[2,1]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[3,null],[3,0],[3,null]]\n
+// @lcpr case=end
+ */

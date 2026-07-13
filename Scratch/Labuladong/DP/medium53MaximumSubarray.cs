@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=53 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumSubarray;
 
 //Given an integer array nums, find the subarray with the largest sum, and
@@ -48,7 +53,7 @@ namespace Scratch.Labuladong.Algorithms.MaximumSubarray;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxSubArray(int[] nums)
@@ -141,4 +146,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [-2,1,-3,4,-1,2,1,-5,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,4,-1,7,8]\n
+// @lcpr case=end
+ */

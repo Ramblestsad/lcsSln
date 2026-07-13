@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=787 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.CheapestFlightsWithinKStops;
 
 // 787. Cheapest Flights Within K Stops (Medium)
@@ -59,7 +64,7 @@ namespace Scratch.Labuladong.Algorithms.CheapestFlightsWithinKStops;
 //
 // Related Topics: Dynamic Programming, Depth-First Search, Breadth-First Search, Graph Theory, Heap (Priority Queue), Shortest Path
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FindCheapestPrice(int n, int[][] flights, int src, int dst, int k)
@@ -134,4 +139,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 4\n[[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]]\n0\n3\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n[[0,1,100],[1,2,100],[0,2,500]]\n0\n2\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n[[0,1,100],[1,2,100],[0,2,500]]\n0\n2\n0\n
+// @lcpr case=end
+ */

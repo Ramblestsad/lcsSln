@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=297 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SerializeAndDeserializeBinaryTree;
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.SerializeAndDeserializeBinaryTree;
 //
 // Related Topics: String, Tree, Depth-First Search, Breadth-First Search, Design, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -201,4 +206,14 @@ public class Codec
 // Codec ser = new Codec();
 // Codec deser = new Codec();
 // TreeNode ans = deser.deserialize(ser.serialize(root));
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,null,null,4,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n
+// @lcpr case=end
+ */

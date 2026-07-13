@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=127 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.WordLadder;
 
 //A transformation sequence from word beginWord to word endWord using a
@@ -57,7 +62,7 @@ namespace Scratch.Labuladong.Algorithms.WordLadder;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int LadderLength(string beginWord, string endWord, IList<string> wordList)
@@ -112,4 +117,14 @@ public class Solution
         return 0;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "hit"\n"cog"\n["hot","dot","dog","lot","log","cog"]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "hit"\n"cog"\n["hot","dot","dog","lot","log"]\n
+// @lcpr case=end
+ */

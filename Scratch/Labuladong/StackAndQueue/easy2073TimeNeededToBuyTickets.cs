@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=2073 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.TimeNeededToBuyTickets;
 
 // 2073. Time Needed to Buy Tickets (Easy)
@@ -68,7 +73,7 @@ namespace Scratch.Labuladong.Algorithms.TimeNeededToBuyTickets;
 //
 // Related Topics: Array, Queue, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int TimeRequiredToBuy(int[] tickets, int k)
@@ -98,4 +103,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,3,2]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,1,1,1]\n0\n
+// @lcpr case=end
+ */

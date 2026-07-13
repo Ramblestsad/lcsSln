@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=438 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindAllAnagramsInAString;
 
 // 438. Find All Anagrams in a String (Medium)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.FindAllAnagramsInAString;
 //
 // Related Topics: Hash Table, String, Sliding Window
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<int> FindAnagrams(string s, string p)
@@ -87,4 +92,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "cbaebabacd"\n"abc"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "abab"\n"ab"\n
+// @lcpr case=end
+ */

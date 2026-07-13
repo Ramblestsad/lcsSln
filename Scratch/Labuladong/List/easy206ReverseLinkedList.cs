@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=206 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ReverseLinkedList;
 
 // 206. Reverse Linked List (Easy)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.ReverseLinkedList;
 //
 // Related Topics: Linked List, Recursion
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -133,4 +138,18 @@ public class Solution
         return last;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=37 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SudokuSolver;
 
 // 37. Sudoku Solver (Hard)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.SudokuSolver;
 //
 // Related Topics: Array, Hash Table, Backtracking, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 标记是否已经找到可行解
@@ -111,4 +116,10 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]\n
+// @lcpr case=end
+ */

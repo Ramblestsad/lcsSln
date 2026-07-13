@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1631 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PathWithMinimumEffort;
 
 // 1631. Path With Minimum Effort (Medium)
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.PathWithMinimumEffort;
 //
 // Related Topics: Array, Binary Search, Depth-First Search, Breadth-First Search, Union-Find, Heap (Priority Queue), Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinimumEffortPath(int[][] heights)
@@ -140,4 +145,18 @@ public class Solution
         return neighbors;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,2],[3,8,2],[5,3,5]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3],[3,8,4],[5,3,5]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]\n
+// @lcpr case=end
+ */

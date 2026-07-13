@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=18 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FourSum;
 
 // 18. 4Sum (Medium)
@@ -33,7 +38,7 @@ namespace Scratch.Labuladong.Algorithms.FourSum;
 //
 // Related Topics: Array, Two Pointers, Sorting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<IList<int>> FourSum(int[] nums, int target)
@@ -175,4 +180,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,0,-1,0,-2,2]\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,2,2,2,2]\n8\n
+// @lcpr case=end
+ */

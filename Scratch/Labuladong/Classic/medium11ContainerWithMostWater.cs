@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=11 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ContainerWithMostWater;
 
 //You are given an integer array height of length n. There are n vertical lines
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.ContainerWithMostWater;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxArea(int[] height)
@@ -75,4 +80,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,8,6,2,5,4,8,3,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,1]\n
+// @lcpr case=end
+ */

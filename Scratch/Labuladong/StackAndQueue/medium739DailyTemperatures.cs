@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=739 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DailyTemperatures;
 
 // 739. Daily Temperatures (Medium)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.DailyTemperatures;
 //
 // Related Topics: Array, Stack, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] DailyTemperatures(int[] temperatures)
@@ -53,4 +58,18 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [73,74,75,71,69,72,76,73]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [30,40,50,60]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [30,60,90]\n
+// @lcpr case=end
+ */

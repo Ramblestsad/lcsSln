@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=662 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumWidthOfBinaryTree;
 
 // 662. Maximum Width of Binary Tree (Medium)
@@ -39,7 +44,7 @@ namespace Scratch.Labuladong.Algorithms.MaximumWidthOfBinaryTree;
 //
 // Related Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -102,4 +107,18 @@ public class Solution
         return maxWidth;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,3,2,5,3,null,9]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,3,2,5,null,null,9,6,null,7]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,3,2,5]\n
+// @lcpr case=end
+ */

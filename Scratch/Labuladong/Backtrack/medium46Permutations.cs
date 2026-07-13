@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=46 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.Permutations;
 
 // 46. Permutations (Medium)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.Permutations;
 //
 // Related Topics: Array, Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public List<IList<int>> res = new();
@@ -96,4 +101,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=652 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindDuplicateSubtrees;
 
 // 652. Find Duplicate Subtrees (Medium)
@@ -31,7 +36,7 @@ namespace Scratch.Labuladong.Algorithms.FindDuplicateSubtrees;
 //
 // Related Topics: Hash Table, Tree, Depth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -78,4 +83,18 @@ public class Solution
         return subTree;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,null,2,4,null,null,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,1,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,2,2,3,null,3,null]\n
+// @lcpr case=end
+ */

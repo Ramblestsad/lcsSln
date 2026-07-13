@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=17 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.LetterCombinationsOfAPhoneNumber;
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.LetterCombinationsOfAPhoneNumber;
 //
 // Related Topics: Hash Table, String, Backtracking
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Solution
 {
@@ -65,4 +70,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "23"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "2"\n
+// @lcpr case=end
+ */

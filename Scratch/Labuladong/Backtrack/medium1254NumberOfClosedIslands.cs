@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1254 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumberOfClosedIslands;
 
 // 1254. Number of Closed Islands (Medium)
@@ -40,7 +45,7 @@ namespace Scratch.Labuladong.Algorithms.NumberOfClosedIslands;
 //
 // Related Topics: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int ClosedIsland(int[][] grid)
@@ -104,4 +109,18 @@ public class Solution
         dfs(grid, i, j - 1);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[0,0,1,0,0],[0,1,0,1,0],[0,1,1,1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,1,1,1,1,1,1],[1,0,0,0,0,0,1],[1,0,1,1,1,0,1],[1,0,1,0,1,0,1],[1,0,1,1,1,0,1],[1,0,0,0,0,0,1],[1,1,1,1,1,1,1]]\n
+// @lcpr case=end
+ */

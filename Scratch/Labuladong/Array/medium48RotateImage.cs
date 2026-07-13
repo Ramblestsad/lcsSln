@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=48 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RotateImage;
 
 // 48. Rotate Image (Medium)
@@ -28,7 +33,7 @@ namespace Scratch.Labuladong.Algorithms.RotateImage;
 //
 // Related Topics: Array, Math, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void Rotate(int[][] matrix)
@@ -77,4 +82,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=313 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SuperUglyNumber;
 
 //A super ugly number is a positive integer whose prime factors are in the
@@ -46,7 +51,7 @@ namespace Scratch.Labuladong.Algorithms.SuperUglyNumber;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int NthSuperUglyNumber(int n, int[] primes)
@@ -90,4 +95,14 @@ public class Solution
         return ugly[n];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 12\n[2,7,13,19]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n[2,3,5]\n
+// @lcpr case=end
+ */

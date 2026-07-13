@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=234 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PalindromeLinkedList;
 
 // 234. Palindrome Linked List (Easy)
@@ -24,7 +29,7 @@ namespace Scratch.Labuladong.Algorithms.PalindromeLinkedList;
 //
 // Related Topics: Linked List, Two Pointers, Stack, Recursion
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -68,4 +73,14 @@ public class Solution
         left = left.next;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,2,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n
+// @lcpr case=end
+ */

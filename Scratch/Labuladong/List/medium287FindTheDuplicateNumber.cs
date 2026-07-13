@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=287 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindTheDuplicateNumber;
 
 //Given an array of integers nums containing n + 1 integers where each integer
@@ -56,7 +61,7 @@ namespace Scratch.Labuladong.Algorithms.FindTheDuplicateNumber;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int FindDuplicate(int[] nums)
@@ -86,4 +91,18 @@ public class Solution
         return slow;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,3,4,2,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [3,1,3,4,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [3,3,3,3,3]\n
+// @lcpr case=end
+ */

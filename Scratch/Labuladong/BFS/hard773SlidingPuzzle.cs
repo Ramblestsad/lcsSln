@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=773 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 using System.Text;
 
 namespace Scratch.Labuladong.Algorithms.SlidingPuzzle;
@@ -49,7 +54,7 @@ namespace Scratch.Labuladong.Algorithms.SlidingPuzzle;
 //
 // Related Topics: Array, Dynamic Programming, Backtracking, Breadth-First Search, Memoization, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 
 public class Solution
 {
@@ -110,4 +115,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[4,0,5]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3],[5,4,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[4,1,2],[5,0,3]]\n
+// @lcpr case=end
+ */

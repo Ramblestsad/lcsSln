@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=894 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.AllPossibleFullBinaryTrees;
 
 // 894. All Possible Full Binary Trees (Medium)
@@ -27,7 +32,7 @@ namespace Scratch.Labuladong.Algorithms.AllPossibleFullBinaryTrees;
 //
 // Related Topics: Dynamic Programming, Tree, Recursion, Memoization, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -118,4 +123,14 @@ public class Solution
         return new TreeNode(node.val) { left = Clone(node.left), right = Clone(node.right) };
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 7\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n
+// @lcpr case=end
+ */

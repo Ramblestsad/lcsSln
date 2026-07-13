@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=724 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindPivotIndex;
 
 // 724. Find Pivot Index (Easy)
@@ -48,7 +53,7 @@ namespace Scratch.Labuladong.Algorithms.FindPivotIndex;
 //
 // Related Topics: Array, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int PivotIndex(int[] nums)
@@ -78,4 +83,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,7,3,6,5,6]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,1,-1]\n
+// @lcpr case=end
+ */

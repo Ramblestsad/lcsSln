@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=198 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.HouseRobber;
 
 // 198. House Robber (Medium)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.HouseRobber;
 //
 // Related Topics: Array, Dynamic Programming
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[] memo = [];
@@ -66,4 +71,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,1]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,7,9,3,1]\n
+// @lcpr case=end
+ */

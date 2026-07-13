@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=583 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DeleteOperationForTwoStrings;
 
 //Given two strings word1 and word2, return the minimum number of steps
@@ -38,7 +43,7 @@ namespace Scratch.Labuladong.Algorithms.DeleteOperationForTwoStrings;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 删除的结果就是它俩的最长公共子序列
@@ -84,4 +89,14 @@ public class Solution
         return dp[m][n];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "sea"\n"eat"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "leetcode"\n"etco"\n
+// @lcpr case=end
+ */

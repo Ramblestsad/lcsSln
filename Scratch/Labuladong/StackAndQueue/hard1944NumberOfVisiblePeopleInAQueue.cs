@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1944 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.NumberOfVisiblePeopleInAQueue;
 
 // 1944. Number of Visible People in a Queue (Hard)
@@ -42,7 +47,7 @@ namespace Scratch.Labuladong.Algorithms.NumberOfVisiblePeopleInAQueue;
 //
 // Related Topics: Array, Stack, Monotonic Stack
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] CanSeePersonsCount(int[] heights)
@@ -70,4 +75,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [10,6,8,5,11,9]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,1,2,3,10]\n
+// @lcpr case=end
+ */

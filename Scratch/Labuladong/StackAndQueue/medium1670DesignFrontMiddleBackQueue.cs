@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1670 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DesignFrontMiddleBackQueue;
 
 // 1670. Design Front Middle Back Queue (Medium)
@@ -60,7 +65,7 @@ namespace Scratch.Labuladong.Algorithms.DesignFrontMiddleBackQueue;
 //
 // Related Topics: Array, Linked List, Design, Queue, Doubly-Linked List, Data Stream
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class FrontMiddleBackQueue
 {
     // 用两个列表表示队列的左右两部分，以便操作中间元素
@@ -181,4 +186,10 @@ public class FrontMiddleBackQueue
  * int param_5 = obj.PopMiddle();
  * int param_6 = obj.PopBack();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["FrontMiddleBackQueue","pushFront","pushBack","pushMiddle","pushMiddle","popFront","popMiddle","popMiddle","popBack","popFront"]\n[[],[1],[2],[3],[4],[],[],[],[],[]]\n
+// @lcpr case=end
+ */

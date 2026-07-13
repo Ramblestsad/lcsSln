@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1584 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinCostToConnectAllPoints;
 
 // 1584. Min Cost to Connect All Points (Medium)
@@ -35,7 +40,7 @@ namespace Scratch.Labuladong.Algorithms.MinCostToConnectAllPoints;
 //
 // Related Topics: Array, Union-Find, Graph Theory, Minimum Spanning Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MinCostConnectPoints(int[][] points)
@@ -169,4 +174,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[0,0],[2,2],[3,10],[5,2],[7,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[3,12],[-2,5],[-4,1]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1091 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShortestPathInBinaryMatrix;
 
 // 1091. Shortest Path in Binary Matrix (Medium)
@@ -42,7 +47,7 @@ namespace Scratch.Labuladong.Algorithms.ShortestPathInBinaryMatrix;
 //
 // Related Topics: Array, Breadth-First Search, Matrix
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 8 个方向
@@ -159,4 +164,18 @@ public class Solution
         return -1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[0,1],[1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[0,0,0],[1,1,0],[1,1,0]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,0,0],[1,1,0],[1,1,0]]\n
+// @lcpr case=end
+ */

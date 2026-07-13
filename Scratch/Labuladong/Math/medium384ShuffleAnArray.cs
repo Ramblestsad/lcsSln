@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=384 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ShuffleAnArray;
 
 //Given an integer array nums, design an algorithm to randomly shuffle the
@@ -54,7 +59,7 @@ namespace Scratch.Labuladong.Algorithms.ShuffleAnArray;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[] nums;
@@ -97,4 +102,10 @@ public class Solution
  * int[] param_1 = obj.Reset();
  * int[] param_2 = obj.Shuffle();
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["Solution","shuffle","reset","shuffle"]\n[[[1,2,3]],[],[],[]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=62 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.UniquePaths;
 
 // 62. Unique Paths (Medium)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.UniquePaths;
 //
 // Related Topics: Math, Dynamic Programming, Combinatorics
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     private int[][] memo = [];
@@ -74,4 +79,14 @@ public class Solution
         return memo[x][y];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 3\n7\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n2\n
+// @lcpr case=end
+ */

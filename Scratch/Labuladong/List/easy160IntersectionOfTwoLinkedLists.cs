@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=160 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.GetIntersectionNode;
 
 // 160. Intersection of Two Linked Lists (Easy)
@@ -87,7 +92,7 @@ namespace Scratch.Labuladong.Algorithms.GetIntersectionNode;
 //
 // Related Topics: Hash Table, Linked List, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -115,4 +120,18 @@ public class Solution
         return p1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 8\n[4,1,8,4,5]\n[5,6,1,8,4,5]\n2\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 2\n[1,9,1,2,4]\n[3,2,4]\n3\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 0\n[2,6,4]\n[1,5]\n3\n2\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=76 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MinimumWindowSubstring;
 
 // 76. Minimum Window Substring (Hard)
@@ -41,7 +46,7 @@ namespace Scratch.Labuladong.Algorithms.MinimumWindowSubstring;
 //
 // Related Topics: Hash Table, String, Sliding Window
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string MinWindow(string s, string t)
@@ -105,4 +110,18 @@ public class Solution
         return len == int.MaxValue ? "" : s.Substring(start, len);
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "ADOBECODEBANC"\n"ABC"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "a"\n"a"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "a"\n"aa"\n
+// @lcpr case=end
+ */

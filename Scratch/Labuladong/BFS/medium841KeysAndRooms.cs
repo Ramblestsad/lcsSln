@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=841 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.KeysAndRooms;
 
 // 841. Keys and Rooms (Medium)
@@ -44,7 +49,7 @@ namespace Scratch.Labuladong.Algorithms.KeysAndRooms;
 //
 // Related Topics: Depth-First Search, Breadth-First Search, Graph Theory
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool CanVisitAllRooms(IList<IList<int>> rooms)
@@ -77,4 +82,14 @@ public class Solution
         return true;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1],[2],[3],[]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,3],[3,0,1],[2],[0]]\n
+// @lcpr case=end
+ */

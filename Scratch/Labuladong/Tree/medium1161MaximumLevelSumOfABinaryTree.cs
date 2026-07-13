@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1161 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumLevelSumOfABinaryTree;
 
 // 1161. Maximum Level Sum of a Binary Tree (Medium)
@@ -30,7 +35,7 @@ namespace Scratch.Labuladong.Algorithms.MaximumLevelSumOfABinaryTree;
 //
 // Related Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -82,4 +87,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,7,0,7,-8,null,null]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [989,null,10250,98693,-89388,null,null,null,-32127]\n
+// @lcpr case=end
+ */

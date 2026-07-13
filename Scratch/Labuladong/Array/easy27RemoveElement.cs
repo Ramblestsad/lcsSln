@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=27 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveElement;
 
 // 27. Remove Element (Easy)
@@ -59,7 +64,7 @@ namespace Scratch.Labuladong.Algorithms.RemoveElement;
 //
 // Related Topics: Array, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int RemoveElement(int[] nums, int val)
@@ -81,4 +86,14 @@ public class Solution
         return slow;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,2,2,3]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,1,2,2,3,0,4,2]\n2\n
+// @lcpr case=end
+ */

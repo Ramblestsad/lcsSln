@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=25 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ReverseNodesInKGroup;
 
 // 25. Reverse Nodes in k-Group (Hard)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.ReverseNodesInKGroup;
 //
 // Related Topics: Linked List, Recursion
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -91,4 +96,14 @@ public class Solution
         return pre;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,5]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,4,5]\n3\n
+// @lcpr case=end
+ */

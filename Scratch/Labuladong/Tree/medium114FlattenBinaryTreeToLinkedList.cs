@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=114 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FlattenBinaryTreeToLinkedList;
 
 // 114. Flatten Binary Tree to Linked List (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.FlattenBinaryTreeToLinkedList;
 //
 // Related Topics: Linked List, Stack, Tree, Depth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -79,4 +84,18 @@ public class Solution
         p.right = r;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,5,3,4,null,6]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=918 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumSumCircularSubarray;
 
 // 918. Maximum Sum Circular Subarray (Medium)
@@ -41,7 +46,7 @@ namespace Scratch.Labuladong.Algorithms.MaximumSumCircularSubarray;
 //
 // Related Topics: Array, Divide and Conquer, Dynamic Programming, Queue, Monotonic Queue
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxSubarraySumCircular(int[] nums)
@@ -152,4 +157,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,-2,3,-2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,-3,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-3,-2,-3]\n
+// @lcpr case=end
+ */

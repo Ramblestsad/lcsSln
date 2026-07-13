@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=34 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindFirstAndLastPositionOfElementInSortedArray;
 
 // 34. Find First and Last Position of Element in Sorted Array (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.FindFirstAndLastPositionOfElementInSorte
 //
 // Related Topics: Array, Binary Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] SearchRange(int[] nums, int target)
@@ -91,4 +96,18 @@ public class Solution
         return [firstPos, lastPos];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [5,7,7,8,8,10]\n8\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [5,7,7,8,8,10]\n6\n
+// @lcpr case=end
+
+// @lcpr case=start
+// []\n0\n
+// @lcpr case=end
+ */

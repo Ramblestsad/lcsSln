@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=303 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RangeSumQueryImmutable;
 
 // 303. Range Sum Query - Immutable (Easy)
@@ -40,7 +45,7 @@ namespace Scratch.Labuladong.Algorithms.RangeSumQueryImmutable;
 //
 // Related Topics: Array, Design, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class NumArray
 {
     private int[] PreSum { get; set; }
@@ -68,4 +73,10 @@ public class NumArray
  * NumArray obj = new NumArray(nums);
  * int param_1 = obj.SumRange(left,right);
  */
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["NumArray","sumRange","sumRange","sumRange"]\n[[[-2,0,3,-5,2,-1]],[0,2],[2,5],[0,5]]\n
+// @lcpr case=end
+ */

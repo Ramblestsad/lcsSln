@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=142 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.DetectCycle;
 
 // 142. Linked List Cycle II (Medium)
@@ -42,7 +47,7 @@ namespace Scratch.Labuladong.Algorithms.DetectCycle;
 //
 // Related Topics: Hash Table, Linked List, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -89,4 +94,18 @@ public class Solution
         return slow;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,2,0,-4]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n-1\n
+// @lcpr case=end
+ */

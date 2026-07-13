@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=654 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MaximumBinaryTree;
 
 // 654. Maximum Binary Tree (Medium)
@@ -43,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.MaximumBinaryTree;
 //
 // Related Topics: Array, Divide and Conquer, Stack, Tree, Monotonic Stack, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -95,4 +100,14 @@ public class Solution
         return root;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [3,2,1,6,0,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [3,2,1]\n
+// @lcpr case=end
+ */

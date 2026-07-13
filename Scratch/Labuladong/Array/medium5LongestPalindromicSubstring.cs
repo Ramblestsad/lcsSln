@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=5 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.LongestPalindromicSubstring;
 
 // 5. Longest Palindromic Substring (Medium)
@@ -23,7 +28,7 @@ namespace Scratch.Labuladong.Algorithms.LongestPalindromicSubstring;
 //
 // Related Topics: Two Pointers, String, Dynamic Programming
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public string LongestPalindrome(string s)
@@ -66,4 +71,14 @@ public class Solution
         return s[( l + 1 )..r];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// "babad"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// "cbbd"\n
+// @lcpr case=end
+ */

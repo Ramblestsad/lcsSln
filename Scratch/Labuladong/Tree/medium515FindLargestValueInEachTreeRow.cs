@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=515 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindLargestValueInEachTreeRow;
 
 // 515. Find Largest Value in Each Tree Row (Medium)
@@ -23,7 +28,7 @@ namespace Scratch.Labuladong.Algorithms.FindLargestValueInEachTreeRow;
 //
 // Related Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -66,4 +71,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,3,2,5,3,null,9]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3]\n
+// @lcpr case=end
+ */

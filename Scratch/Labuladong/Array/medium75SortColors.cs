@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=75 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SortColors;
 
 // 75. Sort Colors (Medium)
@@ -31,7 +36,7 @@ namespace Scratch.Labuladong.Algorithms.SortColors;
 //
 // Related Topics: Array, Two Pointers, Sorting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void SortColors(int[] nums)
@@ -65,4 +70,14 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [2,0,2,1,1,0]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [2,0,1]\n
+// @lcpr case=end
+ */

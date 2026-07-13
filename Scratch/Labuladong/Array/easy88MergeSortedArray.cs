@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=88 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MergeSortedArray;
 
 // 88. Merge Sorted Array (Easy)
@@ -51,7 +56,7 @@ namespace Scratch.Labuladong.Algorithms.MergeSortedArray;
 //
 // Related Topics: Array, Two Pointers, Sorting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public void Merge(int[] nums1, int m, int[] nums2, int n)
@@ -86,4 +91,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,0,0,0]\n3\n[2,5,6]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n1\n[]\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0]\n0\n[1]\n1\n
+// @lcpr case=end
+ */

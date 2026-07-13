@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=1260 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.Shift2DGrid;
 
 // 1260. Shift 2D Grid (Easy)
@@ -45,7 +50,7 @@ namespace Scratch.Labuladong.Algorithms.Shift2DGrid;
 //
 // Related Topics: Array, Matrix, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<IList<int>> ShiftGrid(int[][] grid, int k)
@@ -104,4 +109,18 @@ public class Solution
         }
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]]\n4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n9\n
+// @lcpr case=end
+ */

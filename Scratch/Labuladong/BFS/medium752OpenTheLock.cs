@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=752 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.OpenTheLock;
 
 // 752. Open the Lock (Medium)
@@ -50,7 +55,7 @@ namespace Scratch.Labuladong.Algorithms.OpenTheLock;
 //
 // Related Topics: Array, Hash Table, String, Breadth-First Search
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int OpenLock(string[] deadends, string target)
@@ -129,4 +134,18 @@ public class Solution
         return neighbors;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// ["0201","0101","0102","1212","2002"]\n"0202"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// ["8888"]\n"0009"\n
+// @lcpr case=end
+
+// @lcpr case=start
+// ["8887","8889","8878","8898","8788","8988","7888","9888"]\n"8888"\n
+// @lcpr case=end
+ */

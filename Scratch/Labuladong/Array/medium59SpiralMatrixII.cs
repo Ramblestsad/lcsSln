@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=59 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SpiralMatrixII;
 
 // 59. Spiral Matrix II (Medium)
@@ -21,7 +26,7 @@ namespace Scratch.Labuladong.Algorithms.SpiralMatrixII;
 //
 // Related Topics: Array, Matrix, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] GenerateMatrix(int n)
@@ -94,4 +99,14 @@ public class Solution
         return matrix;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// 3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 1\n
+// @lcpr case=end
+ */

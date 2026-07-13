@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=220 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ContainsDuplicateIII;
 
 // 220. Contains Duplicate III (Hard)
@@ -43,7 +48,7 @@ namespace Scratch.Labuladong.Algorithms.ContainsDuplicateIII;
 //
 // Related Topics: Array, Sliding Window, Sorting, Bucket Sort, Ordered Set
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public bool ContainsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff)
@@ -95,4 +100,14 @@ public class Solution
         return false;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,1]\n3\n0\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,5,9,1,5,9]\n2\n3\n
+// @lcpr case=end
+ */

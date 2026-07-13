@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=238 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.ProductOfArrayExceptSelf;
 
 // 238. Product of Array Except Self (Medium)
@@ -31,7 +36,7 @@ namespace Scratch.Labuladong.Algorithms.ProductOfArrayExceptSelf;
 //
 // Related Topics: Array, Prefix Sum
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[] ProductExceptSelf(int[] nums)
@@ -65,4 +70,14 @@ public class Solution
         return answer;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [-1,1,0,-3,3]\n
+// @lcpr case=end
+ */

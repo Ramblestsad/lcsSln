@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=26 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveDuplicatesFromSortedArray;
 
 // 26. Remove Duplicates from Sorted Array (Easy)
@@ -54,7 +59,7 @@ namespace Scratch.Labuladong.Algorithms.RemoveDuplicatesFromSortedArray;
 //
 // Related Topics: Array, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int RemoveDuplicates(int[] nums)
@@ -84,4 +89,14 @@ public class Solution
         return slow + 1;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,1,2]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [0,0,1,1,1,2,2,3,3,4]\n
+// @lcpr case=end
+ */

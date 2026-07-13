@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=54 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.SpiralMatrix;
 
 // 54. Spiral Matrix (Medium)
@@ -26,7 +31,7 @@ namespace Scratch.Labuladong.Algorithms.SpiralMatrix;
 //
 // Related Topics: Array, Matrix, Simulation
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<int> SpiralOrder(int[][] matrix)
@@ -93,4 +98,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,2,3],[4,5,6],[7,8,9]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,2,3,4],[5,6,7,8],[9,10,11,12]]\n
+// @lcpr case=end
+ */

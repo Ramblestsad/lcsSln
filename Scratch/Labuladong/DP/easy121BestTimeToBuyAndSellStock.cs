@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=121 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.BestTimeToBuyAndSell;
 
 // 121. Best Time to Buy and Sell Stock (Easy)
@@ -32,7 +37,7 @@ namespace Scratch.Labuladong.Algorithms.BestTimeToBuyAndSell;
 //
 // Related Topics: Array, Dynamic Programming
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int MaxProfit(int[] prices)
@@ -61,4 +66,14 @@ public class Solution
         return dp[n - 1][0];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [7,1,5,3,6,4]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [7,6,4,3,1]\n
+// @lcpr case=end
+ */

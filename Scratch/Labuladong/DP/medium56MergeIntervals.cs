@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=56 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.MergeIntervals;
 
 // 56. Merge Intervals (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.MergeIntervals;
 //
 // Related Topics: Array, Sorting
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public int[][] Merge(int[][] intervals)
@@ -65,4 +70,18 @@ public class Solution
         return res.ToArray();
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [[1,3],[2,6],[8,10],[15,18]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[1,4],[4,5]]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [[4,7],[1,4]]\n
+// @lcpr case=end
+ */

@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=19 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.RemoveNthFromEnd;
 
 // 19. Remove Nth Node From End of List (Medium)
@@ -34,7 +39,7 @@ namespace Scratch.Labuladong.Algorithms.RemoveNthFromEnd;
 //
 // Related Topics: Linked List, Two Pointers
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -89,4 +94,18 @@ public class Solution
         return p2!;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,2,3,4,5]\n2\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1]\n1\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2]\n1\n
+// @lcpr case=end
+ */

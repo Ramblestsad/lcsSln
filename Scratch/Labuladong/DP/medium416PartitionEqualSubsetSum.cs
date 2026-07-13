@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=416 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.PartitionEqualSubsetSum;
 
 //Given an integer array nums, return true if you can partition the array into
@@ -37,7 +42,7 @@ namespace Scratch.Labuladong.Algorithms.PartitionEqualSubsetSum;
 //
 //
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     // 如何转化为背包问题？
@@ -135,4 +140,14 @@ public class Solution
         return dp[sum];
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,5,11,5]\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,2,3,5]\n
+// @lcpr case=end
+ */

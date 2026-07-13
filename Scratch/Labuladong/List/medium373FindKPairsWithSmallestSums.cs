@@ -1,3 +1,8 @@
+/*
+ * @lc app=leetcode id=373 lang=csharp
+ * @lcpr version=3.4.4
+ */
+
 namespace Scratch.Labuladong.Algorithms.FindKPairsWithSmallestSums;
 
 // 373. Find K Pairs with Smallest Sums (Medium)
@@ -38,7 +43,7 @@ namespace Scratch.Labuladong.Algorithms.FindKPairsWithSmallestSums;
 //
 // Related Topics: Array, Heap (Priority Queue)
 
-//leetcode submit region begin(Prohibit modification and deletion)
+// @lc code=start
 public class Solution
 {
     public IList<IList<int>> KSmallestPairs(int[] nums1, int[] nums2, int k)
@@ -68,4 +73,14 @@ public class Solution
         return res;
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [1,7,11]\n[2,4,6]\n3\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,1,2]\n[1,2,3]\n2\n
+// @lcpr case=end
+ */
