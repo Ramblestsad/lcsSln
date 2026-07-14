@@ -58,6 +58,7 @@ public class Solution
             // 907559 3
             while (stk.Count != 0 && stk.Peek() > ch && k > 0)
             {
+                // if current top elem of stk is greater than current num, then pop stk top.
                 stk.Pop();
                 k--;
             }
