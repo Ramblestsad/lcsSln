@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "ReSharper: Scratch Debug",
+            "name": "dotnet: Scratch Debug",
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/Scratch/Scratch.csproj"
         },
         {
-            "name": "ReSharper: Todo.WebApi Debug",
+            "name": "dotnet: Todo.WebApi Debug",
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/src/Todo.WebApi/Todo.WebApi.csproj"
