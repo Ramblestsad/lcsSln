@@ -19,6 +19,7 @@ trim_trailing_whitespace = true
 # ReSharper inspections
 resharper_inconsistent_naming_highlighting = hint
 dotnet_diagnostic.CS0414.severity = suggestion
+dotnet_diagnostic.CS8321.severity = suggestion
 max_line_length = 120
 # New line preferences
 csharp_new_line_before_open_brace = all
@@ -163,6 +164,9 @@ csharp_space_between_square_brackets = false
 # Xml project files
 [*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj}]
 indent_size = 2
+
+# CS8321: Local function is declared but never used
+dotnet_diagnostic.CS8321.severity = none
 
 [*.{csproj,vbproj,proj,nativeproj,locproj}]
 charset = utf-8
