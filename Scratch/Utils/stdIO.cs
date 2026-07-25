@@ -1,5 +1,3 @@
-using System.Text;
-
 namespace Scratch.Utils;
 
 public static class StdRead
@@ -48,11 +46,10 @@ public static class StdRead
     /// </summary>
     public static List<string> ReadMultiLines()
     {
-        using var reader = new StreamReader(Console.OpenStandardInput());
         var lines = new List<string>();
 
         string? line;
-        while (( line = reader.ReadLine() ) != null)
+        while (( line = Console.ReadLine() ) != null)
         {
             lines.Add(line);
         }
@@ -62,13 +59,12 @@ public static class StdRead
 
     public static List<string> ReadMultiLinesWithN()
     {
-        using var reader = new StreamReader(Console.OpenStandardInput());
-        var n = int.Parse(reader.ReadLine()!);
+        var n = int.Parse(Console.ReadLine()!);
         var lines = new List<string>();
 
         for (var i = 0; i < n; i++)
         {
-            var line = reader.ReadLine()!;
+            var line = Console.ReadLine()!;
             lines.Add(line);
         }
 
@@ -76,98 +72,64 @@ public static class StdRead
     }
 }
 
-public static class ACMScan
+public sealed class FastScanner
 {
-    /// <summary>
-    /// 普通 ACM 输入：先熟悉 Console.ReadLine + Split 写法。
-    /// </summary>
-    public static class Basic
-    {
-        public static int ReadInt(TextReader? input = null) =>
-            int.Parse(( input ?? Console.In ).ReadLine()!);
+    private readonly Stream _stream;
+    private readonly byte[] _buffer = new byte[1 << 16];
+    private int _len, _ptr;
 
-        public static int[] ReadIntArray(TextReader? input = null) =>
-            ( input ?? Console.In ).ReadLine()!
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToArray();
+    public FastScanner(Stream? stream = null)
+    {
+        _stream = stream ?? Console.OpenStandardInput();
     }
 
-    /// <summary>
-    /// 大量数据输入：用字节缓冲区按空白分隔读取。
-    /// </summary>
-    public sealed class Fast
+    private int ReadByte()
     {
-        private readonly Stream _input;
-        private readonly byte[] _buffer = new byte[1 << 16];
-        private int _length;
-        private int _position;
-
-        public Fast(Stream? input = null)
+        if (_ptr >= _len)
         {
-            _input = input ?? Console.OpenStandardInput();
+            _len = _stream.Read(_buffer, 0, _buffer.Length);
+            _ptr = 0;
+            if (_len == 0) return -1;
         }
 
-        private int ReadByte()
-        {
-            if (_position < _length)
-                return _buffer[_position++];
+        return _buffer[_ptr++];
+    }
 
-            _length = _input.Read(_buffer, 0, _buffer.Length);
-            _position = 0;
-            return _length == 0 ? -1 : _buffer[_position++];
-        }
-
-        private int NextNonWhitespace()
+    private int NextNonWhitespace()
+    {
+        int c;
+        while (( c = ReadByte() ) <= ' ')
         {
-            int c;
-            while (( c = ReadByte() ) <= ' ' && c != -1) { }
-            return c;
-        }
-
-        public string Next()
-        {
-            var c = NextNonWhitespace();
             if (c == -1)
                 throw new EndOfStreamException();
-
-            var token = new StringBuilder();
-            while (c > ' ')
-            {
-                token.Append((char)c);
-                c = ReadByte();
-            }
-
-            return token.ToString();
         }
 
-        public int NextInt() => checked((int)NextLong());
+        return c;
+    }
 
-        public long NextLong()
+    public int NextInt()
+    {
+        var c = NextNonWhitespace();
+        var negative = c == '-';
+        if (c is '-' or '+')
         {
-            var c = NextNonWhitespace();
-            if (c == -1)
-                throw new EndOfStreamException();
+            c = ReadByte();
+        }
 
-            var negative = c == '-';
-            if (c is '-' or '+')
-                c = ReadByte();
+        if (c is < '0' or > '9')
+            throw new FormatException("Expected an integer.");
 
+        var val = 0;
+        while (c > ' ')
+        {
             if (c is < '0' or > '9')
                 throw new FormatException("Expected an integer.");
 
-            long value = 0;
-            while (c > ' ')
-            {
-                if (c is < '0' or > '9')
-                    throw new FormatException("Expected an integer.");
-
-                value = checked(value * 10 - ( c - '0' ));
-                c = ReadByte();
-            }
-
-            return negative ? value : checked(-value);
+            val = checked(val * 10 - ( c - '0' ));
+            c = ReadByte();
         }
+
+        return negative ? val : checked(-val);
     }
 }
 
