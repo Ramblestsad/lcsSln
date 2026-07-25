@@ -133,6 +133,60 @@ public sealed class FastScanner
     }
 }
 
+/// <summary>
+/// 使用 BufferedStream 负责缓冲的整数扫描器。
+/// </summary>
+public sealed class BufferedStreamFastScanner : IDisposable
+{
+    private readonly BufferedStream _stream;
+
+    public BufferedStreamFastScanner(Stream? stream = null)
+    {
+        _stream = new BufferedStream(stream ?? Console.OpenStandardInput(), 1 << 16);
+    }
+
+    private int ReadByte() => _stream.ReadByte();
+
+    private int NextNonWhitespace()
+    {
+        int c;
+        while (( c = ReadByte() ) <= ' ')
+        {
+            if (c == -1)
+                throw new EndOfStreamException();
+        }
+
+        return c;
+    }
+
+    public int NextInt()
+    {
+        var c = NextNonWhitespace();
+        var negative = c == '-';
+        if (c is '-' or '+')
+        {
+            c = ReadByte();
+        }
+
+        if (c is < '0' or > '9')
+            throw new FormatException("Expected an integer.");
+
+        var val = 0;
+        while (c > ' ')
+        {
+            if (c is < '0' or > '9')
+                throw new FormatException("Expected an integer.");
+
+            val = checked(val * 10 - ( c - '0' ));
+            c = ReadByte();
+        }
+
+        return negative ? val : checked(-val);
+    }
+
+    public void Dispose() => _stream.Dispose();
+}
+
 public static class FileReader
 {
     public static async Task ReadAll(string filePath)
