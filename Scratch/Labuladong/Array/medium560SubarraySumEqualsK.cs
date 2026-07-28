@@ -56,7 +56,7 @@ public class Solution
             // 将当前前缀和存入hashmap
             if (!count.TryGetValue(preSum[i], out var pc))
             {
-                count.Add(preSum[i], 1);
+                count[preSum[i]] = 1;
             }
             else
             {
