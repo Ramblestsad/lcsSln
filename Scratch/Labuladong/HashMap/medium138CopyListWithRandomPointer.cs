@@ -104,19 +104,15 @@ public class Solution
         // 第二次遍历：把克隆节点的结构连接好
         for (Node? p = head; p != null; p = p.next)
         {
-            if (p.next != null)
-            {
-                originToClone.TryGetValue(p, out var cloneNode);
-                originToClone.TryGetValue(p.next, out var cloneNodeNext);
-                cloneNode!.next = cloneNodeNext;
-            }
+            var clone = originToClone[p];
 
-            if (p.random != null)
-            {
-                var clone = originToClone[p];
-                clone.next = p.next == null ? null : originToClone[p.next];
-                clone.random = p.random == null ? null : originToClone[p.random];
-            }
+            clone.next = p.next == null
+                ? null
+                : originToClone[p.next];
+
+            clone.random = p.random == null
+                ? null
+                : originToClone[p.random];
         }
 
         return originToClone[head];
