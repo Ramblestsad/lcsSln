@@ -109,7 +109,7 @@ public class Solution
 
         for (int i = 0; i < numCourses; i++)
         {
-            graph[i] = new List<int>();
+            graph[i] = [];
         }
 
         foreach (var edge in prerequisites)
