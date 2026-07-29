@@ -365,6 +365,7 @@ public static class DijkstraAlgorithm
 
     // 输入不包含负权重边的加权图 graph 和起点 src
     // graph[i] 是节点 i 的邻接表，每个元素 int[] { 邻接节点, 权重 }
+    // [[[v1, w1],[v2, w2]],[]]
     // numNodes 为图的节点总数
     // 返回从起点 src 到其他节点的最小路径权重和
     public static int[] Dijkstra(List<int[]>[] graph, int src)
