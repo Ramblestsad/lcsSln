@@ -76,14 +76,13 @@ public class Solution
 
     string _encode(string s)
     {
-        var cnt = new char[26];
+        var cnt = new int[26];
         foreach (var c in s.ToCharArray())
         {
-            var delta = c - 'a';
-            cnt[delta]++;
+            cnt[c - 'a']++;
         }
 
-        return new string(cnt);
+        return string.Join(",", cnt);
     }
 }
 // @lc code=end
