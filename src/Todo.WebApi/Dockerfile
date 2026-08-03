@@ -10,6 +10,7 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 WORKDIR /src
 COPY ["src/Todo.WebApi/Todo.WebApi.csproj", "src/Todo.WebApi/"]
 COPY ["src/Todo.DAL/Todo.DAL.csproj", "src/Todo.DAL/"]
+COPY ["src/Todo.Observability/Todo.Observability.csproj", "src/Todo.Observability/"]
 RUN dotnet restore "src/Todo.WebApi/Todo.WebApi.csproj"
 COPY . .
 
