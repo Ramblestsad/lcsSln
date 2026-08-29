@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-api
+  template:
+    metadata:
+      labels:
+        app: todo-api
+    spec:
+      containers:
+        - name: todo-api
+          image: todo-api:dev
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: ConnectionStrings__postgresWrite
+              valueFrom:
+                secretKeyRef:
+                  name: todo-api-config
+                  key: postgres-write
+            - name: ConnectionStrings__postgresRead
+              valueFrom:
+                secretKeyRef:
+                  name: todo-api-config
+                  key: postgres-read
+            - name: Redis__ConnectionString
+              valueFrom:
+                secretKeyRef:
+                  name: todo-api-config
+                  key: redis
+            - name: SignalR__UseRedisBackplane
+              value: "true"
+            - name: Jwt__Key
+              valueFrom:
+                secretKeyRef:
+                  name: todo-api-config
+                  key: jwt-key
+            - name: Jwt__Issuer
+              value: AxesServiceServer
+            - name: Jwt__Audience
+              value: AxesClient
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: grpc
+              containerPort: 8081
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi

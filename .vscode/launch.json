@@ -1,17 +1,41 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "dotnet: Scratch Debug",
-            "type": "dotnet",
-            "request": "launch",
-            "projectPath": "${workspaceFolder}/Scratch/Scratch.csproj"
-        },
-        {
-            "name": "dotnet: Todo.WebApi Debug",
-            "type": "dotnet",
-            "request": "launch",
-            "projectPath": "${workspaceFolder}/src/Todo.WebApi/Todo.WebApi.csproj"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug todo-api",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/src/services/api/Todo.WebApi/Todo.WebApi.csproj"
+    },
+    {
+      "name": "Debug orders-api",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/src/services/orders/Todo.Orders.Api/Todo.Orders.Api.csproj"
+    },
+    {
+      "name": "Debug orders-worker",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/src/services/orders/Todo.Order.Worker/Todo.Order.Worker.csproj"
+    },
+    {
+      "name": "Debug inventory-worker",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/src/services/inventory/Todo.Inventory.Worker/Todo.Inventory.Worker.csproj"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug all services",
+      "configurations": [
+        "Debug todo-api",
+        "Debug orders-api",
+        "Debug orders-worker",
+        "Debug inventory-worker"
+      ],
+      "stopAll": true
+    }
+  ]
 }

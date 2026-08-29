@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-orders-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-orders-api
+  template:
+    metadata:
+      labels:
+        app: todo-orders-api
+    spec:
+      containers:
+        - name: todo-orders-api
+          image: todo-orders-api:dev
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: ASPNETCORE_URLS
+              value: http://0.0.0.0:8080
+            - name: ConnectionStrings__postgres
+              valueFrom:
+                secretKeyRef:
+                  name: todo-orders-config
+                  key: postgres
+            - name: Jwt__Key
+              valueFrom:
+                secretKeyRef:
+                  name: todo-orders-config
+                  key: jwt-key
+            - name: Jwt__Issuer
+              value: AxesServiceServer
+            - name: Jwt__Audience
+              value: AxesClient
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi

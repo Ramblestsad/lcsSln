@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-orders-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-orders-worker
+  template:
+    metadata:
+      labels:
+        app: todo-orders-worker
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: todo-orders-worker
+          image: todo-orders-worker:dev
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DOTNET_ENVIRONMENT
+              value: Production
+            - name: ConnectionStrings__postgres
+              valueFrom:
+                secretKeyRef:
+                  name: todo-orders-config
+                  key: postgres
+            - name: RabbitMq__Host
+              value: rabbitmq
+            - name: RabbitMq__Username
+              valueFrom:
+                secretKeyRef:
+                  name: todo-orders-config
+                  key: rabbitmq-username
+            - name: RabbitMq__Password
+              valueFrom:
+                secretKeyRef:
+                  name: todo-orders-config
+                  key: rabbitmq-password
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi

@@ -1,85 +1,52 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "dotnet build Scratch",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["build", "/property:GenerateFullPaths=true"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/Scratch"
-            }
-        },
-        {
-            "label": "dotnet run Scratch",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["run"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/Scratch"
-            }
-        },
-        {
-            "label": "dotnet watch Scratch",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["watch", "run"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/Scratch"
-            }
-        },
-        {
-            "label": "dotnet build Todo.WebApi",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["build", "/property:GenerateFullPaths=true"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/src/Todo.WebApi"
-            }
-        },
-        {
-            "label": "dotnet run Todo.WebApi",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["run"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/src/Todo.WebApi"
-            }
-        },
-        {
-            "label": "dotnet watch Todo.WebApi",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["watch", "run"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/src/Todo.WebApi"
-            }
-        },
-        {
-            "label": "dotnet build Avalonia.Zelve",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["build", "/property:GenerateFullPaths=true"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/Zelve"
-            }
-        },
-        {
-            "label": "dotnet run Avalonia.Zelve",
-            "command": "dotnet",
-            "type": "process",
-            "args": ["run"],
-            "problemMatcher": "$msCompile",
-            "options": {
-                "cwd": "${workspaceFolder}/Zelve"
-            }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dotnet run Scratch",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "Scratch/Scratch.csproj"],
+      "problemMatcher": "$msCompile",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "dotnet run todo-api",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "src/services/api/Todo.WebApi/Todo.WebApi.csproj"],
+      "problemMatcher": "$msCompile",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
         }
-    ]
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      }
+    },
+    {
+      "label": "dotnet run orders-api",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "src/services/orders/Todo.Orders.Api/Todo.Orders.Api.csproj"],
+      "problemMatcher": "$msCompile",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development",
+          "ASPNETCORE_URLS": "http://localhost:5180"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true
+      }
+    }
+  ]
 }
