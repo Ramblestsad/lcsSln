@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-orders-worker
+# yaml-language-server-disable Missing property "selector"
+spec:
+  template:
+    spec:
+      containers:
+        - name: todo-orders-worker
+          env:
+            - name: RabbitMq__Host
+              value: host.docker.internal

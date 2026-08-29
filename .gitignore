@@ -10,4 +10,5 @@ Scratch/Labuladong/**/leetcode/editor/en/doc/content/*.md
 **/artifacts/
 **/secrets.yaml
 **/secrets.local.yaml
+**/secret.local.yaml
 **/secrets.dev.yaml
