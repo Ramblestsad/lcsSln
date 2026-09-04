@@ -12,3 +12,6 @@ Scratch/Labuladong/**/leetcode/editor/en/doc/content/*.md
 **/secrets.local.yaml
 **/secret.local.yaml
 **/secrets.dev.yaml
+
+# Local agent skills
+.agents/
