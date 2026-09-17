@@ -54,8 +54,7 @@ public class Solution
             if (count.TryGetValue(need, out var c))
                 res += c;
             // 将当前前缀和存入hashmap
-            count.TryGetValue(preSum[i], out var pc);
-            count[preSum[i]] = pc + 1;
+            count[preSum[i]] = count.GetValueOrDefault(preSum[i]) + 1;
         }
 
         return res;
