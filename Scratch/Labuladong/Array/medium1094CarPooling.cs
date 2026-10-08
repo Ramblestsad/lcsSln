@@ -48,28 +48,45 @@ public class Solution
     public bool CarPooling(int[][] trips, int capacity)
     {
         // 根据题目，车站号0 ～ 1000
-        var nums = new int[1001];
-        var diff = new Difference(nums);
-
-        foreach (var trip in trips)
+        var diff = new int[1001];
+        foreach (var t in trips)
         {
-            var numPassengers = trip[0];
-            // 第 trip[1] 站乘客上车
-            var i = trip[1];
-            // 第 trip[2] 站乘客已经下车，
-            // 即乘客在车上的区间是 [trip[1], trip[2] - 1]
-            var j = trip[2] - 1;
-            diff.Increment(i, j, numPassengers);
+            diff[t[1]] += t[0];
+            diff[t[2]] -= t[0];
         }
 
-        var res = diff.Result();
-
-        for (int i = 0; i < res.Length; i++)
+        var currentPassenger = 0;
+        foreach (var d in diff)
         {
-            if (capacity < res[i]) return false;
+            currentPassenger += d;
+            if (currentPassenger > capacity) return false;
         }
 
         return true;
+
+        // // 根据题目，车站号0 ～ 1000
+        // var nums = new int[1001];
+        // var diff = new Difference(nums);
+
+        // foreach (var trip in trips)
+        // {
+        //     var numPassengers = trip[0];
+        //     // 第 trip[1] 站乘客上车
+        //     var i = trip[1];
+        //     // 第 trip[2] 站乘客已经下车，
+        //     // 即乘客在车上的区间是 [trip[1], trip[2] - 1]
+        //     var j = trip[2] - 1;
+        //     diff.Increment(i, j, numPassengers);
+        // }
+
+        // var res = diff.Result();
+
+        // for (int i = 0; i < res.Length; i++)
+        // {
+        //     if (capacity < res[i]) return false;
+        // }
+
+        // return true;
     }
 
     class Difference
