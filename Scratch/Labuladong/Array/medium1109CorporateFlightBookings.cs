@@ -58,20 +58,34 @@ public class Solution
 {
     public int[] CorpFlightBookings(int[][] bookings, int n)
     {
-        // nums 初始化为全 0
-        var nums = new int[n];
-
-        var diff = new Difference(nums);
-
-        foreach (var booking in bookings)
+        // simplified diff arr and prefix sum
+        var res = new int[n];
+        foreach (var b in bookings)
         {
-            int i = booking[0] - 1, j = booking[1] - 1;
-            var seats = booking[2];
-
-            diff.Increment(i, j, seats);
+            // diff arr logic. Diff[start] += diff, Diff[end + 1] -= diff.
+            res[b[0] - 1] += b[2];
+            if (b[1] < n) res[b[1]] -= b[2];
         }
 
-        return diff.Result();
+        // prefix sum of diff arr gives the result.
+        for (var i = 1; i < n; i++) res[i] += res[i - 1];
+
+        return res;
+
+        // // nums 初始化为全 0
+        // var nums = new int[n];
+
+        // var diff = new Difference(nums);
+
+        // foreach (var booking in bookings)
+        // {
+        //     int i = booking[0] - 1, j = booking[1] - 1;
+        //     var seats = booking[2];
+
+        //     diff.Increment(i, j, seats);
+        // }
+
+        // return diff.Result();
     }
 
     class Difference
