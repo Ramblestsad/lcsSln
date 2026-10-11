@@ -40,8 +40,7 @@ public class Solution
         var window = new Dictionary<char, int>();
         foreach (var c in s1)
         {
-            if (need.TryGetValue(c, out var v)) need[c] = v + 1;
-            else need[c] = 1;
+            need[c] = need.GetValueOrDefault(c) + 1;
         }
 
         int left = 0, right = 0;
@@ -54,26 +53,26 @@ public class Solution
             var c = s2[right];
             right++;
             // 进行 window 数据的一系列更新
-            if (need.TryGetValue(c, out var cv))
+            if (need.TryGetValue(c, out var cNeed))
             {
-                if (window.TryGetValue(c, out var wv)) window[c] = wv + 1;
-                else window[c] = 1;
-                if (cv == window[c]) valid++;
+                window[c] = window.GetValueOrDefault(c) + 1;
+                if (cNeed == window[c]) valid++;
             }
 
             // 判断左侧窗口是否要收缩
             while (( right - left ) >= s1.Length)
             {
+                // 题目要s2是否包含s1的排列，所以窗口（right-left）大于等于s1的时候需要收缩。
                 // 判断是否找到了合法的子串
                 if (valid == need.Count) return true;
                 var d = s2[left];
                 left++;
                 // 进行 window 数据的一系列更新
-                if (need.TryGetValue(d, out var ndv))
+                if (need.TryGetValue(d, out var dNeed))
                 {
-                    window.TryGetValue(d, out var wdv);
-                    if (ndv == wdv) valid--;
-                    window[d] = wdv - 1;
+                    window.TryGetValue(d, out var dWindow);
+                    if (dNeed == dWindow) valid--;
+                    window[d] = dWindow - 1;
                 }
             }
         }

@@ -5,7 +5,7 @@
 
 namespace Scratch.Labuladong.Algorithms.FindAllAnagramsInAString;
 
-// 438. Find All Anagrams in a String (Medium)
+// 438. Find All Anagrams(异位词) in a String (Medium)
 //
 // Given two strings s and p, return an array of all the start indices of p's anagrams in s. You
 // may return the answer in any order.
@@ -44,8 +44,7 @@ public class Solution
         var window = new Dictionary<char, int>();
         foreach (var c in p)
         {
-            if (need.TryGetValue(c, out var v)) need[c] = v + 1;
-            else need[c] = 1;
+            need[c] = need.GetValueOrDefault(c) + 1;
         }
 
         int left = 0, right = 0, valid = 0;
@@ -59,17 +58,16 @@ public class Solution
             right++;
 
             // 进行 window 数据的一系列更新
-            if (need.TryGetValue(c, out var cv))
+            if (need.TryGetValue(c, out var cNeed))
             {
-                if (window.TryGetValue(c, out var wv)) window[c] = wv + 1;
-                else window[c] = 1;
-
-                if (cv == window[c]) valid++;
+                window[c] = window.GetValueOrDefault(c) + 1;
+                if (cNeed == window[c]) valid++;
             }
 
             // 判断左窗口是否要收缩
             while (( right - left ) >= p.Length)
             {
+                // 因为是anagram，窗口大小需要等于p的长度，所以窗口（right-left）大于等于p的时候需要收缩窗口。
                 // 当窗口符合条件时，把起始索引加入 res
                 if (valid == need.Count)
                 {
@@ -80,11 +78,11 @@ public class Solution
                 left++;
 
                 // 进行 window 数据的一系列更新
-                if (need.TryGetValue(d, out var ndv))
+                if (need.TryGetValue(d, out var dNeed))
                 {
-                    window.TryGetValue(d, out var wdv);
-                    if (ndv == wdv) valid--;
-                    window[d] = wdv - 1;
+                    window.TryGetValue(d, out var dWindow);
+                    if (dNeed == dWindow) valid--;
+                    window[d] = dWindow - 1;
                 }
             }
         }

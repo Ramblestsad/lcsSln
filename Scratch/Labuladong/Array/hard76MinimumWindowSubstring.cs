@@ -56,8 +56,7 @@ public class Solution
 
         foreach (var c in t)
         {
-            if (need.TryGetValue(c, out var v)) need[c] = v + 1;
-            else need[c] = 1;
+            need[c] = need.GetValueOrDefault(c) + 1;
         }
 
         int left = 0, right = 0;
@@ -74,14 +73,14 @@ public class Solution
             // 右移窗口
             right++;
             // 进行窗口内数据的一系列更新
-            if (need.TryGetValue(c, out var cv))
+            if (need.TryGetValue(c, out var cCount))
             {
-                if (window.TryGetValue(c, out var wv)) window[c] = wv + 1;
-                else window[c] = 1;
-                if (cv == window[c]) valid++;
+                // c is needed
+                window[c] = window.GetValueOrDefault(c) + 1;
+                if (window[c] == cCount) valid++;
             }
 
-            // 一直循环外部循环知道window满足要求：包含t所有字符，即valid==need.Count
+            // 一直循环外部循环直到window满足要求：包含t所有字符，即valid==need.Count
             while (valid == need.Count)
             {
                 // 更新最小覆盖子串
@@ -98,11 +97,12 @@ public class Solution
                 // 缩小窗口
                 left++;
                 // 进行窗口内数据的一系列更新
-                if (need.TryGetValue(d, out var nd))
+                if (need.TryGetValue(d, out var dNeed))
                 {
-                    window.TryGetValue(d, out var wvd);
-                    if (nd == wvd) valid--;
-                    window[d] = wvd - 1;
+                    // if d is needed, now d is gone and valid need to update.
+                    var dWindow = window.GetValueOrDefault(d);
+                    if (dNeed == dWindow) valid--; // window里的d次数正好是需要的个数，现在这个d扔了，valid就需要-1
+                    window[d] = dWindow - 1;
                 }
             }
         }

@@ -52,16 +52,16 @@ public class Solution
             right++;
 
             // 进行窗口内数据的一系列更新
-            if (window.TryGetValue(c, out var cv)) window[c] = cv + 1;
-            else window[c] = 1;
+            window[c] = window.GetValueOrDefault(c) + 1;
 
             // 判断左侧窗口是否要收缩
             while (window[c] > 1)
             {
+                // window收缩的条件是：window内的字符严格出现1次。
                 var d = s[left];
                 left++;
                 // 进行窗口内数据的一系列更新
-                if (window.TryGetValue(d, out var wdv)) window[d] = wdv - 1;
+                if (window.TryGetValue(d, out var dWindow)) window[d] = dWindow - 1;
             }
 
             // 更新答案
