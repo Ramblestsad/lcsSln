@@ -78,7 +78,7 @@ public class Solution
         // move p1 n steps
         for (var i = 0; i < n; i++)
         {
-            p1 = p1!.next;
+            p1 = p1?.next;
         }
 
         var p2 = head;
@@ -87,7 +87,7 @@ public class Solution
         while (p1 != null)
         {
             p1 = p1.next;
-            p2 = p2!.next;
+            p2 = p2?.next;
         }
 
         // now p2 points to reverse nth
