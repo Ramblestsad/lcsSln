@@ -1,5 +1,45 @@
 namespace Scratch.Labuladong;
 
+public static class Solution
+{
+    // 输入 n 和 n 个整数；数字可以跨行，输出总和。
+    public static void Acm()
+    {
+        var tokens = Console.In.ReadToEnd().Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries);
+        var n = int.Parse(tokens[0]);
+        var nums = new long[n];
+        for (var i = 0; i < n; i++)
+        {
+            nums[i] = long.Parse(tokens[i + 1]);
+        }
+
+        Console.WriteLine(nums.Sum());
+    }
+
+    // 首行是组数 T，随后每行是一组整数；每组输出一个总和。
+    public static void AcmMultipleCases()
+    {
+        var t = int.Parse(Console.ReadLine() ?? throw new EndOfStreamException());
+        for (var i = 0; i < t; i++)
+        {
+            var line = Console.ReadLine() ?? throw new EndOfStreamException();
+            var nums = Array.ConvertAll(line.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries), long.Parse);
+            Console.WriteLine(nums.Sum());
+        }
+    }
+
+    // 没有组数，每行是一组整数；读到 EOF 结束。
+    public static void AcmUntilEof()
+    {
+        string? line;
+        while (( line = Console.ReadLine() ) != null)
+        {
+            var nums = Array.ConvertAll(line.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries), long.Parse);
+            Console.WriteLine(nums.Sum());
+        }
+    }
+}
+
 public class ListNode(int val = 0, ListNode? next = null)
 {
     public int val = val;
