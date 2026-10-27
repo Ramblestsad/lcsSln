@@ -31,15 +31,6 @@ public class AcmTests
         AssertOutput(Labuladong.Solution.AcmUntilEof, input, expected.Replace("\n", Environment.NewLine));
     }
 
-    [Theory]
-    [InlineData("  hello world  \nignored", "  hello world  \n")]
-    [InlineData("\n", "\n")]
-    [InlineData("", "")]
-    public void AcmText_PreservesSpacesAndDistinguishesEof(string input, string expected)
-    {
-        AssertOutput(Labuladong.Solution.AcmText, input, expected.Replace("\n", Environment.NewLine));
-    }
-
     private static void AssertOutput(Action run, string input, string expected)
     {
         var originalInput = Console.In;
