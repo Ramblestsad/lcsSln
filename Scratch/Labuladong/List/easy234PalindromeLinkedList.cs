@@ -45,10 +45,37 @@ public class Solution
 {
     public bool IsPalindrome(ListNode head)
     {
-        left = head;
-        Traverse(head);
+        var slow = head;
+        var fast = head;
+        while (fast != null && fast.next != null)
+        {
+            slow = slow?.next;
+            fast = fast.next.next;
+        }
+        if (fast != null) slow = slow?.next;
 
-        return res;
+        // reverse from slow
+        ListNode? pre = null;
+        var cur = slow;
+        while (cur != null)
+        {
+            var n = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = n;
+        }
+
+        var leftP = head;
+        var rightP = pre;
+
+        while (rightP != null)
+        {
+            if (leftP!.val != rightP.val) return false;
+            leftP = leftP!.next;
+            rightP = rightP.next;
+        }
+
+        return true;
     }
 
     // 从左向右移动的指针
